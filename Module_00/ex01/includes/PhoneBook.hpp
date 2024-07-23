@@ -23,6 +23,7 @@ public:
 	void	search();
 	void	exit();
 	void	print(void);
+	void operator<<(const Contact &contact);
 };
 
 #endif //PHONEBOOK_HPP

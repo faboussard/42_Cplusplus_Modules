@@ -3,10 +3,16 @@
 
 # include <string>
 
-//bonne indendation ?
-//pourquopi le & ?
 class Contact
 {
+
+private:
+	std::string	_first_name;
+	std::string	_last_name;
+	std::string	_nickname;
+	std::string	_phone_number;
+	std::string	_darkest_secret;
+
 public:
 	Contact(void);
 	Contact(std::string FirstName,
@@ -21,12 +27,7 @@ public:
 	const std::string &PhoneNumber(void) const;
 	const std::string &getDarkestSecret(void) const;
 
-private:
-	std::string	_first_name;
-	std::string	_last_name;
-	std::string	_nickname;
-	std::string	_phone_number;
-	std::string	_darkest_secret;
+
 };
 
 #endif //CONTACT_HPP
