@@ -14,7 +14,26 @@ Contact::Contact(const std::string& first_name, const std::string& last_name,
 		_darkest_secret(darkest_secret) {
 }
 
+void get_input(const std::string& prompt, std::string& field) {
+	std::cout << prompt << std::endl;
+	std::getline(std::cin, field);
+	if (std::cin.eof())
+		std::exit(0);
+}
 
+void Contact::get_new_contact(void) {
+	get_input("First Name:", this->first_name);
+	get_input("Last Name:", this->last_name);
+	get_input("Nickname:", this->nickname);
+	get_input("Phone Number:", this->phone_number);
+	get_input("Darkest Secret:", this->darkest_secret);
+}
+
+bool Contact::check_if_valid(void)
+{
+	return !(this->first_name.empty() || this->last_name.empty() || this->nickname.empty()
+			 || this->phone_number.empty() || this->darkest_secret.empty());
+}
 
 const std::string& Contact::getFirstName() const {
 	return _first_name;
