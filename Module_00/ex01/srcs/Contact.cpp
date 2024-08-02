@@ -17,13 +17,6 @@ Contact::Contact(const std::string a, const std::string b,
 				_darkest_secret(e) {
 }
 //Le corps du constructeur est vide ici. Toute l'initialisation nécessaire a été effectuée dans la liste d'initialisation.
-// fonction qui appartient a aucune classe
-void get_input(const std::string& prompt, std::string& field) {
-	std::cout << prompt << std::endl;
-	std::getline(std::cin, field);
-	if (std::cin.eof())
-		exit(0);
-}
 
 //fonction membre de la classe contact 
 void Contact::get_new_contact(void) {
