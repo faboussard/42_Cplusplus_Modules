@@ -17,11 +17,11 @@ private:
 
 public:
 	Contact(void);
-	Contact(std::string FirstName,
-			std::string LastName,
-			std::string Nickname,
-			std::string PhoneNumber,
-			std::string DarkestSecret);
+	Contact(const std::string a,
+			const std::string b,
+			const std::string c,
+			const std::string d,
+			const std::string e);
 
 	const std::string &getFirstName(void) const;
 	const std::string &getLastName(void) const;

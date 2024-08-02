@@ -1,6 +1,6 @@
 #include "../includes/PhoneBook.hpp"
 
-// int PhoneBook::_index = 0;
+PhoneBook::PhoneBook(): _contact_count(0){}
 
 void PhoneBook::add(void)
 {

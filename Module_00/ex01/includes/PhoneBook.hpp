@@ -9,12 +9,7 @@ class PhoneBook
 {
 private:
 	Contact	_contact[8];
-	int		_contactCount;
-	int		_index;
-	void	_printRows(const std::string index,
-					   const std::string firstName,
-					   const std::string lastName,
-					   const std::string nickname);
+	int		_contact_count;
 
 public:
 	PhoneBook();
@@ -22,7 +17,7 @@ public:
 	void	add();
 	void	search();
 	void	exit();
-	void	print(void);
+	void	print();
 	void operator<<(const Contact &contact);
 };
 
