@@ -30,8 +30,6 @@ public:
 	const std::string &getDarkestSecret(void) const;
 	void get_new_contact(void);
 	bool check_if_valid(void);
-
-
 };
 
 #endif //CONTACT_HPP

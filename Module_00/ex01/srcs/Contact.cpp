@@ -17,28 +17,12 @@ Contact::Contact(const std::string a, const std::string b,
 				_darkest_secret(e) {
 }
 //Le corps du constructeur est vide ici. Toute l'initialisation nécessaire a été effectuée dans la liste d'initialisation.
-
-/*
-int main ()
-{
-  std::string content;
-  std::string line;
-  std::cout << "Please introduce a text. Enter an empty line to finish:\n";
-  do {
-    getline(std::cin,line);
-    content += line + '\n';
-  } while (!line.empty());
-  std::cout << "The text you introduced was:\n" << content;
-  return 0;
-}*/
-
 // fonction qui appartient a aucune classe
 void get_input(const std::string& prompt, std::string& field) {
 	std::cout << prompt << std::endl;
 	std::getline(std::cin, field);
 	if (std::cin.eof())
 		exit(0);
-	std::cout << field << std::endl;
 }
 
 //fonction membre de la classe contact 
