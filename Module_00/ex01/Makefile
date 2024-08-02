@@ -8,7 +8,8 @@ OBJ_PATH = ./objects/
 INC_PATH = ./includes/
 SRC		= 	main.cpp \
 			Contact.cpp \
-			PhoneBook.cpp 
+			PhoneBook.cpp  \
+			Utils.cpp
 SRCS	= $(addprefix $(SRC_PATH), $(SRC))
 OBJ		= $(SRC:.cpp=.o)
 OBJS	= $(addprefix $(OBJ_PATH), $(OBJ))
