@@ -1,19 +1,13 @@
 #include "../includes/PhoneBook.hpp"
 
-int PhoneBook::_index = 0;
+// int PhoneBook::_index = 0;
 
-std::string Phonebook::get_action(void) {
-	std::string input;
+void PhoneBook::add(void)
+{
+	Contact new_contact;
 
-	std::cout << "Enter your command: ";
-	std::getline(std::cin, input);
-	return (input);
+	new_contact.get_new_contact();
+	//if (!new_contact.check_if_valid())
+
 }
 
-//void Phonebook::operator<<(const Contact &contact) {
-//	this->add(contact);
-//}
-//
-//book << contact << contact2;
-//
-//book.add(contact);

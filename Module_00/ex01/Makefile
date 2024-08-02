@@ -3,11 +3,11 @@ NAME	= PhoneBook
 CC		= c++
 CFLAGS	= -Werror -Wextra -Wall -std=c++98
 
-SRC_PATH = ./sources/
+SRC_PATH = ./srcs/
 OBJ_PATH = ./objects/
 INC_PATH = ./includes/
 SRC		= 	main.cpp \
-			Contacts.cpp \
+			Contact.cpp \
 			PhoneBook.cpp 
 SRCS	= $(addprefix $(SRC_PATH), $(SRC))
 OBJ		= $(SRC:.cpp=.o)

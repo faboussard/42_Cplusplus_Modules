@@ -2,6 +2,8 @@
 # define CONTACT_HPP
 
 # include <string>
+# include <iostream>
+# include <stdlib.h>
 
 class Contact
 {
@@ -24,10 +26,13 @@ public:
 	const std::string &getFirstName(void) const;
 	const std::string &getLastName(void) const;
 	const std::string &getNickname(void) const;
-	const std::string &PhoneNumber(void) const;
+	const std::string &getPhoneNumber(void) const;
 	const std::string &getDarkestSecret(void) const;
+	void get_new_contact(void);
+	bool check_if_valid(void);
 
 
 };
 
 #endif //CONTACT_HPP
+
