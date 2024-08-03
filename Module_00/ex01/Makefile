@@ -1,7 +1,7 @@
 NAME	= PhoneBook
 
-CC		= c++
-CFLAGS	= -Werror -Wextra -Wall -std=c++98
+CXX		= c++
+CXXFLAGS	= -Werror -Wextra -Wall -std=c++98
 
 SRC_PATH = ./srcs/
 OBJ_PATH = ./objects/
@@ -24,11 +24,11 @@ $(OBJ_PATH):
 
 # Objects rule
 $(OBJ_PATH)%.o: $(SRC_PATH)%.cpp
-	$(CC) $(CFLAGS) -c $< -o $@ $(INC)
+	$(CXX) $(CXXFLAGS) -c $< -o $@ $(INC)
 
 # Project file rule
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $@ $(INC)
+	$(CXX) $(CXXFLAGS) $(OBJS) -o $@ $(INC)
 
 # Clean up build files rule
 clean:
