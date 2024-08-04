@@ -29,7 +29,6 @@ public:
   void display_all();
   void display_contact_element(const std::string &contact);
   void display_full_contact(int index);
-
   void operator<<(const Contact &contact);
 };
 

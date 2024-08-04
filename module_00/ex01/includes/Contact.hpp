@@ -20,6 +20,12 @@ public:
   Contact(const std::string &a, const std::string &b, const std::string &c,
           const std::string &d, const std::string &e);
 
+  bool setFirstName(std::string new_first_name);
+  bool setLastName(std::string new_last_name);
+  bool setNickname(std::string new_nickname);
+  bool setPhoneNumber(std::string new_phone_number);
+  bool setDarkestSecret(std::string new_darkest_secret);
+
   const std::string &getFirstName(void) const;
   const std::string &getLastName(void) const;
   const std::string &getNickname(void) const;
