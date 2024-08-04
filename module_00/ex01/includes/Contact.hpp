@@ -15,9 +15,8 @@ private:
   std::string _darkest_secret;
 
 public:
-  Contact(void); // est ce aue je peux supprimer la ligne dapres ? comme dans
-                 // phonebook jai declarer la classe dans publique sans
-                 // reprendre ses attributs. et dans account cest pareil.
+  Contact(void);
+  ~Contact(void);
   Contact(const std::string &a, const std::string &b, const std::string &c,
           const std::string &d, const std::string &e);
 

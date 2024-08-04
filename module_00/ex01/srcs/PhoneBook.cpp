@@ -2,6 +2,8 @@
 
 PhoneBook::PhoneBook() : _contact_count(0), _len(0) {}
 
+PhoneBook::~PhoneBook() {}
+
 void PhoneBook::add(void) {
   Contact new_contact;
 

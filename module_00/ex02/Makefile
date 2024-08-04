@@ -27,4 +27,10 @@ fclean: clean
 re: fclean
 	$(MAKE) all
 
+test: $(NAME)
+	@cat *.log | awk '{print $$2 onward}' > their_log
+	@./$(NAME) | awk '{print $$2 onward}' > our_log
+	@diff their_log our_log -s
+	@rm their_log our_log -f
+
 .PHONY: all clean fclean re

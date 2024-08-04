@@ -5,12 +5,15 @@ Contact::Contact() {
   // declarer Contact newcontact, sans avoir a definir toutes les variables
   // first name etc.
 
-// Puis on fait linitialisation en une fois
+// Puis on fait linitialisation pour pouvoir utiliser les first name etc dans la
+// fonction get new contact par exemple.
 Contact::Contact(const std::string &a, const std::string &b,
                  const std::string &c, const std::string &d,
                  const std::string &e)
     : _first_name(a), _last_name(b), _nickname(c), _phone_number(d),
       _darkest_secret(e) {}
+
+Contact::~Contact(void) {};
 
 void Contact::get_new_contact(void) {
   get_input("First Name:", this->_first_name);
