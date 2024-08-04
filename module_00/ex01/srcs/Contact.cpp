@@ -1,12 +1,8 @@
 #include "../includes/Contact.hpp"
 
 Contact::Contact() {
-} // on a besoin de ca pour que dans la methode Phonebook::add on puisse
-  // declarer Contact newcontact, sans avoir a definir toutes les variables
-  // first name etc.
+}
 
-// Puis on fait linitialisation pour pouvoir utiliser les first name etc dans la
-// fonction get new contact par exemple.
 Contact::Contact(const std::string &a, const std::string &b,
                  const std::string &c, const std::string &d,
                  const std::string &e)
