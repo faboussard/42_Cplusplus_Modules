@@ -46,8 +46,9 @@ void PhoneBook::display_contact_element(const std::string &contact) {
 
 void PhoneBook::display_all() {
   std::cout << std::endl;
-  std::cout << BGWHITE << BLACK << "     Index|First name| Last name|  Nickname"
-            << RESET << std::endl;
+  std::cout << BGWHITE << GREEN << std::setw(11) << "Index|" << BLACK
+            << std::setw(11) << "First name|" << std::setw(11) << "Last name|"
+            << std::setw(10) << "Nickname" << RESET << std::endl;
   for (int i = 0; i < _len; i++) {
     std::cout << GREEN << std::setw(10) << i + 1 << RESET;
     std::cout << "|";
