@@ -10,7 +10,9 @@ void PhoneBook::add(void) {
   new_contact.get_new_contact();
   if (!new_contact.check_if_valid()) {
     std::cout
-        << "Contact could not be saved, one field is empty. try ADD again.\n\n";
+        << RED
+        << "Contact could not be saved, one field is empty. try ADD again.\n\n"
+        << RESET;
     return;
   } else {
     if (_contact_count == MAX_CONTACTS) {

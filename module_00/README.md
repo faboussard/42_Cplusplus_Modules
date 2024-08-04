@@ -27,6 +27,4 @@ Here are the concepts covered in the different modules:
 
 ## Acknowledgements
 
-- [The Cherno](https://www.youtube.com/watch?v=18c3MTX0PK0&list=PLlrATfBNZ98dudnM48yfGUldqGD0S4FFb)
 - [CPPReference](https://en.cppreference.com/w/)
-
