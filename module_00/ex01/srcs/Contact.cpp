@@ -29,6 +29,25 @@ bool Contact::check_if_valid(void) {
            this->_darkest_secret.empty());
 }
 
+void Contact::setFirstName(std::string new_first_name) {
+  _first_name = new_first_name;
+}
+
+void Contact::setLastName(std::string new_last_name) {
+  _last_name = new_last_name;
+}
+
+void Contact::setNickname(std::string new_nickname) {
+  _nickname = new_nickname;
+}
+
+void Contact::setPhoneNumber(std::string new_phone_number) {
+  _phone_number = new_phone_number;
+}
+void Contact::setDarkestSecret(std::string new_darkest_secret) {
+  _darkest_secret = new_darkest_secret;
+}
+
 const std::string &Contact::getFirstName() const { return _first_name; }
 
 const std::string &Contact::getLastName() const { return _last_name; }
