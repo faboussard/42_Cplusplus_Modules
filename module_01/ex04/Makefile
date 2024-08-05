@@ -1,9 +1,9 @@
 CXX     = c++
-SRCS     = main.cpp HumanA.cpp HumanB.cpp Weapon.cpp
+SRCS     = main.cpp
 OBJS = $(addprefix $(OBJS_DIR), $(notdir $(SRCS:.cpp=.o)))
 OBJS_DIR = .objs/
 DEPS = $(OBJS:.o=.d)
-NAME    = war
+NAME    = Sed
 
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
