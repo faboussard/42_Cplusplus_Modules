@@ -4,15 +4,18 @@
 #include <iostream>
 #include <string>
 
-class zombie
+class Zombie
 {
 private:
 	std::string _name;
 
 public:
+	Zombie (const std::string &name);
+	~Zombie (void);
 	void announce (void) ;
-	zombie (const std::string &name);
-	~zombie (void);
 };
+
+Zombie* newZombie(const std::string &name);
+void    randomChump(const std::string &name);
 
 #endif //CPP_MODULES_ZOMBIE_H
