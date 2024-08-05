@@ -1,9 +1,9 @@
 CXX     = c++
-SRCS     = main.cpp Zombie.cpp zombieHorde.cpp
+SRCS     = main.cpp
 OBJS = $(addprefix $(OBJS_DIR), $(notdir $(SRCS:.cpp=.o)))
 OBJS_DIR = .objs/
 DEPS = $(OBJS:.o=.d)
-NAME    = Moar!
+NAME    = HI
 
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 

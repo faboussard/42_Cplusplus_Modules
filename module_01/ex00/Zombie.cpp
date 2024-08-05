@@ -1,5 +1,7 @@
 #include "Zombie.h"
 
+Zombie::Zombie(void) {}
+
 Zombie::Zombie(std::string &zombie_name) : _name(zombie_name) {}
 
 Zombie::~Zombie(void) {std::cout << this->_name << " is destroyed" << std::endl; };
