@@ -2,9 +2,9 @@
 
 Zombie::Zombie() {}
 
-Zombie::Zombie(std::string &zombie_name) : _name(zombie_name) {}
+Zombie::Zombie(std::string &zombie_name) : _name(zombie_name), _horde_index(0) {}
 
-Zombie::~Zombie(void) {std::cout << this->_name << " is destroyed" << std::endl; };
+Zombie::~Zombie(void) { std::cout << _horde_index++ << " " << this->_name << " is destroyed" << std::endl; };
 
 void Zombie::announce(void)
 {

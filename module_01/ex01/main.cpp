@@ -1,24 +1,34 @@
 #include "Zombie.h"
 
 int main() {
-	int N1 = 5;
-	int N2 = 0;
-	int N3 = -5;
+	int N1 = 100;
 
 	Zombie* horde1 = zombieHorde(N1, "first_horde");
-	Zombie* horde2 = zombieHorde(N2, "second_horde");
-	Zombie* horde3 = zombieHorde(N3, "third_horde");
-	for (int i = 0; i < N1; i++)
-		horde1[i].announce();
-	delete[] horde1;
+	if (N1 > 0 && horde1 != NULL)
+	{
+		for (int i = 0; i < N1; i++
+				)
+		{
+			std::cout << i << std::endl;
+			horde1[i].announce();
+		}
+		delete[] horde1;
+	}
 
-	int i = 0;
-	horde2[i].announce();
-	delete[] horde2;
 
-	for (int i = 0; i > N3; i--)
-		horde3[i].announce();
-	delete[] horde3;
+	std::cout << "\n\n\n\n\n\n\n" << "NEXT HORDE" << std::endl;
+	int N2 = 100;
 
+	Zombie* horde2 = zombieHorde(N1, "second_horde");
+	if (N1 > 0 && horde2 != NULL)
+	{
+		for (int i = 0; i < N2; i++
+				)
+		{
+			std::cout << i << std::endl;
+			horde2[i].announce();
+		}
+		delete[] horde2;
+	}
 	return 0;
 }

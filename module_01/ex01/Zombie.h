@@ -8,6 +8,7 @@ class Zombie
 {
 private:
 	std::string _name;
+	int _horde_index;
 
 public:
 	Zombie(void);
