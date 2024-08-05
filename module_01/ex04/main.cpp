@@ -33,10 +33,12 @@ int main(int argc, char **argv)
 	size_t index;
 	while (std::getline(infile, line))
 	{
-		while ((index = line.find(argv[2])) != std::string::npos && std::string(argv[2]).compare(""))
+		size_t startPos = 0;
+		while ((index = line.find(argv[2], startPos)) != std::string::npos && std::string(argv[2]).compare(""))
 		{
 			line.erase(index, std::string(argv[2]).length());
 			line.insert(index, argv[3]);
+			startPos = index + std::string(argv[3]).length();
 		}
 		outfile << line << '\n';
 
