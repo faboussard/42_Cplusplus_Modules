@@ -10,12 +10,12 @@ private:
 	std::string _name;
 
 public:
-	Zombie (const std::string &name);
+	Zombie (std::string &name);
 	~Zombie (void);
 	void announce (void) ;
 };
 
-Zombie* newZombie(const std::string &name);
-void    randomChump(const std::string &name);
+Zombie* newZombie(std::string name);
+void    randomChump(std::string name);
 
 #endif //CPP_MODULES_ZOMBIE_H
