@@ -1,28 +1,31 @@
 CXX     = c++
-SRC     = main.cpp randomChump.cpp newZombie.cpp Zombie.cpp
-OBJ     = $(SRC:.cpp=.o)
-DEPS = $(OBJ:.o=.d)
+SRCS     = main.cpp randomChump.cpp newZombie.cpp Zombie.cpp
+OBJS = $(addprefix $(OBJS_DIR), $(notdir $(SRCS:.cpp=.o)))
+OBJS_DIR = .objs/
+DEPS = $(OBJS:.o=.d)
 NAME    = BraiiiiiiinnnzzzZ
 
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJ)
+$(NAME): $(OBJS)
+	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
 
-%.o: %.cpp
+$(OBJS_DIR)%.o: %.cpp Makefile
+	@mkdir -p $(OBJS_DIR)
 	$(CXX) $(CXXFLAGS) -c $< -o $@ -MMD -MP
 
 -include $(DEPS)
 
 clean:
-	rm -f $(OBJ)
+	$(RM) -r $(OBJS_DIR)
 
 fclean: clean
-	rm -f $(NAME)
+	$(RM) $(NAME)
 
-re: fclean all
+re: fclean
+	$(MAKE) all
 
 debug: CXXFLAGS += -g
 debug: re
