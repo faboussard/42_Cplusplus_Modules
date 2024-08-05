@@ -8,7 +8,7 @@
 class HumanA
 {
 private:
-	const std::string &_name;
+	const std::string _name;
 	Weapon &_weapon;
 
 public:

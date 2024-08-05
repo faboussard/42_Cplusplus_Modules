@@ -3,7 +3,12 @@
 #include "Weapon.hpp"
 
 Weapon::Weapon(const std::string &type) : _type(type) {
-	std::cout << "a weapon with type " << _type << "has been created" << std::endl;
+	std::cout << "The object Weapon has been created" << std::endl;
+}
+
+Weapon::~Weapon()
+{
+	std::cout << "The object Weapon has been destroyed" << std::endl;
 }
 
 const std::string &Weapon::getType(void) const
