@@ -15,7 +15,7 @@ int main(int argc, char **argv)
 		std::cerr << "Filename is too long. It should be of 1000 characters max" << std::endl;
 		return 1;
 	}
-	std::string outputFileName = inputFileName + "_replace";
+	std::string outputFileName = inputFileName + ".replace";
 	std::ifstream infile(inputFileName.c_str());
 	if (!infile.is_open())
 	{
@@ -30,9 +30,16 @@ int main(int argc, char **argv)
 		return 1;
 	}
 	std::string line;
+	size_t index;
 	while (std::getline(infile, line))
 	{
+		while ((index = line.find(argv[2])) != std::string::npos && std::string(argv[2]).compare(""))
+		{
+			line.erase(index, std::string(argv[2]).length());
+			line.insert(index, argv[3]);
+		}
 		outfile << line << '\n';
+
 	}
 	infile.close();
 	outfile.close();
