@@ -3,7 +3,7 @@ SRCS     = main.cpp Harl.cpp
 OBJS = $(addprefix $(OBJS_DIR), $(notdir $(SRCS:.cpp=.o)))
 OBJS_DIR = .objs/
 DEPS = $(OBJS:.o=.d)
-NAME    = sed
+NAME    = harl
 
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
