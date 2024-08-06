@@ -3,14 +3,22 @@
 //The use of void (Harl::*functions[])(void) allows you to store and call member functions dynamically
 void Harl::complain(std::string level)
 {
-	std::string levels[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
-	void (Harl::*functionsptr[])(void) = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
+	std::string logs[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 
 	for (int i = 0; i < 4 ; i++)
 	{
-		if (level == levels[i])
+		if (level == logs[i])
 			(this->*(functionsptr[i]))();
 	}
+}
+
+void (Harl::*functionsptr[])(void) = {&debug(), &Harl::info, &Harl::warning, &Harl::error};
+
+
+void Harl::complaintsFilter(std::string level)
+{
+	int levelIndex;
+
 }
 
 void	Harl::debug( void )
