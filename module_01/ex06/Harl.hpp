@@ -11,11 +11,10 @@ private:
 	void info(void);
 	void warning(void);
 	void error(void);
+	int getLevel(const std::string& level);
 
 public:
 	void complain( std::string level);
-	void getLevel(std::string level);
-	void	complaintsFilter( std::string level );
 };
 
 #endif //CPP_HARL_HPP
