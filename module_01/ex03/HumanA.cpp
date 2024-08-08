@@ -1,8 +1,13 @@
 
 #include "HumanA.hpp"
 
-HumanA::HumanA (const std::string &name, Weapon &weapon) : _name(name), _weapon(weapon) {
-	std::cout << _name << " entered the game" << std::endl;}
+HumanA::HumanA(const std::string &name, Weapon &weapon) : _name(name), _weapon(weapon) {
+	if (_weapon.getType().empty()) {
+		throw std::invalid_argument("Weapon type cannot be empty for human A.");
+	}
+	std::cout << "Human A " << _name << " entered the game" << std::endl;
+}
+
 
 HumanA::~HumanA()
 {

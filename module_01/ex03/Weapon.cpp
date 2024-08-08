@@ -2,6 +2,10 @@
 
 #include "Weapon.hpp"
 
+Weapon::Weapon(void) : _type("") {
+	std::cout << "The object Weapon has been created" << std::endl;
+}
+
 Weapon::Weapon(const std::string &type) : _type(type) {
 	std::cout << "The object Weapon has been created" << std::endl;
 }
