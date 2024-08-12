@@ -1,14 +1,21 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <cstdlib>
 
-int main(int argc, char **argv)
+
+int check_args(int argc)
 {
 	if (argc != 4)
 	{
 		std::cerr << "Please enter exactly three arguments: a filename and 2 strings" << std::endl;
-		return 1;
+		exit(EXIT_FAILURE);
 	}
+	return 0;
+}
+int main(int argc, char **argv)
+{
+	check_args(argc);
 	std::string inputFileName(argv[1]);
 	if (inputFileName.length() > 1000)
 	{
@@ -41,7 +48,6 @@ int main(int argc, char **argv)
 			startPos = index + std::string(argv[3]).length();
 		}
 		outfile << line << '\n';
-
 	}
 	infile.close();
 	outfile.close();
