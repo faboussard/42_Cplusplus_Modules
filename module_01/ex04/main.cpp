@@ -3,54 +3,81 @@
 #include <string>
 #include <cstdlib>
 
-
-int check_args(int argc)
+void check_args(int argc)
 {
 	if (argc != 4)
 	{
-		std::cerr << "Please enter exactly three arguments: a filename and 2 strings" << std::endl;
+		std::cerr << "Error: Please enter exactly three arguments: a filename and two strings." << std::endl;
 		exit(EXIT_FAILURE);
 	}
-	return 0;
 }
+
+void is_file_too_long(const std::string &filename)
+{
+//faire fonction pour check la longueru du fichier seekg
+}
+
+void open_files(const char* inputFilename, std::ifstream &infile, const char* outputFileName, std::ofstream &outfile)
+{
+	infile.open(inputFilename);
+	if (!infile.is_open())
+	{
+		std::cerr << "Error: Unable to open input file: " << inputFilename << std::endl;
+		exit(EXIT_FAILURE);
+	}
+	outfile.open(outputFileName);
+	if (!outfile.is_open())
+	{
+		std::cerr << "Error: Unable to open output file: " << outputFileName << std::endl;
+		infile.close();
+		exit(EXIT_FAILURE);
+	}
+}
+
+std::string ft_replace(const std::string &line, const std::string &searchString, const std::string &replaceString)
+{
+	std::string modifiedLine = line;
+	size_t startPos = 0;
+	size_t searchLength = searchString.length();
+	size_t replaceLength = replaceString.length();
+
+	while ((startPos = modifiedLine.find(searchString, startPos)) != std::string::npos)
+	{
+		modifiedLine.erase(startPos, searchLength);
+		modifiedLine.insert(startPos, replaceString);
+		startPos += replaceLength;
+	}
+	return modifiedLine;
+}
+
+void process_files(std::ifstream &infile, std::ofstream &outfile, const std::string &searchString, const std::string &replaceString)
+{
+	std::string line;
+	while (std::getline(infile, line))
+	{
+		std::string modifiedLine = ft_replace(line, searchString, replaceString);
+		outfile << modifiedLine << std::endl;
+	}
+}
+
 int main(int argc, char **argv)
 {
 	check_args(argc);
-	std::string inputFileName(argv[1]);
-	if (inputFileName.length() > 1000)
-	{
-		std::cerr << "Filename is too long. It should be of 1000 characters max" << std::endl;
-		return 1;
-	}
-	std::string outputFileName = inputFileName + ".replace";
-	std::ifstream infile(inputFileName.c_str());
-	if (!infile.is_open())
-	{
-		std::cerr << "Unable to open input file: " << inputFileName << std::endl;
-		return 1;
-	}
-	std::ofstream outfile(outputFileName.c_str());
-	if (!outfile.is_open())
-	{
-		std::cerr << "Unable to open output file: " << outputFileName << std::endl;
-		infile.close();
-		return 1;
-	}
-	std::string line;
-	size_t index;
-	while (std::getline(infile, line))
-	{
-		size_t startPos = 0;
-		while ((index = line.find(argv[2], startPos)) != std::string::npos && std::string(argv[2]).compare(""))
-		{
-			line.erase(index, std::string(argv[2]).length());
-			line.insert(index, argv[3]);
-			startPos = index + std::string(argv[3]).length();
-		}
-		outfile << line << '\n';
-	}
+
+	std::string fileName(argv[1]);
+	std::string searchString(argv[2]);
+	std::string replaceString(argv[3]);
+	is_file_too_long(fileName);
+	std::string outputFileName = fileName + ".replace";
+
+	std::ifstream infile;
+	std::ofstream outfile;
+	open_files(fileName.c_str(), infile, outputFileName.c_str(), outfile);
+	process_files(infile, outfile, searchString, replaceString);
+
 	infile.close();
 	outfile.close();
-	std::cout << "Content copied from " << inputFileName << " to " << outputFileName << std::endl;
-	return 0;
+
+	std::cout << "Content copied from " << fileName << " to " << outputFileName << std::endl;
+	return EXIT_SUCCESS;
 }
