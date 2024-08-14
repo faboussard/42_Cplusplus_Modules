@@ -1,20 +1,19 @@
 #ifndef CPP_HARL_HPP
 #define CPP_HARL_HPP
 
-#include <string>
 #include <iostream>
+#include <string>
 
-class Harl
-{
+class Harl {
 private:
-	void debug(void);
-	void info(void);
-	void warning(void);
-	void error(void);
-	int getLevel(const std::string& level);
+  void debug(void);
+  void info(void);
+  void warning(void);
+  void error(void);
+  int getLevel(const std::string &level);
 
 public:
-	void complain( std::string level);
+  void complain(std::string level);
 };
 
-#endif //CPP_HARL_HPP
+#endif // CPP_HARL_HPP

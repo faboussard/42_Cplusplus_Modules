@@ -1,7 +1,6 @@
 #include "../includes/Contact.hpp"
 
-Contact::Contact() {
-}
+Contact::Contact() {}
 
 Contact::Contact(const std::string &a, const std::string &b,
                  const std::string &c, const std::string &d,
