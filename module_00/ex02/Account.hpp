@@ -42,7 +42,7 @@ private:
 
   /*
   Méthodes Statiques : Les méthodes statiques doivent être appelées en utilisant
-  la syntaxe ClassName::MethodName() ou ClassName::MethodName(). Méthodes
+  la syntaxe ClassName::MethodName(). Méthodes
   Non-Statiques : Les méthodes non-statiques doivent être appelées sur une
   instance de la classe.
   */
