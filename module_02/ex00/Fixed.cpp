@@ -8,15 +8,27 @@ Fixed::Fixed(const Fixed &copy) {
   std::cout << "Copy constructor called" << std::endl;
 }
 
-Fixed::~Fixed(void) { std::cout << "Destructor called" << std::endl; }
+Fixed::Fixed()
 
-Default constructor called Copy constructor called Copy assignment
-operator called // <-- This line may be missing depending on your implementation
-    getRawBits member function called
+    Fixed::~Fixed(void) {
+  std::cout << "Destructor called" << std::endl;
+}
 
-        Default constructor called Copy assignment operator called getRawBits
-            member function called getRawBits member function
-                called 0 getRawBits member function called 0 getRawBits member
-                    function called 0
+// Default constructor called
+// Copy constructor called
+// Copy assignment operator called // <-- This line may be missing depending on
+// your implementation getRawBits member function called
 
-    Destructor called Destructor called Destructor called
+// Default constructor called
+// Copy assignment operator called
+// getRawBits member function called
+// getRawBits member function called
+// 0
+// getRawBits member function called
+// 0
+// getRawBits member function called
+// 0
+
+// Destructor called
+// Destructor called
+// Destructor called
