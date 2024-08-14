@@ -6,15 +6,18 @@
 
 class Fixed {
 private:
-  int x;
-  static const int frac_bit = 8;
+  int _fixed_point_number;
+  static const int _frac_bit = 8;
 
 public:
   Fixed();                  // Default constructor
   Fixed(const Fixed &copy); // copy constructor
   ~Fixed();                 // Destructor
   Fixed &operator=(
-      const Fixed &src); // operateur daffectation de copie pour la classe fixed
+      const Fixed &rhs); // operateur daffectation de copie pour la
+                         // classe fixed. securite pour les allocations de
+                         // memoire, les deux allocations seront construites et
+                         // detruites independemment. rhs = "Right Hand Side
 
   int getRawBits(
       void) const; // const car methode constante, elle ne peut pas modifier
