@@ -96,13 +96,13 @@ Fixed Fixed::operator-(const Fixed &f2) const {
 
 Fixed Fixed::operator*(const Fixed &f2) const {
   Fixed result;
-  result._rawBits = _rawBits * f2._rawBits;
+  result._rawBits = _rawBits * f2._rawBits >> Fixed::_frac_bit;
   return result;
 }
 
 Fixed Fixed::operator/(const Fixed &f2) const {
   Fixed result;
-  result._rawBits = _rawBits / f2._rawBits;
+  result._rawBits = (_rawBits << Fixed::_frac_bit) / f2._rawBits;
   return result;
 }
 
