@@ -1,4 +1,6 @@
+#include "Fixed.hpp"
 #include <iostream>
+
 int main(void) {
   Fixed a;
   Fixed b(a);
@@ -9,3 +11,19 @@ int main(void) {
   std::cout << c.getRawBits() << std::endl;
   return 0;
 }
+/*
+Default constructor called
+Copy assignment operator called
+Copy constructor called
+Default constructor called
+Copy assignment operator called
+getRawBits member function called
+0
+getRawBits member function called
+0
+getRawBits member function called
+0
+Destructor called
+Destructor called
+Destructor called
+*/

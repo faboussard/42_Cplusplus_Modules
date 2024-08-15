@@ -1,9 +1,9 @@
 CXX     = c++
-SRCS     = main.cpp randomChump.cpp newZombie.cpp Zombie.cpp
+SRCS     = main.cpp Fixed.cpp
 OBJS = $(addprefix $(OBJS_DIR), $(notdir $(SRCS:.cpp=.o)))
 OBJS_DIR = .objs/
 DEPS = $(OBJS:.o=.d)
-NAME    = BraiiiiiiinnnzzzZ
+NAME    = fixed
 
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
