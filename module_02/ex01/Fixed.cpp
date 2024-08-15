@@ -16,11 +16,12 @@ Fixed &Fixed::operator=(const Fixed &src) {
   return (*this);
 }
 
+////////////////////////////////////* NEW
+///*////////////////////////////////////////
 Fixed::Fixed(const int int_to_convert_to_fixed)
     : _rawBits(int_to_convert_to_fixed << _frac_bit) {
   std::cout << "Int constructor called" << std::endl;
 }
-
 // Le constructeur Fixed::Fixed(const float float_to_convert_to_fixed) convertit
 // une valeur flottante en une représentation fixe-point en récupérant une
 // approximation de la valeur entière
@@ -35,6 +36,8 @@ Fixed::Fixed(const float float_to_convert_to_fixed)
     : _rawBits(roundf(float_to_convert_to_fixed * (1 << _frac_bit))) {
   std::cout << "Float constructor called" << std::endl;
 }
+////////////////////////////////////* NEW
+///*////////////////////////////////////////
 
 Fixed::~Fixed() { std::cout << "Destructor called" << std::endl; }
 
@@ -48,6 +51,8 @@ void Fixed::setRawBits(int const raw) {
   _rawBits = raw;
 }
 
+////////////////////////////////////* NEW
+///*////////////////////////////////////////
 float Fixed::toFloat(void) const {
   return (((float)_rawBits / (float)(1 << _frac_bit)));
 } // le bitshifing se fait sur le 1 puis on divise par ce chiffre total de
@@ -65,6 +70,8 @@ int Fixed::toInt(void) const {
   // si on a 42.1 et quon decale les bits vers la guache on aura le 1 en forme
   // binaire qui va dispaitre
 }
+////////////////////////////////////* NEW
+///*////////////////////////////////////////
 
 std::ostream &operator<<(std::ostream &OUT, const Fixed &fixed) {
   OUT << fixed.toFloat();
