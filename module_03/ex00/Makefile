@@ -1,5 +1,5 @@
 CXX     = c++
-SRCS     = main.cpp ClapTrap.cpp ClapTrap.hpp
+SRCS     = main.cpp ClapTrap.cpp
 OBJS = $(addprefix $(OBJS_DIR), $(notdir $(SRCS:.cpp=.o)))
 OBJS_DIR = .objs/
 DEPS = $(OBJS:.o=.d)
