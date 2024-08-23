@@ -6,10 +6,11 @@
 /*       Constructors 			   	                                        */
 /*============================================================================*/
 
-Dog::Dog(void) : Animal("Dog")
+Dog::Dog()
 {
 	std::cout << "Dog : ";
 	DEFAULT_CONSTRUCTOR_MESSAGE;
+	_type = "Dog";
 }
 
 Dog::Dog( const Dog& src) : Animal(src)
