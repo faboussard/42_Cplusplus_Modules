@@ -31,16 +31,16 @@ void ScavTrap::attack(const std::string &target)
 {
 	if (_energyPoints <= 0)
 	{
-		std::cout << " NO ENERGY" << std::endl;
+		std::cout << NO_ENERGY_MESSAGE << std::endl;
 		return;
 	}
 	if (_hitPoints <= 0)
 	{
-		std::cout << _name << " NO HIT POINTS " << std::endl;
+		std::cout << _name << NO_HIT_POINTS_MESSAGE << std::endl;
 		return;
 	}
 	_energyPoints -= 1;
-	std::cout << " ScavTrap " << _name << " attacks " << target << " causing " <<  _attackDamage << " points of damage!" << std::endl;
+	SCAVTRAP_ATTACK_MESSAGE(_name, target, _attackDamage);
 }
 
 void ScavTrap::guardGate()

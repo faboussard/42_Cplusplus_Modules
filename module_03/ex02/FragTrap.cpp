@@ -1,4 +1,5 @@
 #include "FragTrap.hpp"
+#include "ClapTrap.hpp"
 
 FragTrap::FragTrap(const std::string &name) : ClapTrap(name)
 {
@@ -31,18 +32,17 @@ void FragTrap::attack(const std::string &target)
 {
 	if (_energyPoints <= 0)
 	{
-		std::cout << " NO ENERGY" << std::endl;
+		std::cout << NO_ENERGY_MESSAGE << std::endl;
 		return;
 	}
 	if (_hitPoints <= 0)
 	{
-		std::cout << _name << " NO HIT POINTS " << std::endl;
+		std::cout << _name << NO_HIT_POINTS_MESSAGE << std::endl;
 		return;
 	}
 	_energyPoints -= 1;
-	std::cout << " FragTrap " << _name << " attacks " << target << " causing " <<  _attackDamage << " points of damage!" << std::endl;
+	FRAGTRAP_ATTACK_MESSAGE(_name, target, _attackDamage);
 }
-
 
 void FragTrap::highFivesGuys()
 {

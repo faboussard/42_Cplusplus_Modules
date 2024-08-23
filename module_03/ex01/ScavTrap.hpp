@@ -5,6 +5,12 @@
 #include <iostream>
 #include "ClapTrap.hpp"
 
+
+#define SCAVTRAP_ATTACK_MESSAGE(name, target, damage) \
+    std::cout << "Scavtrap " << (name) << " attacks " << (target) << " causing " << (damage) << " points of damage!" << std::endl;
+
+#define MAX_HIT_POINTS 10
+
 class ScavTrap : public ClapTrap
 {
   public:

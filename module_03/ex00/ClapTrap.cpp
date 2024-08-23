@@ -29,6 +29,26 @@ ClapTrap::~ClapTrap()
 };
 
 /*============================================================================*/
+/*       getter 			   	                                        */
+/*============================================================================*/
+
+std::string ClapTrap::getName(void) const {
+	return (_name);
+}
+int    ClapTrap::getHitPoints(void) const {
+	return (_hitPoints);
+}
+
+int    ClapTrap::getEnergyPoints(void) const {
+	return (_energyPoints);
+}
+
+int    ClapTrap::getAttackDamage(void) const {
+	return (_attackDamage);
+}
+
+
+/*============================================================================*/
 /*       member functions				                                       */
 /*============================================================================*/
 
@@ -37,35 +57,47 @@ void ClapTrap::attack(const std::string &target)
 {
 	if (_energyPoints <= 0)
 	{
-		std::cout << " NO ENERGY" << std::endl;
+		std::cout << NO_ENERGY_MESSAGE << std::endl;
 		return;
 	}
 	if (_hitPoints <= 0)
 	{
-		std::cout << _name << " NO HIT POINTS " << std::endl;
+		std::cout << _name << NO_HIT_POINTS_MESSAGE << std::endl;
 		return;
 	}
 	_energyPoints -= 1;
-	std::cout << " ClapTrap " << _name << " attacks " << target << " causing " <<  _attackDamage << " points of damage!" << std::endl;
+	CLAPTRAP_ATTACK_MESSAGE(_name, target, _attackDamage);
 }
 
 void ClapTrap::takeDamage(unsigned int amount)
 {
-	if (_hitPoints > 0)
-		_hitPoints -= amount;
+	if (amount > 1000)
+		amount = 1000;
+	if (_hitPoints == 0)
+	{
+		std::cout << _name << NO_HIT_POINTS_MESSAGE << std::endl;
+		std::cout << "cannot take any damage" << std::endl;
+		return;
+	}
+	_hitPoints -= static_cast<int>(amount);
 	if (_hitPoints < 0)
 		_hitPoints = 0;
-	std::cout << " ClapTrap " << _name << " took " << amount << " damage!" << std::endl;
+	CLAPTRAP_DAMAGE_MESSAGE(_name, amount);
 }
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
+	if (amount > 1000)
+		amount = 1000;
 	if (_energyPoints <= 0)
 	{
-		std::cout << " NO ENERGY" << std::endl;
+		std::cout << NO_ENERGY_MESSAGE << std::endl;
+		std::cout << "cannot be repaired" << std::endl;
 		return;
 	}
 	_energyPoints -= 1;
-	_hitPoints += amount;
-	std::cout << " ClapTrap " << _name << " repaired itself with " << amount << " hit points!" << std::endl;
+	_hitPoints += static_cast<int>(amount);
+	if (_hitPoints > MAX_HIT_POINTS)
+		_hitPoints = MAX_HIT_POINTS;
+	CLAPTRAP_REPAIRED_MESSAGE(_name, amount);
 }
