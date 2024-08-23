@@ -79,9 +79,12 @@ void ClapTrap::takeDamage(unsigned int amount)
 		std::cout << "cannot take any damage" << std::endl;
 		return;
 	}
-	_hitPoints -= static_cast<int>(amount);
 	if (_hitPoints < 0)
 		_hitPoints = 0;
+	if (amount >= static_cast<unsigned int>(_hitPoints))
+		_hitPoints = 0;
+	else
+		_hitPoints -= static_cast<int>(amount);
 	CLAPTRAP_DAMAGE_MESSAGE(_name, amount);
 }
 
