@@ -47,3 +47,15 @@ std::string const&	Animal::getType( void ) const
 {
 	return (_type);
 }
+
+/*============================================================================*/
+/*       Class overload		                                       */
+/*============================================================================*/
+
+std::ostream &operator<<(std::ostream &stream, Animal &animal)
+{
+	stream << " Type: " << animal.getType() ;
+	std::cout << "Sound";
+	animal.makeSound();
+	return (stream);
+}

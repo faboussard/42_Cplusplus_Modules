@@ -5,75 +5,31 @@
 #include "WrongCat.hpp"
 #include <iostream>
 
-//int main()
-//{
-//	const Animal* meta = new Animal();
-//	const Animal* j = new Dog();
-//	const Animal* i = new Cat();
-//	std::cout << j->getType() << " " << std::endl;
-//	std::cout << i->getType() << " " << std::endl;
-//	i->makeSound(); //will output the cat sound!
-//	j->makeSound();
-//	meta->makeSound();
-//}
+int main()
+{
+	std::cout << "Subject Tests" << std::endl;
+	{
+		const Animal* j = new Dog();
+		const Animal* i = new Cat();
+		delete j;//should not create a leak
+		delete i;
+	}
+	std::cout << std::endl;
+	std::cout << "Custom tests" << std::endl;
+	{
+		const int numAnimals = 4;
+		Animal* animals[numAnimals];
 
-//int main()
-//{
-//	const WrongAnimal* meta = new WrongAnimal();
-//	const WrongAnimal* i = new WrongCat();
-//	std::cout << i->getType() << " " << std::endl;
-//	i->makeSound(); //will output the cat sound!
-//	meta->makeSound();
-//}
+		for (int i = 0; i < numAnimals / 2; ++i) {
+			animals[i] = new Dog();
+		}
+		for (int i = numAnimals / 2; i < numAnimals; ++i) {
+			animals[i] = new Cat();
+		}
 
-
-int main() {
-	// Création d'un Animal générique
-	Animal genericAnimal;
-	std::cout << "Type: " << genericAnimal.getType() << std::endl;
-	std::cout << "Sound: ";
-	genericAnimal.makeSound();
-
-	/*				DOG			*/
-
-	// Création d'un Dog spécifique
-	Dog myDog;
-	std::cout << "Type: " << myDog.getType() << std::endl;
-	std::cout << "Sound: ";
-	myDog.makeSound();
-
-	// Utilisation du constructeur par copie
-	Dog copiedDog = myDog;
-	std::cout << "Type: " << copiedDog.getType() << std::endl;
-	std::cout << "Sound: ";
-	copiedDog.makeSound();
-
-	// Utilisation de l'opérateur d'affectation par copie
-	Dog anotherDog;
-	anotherDog = myDog;
-	std::cout << "Type: " << anotherDog.getType() << std::endl;
-	std::cout << "Sound: ";
-	anotherDog.makeSound();
-
-	/*			CAT 		*/
-
-	Cat myCat;
-	std::cout << "Type: " << myCat.getType() << std::endl;
-	std::cout << "Sound: ";
-	myCat.makeSound();
-
-	// Utilisation du constructeur par copie
-	Cat copiedCat = myCat;
-	std::cout << "Type: " << copiedCat.getType() << std::endl;
-	std::cout << "Sound: ";
-	copiedCat.makeSound();
-
-	// Utilisation de l'opérateur d'affectation par copie
-	Cat anotherCat;
-	anotherCat = myCat;
-	std::cout << "Type: " << anotherCat.getType() << std::endl;
-	std::cout << "Sound: ";
-	anotherCat.makeSound();
-
-	return 0;
+		for (int i = 0; i < numAnimals; ++i) {
+			delete animals[i];
+		}
+		return 0;
+	}
 }

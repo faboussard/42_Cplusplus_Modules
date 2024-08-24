@@ -8,30 +8,34 @@
 
 Cat::Cat()
 {
+	_type = "Cat";
+	_brain = new Brain();
 	std::cout << "Cat : ";
 	DEFAULT_CONSTRUCTOR_MESSAGE;
-	_type = "Cat";
 }
 
 Cat::Cat( const Cat& src) : Animal(src)
 {
+	_type = src._type;
+	_brain = new Brain(*src._brain);
 	std::cout << "Cat : ";
 	COPY_CONSTRUCTOR_MESSAGE;
-	*this =src;
 }
 
 Cat &Cat::operator= (const Cat &src)
 {
+	_type = src._type;
+	delete _brain;
+	_brain = new Brain(*src._brain);
 	std::cout << "Cat : ";
 	COPY_ASSIGNMENT_MESSAGE;
-	if (this != &src) {
-		_type = src._type;
-	}
+
 	return *this;
 }
 
 Cat::~Cat(void)
 {
+	delete _brain;
 	std::cout << "Cat : ";
 	DESTRUCTOR_MESSAGE;
 }
@@ -43,4 +47,9 @@ Cat::~Cat(void)
 void	Cat::makeSound( void ) const
 {
 	CAT_MESSAGE;
+}
+
+Brain &Cat::getBrain() const
+{
+	return (*_brain);
 }
