@@ -4,7 +4,6 @@
 /*       Constructors 			   	                                        */
 /*============================================================================*/
 
-
 ClapTrap::ClapTrap(const std::string &name) : _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0) {
 	std::cout << "Constructor called" << std::endl;
 }
@@ -14,12 +13,12 @@ ClapTrap::ClapTrap(const ClapTrap &copy){
 	*this = copy;
 }
 
-ClapTrap &ClapTrap::operator=(const ClapTrap &copy) {
+ClapTrap &ClapTrap::operator=(const ClapTrap &src) {
 	std::cout << "Copy assignment operator called" << std::endl;
-	this->_name = copy._name;
-	this->_attackDamage = copy._attackDamage;
-	this->_energyPoints = copy._energyPoints;
-	this->_hitPoints = copy._hitPoints;
+	setName(src.getName());
+	setHitPoints(src.getHitPoints());
+	setEnergyPoints(src.getEnergyPoints());
+	setAttackDamage(src.getAttackDamage());
 	return (*this);
 }
 
@@ -32,18 +31,18 @@ ClapTrap::~ClapTrap()
 /*       getter 			   	                                        */
 /*============================================================================*/
 
-std::string ClapTrap::getName(void) const {
+std::string ClapTrap::getName() const {
 	return (_name);
 }
-int    ClapTrap::getHitPoints(void) const {
+int    ClapTrap::getHitPoints() const {
 	return (_hitPoints);
 }
 
-int    ClapTrap::getEnergyPoints(void) const {
+int    ClapTrap::getEnergyPoints() const {
 	return (_energyPoints);
 }
 
-int    ClapTrap::getAttackDamage(void) const {
+int    ClapTrap::getAttackDamage() const {
 	return (_attackDamage);
 }
 
@@ -51,7 +50,7 @@ int    ClapTrap::getAttackDamage(void) const {
 /*       setter 			   	                                        */
 /*============================================================================*/
 
-void ClapTrap::setName(std::string &name)
+void ClapTrap::setName(const std::string &name)
 {
 	_name = name;
 }

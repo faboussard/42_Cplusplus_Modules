@@ -3,7 +3,7 @@ SRCS     = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
 OBJS = $(addprefix $(OBJS_DIR), $(notdir $(SRCS:.cpp=.o)))
 OBJS_DIR = .objs/
 DEPS = $(OBJS:.o=.d)
-NAME    = ClapTrap
+NAME    = FragTrap
 
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 

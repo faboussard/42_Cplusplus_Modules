@@ -1,44 +1,37 @@
 #include "ScavTrap.hpp"
 
-int main() {
-	// Creating a ScavTrap instance
-	ScavTrap scav("Scavvy");
+int	main()
+{
+	std::cout << "---- ScavTrap MAIN ----\n" << std::endl;
 
-	// Test normal attack
-	scav.attack("target1");
+	ScavTrap ScavRobot1("ScavRobot1");
+	ScavTrap ScavRobot2("ScavRobot2");
 
-	// Test damage and repair
-	scav.takeDamage(20);
-	scav.beRepaired(10);
+	ScavTrap ClapRobot3(ScavRobot1);
 
-	// Test ScavTrap specific behavior
-	scav.guardGate();
+	std::cout << ScavRobot1 << std::endl << ScavRobot2 <<  std::endl << ClapRobot3 << std::endl;
 
-	// Test energy exhaustion
-	scav.takeDamage(80); // brings hit points close to zero
-	scav.attack("target2"); // should be allowed (1 energy point left)
-	scav.attack("target3"); // should fail due to no energy left
+	ScavRobot1.attack("ScavRobot2");
+	ScavRobot2.takeDamage(ScavRobot1.getAttackDamage());
 
-	// Test destruction after copying
-	ScavTrap scavCopy(scav); // copying scav
-	scavCopy.attack("target4");
+	std::cout << ScavRobot1 << std::endl << ScavRobot2 <<  std::endl << ClapRobot3 << std::endl;
 
-	// Test assignment operator
-	ScavTrap scavAssigned("AssignedScav");
-	scavAssigned = scav; // assign scav to scavAssigned
-	scavAssigned.attack("target5");
+	ScavRobot2.beRepaired(100);
 
-	// Now, let's deplete Scavvy's hit points to zero
-	scav.takeDamage(100);
-	scav.beRepaired(20); // Should not repair since hit points are zero
+	std::cout << ScavRobot1 << std::endl << ScavRobot2 <<  std::endl << ClapRobot3 << std::endl;
 
-	// Finally, let's check what happens when copying or assigning a "dead" ScavTrap
-	ScavTrap scavDeadCopy(scav); // Copying the dead ScavTrap
-	scavDeadCopy.attack("target6"); // Should not attack because it's "dead"
+	ScavRobot1.attack("ScavRobot2");
+	ScavRobot2.takeDamage(1000);
 
-	ScavTrap scavAssignedDead("AnotherAssignedScav");
-	scavAssignedDead = scav; // Assigning the dead ScavTrap
-	scavAssignedDead.attack("target7"); // Should not attack because it's "dead"
+	std::cout << ScavRobot1 << std::endl << ScavRobot2 <<  std::endl << ClapRobot3 << std::endl;
 
-	return 0;
+	ScavRobot2.beRepaired(5);
+
+	std::cout << ScavRobot1 << std::endl << ScavRobot2 <<  std::endl << ClapRobot3 << std::endl;
+
+	ScavRobot2.guardGate();
+
+	std::cout << std::endl;
+
+	return (0);
 }

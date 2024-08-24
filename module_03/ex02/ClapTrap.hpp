@@ -4,7 +4,6 @@
 #include <iostream>
 #include <string>
 
-
 #define NO_ENERGY_MESSAGE " No energy points left!"
 #define NO_HIT_POINTS_MESSAGE " No hit points left!"
 #define CLAPTRAP_ATTACK_MESSAGE(name, target, damage) \
@@ -13,7 +12,8 @@
 	std::cout << " ClapTrap " << (name) << " took " << (amount) << " damage!" << std::endl;
 #define CLAPTRAP_REPAIRED_MESSAGE(name, amount) \
 	std::cout << " ClapTrap " << (name) << " repaired itself with " << (amount) << " hit points!" << std::endl;
-#define MAX_HIT_POINTS 10
+
+#define MAX_HIT_POINTS 1000
 
 
 class ClapTrap
@@ -37,10 +37,25 @@ public:
 	/* Destructor */
 	~ClapTrap();
 
+	/* Accessors */
+
+	std::string getName() const;
+	int getHitPoints() const ;
+	int getEnergyPoints() const;
+	int getAttackDamage() const;
+
+	void setName(const std::string &name);
+	void setHitPoints(int hitPoints);
+	void setEnergyPoints(int energyPoints);
+	void setAttackDamage(int attackDamage);
+
+
 	/* Member Functions */
 	void attack(const std::string &target);
 	void takeDamage(unsigned int amount);
 	void beRepaired(unsigned int amount);
 };
+
+std::ostream &operator<<(std::ostream &stream, ClapTrap &clapTrap);
 
 #endif

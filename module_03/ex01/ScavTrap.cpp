@@ -13,12 +13,12 @@ ScavTrap::ScavTrap(const ScavTrap &copy) : ClapTrap(copy._name){
 	*this = copy;
 }
 
-ScavTrap &ScavTrap::operator=(const ScavTrap &copy) {
+ScavTrap &ScavTrap::operator=(const ScavTrap &src) {
 	std::cout << "ScavTrap Copy assignment operator called" << std::endl;
-	this->_name = copy._name;
-	this->_attackDamage = copy._attackDamage;
-	this->_energyPoints = copy._energyPoints;
-	this->_hitPoints = copy._hitPoints;
+	setName(src.getName());
+	setAttackDamage(src.getAttackDamage());
+	setEnergyPoints(src.getEnergyPoints());
+	setHitPoints(src.getHitPoints());
 	return (*this);
 }
 

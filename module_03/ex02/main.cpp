@@ -1,47 +1,37 @@
 #include "FragTrap.hpp"
 
-int main() {
-	// Create a FragTrap instance
-	FragTrap frag("Fraggy");
+int	main()
+{
+	std::cout << "---- FragTrap MAIN ----\n" << std::endl;
 
-	// Test normal attack
-	frag.attack("target1");
+	FragTrap FragRobot1("FragRobot1");
+	FragTrap FragRobot2("FragRobot2");
 
-	// Test FragTrap-specific behavior
-	frag.highFivesGuys();
+	FragTrap ClapRobot3(FragRobot1);
 
-	// Test damage and repair
-	frag.takeDamage(20);  // Assume FragTrap inherits from ClapTrap and has takeDamage method
-	frag.beRepaired(10);  // Assume FragTrap inherits from ClapTrap and has beRepaired method
+	std::cout << FragRobot1 << std::endl << FragRobot2 <<  std::endl << ClapRobot3 << std::endl;
 
-	// Test energy exhaustion
-	frag.takeDamage(80);  // Bring hit points close to zero
-	frag.attack("target2");  // Should be allowed (1 energy point left)
-	frag.attack("target3");  // Should fail due to no energy left
+	FragRobot1.attack("FragRobot2");
+	FragRobot2.takeDamage(FragRobot1.getAttackDamage());
 
-	// Test copying
-	FragTrap fragCopy(frag);  // Copy constructor
-	fragCopy.attack("target4");
-	fragCopy.highFivesGuys();
+	std::cout << FragRobot1 << std::endl << FragRobot2 <<  std::endl << ClapRobot3 << std::endl;
 
-	// Test assignment operator
-	FragTrap fragAssigned("AssignedFrag");
-	fragAssigned = frag;  // Assignment operator
-	fragAssigned.attack("target5");
-	fragAssigned.highFivesGuys();
+	FragRobot2.beRepaired(100);
 
-	// Deplete hit points and test behavior
-	frag.takeDamage(100);  // Set hit points to zero
-	frag.beRepaired(20);  // Should not repair since hit points are zero
+	std::cout << FragRobot1 << std::endl << FragRobot2 <<  std::endl << ClapRobot3 << std::endl;
 
-	// Test copying or assigning a "dead" FragTrap
-	FragTrap fragDeadCopy(frag);  // Copying a "dead" FragTrap
-	fragDeadCopy.attack("target6");  // Should not attack because it's "dead"
+	FragRobot1.attack("FragRobot2");
+	FragRobot2.takeDamage(1000);
 
-	FragTrap fragAssignedDead("AnotherAssignedFrag");
-	fragAssignedDead = frag;  // Assigning a "dead" FragTrap
-	fragAssignedDead.attack("target7");  // Should not attack because it's "dead"
+	std::cout << FragRobot1 << std::endl << FragRobot2 <<  std::endl << ClapRobot3 << std::endl;
 
-	return 0;
+	FragRobot2.beRepaired(5);
+
+	std::cout << FragRobot1 << std::endl << FragRobot2 <<  std::endl << ClapRobot3 << std::endl;
+
+	FragRobot2.highFivesGuys();
+
+	std::cout << std::endl;
+
+	return (0);
 }
-

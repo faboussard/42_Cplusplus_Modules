@@ -17,7 +17,7 @@
 
 class ClapTrap
 {
-private:
+protected:
 	std::string _name;
 	int _hitPoints;
 	int _energyPoints;
@@ -42,7 +42,8 @@ public:
 	int getHitPoints() const ;
 	int getEnergyPoints() const;
 	int getAttackDamage() const;
-	void setName(std::string &name);
+
+	void setName(const std::string &name);
 	void setHitPoints(int hitPoints);
 	void setEnergyPoints(int energyPoints);
 	void setAttackDamage(int attackDamage);
