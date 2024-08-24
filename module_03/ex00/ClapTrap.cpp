@@ -47,6 +47,29 @@ int    ClapTrap::getAttackDamage(void) const {
 	return (_attackDamage);
 }
 
+/*============================================================================*/
+/*       setter 			   	                                        */
+/*============================================================================*/
+
+void ClapTrap::setName(std::string &name)
+{
+	_name = name;
+}
+
+void ClapTrap::setHitPoints(int hitPoints)
+{
+	_hitPoints = hitPoints;
+}
+
+void ClapTrap::setEnergyPoints(int energyPoints)
+{
+	_energyPoints = energyPoints;
+}
+
+void ClapTrap::setAttackDamage(int attackDamage)
+{
+	_attackDamage = attackDamage;
+}
 
 /*============================================================================*/
 /*       member functions				                                       */
@@ -62,11 +85,11 @@ void ClapTrap::attack(const std::string &target)
 	}
 	if (_hitPoints <= 0)
 	{
-		std::cout << _name << NO_HIT_POINTS_MESSAGE << std::endl;
+		std::cout << getName() << NO_HIT_POINTS_MESSAGE << std::endl;
 		return;
 	}
 	_energyPoints -= 1;
-	CLAPTRAP_ATTACK_MESSAGE(_name, target, _attackDamage);
+	CLAPTRAP_ATTACK_MESSAGE(getName(), target, getAttackDamage());
 }
 
 void ClapTrap::takeDamage(unsigned int amount)
@@ -103,4 +126,17 @@ void ClapTrap::beRepaired(unsigned int amount)
 	if (_hitPoints > MAX_HIT_POINTS)
 		_hitPoints = MAX_HIT_POINTS;
 	CLAPTRAP_REPAIRED_MESSAGE(_name, amount);
+}
+
+/*============================================================================*/
+/*       Class overload		                                       */
+/*============================================================================*/
+
+std::ostream  &operator<<(std::ostream &stream, ClapTrap &clapTrap)
+{
+	stream << " Name: " << clapTrap.getName() << \
+	" Hitpoints: " << clapTrap.getHitPoints() << \
+	" Energy Points: " << clapTrap.getEnergyPoints() << \
+	" Attack Damage: " << clapTrap.getAttackDamage();
+	return (stream);
 }

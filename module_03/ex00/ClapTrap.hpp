@@ -12,7 +12,7 @@
 	std::cout << " ClapTrap " << (name) << " took " << (amount) << " damage!" << std::endl;
 #define CLAPTRAP_REPAIRED_MESSAGE(name, amount) \
 	std::cout << " ClapTrap " << (name) << " repaired itself with " << (amount) << " hit points!" << std::endl;
-#define MAX_HIT_POINTS 10
+#define MAX_HIT_POINTS 1000
 
 
 class ClapTrap
@@ -42,7 +42,10 @@ public:
 	int getHitPoints() const ;
 	int getEnergyPoints() const;
 	int getAttackDamage() const;
-
+	void setName(std::string &name);
+	void setHitPoints(int hitPoints);
+	void setEnergyPoints(int energyPoints);
+	void setAttackDamage(int attackDamage);
 
 
 	/* Member Functions */
@@ -50,5 +53,7 @@ public:
 	void takeDamage(unsigned int amount);
 	void beRepaired(unsigned int amount);
 };
+
+std::ostream &operator<<(std::ostream &stream, ClapTrap &clapTrap);
 
 #endif
