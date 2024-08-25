@@ -7,6 +7,45 @@
 
 int main()
 {
+	// Création d'un Dog spécifique
+	Dog myDog;
+	std::cout << "Type: " << myDog.getType() << std::endl;
+	std::cout << "Sound: ";
+	myDog.makeSound();
+
+	// Utilisation du constructeur par copie
+	Dog copiedDog = myDog;
+	std::cout << "Type: " << copiedDog.getType() << std::endl;
+	std::cout << "Sound: ";
+	copiedDog.makeSound();
+
+	// Utilisation de l'opérateur d'affectation par copie
+	Dog anotherDog;
+	anotherDog = myDog;
+	std::cout << "Type: " << anotherDog.getType() << std::endl;
+	std::cout << "Sound: ";
+	anotherDog.makeSound();
+
+	/*			CAT 		*/
+
+	Cat myCat;
+	std::cout << "Type: " << myCat.getType() << std::endl;
+	std::cout << "Sound: ";
+	myCat.makeSound();
+
+	// Utilisation du constructeur par copie
+	Cat copiedCat = myCat;
+	std::cout << "Type: " << copiedCat.getType() << std::endl;
+	std::cout << "Sound: ";
+	copiedCat.makeSound();
+
+	// Utilisation de l'opérateur d'affectation par copie
+	Cat anotherCat;
+	anotherCat = myCat;
+	std::cout << "Type: " << anotherCat.getType() << std::endl;
+	std::cout << "Sound: ";
+	anotherCat.makeSound();
+
 	std::cout << "Subject Tests" << std::endl;
 	{
 		const Animal* j = new Dog();

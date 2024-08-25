@@ -6,6 +6,9 @@
 
 class Brain
 {
+private:
+	std::string ideas[100];
+
 public :
 
 	Brain();
@@ -15,8 +18,6 @@ public :
 
 	std::string &getIdea(int index);
 	void setIdea(int index, const std::string &idea);
-
-	std::string ideas[100];
 };
 
 #endif //CPP_BRAIN_HPP
