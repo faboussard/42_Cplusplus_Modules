@@ -6,6 +6,9 @@
 
 class Brain
 {
+private:
+	std::string ideas[100];
+
 public :
 
 	Brain();
@@ -13,7 +16,8 @@ public :
 	Brain(const Brain &other);
 	Brain &operator=(const Brain &other);
 
-	std::string ideas[100];
+	std::string &getIdea(int index);
+	void setIdea(int index, const std::string &idea);
 };
 
 #endif //CPP_BRAIN_HPP
