@@ -7,6 +7,10 @@
 
 Bureaucrat::Bureaucrat(const std::string &name, int grade) : _name(name), _grade(grade)
 {
+	if (grade < highestGrade)
+		throw Bureaucrat::GradeTooHighException();
+	if (grade > lowestGrade)
+		throw Bureaucrat::GradeTooLowException();
 	CONSTRUCTOR_MESSAGE;
 }
 
@@ -42,6 +46,20 @@ const std::string &Bureaucrat::getName() const
 int Bureaucrat::getGrade() const
 {
 	return _grade;
+}
+
+/*============================================================================*/
+/*       Exceptions						                                       */
+/*============================================================================*/
+
+const char * Bureaucrat::GradeTooHighException::what() const throw()
+{
+	return "TooHighException";
+}
+
+const char * Bureaucrat::GradeTooLowException::what() const throw()
+{
+	return "TooLowException";
 }
 
 /*============================================================================*/
