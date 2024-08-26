@@ -8,9 +8,9 @@
 Bureaucrat::Bureaucrat(const std::string &name, int grade) : _name(name), _grade(grade)
 {
 	if (grade < highestGrade)
-		throw Bureaucrat::GradeTooHighException();
+		throw GradeTooHighException();
 	if (grade > lowestGrade)
-		throw Bureaucrat::GradeTooLowException();
+		throw GradeTooLowException();
 	CONSTRUCTOR_MESSAGE;
 }
 
@@ -73,6 +73,8 @@ void Bureaucrat::incrementGrade()
 	grade = _grade;
 	if (grade - 1 >= highestGrade)
 		_grade -= 1;
+	else
+		throw GradeTooHighException();
 }
 
 void Bureaucrat::decrementGrade()
@@ -82,6 +84,8 @@ void Bureaucrat::decrementGrade()
 	grade = getGrade();
 	if (grade + 1 <= lowestGrade)
 		_grade += 1;
+	else
+		throw GradeTooLowException();
 }
 
 /*============================================================================*/
@@ -90,6 +94,6 @@ void Bureaucrat::decrementGrade()
 
 std::ostream &operator<<(std::ostream &stream, Bureaucrat const &bureaucrat)
 {
-	stream << bureaucrat.getName() << " , Bureaucrat grade : " << bureaucrat.getGrade();
+	stream << bureaucrat.getName() << " , grade : " << bureaucrat.getGrade();
 	return stream;
 }
