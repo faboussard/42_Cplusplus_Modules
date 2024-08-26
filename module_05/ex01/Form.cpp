@@ -1,36 +1,41 @@
-#include "Bureaucrat.hpp"
+#include "Form.hpp"
 #include "general.hpp"
 
 /*============================================================================*/
 /*       Constructors 			   	                                        */
 /*============================================================================*/
 
-Bureaucrat::Bureaucrat(const std::string &name, int grade) : _name(name), _grade(grade)
+Form::Form(std::string const &name, bool isSigned, const int signGrade, const int execGrade) : _name(name), _isSigned(isSigned), _signGrade(signGrade), _execGrade(execGrade)
 {
-	if (grade < highestGrade)
+	if (signGrade < execGrade)
 		throw GradeTooHighException();
-	if (grade > lowestGrade)
+	if (signGrade < HIGHEST_GRADE || execGrade < HIGHEST_GRADE)
+		throw GradeTooHighException();
+	if (signGrade > LOWEST_GRADE  || execGrade > LOWEST_GRADE)
 		throw GradeTooLowException();
+	std::cout << " Form: ";
 	CONSTRUCTOR_MESSAGE;
 }
 
-Bureaucrat::~Bureaucrat()
+Form::~Form()
 {
+	std::cout << " Form: ";
 	DESTRUCTOR_MESSAGE;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat &src) : _name(src._name), _grade(src._grade)
+Form::Form(const Form &src) : _name(src._name), _isSigned(src._isSigned), _signGrade(src._signGrade), _execGrade(src._execGrade)
 {
+	std::cout << " Form: ";
 	COPY_CONSTRUCTOR_MESSAGE;
 }
 
-Bureaucrat &Bureaucrat::operator=(const Bureaucrat &src)
+Form &Form::operator=(const Form &src)
 {
-	COPY_ASSIGNMENT_MESSAGE;
 	if (this != &src)
 	{
-		_grade = src._grade;
+		_isSigned = src._isSigned;
 	}
+	COPY_ASSIGNMENT_MESSAGE;
 	return *this;
 }
 
@@ -38,26 +43,36 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &src)
 /*       Accesors                                                             */
 /*============================================================================*/
 
-const std::string &Bureaucrat::getName() const
+const std::string &Form::getName() const
 {
 	return _name;
 }
 
-int Bureaucrat::getGrade() const
+bool Form::getIsSigned() const
 {
-	return _grade;
+	return _isSigned;
+}
+
+int Form::getSignGrade() const
+{
+	return _signGrade;
+}
+
+int Form::getExecGrade() const
+{
+	return _execGrade;
 }
 
 /*============================================================================*/
 /*       Exceptions						                                       */
 /*============================================================================*/
 
-const char * Bureaucrat::GradeTooHighException::what() const throw()
+const char * Form::GradeTooHighException::what() const throw()
 {
 	return "TooHighException";
 }
 
-const char * Bureaucrat::GradeTooLowException::what() const throw()
+const char * Form::GradeTooLowException::what() const throw()
 {
 	return "TooLowException";
 }
@@ -66,34 +81,22 @@ const char * Bureaucrat::GradeTooLowException::what() const throw()
 /*       member functions				                                       */
 /*============================================================================*/
 
-void Bureaucrat::incrementGrade()
+void Form::beSigned(const Bureaucrat &bureaucrat)
 {
-	int grade;
-
-	grade = _grade;
-	if (grade - 1 < highestGrade)
-		_grade -= 1;
-	else
-		throw GradeTooHighException();
-}
-
-void Bureaucrat::decrementGrade()
-{
-	int grade;
-
-	grade = getGrade();
-	if (grade + 1 > lowestGrade)
-		_grade += 1;
-	else
-		throw GradeTooLowException();
+	if (bureaucrat.getGrade() > _signGrade)
+		throw Form::GradeTooLowException();
+	_isSigned = true;
 }
 
 /*============================================================================*/
 /*  			     Class overload		                                       */
 /*============================================================================*/
 
-std::ostream &operator<<(std::ostream &stream, Bureaucrat const &bureaucrat)
+std::ostream &operator<<(std::ostream &stream, Form &form)
 {
-	stream << bureaucrat.getName() << " , grade : " << bureaucrat.getGrade();
-	return stream;
+	stream << "Form name : " << form.getName() << std::endl <<
+		"Form is signed : " << form.getIsSigned() << std::endl <<
+		"Grade to sign : " << form.getSignGrade() << std::endl <<
+		"Grade to execute : " << form.getExecGrade() << std::endl;
+	return (stream);
 }
