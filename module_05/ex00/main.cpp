@@ -2,14 +2,15 @@
 
 int main(void)
 {
-	ClapTrap clapRobot("Romulus");
-	clapRobot.attack("Remus");
-	clapRobot.takeDamage(3); // hitpoints : 7
-	clapRobot.beRepaired(1); // hitpoints : 8
-	clapRobot.attack("Maman");
-	clapRobot.beRepaired(1); // hitpoints : 8
-	clapRobot.takeDamage(9); // hitpoints : 0
-	clapRobot.attack("Popi");
-	clapRobot.beRepaired(10); // hitpoints 10
+	Bureaucrat bureaucrat_1("Bureaucrat_1", 50);
+	Bureaucrat bureaucrat_2("Bureaucrat_2", 100);
+
+	std::cout << "------------- Main for ex00 : the Bureaucrats ---------- " << std::endl;
+
+	std::cout << bureaucrat_1 << std::endl << bureaucrat_2 << std::endl << std::endl;
+
+	bureaucrat_1 = bureaucrat_2;
+	std::cout << bureaucrat_1 << std::endl << bureaucrat_2 << std::endl << std::endl;
+
 	return (0);
 }

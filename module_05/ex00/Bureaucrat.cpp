@@ -1,71 +1,77 @@
 #include "Bureaucrat.hpp"
+#include "general.hpp"
 
 /*============================================================================*/
 /*       Constructors 			   	                                        */
 /*============================================================================*/
 
-
-ClapTrap::ClapTrap(const std::string &name) : _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0) {
-	std::cout << "Default constructor called" << std::endl;
-}
-
-ClapTrap::ClapTrap(const ClapTrap &copy){
-	std::cout << "Copy constructor called" << std::endl;
-	*this = copy;
-}
-
-ClapTrap &ClapTrap::operator=(const ClapTrap &copy) {
-	std::cout << "Copy assignment operator called" << std::endl;
-	this->_name = copy._name;
-	this->_attackDamage = copy._attackDamage;
-	this->_energyPoints = copy._energyPoints;
-	this->_hitPoints = copy._hitPoints;
-	return (*this);
-}
-
-ClapTrap::~ClapTrap()
+Bureaucrat::Bureaucrat(const std::string &name, int grade) : _name(name), _grade(grade)
 {
-	std::cout << "Destructor called" << std::endl;
-};
+	CONSTRUCTOR_MESSAGE;
+}
+
+Bureaucrat::~Bureaucrat()
+{
+	DESTRUCTOR_MESSAGE;
+}
+
+Bureaucrat::Bureaucrat(const Bureaucrat &src) : _name(src._name), _grade(src._grade)
+{
+	COPY_CONSTRUCTOR_MESSAGE;
+}
+
+Bureaucrat &Bureaucrat::operator=(const Bureaucrat &src)
+{
+	COPY_ASSIGNMENT_MESSAGE;
+	if (this != &src)
+	{
+		_grade = src._grade;
+	}
+	return *this;
+}
+
+/*============================================================================*/
+/*       Accesors                                                             */
+/*============================================================================*/
+
+const std::string &Bureaucrat::getName() const
+{
+	return _name;
+}
+
+int Bureaucrat::getGrade() const
+{
+	return _grade;
+}
 
 /*============================================================================*/
 /*       member functions				                                       */
 /*============================================================================*/
 
-
-void ClapTrap::attack(const std::string &target)
+void Bureaucrat::incrementGrade()
 {
-	if (_energyPoints <= 0)
-	{
-		std::cout << " NO ENERGY" << std::endl;
-		return;
-	}
-	if (_hitPoints <= 0)
-	{
-		std::cout << _name << " NO HIT POINTS " << std::endl;
-		return;
-	}
-	_energyPoints -= 1;
-	std::cout << " ClapTrap " << _name << " attacks " << target << " causing " <<  _attackDamage << " points of damage!" << std::endl;
+	int grade;
+
+	grade = _grade;
+	if (grade - 1 >= highestGrade)
+		_grade -= 1;
 }
 
-void ClapTrap::takeDamage(unsigned int amount)
+void Bureaucrat::decrementGrade()
 {
-	if (_hitPoints > 0)
-		_hitPoints -= amount;
-	if (_hitPoints < 0)
-		_hitPoints = 0;
-	std::cout << " ClapTrap " << _name << " took " << amount << " damage!" << std::endl;
+	int grade;
+
+	grade = getGrade();
+	if (grade + 1 <= lowestGrade)
+		_grade += 1;
 }
 
-void ClapTrap::beRepaired(unsigned int amount)
+/*============================================================================*/
+/*  			     Class overload		                                       */
+/*============================================================================*/
+
+std::ostream &operator<<(std::ostream &stream, Bureaucrat const &bureaucrat)
 {
-	if (_energyPoints <= 0)
-	{
-		std::cout << " NO ENERGY" << std::endl;
-		return;
-	}
-	_energyPoints -= 1;
-	_hitPoints += amount;
-	std::cout << " ClapTrap " << _name << " repaired itself with " << amount << " hit points!" << std::endl;
+	stream << bureaucrat.getName() << " , Bureaucrat grade : " << bureaucrat.getGrade();
+	return stream;
 }

@@ -7,32 +7,25 @@
 class Bureaucrat
 {
 private:
-	std::string const &_name;
+	std::string const _name;
 	int _grade;
 
-
 public:
-	Bureaucrat();
-
 	Bureaucrat(const std::string &name, int grade);
 
 	~Bureaucrat();
 
-	Bureaucrat(const Bureaucrat &copy);
+	Bureaucrat(const Bureaucrat &src);
 
-	Bureaucrat &operator=(const Bureaucrat src);
+	Bureaucrat &operator=(const Bureaucrat &src);
 
-	std::string const &getName() const;
+	const std::string &getName() const;
 
 	int getGrade() const;
 
 	void incrementGrade();
 
-	void incrementGrade(int i);
-
 	void decrementGrade();
-
-	void decrementGrade(int i);
 
 	static int const highestGrade = 1;
 	static int const lowestGrade = 150;
