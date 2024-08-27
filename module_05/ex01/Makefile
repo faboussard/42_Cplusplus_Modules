@@ -1,9 +1,9 @@
 CXX     = c++
-SRCS     = main.cpp Bureaucrat.cpp
+SRCS     = main.cpp Bureaucrat.cpp Form.cpp
 OBJS = $(addprefix $(OBJS_DIR), $(notdir $(SRCS:.cpp=.o)))
 OBJS_DIR = .objs/
 DEPS = $(OBJS:.o=.d)
-NAME    = Bureaucrat
+NAME    = Form
 
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
