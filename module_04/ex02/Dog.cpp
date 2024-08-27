@@ -21,11 +21,13 @@ Dog::Dog(const Dog &src) : AAnimal(src) {
 }
 
 Dog &Dog::operator=(const Dog &src) {
-  _type = src._type;
-  delete _brain;
-  _brain = new Brain(*src._brain);
-  std::cout << "Dog : ";
-  COPY_ASSIGNMENT_MESSAGE;
+  if (this != &src) {
+    _type = src._type;
+    delete _brain;
+    _brain = new Brain(*src._brain);
+    std::cout << "Dog : ";
+    COPY_ASSIGNMENT_MESSAGE;
+  }
 
   return *this;
 }

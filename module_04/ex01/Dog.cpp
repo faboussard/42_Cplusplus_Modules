@@ -21,12 +21,13 @@ Dog::Dog(const Dog &src) : Animal(src) {
 }
 
 Dog &Dog::operator=(const Dog &src) {
-  _type = src._type;
-  delete _brain;
-  _brain = new Brain(*src._brain);
-  std::cout << "Dog : ";
-  COPY_ASSIGNMENT_MESSAGE;
-
+  if (this != &src) {
+    _type = src._type;
+    delete _brain;
+    _brain = new Brain(*src._brain);
+    std::cout << "Dog : ";
+    COPY_ASSIGNMENT_MESSAGE;
+  }
   return *this;
 }
 
@@ -57,7 +58,7 @@ Brain &Dog::getBrain() const { return (*_brain); }
 //	std::cout << "Dog shallow copy assignment operator called" << std::endl;
 //	if (this != &src) {
 //		this->brain = src.brain;  // Shallow copy: just copying the
-//pointer
+// pointer
 //	}
 //	return *this;
 // }

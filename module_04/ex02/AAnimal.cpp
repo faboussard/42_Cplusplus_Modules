@@ -16,9 +16,9 @@ AAnimal::AAnimal(const AAnimal &cpy) : _type(cpy._type) {
 }
 
 AAnimal &AAnimal::operator=(const AAnimal &src) {
-  std::cout << "AAnimal : ";
-  COPY_ASSIGNMENT_MESSAGE;
   if (this != &src) {
+    std::cout << "AAnimal : ";
+    COPY_ASSIGNMENT_MESSAGE;
     _type = src._type;
   }
   return *this;
