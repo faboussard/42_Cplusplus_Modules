@@ -7,8 +7,6 @@
 
 Form::Form(std::string const &name, const int signGrade, const int execGrade)
     : _name(name), _isSigned(0), _signGrade(signGrade), _execGrade(execGrade) {
-  if (signGrade < execGrade)
-    throw GradeTooHighException();
   if (signGrade < HIGHEST_GRADE || execGrade < HIGHEST_GRADE)
     throw GradeTooHighException();
   if (signGrade > LOWEST_GRADE || execGrade > LOWEST_GRADE)
