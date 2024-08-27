@@ -1,9 +1,9 @@
 CXX     = c++
-SRCS     = main.cpp Animal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp Brain.cpp
+SRCS     = main.cpp AAnimal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp Brain.cpp
 OBJS = $(addprefix $(OBJS_DIR), $(notdir $(SRCS:.cpp=.o)))
 OBJS_DIR = .objs/
 DEPS = $(OBJS:.o=.d)
-NAME    = animal
+NAME    = aanimal
 
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 

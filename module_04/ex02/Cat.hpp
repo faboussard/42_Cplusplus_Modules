@@ -1,29 +1,26 @@
 #ifndef CAT_HPP
 #define CAT_HPP
 
+#include "AAnimal.hpp"
+#include "Brain.hpp"
 #include <iostream>
 #include <string>
-#include "Animal.hpp"
-#include "Brain.hpp"
 
-#define CAT_MESSAGE \
-	std::cout << "Meow 🐱" << std::endl;
+#define CAT_MESSAGE std::cout << "Meow 🐱" << std::endl;
 
-class Cat : public Animal
-{
+class Cat : public AAnimal {
 private:
-	Brain *_brain;
+  Brain *_brain;
 
 public:
+  Cat();
+  virtual ~Cat();
+  Cat(const Cat &cpy);
+  Cat &operator=(const Cat &src);
 
-	Cat();
-	virtual ~Cat();
-	Cat(const Cat &cpy);
-	Cat &operator=(const Cat &src);
+  void makeSound() const;
 
-	void makeSound() const;
-
-	Brain &getBrain() const;
+  Brain &getBrain() const;
 };
 
 #endif
