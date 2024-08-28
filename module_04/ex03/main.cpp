@@ -7,6 +7,8 @@
 
 int main()
 {
+	std::cout <<  CYAN << "\tSUBJECT TESTS "  << RESET <<  std::endl;
+
 	IMateriaSource* src = new MateriaSource();
 	src->learnMateria(new Ice());
 	src->learnMateria(new Cure());
@@ -22,20 +24,10 @@ int main()
 	delete bob;
 	delete me;
 	delete src;
-}
 
-//void	testMateriaSource(void)
-//{
-//	std::cout << YELLOW << std::endl <<  "-------------------------------" << std::endl
-//		<< "\tMATERIA SOURCE TEST" << std::endl
-//		<<  "-------------------------------" << RESET << std::endl;
-//	std::cout << std::endl << "-- MATERIA SOURCE CREATION" << std::endl;
-////	MateriaSource * source = new MateriaSource();
-//	Ice Ice1;
-//}
-//
-//int	main(void)
-//{
-//	testMateriaSource();
-//	return (0);
-//}
+	std::cout <<  CYAN << "\tCUSTOM TESTS "  << RESET <<  std::endl;
+	{
+
+	}
+
+}

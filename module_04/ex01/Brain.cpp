@@ -12,7 +12,6 @@ Brain::~Brain() {
 }
 
 Brain::Brain(const Brain &other) {
-  std::cout << "Brain: ";
   *this = other;
   COPY_CONSTRUCTOR_MESSAGE;
 }

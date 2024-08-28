@@ -4,30 +4,32 @@
 #include "WrongAnimal.hpp"
 #include "WrongCat.hpp"
 #include <iostream>
-
-//int main()
-//{
-//	const Animal* meta = new Animal();
-//	const Animal* j = new Dog();
-//	const Animal* i = new Cat();
-//	std::cout << j->getType() << " " << std::endl;
-//	std::cout << i->getType() << " " << std::endl;
-//	i->makeSound(); //will output the cat sound!
-//	j->makeSound();
-//	meta->makeSound();
-//}
-
-//int main()
-//{
-//	const WrongAnimal* meta = new WrongAnimal();
-//	const WrongAnimal* i = new WrongCat();
-//	std::cout << i->getType() << " " << std::endl;
-//	i->makeSound(); //will output the cat sound!
-//	meta->makeSound();
-//}
-
+#include "utils.hpp"
 
 int main() {
+	{
+		std::cout <<  CYAN << "\tSUBJECT TESTS " << RESET << std::endl;
+
+		const Animal* meta = new Animal();
+		const Animal* j = new Dog();
+		const Animal* i = new Cat();
+		std::cout << j->getType() << " " << std::endl;
+		std::cout << i->getType() << " " << std::endl;
+		i->makeSound(); //will output the cat sound!
+		j->makeSound();
+		meta->makeSound();
+	}
+
+	{
+		const WrongAnimal* meta = new WrongAnimal();
+		const WrongAnimal* i = new WrongCat();
+		std::cout << i->getType() << " " << std::endl;
+		i->makeSound(); //will output the cat sound!
+		meta->makeSound();
+	}
+	std::cout <<  CYAN << "\tCUSTOM TESTS " <<  RESET << std::endl;
+
+
 	// Création d'un Animal générique
 	Animal genericAnimal;
 	std::cout << "Type: " << genericAnimal.getType() << std::endl;
