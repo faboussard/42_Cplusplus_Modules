@@ -17,8 +17,8 @@ Cure::Cure(const Cure &src) : AMateria("cure")
 	if (this != &src)
 	{
 		*this = src;
-		construct_message("Cure", BLUE, COPY_CONSTRUCTOR_MESSAGE);
 	}
+	construct_message("Cure", BLUE, COPY_CONSTRUCTOR_MESSAGE);
 }
 
 Cure &Cure::operator=(Cure const &src)

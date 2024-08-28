@@ -18,8 +18,8 @@ Ice::Ice(const Ice &src) : AMateria("ice")
 	if (this != &src)
 	{
 		*this = src;
-		construct_message("ice", MAGENTA, COPY_CONSTRUCTOR_MESSAGE);
 	}
+	construct_message("ice", MAGENTA, COPY_CONSTRUCTOR_MESSAGE);
 }
 
 Ice &Ice::operator=(Ice const &src)
