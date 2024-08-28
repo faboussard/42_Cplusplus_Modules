@@ -8,9 +8,9 @@ LIST_SRC		=	main.cpp		\
 					Ice.cpp			\
 					AMateria.cpp	\
 					utils.cpp \
-#					Character.cpp	\
-#					Cure.cpp		\
-#					MateriaSource.cpp
+					Character.cpp	\
+					Cure.cpp		\
+					MateriaSource.cpp
 
 # ------------ DIRECTORIES ------------ #
 

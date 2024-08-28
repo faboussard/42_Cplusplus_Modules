@@ -23,9 +23,6 @@ public:
 private:
 	std::string _name;
 	AMateria *_inventory[4];
-	void _initInventory();
-	void _copyInventory(const Character &src);
-	void _deleteInventory();
 };
 
 #endif

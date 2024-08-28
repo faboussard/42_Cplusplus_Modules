@@ -27,7 +27,8 @@ AMateria::AMateria(const AMateria &src) : _type(src._type)
 
 AMateria &AMateria::operator=(AMateria const &src)
 {
-	construct_message("AMateria", GREEN, COPY_ASSIGNMENT_MESSAGE);
+	if (this != &src)
+		construct_message("AMateria", GREEN, COPY_ASSIGNMENT_MESSAGE);
 	return *this;
 }
 

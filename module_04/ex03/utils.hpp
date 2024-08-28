@@ -4,6 +4,9 @@
 #include <iostream>
 #include <string>
 
+#include "AMateria.hpp"
+
+
 #define DEFAULT_CONSTRUCTOR_MESSAGE " Default Constructor called"
 #define CONSTRUCTOR_MESSAGE " Type Constructor called"
 #define COPY_CONSTRUCTOR_MESSAGE " Copy Constructor called"
@@ -11,6 +14,9 @@
 #define DESTRUCTOR_MESSAGE " Destructor called"
 
 void construct_message(const std::string &name, const std::string &color, const std::string message);
+void copyMaterias(AMateria *dest[4], AMateria* const src[4]);
+void initMaterias(AMateria *materia[4]);
+void deleteMaterias(AMateria *materia[4]);
 
 
 #define RESET "\033[0m"

@@ -1,9 +1,8 @@
-//#include "Character.hpp"
-//#include "Colors.h"
+#include "Character.hpp"
 #include "Cure.hpp"
 #include "Ice.hpp"
 #include "utils.hpp"
-//#include "MateriaSource.hpp"
+#include "MateriaSource.hpp"
 #include <iostream>
 
 int main()
