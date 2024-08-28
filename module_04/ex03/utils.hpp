@@ -4,7 +4,13 @@
 #include <iostream>
 #include <string>
 
-void constructor_message(const std::string &name, const std::string &color);
+#define DEFAULT_CONSTRUCTOR_MESSAGE " Default Constructor called"
+#define CONSTRUCTOR_MESSAGE " Type Constructor called"
+#define COPY_CONSTRUCTOR_MESSAGE " Copy Constructor called"
+#define COPY_ASSIGNMENT_MESSAGE " Copy Assignment operator called"
+#define DESTRUCTOR_MESSAGE " Destructor called"
+
+void construct_message(const std::string &name, const std::string &color, const std::string message);
 
 
 #define RESET "\033[0m"

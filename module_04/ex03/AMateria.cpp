@@ -3,15 +3,18 @@
 
 AMateria::AMateria() : _type("unknown")
 {
-	constructor_message("AMateria", GREEN);
+	construct_message("AMateria", GREEN, DEFAULT_CONSTRUCTOR_MESSAGE);
 }
 
 AMateria::AMateria(std::string const &type) : _type(type)
 {
+	construct_message("AMateria", GREEN, CONSTRUCTOR_MESSAGE);
 }
 
 AMateria::~AMateria()
-{}
+{
+	construct_message("AMateria", GREEN, DESTRUCTOR_MESSAGE);
+}
 
 AMateria::AMateria(const AMateria &src)
 {
@@ -19,11 +22,13 @@ AMateria::AMateria(const AMateria &src)
 	{
 		_type = src._type;
 	}
+	construct_message("AMateria", GREEN, COPY_CONSTRUCTOR_MESSAGE);
 }
 
 AMateria &AMateria::operator=(AMateria const &src)
 {
 	_type = src._type;
+	construct_message("AMateria", GREEN, COPY_ASSIGNMENT_MESSAGE);
 	return *this;
 }
 
