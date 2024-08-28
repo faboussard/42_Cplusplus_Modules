@@ -4,7 +4,6 @@
 #include "AAnimal.hpp"
 #include "Brain.hpp"
 #include <iostream>
-#include <string>
 
 #define DOG_MESSAGE std::cout << "Woof woof 🐶" << std::endl;
 

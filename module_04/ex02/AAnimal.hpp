@@ -2,7 +2,6 @@
 #define AANIMAL_HPP
 
 #include <iostream>
-#include <string>
 
 #define AANIMAL_MAKE_SOUND std::cout << "generic animal sound" << std::endl;
 
@@ -11,13 +10,13 @@ protected:
   std::string _type;
 
 public:
-  AAnimal(void);
+  AAnimal();
   virtual ~AAnimal();
   AAnimal(const AAnimal &cpy);
   AAnimal &operator=(const AAnimal &src);
 
-  std::string const &getType(void) const;
-  virtual void makeSound(void) const = 0;
+  std::string const &getType() const;
+  virtual void makeSound() const = 0;
 };
 
 std::ostream &operator<<(std::ostream &stream, AAnimal &AAnimal);

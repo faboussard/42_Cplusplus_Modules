@@ -1,6 +1,6 @@
 #include "Cat.hpp"
 #include "Animal.hpp"
-#include "general.hpp"
+#include "utils.hpp"
 
 /*============================================================================*/
 /*       Constructors */

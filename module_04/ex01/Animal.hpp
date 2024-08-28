@@ -2,7 +2,6 @@
 #define ANIMAL_HPP
 
 #include <iostream>
-#include <string>
 
 #define ANIMAL_MAKE_SOUND \
 	std::cout << "generic animal sound" << std::endl;

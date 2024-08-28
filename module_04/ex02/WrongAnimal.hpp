@@ -2,7 +2,6 @@
 #define WRONGANIMAL_H
 
 #include <iostream>
-#include <string>
 
 class WrongAnimal 
 {

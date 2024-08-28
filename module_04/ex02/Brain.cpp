@@ -1,5 +1,5 @@
 #include "Brain.hpp"
-#include "general.hpp"
+#include "utils.hpp"
 
 Brain::Brain() {
   std::cout << "Brain: ";

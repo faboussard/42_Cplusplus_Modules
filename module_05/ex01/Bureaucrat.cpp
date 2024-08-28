@@ -1,5 +1,5 @@
 #include "Bureaucrat.hpp"
-#include "general.hpp"
+#include "utils.hpp"
 
 /*============================================================================*/
 /*       Constructors */
