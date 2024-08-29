@@ -7,7 +7,16 @@
 
 int main() {
   {
-    std::cout << CYAN << "\tSUBJECT TESTS " << RESET << std::endl;
+    std::cout
+        << YELLOW
+        << "--------------------------------------------------------------"
+        << RESET << std::endl;
+    std::cout << YELLOW << "\tSUBJECT TESTS " << RESET << std::endl;
+    std::cout
+        << YELLOW
+        << "--------------------------------------------------------------"
+        << RESET << std::endl;
+
     std::cout << std::endl;
 
     IMateriaSource *src = new MateriaSource();
@@ -33,83 +42,168 @@ int main() {
     std::cout << std::endl;
   }
   {
-    std::cout << CYAN << "\tCUSTOM TESTS " << RESET << std::endl;
-    std::cout << std::endl;
-    std::cout << CYAN << "\t TEST 1 : unequip " << RESET << std::endl;
+    std::cout
+        << YELLOW
+        << "--------------------------------------------------------------"
+        << RESET << std::endl;
 
+    std::cout << YELLOW << "\tCUSTOM TESTS " << RESET << std::endl;
+    std::cout
+        << YELLOW
+        << "--------------------------------------------------------------"
+        << RESET << std::endl;
+
+    std::cout << std::endl;
+    std::cout
+        << YELLOW
+        << "--------------------------------------------------------------"
+        << RESET << std::endl;
+
+    std::cout << YELLOW << "\t TEST 1 : unequip " << RESET << std::endl;
+    std::cout
+        << YELLOW
+        << "--------------------------------------------------------------"
+        << RESET << std::endl;
+
+    ICharacter *character1 = new Character("character1");
+    ICharacter *character2 = new Character("character2");
+
+    IMateriaSource *materiaSource = new MateriaSource();
+
+    materiaSource->learnMateria(new Ice());
+    materiaSource->learnMateria(new Cure());
+
+    AMateria *tmp1;
+    AMateria *tmp2;
+    AMateria *tmp3;
+    AMateria *tmp4;
+
+    tmp1 = materiaSource->createMateria("cure");
+    tmp2 = materiaSource->createMateria("cure");
+    tmp3 = materiaSource->createMateria("cure");
+    tmp4 = materiaSource->createMateria("cure");
+
+    character1->equip(tmp1);
+    character1->equip(tmp2);
+    character1->equip(tmp3);
+    character1->equip(tmp4);
+
+    std::cout << std::endl;
+
+    character1->use(0, *character2);
+    character1->use(1, *character2);
+    character1->use(2, *character2);
+    character1->use(3, *character2);
+    std::cout << std::endl;
+
+    character1->unequip(-1);
+    character1->unequip(1000);
+    character1->unequip(1000);
+    character1->unequip(0);
+    character1->unequip(0);
+
+    std::cout << std::endl;
+
+    character1->equip(tmp1);
+
+    character1->use(0, *character2);
+    character1->use(1, *character2);
+    character1->use(2, *character2);
+    character1->use(3, *character2);
+
+    std::cout << std::endl;
+
+    delete character1;
+    delete character2;
+    delete materiaSource;
+  }
+  {
+    std::cout
+        << YELLOW
+        << "--------------------------------------------------------------"
+        << RESET << std::endl;
+
+    std::cout << YELLOW << "\tCUSTOM TESTS " << RESET << std::endl;
+    std::cout
+        << YELLOW
+        << "--------------------------------------------------------------"
+        << RESET << std::endl;
+
+    std::cout << std::endl;
+    std::cout
+        << YELLOW
+        << "--------------------------------------------------------------"
+        << RESET << std::endl;
+
+    std::cout << YELLOW << "\t TEST 2 : invalid materia " << RESET << std::endl;
+    std::cout
+        << YELLOW
+        << "--------------------------------------------------------------"
+        << RESET << std::endl;
+
+    ICharacter *character1 = new Character("character1");
+    ICharacter *character2 = new Character("character2");
+
+    IMateriaSource *materiaSource = new MateriaSource();
+
+    materiaSource->learnMateria(new Ice());
+    materiaSource->learnMateria(new Cure());
+
+    AMateria *tmp;
+
+    tmp = materiaSource->createMateria("ukulele");
+
+    character1->equip(tmp);
+    character2->equip(tmp);
+
+    std::cout << std::endl;
+
+    character1->use(0, *character2);
+
+    std::cout << std::endl;
+
+    delete character1;
+    delete character2;
+    delete materiaSource;
+  }
+  {
+
+    std::cout
+        << YELLOW
+        << "--------------------------------------------------------------"
+        << RESET << std::endl;
+    std::cout << YELLOW << "\t TEST 3 : too many items " << RESET << std::endl;
+    std::cout
+        << YELLOW
+        << "--------------------------------------------------------------"
+        << RESET << std::endl;
+
+    std::cout << std::endl;
     ICharacter *character1 = new Character("character1");
     ICharacter *character2 = new Character("character2");
 
     IMateriaSource *materiaSource = new MateriaSource;
 
-    // Apprentissage de matières
     materiaSource->learnMateria(new Ice());
     materiaSource->learnMateria(new Cure());
 
-    AMateria *materiaSource1 = materiaSource->createMateria("cure");
-    AMateria *materiaSource2 = materiaSource->createMateria("cure");
-    AMateria *materiaSource3 = materiaSource->createMateria("cure");
-    AMateria *materiaSource4 = materiaSource->createMateria("ukulele");
-
-    character1->equip(materiaSource1);
-    character1->equip(materiaSource2);
-    character1->equip(materiaSource3);
-    character1->equip(materiaSource4);
-
-    std::cout << std::endl;
+    character1->equip(materiaSource->createMateria("cure"));
+    character1->equip(materiaSource->createMateria("ice"));
+    character1->equip(materiaSource->createMateria("ice"));
+    character1->equip(materiaSource->createMateria("ice"));
+    character1->equip(materiaSource->createMateria("ice"));
 
     character1->use(0, *character2);
     character1->use(1, *character2);
     character1->use(2, *character2);
     character1->use(3, *character2);
-    std::cout << std::endl;
-
-    // Test 1 : Déséquiper une matière
-    character1->unequip(0);
-    character1->unequip(3);
-
-    std::cout << std::endl;
-
-    character1->use(0, *character2);
-    character1->use(1, *character2);
-    character1->use(2, *character2);
-    character1->use(3, *character2);
+    character1->use(4, *character2);
 
     std::cout << std::endl;
     delete character1;
     delete character2;
     delete materiaSource;
   }
-  //   {
-
-  //     std::cout << CYAN << "\t TEST 2 : too many items " << RESET <<
-  //     std::endl; std::cout << std::endl; ICharacter *character1 = new
-  //     Character("character1"); ICharacter *character2 = new
-  //     Character("character2");
-
-  //     IMateriaSource *materiaSource = new MateriaSource;
-
-  //     // Apprentissage de matières
-  //     materiaSource->learnMateria(new Ice());
-  //     materiaSource->learnMateria(new Cure());
-
-  //     character1->equip(materiaSource->createMateria("cure"));
-  //     character1->equip(materiaSource->createMateria("ice"));
-  //     character1->equip(materiaSource->createMateria("ice"));
-  //     character1->equip(materiaSource->createMateria("ice"));
-  //     character1->equip(materiaSource->createMateria("ice"));
-
-  //     character1->use(0, *character2);
-  //     character1->use(1, *character2);
-  //     character1->use(2, *character2);
-  //     character1->use(3, *character2);
-  //     character1->use(4, *character2);
-
-  //     std::cout << std::endl;
-  //     delete character1;
-  //     delete character2;
-  //     delete materiaSource;
-  //   }
 
   return 0;
 }
