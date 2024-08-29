@@ -1,24 +1,22 @@
 
 #ifndef MATERIASOURCE_CLASS_H
-# define MATERIASOURCE_CLASS_H
+#define MATERIASOURCE_CLASS_H
 
-# include "IMateriaSource.hpp"
+#include "IMateriaSource.hpp"
 
-class MateriaSource : public IMateriaSource
-{
-	public:
-		MateriaSource(void);
-		MateriaSource(MateriaSource const & src);
-		~MateriaSource(void);
+class MateriaSource : public IMateriaSource {
+public:
+  MateriaSource(void);
+  MateriaSource(MateriaSource const &src);
+  ~MateriaSource(void);
 
-		MateriaSource &	operator=(MateriaSource const & src);
+  MateriaSource &operator=(MateriaSource const &src);
 
-		void		learnMateria(AMateria * m);
-		AMateria *	createMateria(std::string const & type);
-		void		displayKnownRecipes(void);
+  void learnMateria(AMateria *m);
+  AMateria *createMateria(std::string const &type);
 
-	private:
-		AMateria *	_materias[4];
+private:
+  AMateria *_materias[4];
 };
 
 #endif
