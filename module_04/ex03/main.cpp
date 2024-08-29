@@ -78,7 +78,7 @@ int main() {
     AMateria *tmp3;
     AMateria *tmp4;
 
-    tmp1 = materiaSource->createMateria("cure");
+    tmp1 = materiaSource->createMateria("ice");
     tmp2 = materiaSource->createMateria("cure");
     tmp3 = materiaSource->createMateria("cure");
     tmp4 = materiaSource->createMateria("cure");
@@ -167,7 +167,6 @@ int main() {
     delete materiaSource;
   }
   {
-
     std::cout
         << YELLOW
         << "--------------------------------------------------------------"

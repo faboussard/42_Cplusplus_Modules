@@ -9,8 +9,8 @@ void construct_message(const std::string &name, const std::string &color,
   std::cout << color << name << message << RESET << std::endl;
 }
 
-void copyMaterias(AMateria *dest[4], AMateria *const src[4]) {
-  for (int i = 0; i < 4; ++i) {
+void copyMaterias(AMateria *dest[4], AMateria *const src[MAX_ITEMS_NUMBERS]) {
+  for (int i = 0; i < MAX_ITEMS_NUMBERS; i++) {
     if (src[i] != NULL)
       dest[i] = src[i]->clone();
     else
@@ -18,14 +18,16 @@ void copyMaterias(AMateria *dest[4], AMateria *const src[4]) {
   }
 }
 
-void initMaterias(AMateria *materia[4]) {
+void initMaterias(AMateria *materia[MAX_ITEMS_NUMBERS]) {
   for (int i = 0; i < 4; i++)
     materia[i] = NULL;
 }
 
-void deleteMaterias(AMateria *materia[4]) {
+void deleteMaterias(AMateria *materia[MAX_ITEMS_NUMBERS]) {
   for (int i = 0; i < 4; i++) {
-    if (materia[i] != NULL)
+    if (materia[i] != NULL) {
       delete materia[i];
+      materia[i] = NULL;
+    }
   }
 }

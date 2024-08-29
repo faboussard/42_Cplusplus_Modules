@@ -22,8 +22,17 @@ Character::Character(const std::string &newName) : _name(newName) {
 }
 
 Character::~Character() {
-  deleteMaterias(_inventory);
-  deleteMaterias(_tmpInventory);
+
+  for (int i = 0; i < 4; i++) {
+    if (_inventory[i]) {
+      for (int j = 0; j < MAX_ITEMS_NUMBERS; j++) {
+        if (_inventory[i] == _tmpInventory[j])
+          _tmpInventory[j] = NULL;
+      }
+      delete _inventory[i];
+      _inventory[i] = NULL;
+    }
+  }
   construct_message("Character", CYAN, DESTRUCTOR_MESSAGE);
 }
 
@@ -82,15 +91,20 @@ void Character::unequip(int index) {
     std::cerr << "Invalid inventory index" << std::endl;
     return;
   }
+
   std::cout << getName() << " unequips " << _inventory[index]->getType()
             << std::endl;
-  if (_tmpInventory[index] != NULL)
-    _tmpInventory[index + 1] = _tmpInventory[index];
-  _tmpInventory[index] = _inventory[index];
+
+  if (_tmpInventory[MAX_ITEMS_NUMBERS - 1] != NULL) {
+    std::cerr << "BUUG cannot unequip" << std::endl;
+    return;
+  }
+
+  for (int i = 0; i < MAX_ITEMS_NUMBERS; i++) {
+    if (_tmpInventory[i] == NULL)
+      _tmpInventory[i] = _inventory[index];
+  }
   _inventory[index] = NULL;
-  std::cout << getName()
-            << " temp inventory is : " << _tmpInventory[index]->getType()
-            << std::endl;
 }
 
 void Character::use(int index, ICharacter &target) {

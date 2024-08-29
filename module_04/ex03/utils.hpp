@@ -6,7 +6,7 @@
 
 #include "AMateria.hpp"
 
-#define MAX_ITEMS_NUMBERS 1000
+#define MAX_ITEMS_NUMBERS 4
 
 #define DEFAULT_CONSTRUCTOR_MESSAGE " Default Constructor called"
 #define CONSTRUCTOR_MESSAGE " Type Constructor called"
