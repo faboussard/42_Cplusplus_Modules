@@ -1,9 +1,9 @@
 CXX     = c++
-SRCS     = main.cpp Bureaucrat.cpp Form.cpp
+SRCS     = main.cpp Bureaucrat.cpp AForm.cpp PresidentialPardonForm.cpp RobotomyRequestForm.cpp ShrubberyCreationForm.cpp
 OBJS = $(addprefix $(OBJS_DIR), $(notdir $(SRCS:.cpp=.o)))
 OBJS_DIR = .objs/
 DEPS = $(OBJS:.o=.d)
-NAME    = Form
+NAME    = AForm
 
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 

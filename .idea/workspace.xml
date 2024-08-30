@@ -21,21 +21,21 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="02491725-2efa-4442-943e-b2e1e2a111f9" name="Changes" comment="chqngements fonctions utils">
-      <change afterPath="$PROJECT_DIR$/module_05/ex02/AForm.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module_05/ex02/AForm.hpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module_05/ex02/Bureaucrat.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module_05/ex02/Bureaucrat.hpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module_05/ex02/Makefile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module_05/ex02/main.cpp" afterDir="false" />
+    <list default="true" id="02491725-2efa-4442-943e-b2e1e2a111f9" name="Changes" comment="init exo02">
+      <change afterPath="$PROJECT_DIR$/module_05/ex02/PresidentialPardonForm.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module_05/ex02/PresidentialPardonForm.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module_05/ex02/RobotomyRequestForm.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module_05/ex02/RobotomyRequestForm.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module_05/ex02/ShrubberyCreationForm.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module_05/ex02/ShrubberyCreationForm.hpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_05/ex00/Bureaucrat.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_05/ex00/Bureaucrat.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_05/ex00/Bureaucrat.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_05/ex00/Bureaucrat.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_05/ex00/utils.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_05/ex01/Bureaucrat.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_05/ex01/Bureaucrat.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_05/ex01/Bureaucrat.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_05/ex01/Bureaucrat.hpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/module_05/ex01/Form.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_05/ex01/Form.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_05/ex01/utils.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_05/ex02/AForm.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_05/ex02/AForm.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_05/ex02/AForm.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_05/ex02/AForm.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_05/ex02/Bureaucrat.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_05/ex02/Bureaucrat.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_05/ex02/Bureaucrat.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_05/ex02/Bureaucrat.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_05/ex02/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/module_05/ex02/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_05/ex02/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_05/ex02/main.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +88,7 @@
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
     "git-widget-placeholder": "master",
-    "last_opened_file_path": "/home/fanny/cpp/module_05",
+    "last_opened_file_path": "/home/fanny/cpp/module_05/ex02",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -101,11 +101,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/module_05/ex02" />
       <recent name="$PROJECT_DIR$/module_05" />
       <recent name="$PROJECT_DIR$/module_04/ex03" />
       <recent name="$PROJECT_DIR$/module_05/ex01" />
       <recent name="$PROJECT_DIR$/module_05/ex00" />
-      <recent name="$PROJECT_DIR$/module_04/ex02" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/CPP_00" />
@@ -457,7 +457,15 @@
       <option name="project" value="LOCAL" />
       <updated>1725009114353</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="init exo02">
+      <option name="closed" value="true" />
+      <created>1725009802276</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1725009802276</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -469,7 +477,6 @@
     <isAutomaticReloadCMake value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="finished ex06" />
     <MESSAGE value="ex03 with null weapon checks" />
     <MESSAGE value="function check args created" />
     <MESSAGE value="redecoupoage fonctions, faire file too long" />
@@ -494,6 +501,7 @@
     <MESSAGE value="ex01 fini manque le main" />
     <MESSAGE value="ajout test depp + changement variable tmp inventory to groundinventory" />
     <MESSAGE value="chqngements fonctions utils" />
-    <option name="LAST_COMMIT_MESSAGE" value="chqngements fonctions utils" />
+    <MESSAGE value="init exo02" />
+    <option name="LAST_COMMIT_MESSAGE" value="init exo02" />
   </component>
 </project>

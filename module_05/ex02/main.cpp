@@ -1,35 +1,50 @@
+#include <iostream>
 #include "Bureaucrat.hpp"
-#include "AForm.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "ShrubberyCreationForm.hpp"
 
-int main(void) {
-  std::cout << "------------- Main for ex01 : the Forms ---------- "
-            << std::endl;
+int main() {
+	try {
+		Bureaucrat B1("B1", 1);
+		Bureaucrat B2("B2", 150);
 
-  try {
-    Bureaucrat bureaucrat_1("Bureaucrat_1", 50);
-    Bureaucrat bureaucrat_2("Bureaucrat_2", 100);
-    AForm form_1("Form_1", 0, 5);
+		PresidentialPardonForm presidentialForm("President");
+		RobotomyRequestForm robotomyForm("Robot");
+		ShrubberyCreationForm shrubberyForm("Garden");
 
-    std::cout << bureaucrat_1 << std::endl
-              << bureaucrat_2 << std::endl
-              << std::endl;
+		std::cout << B1 << std::endl;
+		std::cout << B2 << std::endl;
+		std::cout << std::endl;
 
-    std::cout << std::endl;
 
-    std::cout << form_1 << std::endl;
+		B1.signForm(presidentialForm);
+		B1.signForm(robotomyForm);
+		B1.signForm(shrubberyForm);
+		std::cout << std::endl;
 
-    bureaucrat_1.signForm(form_1);
-  } catch (const Bureaucrat::GradeTooLowException &e) {
-    std::cerr << "Exception : " << e.what() << std::endl;
-  }
 
-  catch (const Bureaucrat::GradeTooHighException &e) {
-    std::cerr << "Exception : " << e.what() << std::endl;
-  }
+		B1.executeForm(presidentialForm);
+		B1.executeForm(robotomyForm);
+		B1.executeForm(shrubberyForm);
+		std::cout << std::endl;
 
-  catch (std::exception &e) {
-    std::cerr << "Exception : " << e.what() << std::endl;
-  }
 
-  return (0);
+		B2.signForm(presidentialForm);
+		B2.signForm(robotomyForm);
+		B2.signForm(shrubberyForm);
+		std::cout << std::endl;
+
+
+		B2.executeForm(presidentialForm);
+		B2.executeForm(robotomyForm);
+		B2.executeForm(shrubberyForm);
+		std::cout << std::endl;
+
+
+	} catch (std::exception &e) {
+		std::cerr << "Exception: " << e.what() << std::endl;
+	}
+
+	return 0;
 }

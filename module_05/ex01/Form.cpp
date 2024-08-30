@@ -62,7 +62,7 @@ const char *Form::GradeTooLowException::what() const throw() {
 /*============================================================================*/
 
 void Form::beSigned(Bureaucrat const &bureaucrat) {
-  if (bureaucrat.getGrade() > _signGrade)
+  if (bureaucrat.getGrade() > getSignGrade())
     throw Form::GradeTooLowException();
   _isSigned = true;
 }
