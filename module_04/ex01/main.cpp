@@ -1,10 +1,9 @@
 #include "Animal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
-#include "WrongAnimal.hpp"
-#include "WrongCat.hpp"
 #include <iostream>
 #include "utils.hpp"
+
 int main()
 {
 	std::cout <<  CYAN << "\tSUBJECT TESTS "  << RESET <<  std::endl;

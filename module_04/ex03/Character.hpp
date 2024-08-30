@@ -23,7 +23,7 @@ public:
 private:
   std::string _name;
   AMateria *_inventory[4];
-  AMateria *_tmpInventory[MAX_ITEMS_NUMBERS];
+  AMateria *_groundInventory[MAX_ITEMS_NUMBERS];
 };
 
 #endif

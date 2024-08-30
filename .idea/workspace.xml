@@ -21,7 +21,15 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="02491725-2efa-4442-943e-b2e1e2a111f9" name="Changes" comment="ex01 fini manque le main" />
+    <list default="true" id="02491725-2efa-4442-943e-b2e1e2a111f9" name="Changes" comment="ex01 fini manque le main">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_04/ex01/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_04/ex01/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_04/ex02/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_04/ex02/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_04/ex03/Character.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_04/ex03/Character.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_04/ex03/interfaceAndRecap" beforeDir="false" afterPath="$PROJECT_DIR$/module_04/ex03/interfaceAndRecap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_04/ex03/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_04/ex03/main.cpp" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -69,10 +77,11 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.cidr.known.project.marker": "true",
     "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
     "git-widget-placeholder": "master",
-    "last_opened_file_path": "/home/fanny/cpp/module_04/ex03",
+    "last_opened_file_path": "/home/fanny/cpp",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -96,9 +105,9 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
-        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
     <configuration name="main.cpp" type="CppFileRunConfiguration" factoryName="CppFileRunConfiguration" temporary="true" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cpp" TARGET_NAME="main.cpp" CONFIG_NAME="main.cpp">
@@ -134,7 +143,8 @@
       <workItem from="1724503084083" duration="8275000" />
       <workItem from="1724583437065" duration="5689000" />
       <workItem from="1724661313016" duration="18121000" />
-      <workItem from="1724843135836" duration="5504000" />
+      <workItem from="1724843135836" duration="19050000" />
+      <workItem from="1725006830193" duration="808000" />
     </task>
     <task id="LOCAL-00001" summary="init ex01">
       <option name="closed" value="true" />
