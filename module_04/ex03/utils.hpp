@@ -16,9 +16,9 @@
 
 void construct_message(const std::string &name, const std::string &color,
                        const std::string message);
-void copyMaterias(AMateria *dest[4], AMateria *const src[4]);
-void initMaterias(AMateria *materia[4]);
-void deleteMaterias(AMateria *materia[4]);
+void copyMaterias(int itemsNumber, AMateria **dest, AMateria *const *src);
+void initMaterias(int itemsNumber, AMateria **materia);
+void deleteMaterias(int itemsNumber, AMateria **materia);
 
 #define RESET "\033[0m"
 #define MAGENTA "\033[1;35m"
