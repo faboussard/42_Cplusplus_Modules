@@ -22,7 +22,7 @@ Fixed::Fixed(const int int_to_convert_to_fixed)
     : _rawBits(int_to_convert_to_fixed << _frac_bit) {
   std::cout << "Int constructor called" << std::endl;
 }
-// Le constructeur Fixed::Fixed(const float float_to_convert_to_fixed) convertit
+// Le constructeur Fixed_init::Fixed_init(const float float_to_convert_to_fixed) convertit
 // une valeur flottante en une représentation fixe-point en récupérant une
 // approximation de la valeur entière
 

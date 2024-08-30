@@ -57,7 +57,7 @@ public:
 
   /* The 4 increment/decrement operators member functions */
 
-  Fixed &operator++(void); // Il retourne une référence à Fixed, ce qui signifie
+  Fixed &operator++(void); // Il retourne une référence à Fixed_init, ce qui signifie
                            // que l'opérateur modifie l'objet original et
                            // retourne une référence à cet objet modifié.
   Fixed operator++(int);

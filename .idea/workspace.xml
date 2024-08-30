@@ -21,116 +21,91 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="02491725-2efa-4442-943e-b2e1e2a111f9" name="Changes" comment="init ex03">
-      <change afterPath="$PROJECT_DIR$/module_01/brainz/BraiiiiiiinnnzzzZ" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module_01/brainz/Makefile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module_01/brainz/Zombie.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module_01/brainz/Zombie.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module_01/brainz/main.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module_01/brainz/newZombie.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module_01/brainz/randomChump.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module_01/harl_switch/Harl.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module_01/harl_switch/Harl.hpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module_01/harl_switch/Makefile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module_01/harl_switch/harlFilter" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module_01/harl_switch/main.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module_01/human/HumanA.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module_01/human/HumanA.hpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module_01/human/HumanB.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module_01/human/HumanB.hpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module_01/human/Makefile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module_01/human/Weapon.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module_01/human/Weapon.hpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module_01/human/main.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module_01/human/war" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module_01/seed/Makefile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module_01/seed/hello" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module_01/seed/hello.replace" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module_01/seed/main.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module_01/seed/sed" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_00/ex00/Makefile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_00/ex00/megaphone.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_00/ex01/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/module_00/phonebook/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_00/ex01/includes/Contact.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_00/phonebook/includes/Contact.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_00/ex01/includes/PhoneBook.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_00/phonebook/includes/PhoneBook.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_00/ex01/includes/Utils.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_00/phonebook/includes/Utils.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_00/ex01/srcs/Contact.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_00/phonebook/srcs/Contact.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_00/ex01/srcs/PhoneBook.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_00/phonebook/srcs/PhoneBook.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_00/ex01/srcs/Utils.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_00/phonebook/srcs/Utils.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_00/ex01/srcs/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_00/phonebook/srcs/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_00/ex02/19920104_091532.log" beforeDir="false" afterPath="$PROJECT_DIR$/module_00/account/19920104_091532.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_00/ex02/Account.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_00/account/Account.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_00/ex02/Account.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_00/account/Account.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_00/ex02/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/module_00/account/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_00/ex02/tests.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_00/account/tests.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_01/ex00/.objs/Zombie.d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_01/ex00/.objs/Zombie.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_01/ex00/.objs/main.d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_01/ex00/.objs/main.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_01/ex00/.objs/newZombie.d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_01/ex00/.objs/newZombie.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_01/ex00/.objs/randomChump.d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_01/ex00/.objs/randomChump.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_01/ex00/BraiiiiiiinnnzzzZ" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_01/ex00/Makefile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_01/ex00/Zombie.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_01/ex00/Zombie.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_01/ex00/main.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_01/ex00/newZombie.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_01/ex00/randomChump.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_01/ex01/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/module_01/zombie/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_01/ex01/Zombie.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_01/zombie/Zombie.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_01/ex01/Zombie.h" beforeDir="false" afterPath="$PROJECT_DIR$/module_01/zombie/Zombie.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_01/ex01/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_01/zombie/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_01/ex01/zombieHorde.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_01/zombie/zombieHorde.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_01/ex02/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/module_01/zmbie_pointers/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_01/ex02/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_01/zmbie_pointers/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_01/ex03/.objs/HumanA.d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_01/ex03/.objs/HumanA.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_01/ex03/.objs/HumanB.d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_01/ex03/.objs/HumanB.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_01/ex03/.objs/Weapon.d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_01/ex03/.objs/Weapon.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_01/ex03/.objs/main.d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_01/ex03/.objs/main.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_01/ex03/HumanA.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_01/ex03/HumanA.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_01/ex03/HumanB.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_01/ex03/HumanB.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_01/ex03/Makefile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_01/ex03/Weapon.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_01/ex03/Weapon.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_01/ex03/main.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_01/ex03/war" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_01/ex04/.objs/main.d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_01/ex04/.objs/main.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_01/ex04/Makefile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_01/ex04/hello" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_01/ex04/hello.replace" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_01/ex04/main.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_01/ex04/sed" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_01/ex05/Harl.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_01/harl/Harl.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_01/ex05/Harl.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_01/harl/Harl.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_01/ex05/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/module_01/harl/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_01/ex05/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_01/harl/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_01/ex06/.objs/Harl.d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_01/ex06/.objs/Harl.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_01/ex06/.objs/main.d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_01/ex06/.objs/main.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_01/ex06/Harl.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_01/ex06/Harl.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_01/ex06/Makefile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_01/ex06/harlFilter" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_01/ex06/main.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_05/ex00/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_05/ex00/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_05/ex01/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_05/ex01/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_05/ex02/AForm.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_05/ex02/AForm.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_05/ex03/AForm.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_05/ex03/AForm.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_05/ex03/Intern.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_05/ex03/Intern.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_05/ex03/Intern.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_05/ex03/Intern.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_05/ex03/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_05/ex03/main.cpp" afterDir="false" />
+    <list default="true" id="02491725-2efa-4442-943e-b2e1e2a111f9" name="Changes" comment="renamed exo names + presque fini ex03 mais coredump surles exceptions">
+      <change afterPath="$PROJECT_DIR$/module_02/conversion_fixed/Fixed.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module_02/conversion_fixed/Fixed.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module_02/conversion_fixed/fixed" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module_02/conversion_fixed/main.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module_02/operators_on_fixed/Makefile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module_03/Claptrap/ClapTrap" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module_03/Claptrap/ClapTrap.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module_03/Claptrap/ClapTrap.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module_03/Claptrap/Makefile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module_03/Claptrap/main.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module_03/Fragtrap/ClapTrap" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module_03/Fragtrap/ClapTrap.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module_03/Fragtrap/ClapTrap.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module_03/Fragtrap/FragTrap.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module_03/Fragtrap/FragTrap.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module_03/Fragtrap/Makefile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module_03/Fragtrap/ScavTrap.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module_03/Fragtrap/ScavTrap.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module_03/Fragtrap/main.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module_03/Scavtrap/ClapTrap" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module_03/Scavtrap/ClapTrap.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module_03/Scavtrap/ClapTrap.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module_03/Scavtrap/Makefile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module_03/Scavtrap/ScavTrap" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module_03/Scavtrap/ScavTrap.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module_03/Scavtrap/ScavTrap.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module_03/Scavtrap/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_02/ex00/Fixed.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_02/Fixed_init/Fixed.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_02/ex00/Fixed.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_02/Fixed_init/Fixed.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_02/ex00/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/module_02/Fixed_init/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_02/ex00/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_02/Fixed_init/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_02/ex01/.objs/Fixed.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_02/ex01/.objs/Fixed.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_02/ex01/.objs/main.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_02/ex01/.objs/main.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_02/ex01/Fixed.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_02/ex01/Fixed.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_02/ex01/Makefile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_02/ex01/fixed" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_02/ex01/main.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_02/ex02/Fixed.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_02/operators_on_fixed/Fixed.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_02/ex02/Fixed.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_02/operators_on_fixed/Fixed.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_02/ex02/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/module_02/conversion_fixed/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_02/ex02/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_02/operators_on_fixed/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_03/ex00/.objs/ClapTrap.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_03/ex00/.objs/ClapTrap.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_03/ex00/.objs/main.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_03/ex00/.objs/main.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_03/ex00/ClapTrap" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_03/ex00/ClapTrap.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_03/ex00/ClapTrap.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_03/ex00/Makefile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_03/ex00/main.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_03/ex01/.objs/ClapTrap.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_03/ex01/.objs/ClapTrap.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_03/ex01/.objs/ScavTrap.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_03/ex01/.objs/ScavTrap.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_03/ex01/.objs/main.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_03/ex01/.objs/main.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_03/ex01/ClapTrap" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_03/ex01/ClapTrap.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_03/ex01/ClapTrap.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_03/ex01/Makefile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_03/ex01/ScavTrap" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_03/ex01/ScavTrap.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_03/ex01/ScavTrap.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_03/ex01/main.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_03/ex02/.objs/ClapTrap.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_03/ex02/.objs/ClapTrap.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_03/ex02/.objs/FragTrap.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_03/ex02/.objs/FragTrap.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_03/ex02/.objs/ScavTrap.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_03/ex02/.objs/ScavTrap.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_03/ex02/.objs/main.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_03/ex02/.objs/main.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_03/ex02/ClapTrap" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_03/ex02/ClapTrap.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_03/ex02/ClapTrap.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_03/ex02/FragTrap.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_03/ex02/FragTrap.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_03/ex02/Makefile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_03/ex02/ScavTrap.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_03/ex02/ScavTrap.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_03/ex02/main.cpp" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -576,7 +551,15 @@
       <option name="project" value="LOCAL" />
       <updated>1725015422766</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="renamed exo names + presque fini ex03 mais coredump surles exceptions">
+      <option name="closed" value="true" />
+      <created>1725022929654</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1725022929654</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -588,7 +571,6 @@
     <isAutomaticReloadCMake value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="redecoupoage fonctions, faire file too long" />
     <MESSAGE value="init claptrap" />
     <MESSAGE value="ex00 claptrap fini" />
     <MESSAGE value="ex01 claptrap fini" />
@@ -613,6 +595,7 @@
     <MESSAGE value="init exo02" />
     <MESSAGE value="exo02 fini avec main de test" />
     <MESSAGE value="init ex03" />
-    <option name="LAST_COMMIT_MESSAGE" value="init ex03" />
+    <MESSAGE value="renamed exo names + presque fini ex03 mais coredump surles exceptions" />
+    <option name="LAST_COMMIT_MESSAGE" value="renamed exo names + presque fini ex03 mais coredump surles exceptions" />
   </component>
 </project>
