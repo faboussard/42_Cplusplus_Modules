@@ -7,7 +7,7 @@ int main(void)
 		Bureaucrat bureaucrat_1("Bureaucrat_1", 1);
 		Bureaucrat bureaucrat_2("Bureaucrat_2", 100);
 
-		std::cout << "------------- Main for ex00 : the Bureaucrats ---------- " << std::endl;
+		std::cout << "------------- Main for megaphone : the Bureaucrats ---------- " << std::endl;
 		std::cout << "------------- the good Bureaucrats ---------- " << std::endl;
 
 

@@ -2,7 +2,7 @@
 #include "Form.hpp"
 
 int main(void) {
-  std::cout << "------------- Main for ex01 : the Forms ---------- "
+  std::cout << "------------- Main for phonebook : the Forms ---------- "
             << std::endl;
 
   try {

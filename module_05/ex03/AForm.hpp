@@ -18,7 +18,7 @@ private:
 public:
   AForm(std::string const &_name, const int signGrade, const int execGrade);
   AForm(const AForm &src);
-  ~AForm();
+  virtual ~AForm();
   AForm &operator=(const AForm &src);
 
   const std::string &getName() const;
