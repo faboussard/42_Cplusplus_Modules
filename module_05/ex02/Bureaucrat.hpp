@@ -1,7 +1,7 @@
 #ifndef BUREAUCRAT_HPP
 #define BUREAUCRAT_HPP
 
-#include "Form.hpp"
+#include "AForm.hpp"
 #include <iostream>
 #include <string>
 
@@ -29,7 +29,7 @@
 #define CYAN "\033[1;36m"
 #define BGWHITE "\033[47m"
 
-class Form;
+class AForm;
 
 class Bureaucrat {
 private:
@@ -48,7 +48,7 @@ public:
   void incrementGrade();
   void decrementGrade();
 
-  void signForm(Form &form) const;
+  void signForm(AForm &AForm) const;
 
   class GradeTooHighException : public std::exception {
   public:
