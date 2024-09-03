@@ -22,90 +22,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="02491725-2efa-4442-943e-b2e1e2a111f9" name="Changes" comment="renamed exo names + presque fini ex03 mais coredump surles exceptions">
-      <change afterPath="$PROJECT_DIR$/module_02/conversion_fixed/Fixed.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module_02/conversion_fixed/Fixed.hpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module_02/conversion_fixed/fixed" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module_02/conversion_fixed/main.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module_02/operators_on_fixed/Makefile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module_03/Claptrap/ClapTrap" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module_03/Claptrap/ClapTrap.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module_03/Claptrap/ClapTrap.hpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module_03/Claptrap/Makefile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module_03/Claptrap/main.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module_03/Fragtrap/ClapTrap" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module_03/Fragtrap/ClapTrap.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module_03/Fragtrap/ClapTrap.hpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module_03/Fragtrap/FragTrap.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module_03/Fragtrap/FragTrap.hpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module_03/Fragtrap/Makefile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module_03/Fragtrap/ScavTrap.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module_03/Fragtrap/ScavTrap.hpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module_03/Fragtrap/main.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module_03/Scavtrap/ClapTrap" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module_03/Scavtrap/ClapTrap.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module_03/Scavtrap/ClapTrap.hpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module_03/Scavtrap/Makefile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module_03/Scavtrap/ScavTrap" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module_03/Scavtrap/ScavTrap.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module_03/Scavtrap/ScavTrap.hpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module_03/Scavtrap/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_02/ex00/Fixed.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_02/Fixed_init/Fixed.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_02/ex00/Fixed.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_02/Fixed_init/Fixed.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_02/ex00/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/module_02/Fixed_init/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_02/ex00/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_02/Fixed_init/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_02/ex01/.objs/Fixed.d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_02/ex01/.objs/Fixed.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_02/ex01/.objs/main.d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_02/ex01/.objs/main.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_02/ex01/Fixed.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_02/ex01/Fixed.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_02/ex01/Makefile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_02/ex01/fixed" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_02/ex01/main.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_02/ex02/Fixed.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_02/operators_on_fixed/Fixed.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_02/ex02/Fixed.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_02/operators_on_fixed/Fixed.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_02/ex02/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/module_02/conversion_fixed/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_02/ex02/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_02/operators_on_fixed/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_03/ex00/.objs/ClapTrap.d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_03/ex00/.objs/ClapTrap.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_03/ex00/.objs/main.d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_03/ex00/.objs/main.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_03/ex00/ClapTrap" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_03/ex00/ClapTrap.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_03/ex00/ClapTrap.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_03/ex00/Makefile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_03/ex00/main.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_03/ex01/.objs/ClapTrap.d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_03/ex01/.objs/ClapTrap.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_03/ex01/.objs/ScavTrap.d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_03/ex01/.objs/ScavTrap.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_03/ex01/.objs/main.d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_03/ex01/.objs/main.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_03/ex01/ClapTrap" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_03/ex01/ClapTrap.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_03/ex01/ClapTrap.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_03/ex01/Makefile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_03/ex01/ScavTrap" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_03/ex01/ScavTrap.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_03/ex01/ScavTrap.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_03/ex01/main.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_03/ex02/.objs/ClapTrap.d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_03/ex02/.objs/ClapTrap.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_03/ex02/.objs/FragTrap.d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_03/ex02/.objs/FragTrap.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_03/ex02/.objs/ScavTrap.d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_03/ex02/.objs/ScavTrap.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_03/ex02/.objs/main.d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_03/ex02/.objs/main.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_03/ex02/ClapTrap" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_03/ex02/ClapTrap.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_03/ex02/ClapTrap.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_03/ex02/FragTrap.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_03/ex02/FragTrap.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_03/ex02/Makefile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_03/ex02/ScavTrap.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_03/ex02/ScavTrap.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_03/ex02/main.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_05/ex03/Intern.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_05/ex03/Intern.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_05/ex03/RobotomyRequestForm.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_05/ex03/RobotomyRequestForm.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_05/ex03/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_05/ex03/main.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,12 +45,12 @@
     &quot;assignee&quot;: &quot;faboussard&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;git@github.com:faboussard/Cpp_Modules.git&quot;,
-    &quot;accountId&quot;: &quot;b0684060-d50d-4de2-af89-3333bd038eea&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "git@github.com:faboussard/Cpp_Modules.git",
+    "accountId": "af6a82cb-35bf-43d1-94ce-cdb6b8df1e90"
   }
-}</component>
+}]]></component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/module_01/ex04/hello" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -158,7 +78,7 @@
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
     "git-widget-placeholder": "master",
-    "last_opened_file_path": "/home/fanny/cpp/module_05",
+    "last_opened_file_path": "/home/fanny/cpp_modules",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -182,11 +102,6 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="main.cpp" type="CppFileRunConfiguration" factoryName="CppFileRunConfiguration" temporary="true" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cpp" TARGET_NAME="main.cpp" CONFIG_NAME="main.cpp">
       <option name="sourceFile" value="module_02/ex01/main.cpp" />
       <method v="2">
@@ -222,6 +137,7 @@
       <workItem from="1724661313016" duration="18121000" />
       <workItem from="1724843135836" duration="19050000" />
       <workItem from="1725006830193" duration="1827000" />
+      <workItem from="1725351689076" duration="1083000" />
     </task>
     <task id="LOCAL-00001" summary="init ex01">
       <option name="closed" value="true" />

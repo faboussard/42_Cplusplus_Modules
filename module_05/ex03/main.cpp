@@ -3,27 +3,27 @@
 
 int main(void)
 {
-	Bureaucrat				belica = Bureaucrat("Belica", 1);
-	Bureaucrat				lea = Bureaucrat("Lea", 149);
-	Intern					joo = Intern();
+	Bureaucrat				B1 = Bureaucrat("B1", 1);
+	Bureaucrat				B2 = Bureaucrat("B2", 149);
+	Intern					intern1 = Intern();
 	AForm*					form;
 
-	form = joo.makeForm("shrubbery creation", "Groot");
-	belica.signForm(*form);
-	lea.executeForm(*form);
-	belica.executeForm(*form);
+	form = intern1.makeForm("ShrubberyCreationForm", "Target1");
+	B1.signForm(*form);
+	B2.executeForm(*form);
+	B1.executeForm(*form);
 	delete form;
 
-	form = joo.makeForm("robotomy request", "Groot");
-	belica.signForm(*form);
-	lea.executeForm(*form);
-	belica.executeForm(*form);
+	form = intern1.makeForm("RobotomyRequestForm", "Target2");
+	B1.signForm(*form);
+	B2.executeForm(*form);
+	B1.executeForm(*form);
 	delete form;
 
-	form = joo.makeForm("presidential pardon", "Groot");
-	belica.signForm(*form);
-	lea.executeForm(*form);
-	belica.executeForm(*form);
+	form = intern1.makeForm("PresidentialPardonForm", "Target3");
+	B1.signForm(*form);
+	B2.executeForm(*form);
+	B1.executeForm(*form);
 	delete form;
 
 	return (0);

@@ -28,7 +28,7 @@ RobotomyRequestForm & RobotomyRequestForm::operator=(RobotomyRequestForm const &
 
 void RobotomyRequestForm::action() const 
 {
-    srand((long) this); // // Initialise le générateur de nombres aléatoires avec l'adresse de l'objet courant (la seed)
+    srand((long) this);
 	if (rand() % 2)
 	{
         std::cout << "RIZZZZZZZZZZZZZZ..." << std::endl
