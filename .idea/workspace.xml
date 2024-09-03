@@ -21,19 +21,10 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="02491725-2efa-4442-943e-b2e1e2a111f9" name="Changes" comment="main du 5 terminé">
-      <change afterPath="$PROJECT_DIR$/module_06/ex00/utils.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module_06/ex00/utils.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="02491725-2efa-4442-943e-b2e1e2a111f9" name="Changes" comment="init scalar converter">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_06/ex00/.objs/ClapTrap.d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_06/ex00/.objs/ClapTrap.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_06/ex00/.objs/main.d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_06/ex00/.objs/main.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_06/ex00/ClapTrap" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_06/ex00/ClapTrap.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_06/ex00/ScalarConverter.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_06/ex00/ClapTrap.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_06/ex00/ScalarConverter.hpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/module_06/ex00/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/module_06/ex00/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_06/ex00/ScalarConverter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_06/ex00/ScalarConverter.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/module_06/ex00/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_06/ex00/main.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -146,7 +137,7 @@
       <workItem from="1724661313016" duration="18121000" />
       <workItem from="1724843135836" duration="19050000" />
       <workItem from="1725006830193" duration="1827000" />
-      <workItem from="1725351689076" duration="4203000" />
+      <workItem from="1725351689076" duration="6664000" />
     </task>
     <task id="LOCAL-00001" summary="init ex01">
       <option name="closed" value="true" />
@@ -492,7 +483,15 @@
       <option name="project" value="LOCAL" />
       <updated>1725353056939</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="init scalar converter">
+      <option name="closed" value="true" />
+      <created>1725356005581</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1725356005581</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -504,7 +503,6 @@
     <isAutomaticReloadCMake value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="ex00 claptrap fini" />
     <MESSAGE value="ex01 claptrap fini" />
     <MESSAGE value="ex02 claptrap fini" />
     <MESSAGE value="ajout macros et protections" />
@@ -529,6 +527,7 @@
     <MESSAGE value="init ex03" />
     <MESSAGE value="renamed exo names + presque fini ex03 mais coredump surles exceptions" />
     <MESSAGE value="main du 5 terminé" />
-    <option name="LAST_COMMIT_MESSAGE" value="main du 5 terminé" />
+    <MESSAGE value="init scalar converter" />
+    <option name="LAST_COMMIT_MESSAGE" value="init scalar converter" />
   </component>
 </project>

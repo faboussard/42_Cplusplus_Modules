@@ -1,15 +1,16 @@
 #include "ScalarConverter.hpp"
 
-int main(void)
+#include <iostream>
+
+int main(int argc, char *argv[])
 {
-	ClapTrap clapRobot("Romulus");
-	clapRobot.attack("Remus");
-	clapRobot.takeDamage(3); // hitpoints : 7
-	clapRobot.beRepaired(1); // hitpoints : 8
-	clapRobot.attack("Maman");
-	clapRobot.beRepaired(1); // hitpoints : 8
-	clapRobot.takeDamage(9); // hitpoints : 0
-	clapRobot.attack("Popi");
-	clapRobot.beRepaired(10); // hitpoints 10
-	return (0);
+	if (argc == 1)
+	{
+		std::cout << "Error: no parameters\n" << "Usage: <program> <literal>" << std::endl;
+		return 1;
+	}
+
+	ScalarConverter::convert(argv[1]);
+
+	return 0;
 }
