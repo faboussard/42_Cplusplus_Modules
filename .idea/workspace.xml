@@ -22,10 +22,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="02491725-2efa-4442-943e-b2e1e2a111f9" name="Changes" comment="init scalar converter">
+      <change afterPath="$PROJECT_DIR$/module_06/ex01/Makefile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module_06/ex01/Serializer.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module_06/ex01/Serializer.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module_06/ex01/main.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module_06/ex02/Base.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module_06/ex02/Base.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module_06/ex02/Makefile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module_06/ex02/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/module_06/ex00/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/module_06/ex00/Makefile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/module_06/ex00/ScalarConverter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_06/ex00/ScalarConverter.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_06/ex00/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_06/ex00/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_06/ex00/utils.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_06/ex00/utils.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_06/ex01/data.hpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,12 +55,12 @@
     &quot;assignee&quot;: &quot;faboussard&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "git@github.com:faboussard/Cpp_Modules.git",
-    "accountId": "af6a82cb-35bf-43d1-94ce-cdb6b8df1e90"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;git@github.com:faboussard/Cpp_Modules.git&quot;,
+    &quot;accountId&quot;: &quot;af6a82cb-35bf-43d1-94ce-cdb6b8df1e90&quot;
   }
-}]]></component>
+}</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/module_01/ex04/hello" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -78,7 +88,7 @@
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
     "git-widget-placeholder": "master",
-    "last_opened_file_path": "/home/fanny/prossi",
+    "last_opened_file_path": "/home/fanny/fanny_cpp_modules/module_06",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -91,11 +101,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/module_06" />
       <recent name="$PROJECT_DIR$/module_06/ex00" />
       <recent name="$PROJECT_DIR$/module_05" />
       <recent name="$PROJECT_DIR$/module_05/ex02" />
       <recent name="$PROJECT_DIR$/module_04/ex03" />
-      <recent name="$PROJECT_DIR$/module_05/ex01" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/CPP_00" />
@@ -137,7 +147,8 @@
       <workItem from="1724661313016" duration="18121000" />
       <workItem from="1724843135836" duration="19050000" />
       <workItem from="1725006830193" duration="1827000" />
-      <workItem from="1725351689076" duration="6664000" />
+      <workItem from="1725351689076" duration="6753000" />
+      <workItem from="1725469609345" duration="5124000" />
     </task>
     <task id="LOCAL-00001" summary="init ex01">
       <option name="closed" value="true" />
@@ -491,7 +502,15 @@
       <option name="project" value="LOCAL" />
       <updated>1725356005581</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="init scalar converter">
+      <option name="closed" value="true" />
+      <created>1725358650683</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1725358650683</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

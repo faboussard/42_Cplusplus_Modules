@@ -1,9 +1,9 @@
 CXX     = c++
-SRCS     = main.cpp ScalarConverter.cpp
+SRCS     = main.cpp Serializer.cpp
 OBJS = $(addprefix $(OBJS_DIR), $(notdir $(SRCS:.cpp=.o)))
 OBJS_DIR = .objs/
 DEPS = $(OBJS:.o=.d)
-NAME    = Convert
+NAME    = Serializer
 
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
