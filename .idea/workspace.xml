@@ -21,14 +21,13 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="02491725-2efa-4442-943e-b2e1e2a111f9" name="Changes" comment="init cpp7">
-      <change afterPath="$PROJECT_DIR$/module_07/ex00/Makefile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module_07/ex00/main.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module_07/ex00/whatever.hpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module_07/ex01/Makefile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module_07/ex01/iter.hpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module_07/ex01/main.cpp" afterDir="false" />
+    <list default="true" id="02491725-2efa-4442-943e-b2e1e2a111f9" name="Changes" comment="ex01 et 00 finished, init ex02">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_06/ex01/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_06/ex01/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_07/ex00/main.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_07/ex02/Array.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_07/ex02/Array.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_07/ex02/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_07/ex02/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_07/main.cpp" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,7 +80,7 @@
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
     "git-widget-placeholder": "master",
-    "last_opened_file_path": "/home/fanny/fanny_cpp_modules/module_07",
+    "last_opened_file_path": "/home/fanny/druina",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -142,15 +141,8 @@
       <workItem from="1725006830193" duration="1827000" />
       <workItem from="1725351689076" duration="6753000" />
       <workItem from="1725469609345" duration="9499000" />
-      <workItem from="1725483314042" duration="988000" />
-    </task>
-    <task id="LOCAL-00001" summary="init ex01">
-      <option name="closed" value="true" />
-      <created>1721730659832</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1721730659832</updated>
+      <workItem from="1725483314042" duration="1200000" />
+      <workItem from="1725778439514" duration="2856000" />
     </task>
     <task id="LOCAL-00002" summary="init PhoneBook.cpp">
       <option name="closed" value="true" />
@@ -528,7 +520,23 @@
       <option name="project" value="LOCAL" />
       <updated>1725482876030</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="ex01 et 00 finished, init ex02">
+      <option name="closed" value="true" />
+      <created>1725484491614</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1725484491614</updated>
+    </task>
+    <task id="LOCAL-00050" summary="ex01 et 00 finished, init ex02">
+      <option name="closed" value="true" />
+      <created>1725484503498</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1725484503499</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -540,7 +548,6 @@
     <isAutomaticReloadCMake value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="init dog" />
     <MESSAGE value="ajout &#9;if (_hitPoints &lt; 0)&#10;      &#9;&#9;_hitPoints = 0;&#10;      &#9;if (amount &gt;= static_cast&lt;unsigned int&gt;(_hitPoints))&#10;      &#9;&#9;_hitPoints = 0;" />
     <MESSAGE value="class dog ok" />
     <MESSAGE value="exo 00 fini" />
@@ -565,6 +572,7 @@
     <MESSAGE value="ex01 ended" />
     <MESSAGE value="ex02 ended" />
     <MESSAGE value="init cpp7" />
-    <option name="LAST_COMMIT_MESSAGE" value="init cpp7" />
+    <MESSAGE value="ex01 et 00 finished, init ex02" />
+    <option name="LAST_COMMIT_MESSAGE" value="ex01 et 00 finished, init ex02" />
   </component>
 </project>

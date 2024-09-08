@@ -3,17 +3,6 @@
 
 #include <iostream>
 
-// Serialized data ?
-
-//pk ce resultat ? pk serializer na pas la meme adresse ?
-//❯ ./Serializer
-//		Data             : 0x5d263ab55eb0
-//Serializer         : 102418775105200
-//Deserialized data: 0x5d263ab55eb0
-//42
-//Hello World
-//c
-
 int main()
 {
 	Data* data;
