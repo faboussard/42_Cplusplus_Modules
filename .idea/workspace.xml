@@ -21,11 +21,9 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="02491725-2efa-4442-943e-b2e1e2a111f9" name="Changes" comment="ex00 fini">
+    <list default="true" id="02491725-2efa-4442-943e-b2e1e2a111f9" name="Changes" comment="init ex01 module 8">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/module_08/ex01/Span.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_08/ex01/Span.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_08/ex01/Span.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_08/ex01/Span.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_08/ex01/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_08/ex01/main.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -141,15 +139,7 @@
       <workItem from="1725469609345" duration="9499000" />
       <workItem from="1725483314042" duration="1200000" />
       <workItem from="1725778439514" duration="12601000" />
-      <workItem from="1725810160715" duration="4388000" />
-    </task>
-    <task id="LOCAL-00006" summary="finished ex03">
-      <option name="closed" value="true" />
-      <created>1722876750467</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1722876750467</updated>
+      <workItem from="1725810160715" duration="4710000" />
     </task>
     <task id="LOCAL-00007" summary="revue makefile">
       <option name="closed" value="true" />
@@ -535,7 +525,15 @@
       <option name="project" value="LOCAL" />
       <updated>1725792003530</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="init ex01 module 8">
+      <option name="closed" value="true" />
+      <created>1725815902162</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1725815902164</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -547,7 +545,6 @@
     <isAutomaticReloadCMake value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="init ex01" />
     <MESSAGE value="modif claptrap with class overload ostream" />
     <MESSAGE value="ajout setter use dans exo 01 et changement noms makefile" />
     <MESSAGE value="ex01 ok" />
@@ -572,6 +569,7 @@
     <MESSAGE value="ex02 tests terminés" />
     <MESSAGE value="init module 8" />
     <MESSAGE value="ex00 fini" />
-    <option name="LAST_COMMIT_MESSAGE" value="ex00 fini" />
+    <MESSAGE value="init ex01 module 8" />
+    <option name="LAST_COMMIT_MESSAGE" value="init ex01 module 8" />
   </component>
 </project>
