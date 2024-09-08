@@ -19,11 +19,11 @@ void printArray(const Array<T> &array)
 
 int main()
 {
-	std::cout << "\t  BASIC TESTS" << std::endl;
+	std::cout << "\n\t\tBASIC TESTS\n" << std::endl;
 	{
 		try
 		{
-			Array<int> intArray(3);
+			Array<int> intArray(MAX_VALUE);
 			for (unsigned int i = 0; i < intArray.size(); ++i)
 			{
 				intArray[i] = i;
@@ -50,7 +50,7 @@ int main()
 			std::cerr << e.what() << std::endl;
 		}
 	}
-	std::cout << "\t  SIMPLE OUT OF RANGE TESTS" << std::endl;
+	std::cout << "\n\t\tSIMPLE OUT OF RANGE TESTS\n" << std::endl;
 	{
 		try
 		{
@@ -81,7 +81,7 @@ int main()
 			std::cerr << e.what() << std::endl;
 		}
 	}
-	std::cout << "\t       OTHER OUT OF RANGE TESTS\n" << std::endl;
+	std::cout << "\n\t\tOTHER OUT OF RANGE TESTS\n" << std::endl;
 	{
 		try
 		{
@@ -105,7 +105,7 @@ int main()
 	{
 		std::cerr << e.what() << std::endl;
 	}
-	std::cout << "\t        DEEP COPY TESTS\n" << std::endl;
+	std::cout << "\n\t\tDEEP COPY TESTS\n" << std::endl;
 	try
 	{
 		{
