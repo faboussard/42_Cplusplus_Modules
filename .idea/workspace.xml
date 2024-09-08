@@ -21,13 +21,11 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="02491725-2efa-4442-943e-b2e1e2a111f9" name="Changes" comment="ex01 et 00 finished, init ex02">
+    <list default="true" id="02491725-2efa-4442-943e-b2e1e2a111f9" name="Changes" comment="init module 8">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_06/ex01/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_06/ex01/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_07/ex00/main.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_07/ex02/Array.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_07/ex02/Array.hpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/module_07/ex02/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_07/ex02/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_07/main.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_08/ex00/easyfind.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_08/ex00/easyfind.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_08/ex00/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_08/ex00/main.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +78,7 @@
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
     "git-widget-placeholder": "master",
-    "last_opened_file_path": "/home/fanny/druina",
+    "last_opened_file_path": "/home/fanny/fanny_cpp_modules/module_08",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -93,11 +91,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/module_08" />
       <recent name="$PROJECT_DIR$/module_07" />
       <recent name="$PROJECT_DIR$/module_06" />
       <recent name="$PROJECT_DIR$/module_06/ex00" />
       <recent name="$PROJECT_DIR$/module_05" />
-      <recent name="$PROJECT_DIR$/module_05/ex02" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/CPP_00" />
@@ -142,31 +140,7 @@
       <workItem from="1725351689076" duration="6753000" />
       <workItem from="1725469609345" duration="9499000" />
       <workItem from="1725483314042" duration="1200000" />
-      <workItem from="1725778439514" duration="2856000" />
-    </task>
-    <task id="LOCAL-00002" summary="init PhoneBook.cpp">
-      <option name="closed" value="true" />
-      <created>1721739864600</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1721739864600</updated>
-    </task>
-    <task id="LOCAL-00003" summary="ajout surchage doperateur operator &lt;&lt; contact">
-      <option name="closed" value="true" />
-      <created>1721741585247</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1721741585247</updated>
-    </task>
-    <task id="LOCAL-00004" summary="ok ex01">
-      <option name="closed" value="true" />
-      <created>1722861574831</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1722861574831</updated>
+      <workItem from="1725778439514" duration="12548000" />
     </task>
     <task id="LOCAL-00005" summary="init ex03">
       <option name="closed" value="true" />
@@ -536,7 +510,31 @@
       <option name="project" value="LOCAL" />
       <updated>1725484503499</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="hpp et tpp ready for ex02">
+      <option name="closed" value="true" />
+      <created>1725784619568</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1725784619570</updated>
+    </task>
+    <task id="LOCAL-00052" summary="ex02 tests terminés">
+      <option name="closed" value="true" />
+      <created>1725789741115</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1725789741115</updated>
+    </task>
+    <task id="LOCAL-00053" summary="init module 8">
+      <option name="closed" value="true" />
+      <created>1725790348982</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1725790348982</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -548,9 +546,6 @@
     <isAutomaticReloadCMake value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="ajout &#9;if (_hitPoints &lt; 0)&#10;      &#9;&#9;_hitPoints = 0;&#10;      &#9;if (amount &gt;= static_cast&lt;unsigned int&gt;(_hitPoints))&#10;      &#9;&#9;_hitPoints = 0;" />
-    <MESSAGE value="class dog ok" />
-    <MESSAGE value="exo 00 fini" />
     <MESSAGE value="init ex01" />
     <MESSAGE value="modif claptrap with class overload ostream" />
     <MESSAGE value="ajout setter use dans exo 01 et changement noms makefile" />
@@ -573,6 +568,9 @@
     <MESSAGE value="ex02 ended" />
     <MESSAGE value="init cpp7" />
     <MESSAGE value="ex01 et 00 finished, init ex02" />
-    <option name="LAST_COMMIT_MESSAGE" value="ex01 et 00 finished, init ex02" />
+    <MESSAGE value="hpp et tpp ready for ex02" />
+    <MESSAGE value="ex02 tests terminés" />
+    <MESSAGE value="init module 8" />
+    <option name="LAST_COMMIT_MESSAGE" value="init module 8" />
   </component>
 </project>

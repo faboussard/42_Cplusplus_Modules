@@ -31,9 +31,9 @@ int main()
 			std::cout << "Array<int> is: ";
 			printArray(intArray);
 		}
-		catch (const std::out_of_range &e)
+		catch (std::exception &e)
 		{
-			std::cerr << e.what() << std::endl;
+			std::cerr << "Exception: " <<  e.what() << std::endl;
 		}
 		try
 		{
@@ -45,9 +45,9 @@ int main()
 			std::cout << "Array<std::string> is: ";
 			printArray(stringArray);
 		}
-		catch (const std::out_of_range &e)
+		catch (std::exception &e)
 		{
-			std::cerr << e.what() << std::endl;
+			std::cerr << "Exception: " <<  e.what() << std::endl;
 		}
 	}
 	std::cout << "\n\t\tSIMPLE OUT OF RANGE TESTS\n" << std::endl;
@@ -62,9 +62,9 @@ int main()
 			std::cout << "Array<int> is: ";
 			printArray(intArray);
 		}
-		catch (const std::out_of_range &e)
+		catch (std::exception &e)
 		{
-			std::cerr << e.what() << std::endl;
+			std::cerr << "Exception: " <<  e.what() << std::endl;
 		}
 		try
 		{
@@ -76,9 +76,9 @@ int main()
 			std::cout << "Array<std::string> is: ";
 			printArray(stringArray);
 		}
-		catch (const std::out_of_range &e)
+		catch (std::exception &e)
 		{
-			std::cerr << e.what() << std::endl;
+			std::cerr << "Exception: " <<  e.what() << std::endl;
 		}
 	}
 	std::cout << "\n\t\tOTHER OUT OF RANGE TESTS\n" << std::endl;
@@ -87,13 +87,9 @@ int main()
 		{
 			Array<int> a(-2);
 		}
-		catch (const std::out_of_range &e)
+		catch (std::exception &e)
 		{
-			std::cerr << e.what() << std::endl;
-		}
-		catch (const std::bad_alloc &e)
-		{
-			std::cerr <<  "Memory allocation failed " << e.what() << std::endl;
+			std::cerr << "Exception: " <<  e.what() << std::endl;
 		}
 	}
 	try
@@ -101,9 +97,9 @@ int main()
 		Array<int> a(MAX_VALUE);
 		a[MAX_VALUE] = 0;
 	}
-	catch (const std::out_of_range &e)
+	catch (std::exception &e)
 	{
-		std::cerr << e.what() << std::endl;
+		std::cerr << "Exception: " <<  e.what() << std::endl;
 	}
 	std::cout << "\n\t\tDEEP COPY TESTS\n" << std::endl;
 	try
@@ -132,9 +128,9 @@ int main()
 			printArray(copy);
 		}
 	}
-	catch (const std::out_of_range &e)
+	catch (std::exception &e)
 	{
-		std::cerr << e.what() << std::endl;
+		std::cerr << "Exception: " <<  e.what() << std::endl;
 	}
 	return 0;
 }
