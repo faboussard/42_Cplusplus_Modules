@@ -21,12 +21,12 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="02491725-2efa-4442-943e-b2e1e2a111f9" name="Changes" comment="init ex01 module 8">
+    <list default="true" id="02491725-2efa-4442-943e-b2e1e2a111f9" name="Changes" comment="exo01 fini with tests">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_08/ex01/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/module_08/ex01/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_08/ex01/Span.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_08/ex01/Span.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/module_08/ex01/Span.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_08/ex01/Span.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_08/ex01/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_08/ex01/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_08/ex02/MutantStack.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_08/ex02/MutantStack.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_08/ex02/MutantStack.tpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_08/ex02/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_08/ex02/main.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,27 +69,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;C/C++ File.main.cpp.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
-    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/fanny/druina&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;structure.view.defaults.are.configured&quot;: &quot;true&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "C/C++ File.main.cpp.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "/home/fanny/tdamerose_cpp",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "structure.view.defaults.are.configured": "true",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/module_08" />
@@ -143,15 +143,7 @@
       <workItem from="1725483314042" duration="1200000" />
       <workItem from="1725778439514" duration="12601000" />
       <workItem from="1725810160715" duration="4736000" />
-      <workItem from="1725857832041" duration="4215000" />
-    </task>
-    <task id="LOCAL-00008" summary="getline on hello ok">
-      <option name="closed" value="true" />
-      <created>1722894898088</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1722894898088</updated>
+      <workItem from="1725857832041" duration="4927000" />
     </task>
     <task id="LOCAL-00009" summary="content is copied">
       <option name="closed" value="true" />
@@ -537,7 +529,15 @@
       <option name="project" value="LOCAL" />
       <updated>1725816043998</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="exo01 fini with tests">
+      <option name="closed" value="true" />
+      <created>1725862182769</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1725862182770</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -549,7 +549,6 @@
     <isAutomaticReloadCMake value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="modif claptrap with class overload ostream" />
     <MESSAGE value="ajout setter use dans exo 01 et changement noms makefile" />
     <MESSAGE value="ex01 ok" />
     <MESSAGE value="ajout setter et getter d une idee . &#10;init ex02" />
@@ -574,6 +573,7 @@
     <MESSAGE value="init module 8" />
     <MESSAGE value="ex00 fini" />
     <MESSAGE value="init ex01 module 8" />
-    <option name="LAST_COMMIT_MESSAGE" value="init ex01 module 8" />
+    <MESSAGE value="exo01 fini with tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="exo01 fini with tests" />
   </component>
 </project>
