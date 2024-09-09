@@ -25,15 +25,25 @@ public:
 		return _vector;
 	}
 
-	class SpanIsFullException : public std::exception
-	{
-	public: virtual const char* what() const throw();
+	const unsigned int &getMaxSize() const {
+		return _maxSize;
+	}
+
+	class SpanIsFullException : public std::logic_error {
+	public:
+		SpanIsFullException() : std::logic_error("Span is full, cannot add more numbers") {}
 	};
 
-	class SizeTooSmallException : public std::exception
-	{
-	public: virtual const char* what() const throw();
+	class SizeTooSmallException : public std::logic_error {
+	public:
+		SizeTooSmallException() : std::logic_error("Not enough elements to calculate a span") {}
 	};
+
+class NoNegativeNumbers: public std::invalid_argument{
+public:
+	NoNegativeNumbers() : std::invalid_argument("positive numbers only") {};
+};
+
 
 private:
 	std::vector<int> _vector;

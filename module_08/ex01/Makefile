@@ -1,5 +1,5 @@
 CXX     = c++
-SRCS     = main.cpp span.cpp
+SRCS     = main.cpp Span.cpp
 OBJS = $(addprefix $(OBJS_DIR), $(notdir $(SRCS:.cpp=.o)))
 OBJS_DIR = .objs/
 DEPS = $(OBJS:.o=.d)
