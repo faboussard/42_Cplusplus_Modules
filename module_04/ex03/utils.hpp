@@ -9,7 +9,7 @@
 #define MAX_ITEMS_NUMBERS 4
 
 #define DEFAULT_CONSTRUCTOR_MESSAGE " Default Constructor called"
-#define CONSTRUCTOR_MESSAGE " Type Constructor called"
+#define CONSTRUCTOR_MESSAGE " Parametric Constructor called"
 #define COPY_CONSTRUCTOR_MESSAGE " Copy Constructor called"
 #define COPY_ASSIGNMENT_MESSAGE " Copy Assignment operator called"
 #define DESTRUCTOR_MESSAGE " Destructor called"
