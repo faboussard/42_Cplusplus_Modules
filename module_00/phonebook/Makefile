@@ -30,7 +30,7 @@ $(OBJ_PATH)%.o: $(SRC_PATH)%.cpp
 $(NAME): $(OBJS)
 	$(CXX) $(CXXFLAGS) $(OBJS) -o $@ $(INC)
 
-# Clean up build files rule
+# Clean up build Data rule
 clean:
 	rm -rf $(OBJ_PATH)
 

@@ -67,7 +67,7 @@ unsigned int Span::shortestSpan() const
 
 unsigned int Span::longestSpan() const
 {
-	if (this->_vector.size() < 2)
+	if (_vector.size() < 2)
 	{
 		throw Span::SizeTooSmallException();
 	}

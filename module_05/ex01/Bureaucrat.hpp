@@ -8,7 +8,7 @@
 #define DEFAULT_CONSTRUCTOR_MESSAGE \
 	std::cout << MAGENTA << "Default Constructor called" << RESET << std::endl;
 #define CONSTRUCTOR_MESSAGE \
-	std::cout << MAGENTA << "Constructor called" << RESET << std::endl;
+	std::cout << MAGENTA << "Parametric Constructor called" << RESET << std::endl;
 #define COPY_CONSTRUCTOR_MESSAGE \
 	std::cout << MAGENTA << "Copy Constructor called" << RESET << std::endl;
 #define COPY_ASSIGNMENT_MESSAGE \
