@@ -1,5 +1,12 @@
 #include "MutantStack.hpp"
 
+/*
+ * Usage:
+ * MutantStack<int> stack1; // Uses std::deque<int> by default
+ * MutantStack<int, std::vector<int>> stack2; // Uses std::vector<int> instead
+ * MutantStack<int, std::list<int>> stack3; // Uses std::list<int> instead
+ */
+
 int main()
 {
 	{
@@ -39,20 +46,40 @@ int main()
 	std::cout << "\n\t\tTEST WITH LIST\n" << std::endl;
 
 	{
-			std::list<int> lst;
+		std::list<int> lst;
 
-			lst.push_back(1);
-			lst.push_back(2);
-			lst.push_back(3);
-			lst.push_back(4);
-			lst.push_back(5);
+		lst.push_back(1);
+		lst.push_back(2);
+		lst.push_back(3);
+		lst.push_back(4);
+		lst.push_back(5);
 
-			std::cout << "std::list contains: ";
-			for (std::list<int>::iterator it = lst.begin(); it != lst.end(); ++it)
-			{
-				std::cout << *it << " ";
-			}
-			std::cout << std::endl;
+		std::cout << "std::list contains: ";
+		for (std::list<int>::iterator it = lst.begin(); it != lst.end(); ++it
+				)
+		{
+			std::cout << *it << " ";
+		}
+		std::cout << std::endl;
 	}
+	{
+		MutantStack<int, std::list<int> > lmstack;
+
+		lmstack.push(1);
+		lmstack.push(2);
+		lmstack.push(3);
+		lmstack.push(4);
+		lmstack.push(5);
+
+		std::cout << "MutantStack<int, std::list<int>> lmstack contains: ";
+
+		for (MutantStack<int, std::list<int> >::iterator it = lmstack.begin(); it != lmstack.end(); ++it
+				)
+		{
+			std::cout << *it << " ";
+		}
+		std::cout << std::endl;
+	}
+
 	return 0;
 }
