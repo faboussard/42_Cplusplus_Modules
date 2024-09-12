@@ -11,10 +11,11 @@
 #define COMA_SEPARATOR ','
 #define DASH_SEPARATOR '|'
 
-typedef std::map<std::string, float> map;
 
 class BitcoinExchange
 {
+	typedef std::map<std::string, float> map;
+
 private:
 	void open_file(const char *filename, std::ifstream &infile);
 
@@ -24,12 +25,11 @@ private:
 	void process_input_file(std::ifstream &infile);
 	void process_data_file(std::ifstream &infile);
 
-	void print_database(const map &database) const;
 
 	std::string _inputFile;
 	std::string _dataFile;
-	map _databaseMap;      // Data from dataFile
-	map _inputDataMap;     // Data from inputFile
+	map _databaseMap;
+	map _inputDataMap;
 
 public:
 	BitcoinExchange(const std::string &inputFile, const std::string &dataFile);
@@ -44,6 +44,8 @@ public:
 
 	bool extract_dataFile(std::string &fileName);
 	bool extract_inputFile(std::string &fileName);
+	void print_database(const map &database) const;
+
 
 //	bool format_data();
 	void process();

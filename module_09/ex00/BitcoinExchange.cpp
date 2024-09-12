@@ -1,5 +1,6 @@
 #include "BitcoinExchange.hpp"
 #include <sstream>
+#include <stdexcept>
 
 BitcoinExchange::BitcoinExchange(const std::string &inputFile, const std::string &dataFile)
 		: _inputFile(inputFile), _dataFile(dataFile) {}
@@ -21,6 +22,39 @@ BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &rhs)
 
 BitcoinExchange::~BitcoinExchange() {}
 
+/*============================================================================*/
+/*       getter 			   	                                        */
+/*============================================================================*/
+
+
+BitcoinExchange::map &BitcoinExchange::getDatabaseMap()
+{
+	return _databaseMap;
+}
+
+BitcoinExchange::map &BitcoinExchange::getInputbaseMap()
+{
+	return _inputDataMap;
+}
+
+std::string &BitcoinExchange::getInputFile()
+{
+	return _inputFile;
+}
+
+std::string &BitcoinExchange::getDataFile()
+{
+	return _dataFile;
+}
+
+
+
+/*============================================================================*/
+/*       member functions				                                       */
+/*============================================================================*/
+
+
+
 void BitcoinExchange::open_file(const char *filename, std::ifstream &infile)
 {
 	infile.open(filename);
@@ -31,57 +65,44 @@ void BitcoinExchange::open_file(const char *filename, std::ifstream &infile)
 	}
 }
 
-
-/*============================================================================*/
-/*       getter 			   	                                        */
-/*============================================================================*/
-
-map &BitcoinExchange::getDatabaseMap()
-{
-	return _databaseMap;
-}
-
-map &BitcoinExchange::getInputbaseMap()
-{
-	return _inputDataMap;
-}
-
-std::string &BitcoinExchange::getDataFile()
-{
-	return _dataFile;
-}
-
-std::string &BitcoinExchange::getInputFile()
-{
-	return _inputFile;
-}
-
-
-
-/*============================================================================*/
-/*       member functions				                                       */
-/*============================================================================*/
-
 bool BitcoinExchange::parse_line_datafile(const std::string &line, std::string &key, float &value)
 {
 	std::istringstream iss(line);
+	std::getline(iss, key, COMA_SEPARATOR);
+	std::string valueStr;
+	std::getline(iss, valueStr);
 
-	if (std::getline(iss, key, COMA_SEPARATOR) && (iss >> value))
+	try
 	{
-		return true;
+		value = std::stof(valueStr);
+		if (key.empty() || valueStr.empty())
+			return false;
 	}
-	return false;
+	catch (const std::invalid_argument &)
+	{
+		return false;
+	}
+	return true;
 }
 
 bool BitcoinExchange::parse_line_inputfile(const std::string &line, std::string &key, float &value)
 {
 	std::istringstream iss(line);
+	std::getline(iss, key, DASH_SEPARATOR);
+	std::string valueStr;
+	std::getline(iss, valueStr);
 
-	if (std::getline(iss, key, DASH_SEPARATOR) && (iss >> value))
+	try
 	{
-		return true;
+		value = std::stof(valueStr);
+		if (key.empty() || valueStr.empty())
+			return false;
 	}
-	return false;
+	catch (const std::invalid_argument &)
+	{
+		return false;
+	}
+	return true;
 }
 
 void BitcoinExchange::process_input_file(std::ifstream &infile)
@@ -90,6 +111,7 @@ void BitcoinExchange::process_input_file(std::ifstream &infile)
 	std::string key;
 	float value;
 
+	std::getline(infile, line);
 	while (std::getline(infile, line))
 	{
 		if (parse_line_inputfile(line, key, value))
@@ -109,6 +131,7 @@ void BitcoinExchange::process_data_file(std::ifstream &infile)
 	std::string key;
 	float value;
 
+	std::getline(infile, line);
 	while (std::getline(infile, line))
 	{
 		if (parse_line_datafile(line, key, value))
@@ -126,10 +149,10 @@ bool BitcoinExchange::extract_dataFile(std::string &fileName)
 {
 	try
 	{
-		std::ifstream input_infile;
-		open_file(fileName.c_str(), input_infile);
-		process_data_file(input_infile);
-		input_infile.close();
+		std::ifstream data_infile;
+		open_file(fileName.c_str(), data_infile);
+		process_data_file(data_infile);
+		data_infile.close();
 
 		return true;
 	}
@@ -158,43 +181,39 @@ bool BitcoinExchange::extract_inputFile(std::string &fileName)
 	}
 }
 
+//void BitcoinExchange::print_database(const map &database) const
+//{
+//	for (map::const_iterator it = database.begin(); it != database.end(); ++it)
+//	{
+//		std::cout << "Date: " << it->first << ", Value: " << it->second << std::endl;
+//	}
+//}
+
 void BitcoinExchange::print_database(const map &database) const
 {
 	for (map::const_iterator it = database.begin(); it != database.end(); ++it)
 	{
-		std::cout << "Date: " << it->first << ", Value: " << it->second << std::endl;
+		std::cout << "Date: " << it->first << std::endl;
 	}
 }
+
 
 void BitcoinExchange::process()
 {
 	if (extract_dataFile(_dataFile) && extract_inputFile(_inputFile))
 	{
-		for (const auto &inputPair : _inputDataMap)
+		for (map::iterator inputIt = _inputDataMap.begin(); inputIt != _inputDataMap.end(); ++inputIt)
 		{
-			auto it = _databaseMap.find(inputPair.first);
-			if (it != _databaseMap.end())
+			map::iterator dataIt = _databaseMap.find(inputIt->first);
+			if (dataIt != _databaseMap.end())
 			{
-				float result = inputPair.second * it->second;
-				std::cout << "Date: " << inputPair.first
-						  << ", Price: " << inputPair.second
-						  << ", Rate: " << it->second
-						  << ", Result: " << result << std::endl;
+				float result = inputIt->second * dataIt->second;
+				std::cout << inputIt->first << " => " << inputIt->second << " = " << result << std::endl;
 			}
 			else
 			{
-				std::cerr << "Warning: No exchange rate found for date: " << inputPair.first << std::endl;
+				std::cerr << "Warning: No exchange rate found for date: " << inputIt->first << std::endl;
 			}
 		}
 	}
 }
-
-
-
-//std::ostream &operator<<(std::ostream &stream, BitcoinExchange &bitcoinExchange)
-//{
-//	map &database = getDatabaseMap();
-//	map &inputbase = getInputbaseMap();
-//	for ()
-//	stream << "Date: " <<
-//}
