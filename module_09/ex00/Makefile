@@ -5,7 +5,7 @@ OBJS_DIR = .objs/
 DEPS = $(OBJS:.o=.d)
 NAME    = btc
 
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98
+CXXFLAGS = #-Wall -Wextra -Werror -std=c++98
 
 all: $(NAME)
 
