@@ -38,3 +38,38 @@ does the following:
 Why Do This?
 
 Setting shortest to the maximum possible value of unsigned int is often done as an initialization step in algorithms that need to find the minimum value in a sequence of numbers.
+
+module 9
+
+ChatGPT
+
+La différence entre les deux versions de votre constructeur BitcoinExchange::BitcoinExchange() est subtile, mais importante en C++.
+Version 1:
+
+cpp
+
+BitcoinExchange::BitcoinExchange()
+{
+}
+
+Version 2:
+
+cpp
+
+BitcoinExchange::BitcoinExchange() : _database()
+{
+}
+
+Explication des deux versions :
+
+    Version 1 (BitcoinExchange::BitcoinExchange() {}) :
+        Ici, le constructeur par défaut est utilisé. Le corps du constructeur est vide, et les membres de la classe (comme _database) sont initialisés avec leurs constructeurs par défaut avant l'exécution du corps du constructeur. Pour les types de données intégrés (comme int, float, etc.), ces membres ne sont pas initialisés automatiquement, ce qui pourrait causer des comportements indéterminés si vous ne les initialisez pas explicitement.
+
+    Version 2 (BitcoinExchange::BitcoinExchange() : _database() {}) :
+        Cette version utilise une liste d'initialisation pour initialiser explicitement _database. Dans ce cas, _database est initialisé par son constructeur par défaut avant que le corps du constructeur soit exécuté. Si _database est un conteneur standard de la bibliothèque C++ (comme std::map), il sera correctement initialisé par son constructeur par défaut, ce qui est le comportement souhaité.
+
+Est-ce un oubli ?
+
+    Si _database est un type qui nécessite une initialisation particulière, alors ne pas utiliser de liste d'initialisation dans la première version peut être un oubli. Dans la plupart des cas, pour les types de données complexes (comme std::map, std::vector, etc.), il est préférable d'utiliser une liste d'initialisation pour garantir que les membres sont initialisés correctement.
+
+    En résumé : Si vous avez des membres de classe qui nécessitent une initialisation spécifique ou qui ont des constructeurs par défaut, la deuxième version est plus explicite et peut prévenir des erreurs potentielles. Cependant, si _database est un type qui s'initialise correctement par défaut (comme un conteneur standard), la première version pourrait aussi fonctionner, mais elle est moins claire et explicite.

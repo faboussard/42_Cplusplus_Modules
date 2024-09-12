@@ -21,22 +21,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="02491725-2efa-4442-943e-b2e1e2a111f9" name="Changes" comment="added parametric to default constructor">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_00/phonebook/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/module_00/phonebook/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_01/ex00/BraiiiiiiinnnzzzZ" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_01/ex01/Horde" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_05/ex00/Bureaucrat.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_05/ex00/Bureaucrat.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_05/ex01/Bureaucrat.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_05/ex01/Bureaucrat.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_05/ex02/Bureaucrat.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_05/ex02/Bureaucrat.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_05/ex03/Bureaucrat.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_05/ex03/Bureaucrat.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_08/ex01/Span.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_08/ex01/Span.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_09/ex00/BitcoinExchange.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_09/ex00/BitcoinExchange.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_09/ex00/files/data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/module_09/ex00/Data/data.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_09/ex00/files/input.txt" beforeDir="false" afterPath="$PROJECT_DIR$/module_09/ex00/Data/input.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_09/ex00/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_09/ex00/main.cpp" afterDir="false" />
-    </list>
+    <list default="true" id="02491725-2efa-4442-943e-b2e1e2a111f9" name="Changes" comment="init parsing btc (ex00 module 9)" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -153,15 +138,7 @@
       <workItem from="1725778439514" duration="12601000" />
       <workItem from="1725810160715" duration="4736000" />
       <workItem from="1725857832041" duration="4927000" />
-      <workItem from="1726042267745" duration="17699000" />
-    </task>
-    <task id="LOCAL-00012" summary="exo 05 ok">
-      <option name="closed" value="true" />
-      <created>1722950789971</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1722950789972</updated>
+      <workItem from="1726042267745" duration="17993000" />
     </task>
     <task id="LOCAL-00013" summary="init ex06">
       <option name="closed" value="true" />
@@ -547,7 +524,15 @@
       <option name="project" value="LOCAL" />
       <updated>1726052774563</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="init parsing btc (ex00 module 9)">
+      <option name="closed" value="true" />
+      <created>1726069115347</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1726069115347</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -559,7 +544,6 @@
     <isAutomaticReloadCMake value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fini mlodule 04" />
     <MESSAGE value="bureacrat with grade and name initialized" />
     <MESSAGE value="ajout exceptions" />
     <MESSAGE value="ex01 fini manque le main" />
@@ -584,6 +568,7 @@
     <MESSAGE value="added notes . changed const place in module 7 ." />
     <MESSAGE value="added muutant stack list in ex02 module 8 - MutantStack&lt;int, std::list&lt;int&gt;&gt; lmstack" />
     <MESSAGE value="added parametric to default constructor" />
-    <option name="LAST_COMMIT_MESSAGE" value="added parametric to default constructor" />
+    <MESSAGE value="init parsing btc (ex00 module 9)" />
+    <option name="LAST_COMMIT_MESSAGE" value="init parsing btc (ex00 module 9)" />
   </component>
 </project>
