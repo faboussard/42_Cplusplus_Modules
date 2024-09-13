@@ -21,7 +21,13 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="02491725-2efa-4442-943e-b2e1e2a111f9" name="Changes" comment="init parsing btc (ex00 module 9)" />
+    <list default="true" id="02491725-2efa-4442-943e-b2e1e2a111f9" name="Changes" comment="pb sur malformed line">
+      <change afterPath="$PROJECT_DIR$/module_09/ex00/.idea/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_09/ex00/BitcoinExchange.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_09/ex00/BitcoinExchange.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_09/ex00/BitcoinExchange.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_09/ex00/BitcoinExchange.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_09/ex00/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_09/ex00/main.cpp" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -40,12 +46,12 @@
     &quot;assignee&quot;: &quot;faboussard&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "git@github.com:faboussard/Cpp_Modules.git",
-    "accountId": "b0684060-d50d-4de2-af89-3333bd038eea"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;git@github.com:faboussard/Cpp_Modules.git&quot;,
+    &quot;accountId&quot;: &quot;b0684060-d50d-4de2-af89-3333bd038eea&quot;
   }
-}]]></component>
+}</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/module_01/ex04/hello" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -65,7 +71,11 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "C/C++ File.main.cpp.executor": "Run",
+    "C/C++ File.main.cpp.executor": "Debug",
+    "Makefile Target.Unnamed.executor": "Run",
+    "Makefile Target.makefile.executor": "Run",
+    "Native Application.Unnamed.executor": "Run",
+    "Native Application.btc.executor": "Debug",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.cidr.known.project.marker": "true",
     "RunOnceActivity.readMode.enableVisualFormatting": "true",
@@ -79,7 +89,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "settings.editor.selected.configurable": "CLionExternalConfigurable",
     "structure.view.defaults.are.configured": "true",
     "vue.rearranger.settings.migration": "true"
   }
@@ -96,13 +106,29 @@
       <recent name="$PROJECT_DIR$/CPP_00" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration name="main.cpp" type="CppFileRunConfiguration" factoryName="CppFileRunConfiguration" temporary="true" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cpp" TARGET_NAME="main.cpp" CONFIG_NAME="main.cpp">
+  <component name="RunManager" selected="Native Application.btc">
+    <configuration name="btc" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" version="1" RUN_PATH="$PROJECT_DIR$/module_09/ex00/main.cpp">
+      <method v="2">
+        <option name="CLION.COMPOUND.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="main.cpp" type="CppFileRunConfiguration" factoryName="CppFileRunConfiguration" temporary="true" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="fanny_cpp" TARGET_NAME="main.cpp" CONFIG_NAME="main.cpp">
       <option name="sourceFile" value="module_02/ex01/main.cpp" />
       <method v="2">
         <option name="com.jetbrains.cidr.cpp.runfile.CppFileBuildBeforeRunTaskProvider$BasicBuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
+    <configuration name="makefile" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" activateToolWindowBeforeRun="false">
+      <makefile filename="$PROJECT_DIR$/module_09/ex00/Makefile" target="" workingDirectory="$PROJECT_DIR$/module_09/ex00" arguments="&quot;input txt&quot;">
+        <envs />
+      </makefile>
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="C/C++ File.main.cpp" />
+      <item itemvalue="Makefile Target.makefile" />
+      <item itemvalue="Native Application.btc" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="C/C++ File.main.cpp" />
@@ -139,38 +165,10 @@
       <workItem from="1725810160715" duration="4736000" />
       <workItem from="1725857832041" duration="4927000" />
       <workItem from="1726042267745" duration="17993000" />
-    </task>
-    <task id="LOCAL-00013" summary="init ex06">
-      <option name="closed" value="true" />
-      <created>1722954049474</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1722954049474</updated>
-    </task>
-    <task id="LOCAL-00014" summary="finished ex06">
-      <option name="closed" value="true" />
-      <created>1723120320688</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1723120320688</updated>
-    </task>
-    <task id="LOCAL-00015" summary="ex03 with null weapon checks">
-      <option name="closed" value="true" />
-      <created>1723124024917</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1723124024917</updated>
-    </task>
-    <task id="LOCAL-00016" summary="function check args created">
-      <option name="closed" value="true" />
-      <created>1723459915622</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1723459915623</updated>
+      <workItem from="1726132560310" duration="14858000" />
+      <workItem from="1726174682312" duration="781000" />
+      <workItem from="1726229770336" duration="1174000" />
+      <workItem from="1726231436832" duration="93000" />
     </task>
     <task id="LOCAL-00017" summary="redecoupoage fonctions, faire file too long">
       <option name="closed" value="true" />
@@ -532,7 +530,39 @@
       <option name="project" value="LOCAL" />
       <updated>1726069115347</updated>
     </task>
-    <option name="localTasksCounter" value="62" />
+    <task id="LOCAL-00062" summary="datta extracted in vectors">
+      <option name="closed" value="true" />
+      <created>1726135415727</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1726135415728</updated>
+    </task>
+    <task id="LOCAL-00063" summary="printing databases">
+      <option name="closed" value="true" />
+      <created>1726141375655</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1726141375655</updated>
+    </task>
+    <task id="LOCAL-00064" summary="pb sur malformed line">
+      <option name="closed" value="true" />
+      <created>1726143320221</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1726143320221</updated>
+    </task>
+    <task id="LOCAL-00065" summary="pb sur malformed line">
+      <option name="closed" value="true" />
+      <created>1726161200651</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1726161200651</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -544,9 +574,6 @@
     <isAutomaticReloadCMake value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="bureacrat with grade and name initialized" />
-    <MESSAGE value="ajout exceptions" />
-    <MESSAGE value="ex01 fini manque le main" />
     <MESSAGE value="ajout test depp + changement variable tmp inventory to groundinventory" />
     <MESSAGE value="chqngements fonctions utils" />
     <MESSAGE value="init exo02" />
@@ -569,6 +596,20 @@
     <MESSAGE value="added muutant stack list in ex02 module 8 - MutantStack&lt;int, std::list&lt;int&gt;&gt; lmstack" />
     <MESSAGE value="added parametric to default constructor" />
     <MESSAGE value="init parsing btc (ex00 module 9)" />
-    <option name="LAST_COMMIT_MESSAGE" value="init parsing btc (ex00 module 9)" />
+    <MESSAGE value="datta extracted in vectors" />
+    <MESSAGE value="printing databases" />
+    <MESSAGE value="pb sur malformed line" />
+    <option name="LAST_COMMIT_MESSAGE" value="pb sur malformed line" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/module_09/ex00/BitcoinExchange.cpp</url>
+          <line>219</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

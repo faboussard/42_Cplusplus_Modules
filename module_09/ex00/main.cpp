@@ -59,7 +59,7 @@ int main(int argc, char **argv)
 
 	try
 	{
-		exchange.process();
+		exchange.findRate();
 //		exchange.print_database(exchange.getDatabaseMap());
 		exchange.print_database(exchange.getInputbaseMap());
 

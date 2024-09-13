@@ -197,23 +197,47 @@ void BitcoinExchange::print_database(const map &database) const
 	}
 }
 
-
-void BitcoinExchange::process()
+float BitcoinExchange::calculate_with_rate(map::iterator it, float price)
 {
-	if (extract_dataFile(_dataFile) && extract_inputFile(_inputFile))
+	map::iterator rate_it = _databaseMap.lower_bound(it->first);
+
+	if (rate_it == _databaseMap.end() || rate_it->first != it->first)
 	{
-		for (map::iterator inputIt = _inputDataMap.begin(); inputIt != _inputDataMap.end(); ++inputIt)
+		if (rate_it != _databaseMap.begin())
 		{
-			map::iterator dataIt = _databaseMap.find(inputIt->first);
-			if (dataIt != _databaseMap.end())
-			{
-				float result = inputIt->second * dataIt->second;
-				std::cout << inputIt->first << " => " << inputIt->second << " = " << result << std::endl;
-			}
-			else
-			{
-				std::cerr << "Warning: No exchange rate found for date: " << inputIt->first << std::endl;
-			}
+			--rate_it;
+		}
+		else
+		{
+			return 0.0f;
+		}
+	}
+	return price * rate_it->second;
+}
+
+
+void BitcoinExchange::findRate()
+{
+	if (!extract_inputFile(_inputFile) || !extract_dataFile(_dataFile))
+	{
+		std::cerr << "Error: could not extract input or data file." << std::endl;
+		return;
+	}
+
+	for (map::iterator it = _inputDataMap.begin(); it != _inputDataMap.end(); ++it)
+	{
+		float price = it->second;
+		float rate = calculate_with_rate(it, price);
+
+		if (rate != 0.0f)
+		{
+			std::cout << it->first << " => " << price << " = " << rate << std::endl;
+		}
+		else
+		{
+			std::cerr << "Warning: No exchange rate found for date: " << it->first << std::endl;
 		}
 	}
 }
+
+

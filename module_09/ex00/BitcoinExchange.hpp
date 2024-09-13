@@ -25,6 +25,9 @@ private:
 	void process_input_file(std::ifstream &infile);
 	void process_data_file(std::ifstream &infile);
 
+	float calculate_with_rate(map::iterator it, float price);
+
+
 
 	std::string _inputFile;
 	std::string _dataFile;
@@ -48,7 +51,7 @@ public:
 
 
 //	bool format_data();
-	void process();
+	void findRate();
 };
 
 std::ostream &operator<<(std::ostream &stream, BitcoinExchange &bitcoinExchange);
