@@ -10,7 +10,7 @@
 
 #define COMA_SEPARATOR ','
 #define DASH_SEPARATOR '|'
-
+#define DELIMITER_DATE '-'
 
 class BitcoinExchange
 {
@@ -27,6 +27,8 @@ private:
 
 	float calculate_with_rate(map::iterator it, float price);
 
+	bool checkDate(std::string const& date);
+	bool checkAmount(std::string const& amount);
 
 
 	std::string _inputFile;

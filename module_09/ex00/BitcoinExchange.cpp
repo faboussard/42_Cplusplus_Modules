@@ -1,6 +1,13 @@
 #include "BitcoinExchange.hpp"
 #include <sstream>
 #include <stdexcept>
+#include <iostream>
+#include <ctime>
+#include <sstream>
+
+/*============================================================================*/
+/*       Constructor / destructor / Copy assignment operator                  */
+/*============================================================================*/
 
 BitcoinExchange::BitcoinExchange(const std::string &inputFile, const std::string &dataFile)
 		: _inputFile(inputFile), _dataFile(dataFile) {}
@@ -50,7 +57,7 @@ std::string &BitcoinExchange::getDataFile()
 
 
 /*============================================================================*/
-/*       member functions				                                       */
+/*      Public  member functions				                               */
 /*============================================================================*/
 
 
@@ -64,6 +71,11 @@ void BitcoinExchange::open_file(const char *filename, std::ifstream &infile)
 		exit(EXIT_FAILURE);
 	}
 }
+
+
+/*============================================================================*/
+/*       Private member functions                                             */
+/*============================================================================*/
 
 bool BitcoinExchange::parse_line_datafile(const std::string &line, std::string &key, float &value)
 {
@@ -85,6 +97,86 @@ bool BitcoinExchange::parse_line_datafile(const std::string &line, std::string &
 	return true;
 }
 
+std::string getTodayDate() {
+	std::time_t now = std::time(0);
+	std::tm *now_tm = std::localtime(&now);
+	std::ostringstream oss;
+	oss << (now_tm->tm_year + 1900) << "-"
+		<< (now_tm->tm_mon + 1) << "-"
+		<< now_tm->tm_mday;
+
+	return oss.str();
+}
+bool BitcoinExchange::checkDate(std::string const& date) {
+	// Vérifiez si la date est vide
+	if (date.empty()) {
+		std::cerr << "Error: Bad input - empty date => " << date << std::endl;
+		return false;
+	}
+
+	// Comparaison avec la date actuelle
+	if (date > getTodayDate()) {
+		std::cerr << "Error: Bad input - date is upper than today !  => " << date << std::endl;
+		return false;
+	}
+
+	std::istringstream iss(date);
+	int year, month, day;
+	char delimiter;
+
+//	if (delimiter != DELIMITER_DATE)
+
+	// Extraire l'année, le mois et le jour
+	if (!(iss >> year >> delimiter >> month >> delimiter >> day) ||
+		delimiter != '-' || month < 1 || month > 12 || day < 1 || day > 31) {
+		std::cerr << "Error: Bad input - => " << date << std::endl;
+		return false;
+	}
+
+	// Vérifiez les jours par mois
+	if ((month == 4 || month == 6 || month == 9 || month == 11) && day > 30) {
+		std::cerr << "Error: Bad input => " << date << std::endl;
+		return false;
+	}
+
+	if (month == 2) {
+		// Vérifiez les jours de février en fonction de l'année bissextile
+		bool leapYear = (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0));
+		if (day > (leapYear ? 29 : 28)) {
+			std::cerr << "Error: Bad input => " << date << std::endl;
+			return false;
+		}
+	}
+
+	return true;
+}
+
+bool BitcoinExchange::checkAmount(std::string const& amount) {
+	char *end;
+	float num;
+	errno = 0;
+
+	double tmp = std::strtod(amount.c_str(), &end);
+	if (amount.empty()) {
+		std::cerr << "Error: Bad input"  << std::endl;
+		return (false);
+	}
+	if (errno == EINVAL)  {
+		std::cerr << "Error: Bad input => "<< amount << std::endl;
+		return (false);
+	}
+	num = static_cast<float>(tmp);
+	if (num < 0.0){
+		std::cerr << "Error: Not a positive number"  << std::endl;
+		return (false);
+	}
+	if (num > 1000.0) {
+		std::cerr << "Error: Too large number"  << std::endl;
+		return (false);
+	}
+	return (true);
+}
+
 bool BitcoinExchange::parse_line_inputfile(const std::string &line, std::string &key, float &value)
 {
 	std::istringstream iss(line);
@@ -92,14 +184,26 @@ bool BitcoinExchange::parse_line_inputfile(const std::string &line, std::string 
 	std::string valueStr;
 	std::getline(iss, valueStr);
 
+	if (key.empty())
+	{
+		std::cerr << "Error: Empty key in line: " << line << std::endl;
+		return false;
+	}
+	if (valueStr.empty())
+	{
+		std::cerr << "Error: Empty value in line: " << line << std::endl;
+	}
+	if (!this->checkDate(key) || !this->checkAmount(valueStr))
+	{
+		return false;
+	}
 	try
 	{
 		value = std::stof(valueStr);
-		if (key.empty() || valueStr.empty())
-			return false;
 	}
 	catch (const std::invalid_argument &)
 	{
+		std::cerr << "Error: Invalid number format in line: " << line << std::endl;
 		return false;
 	}
 	return true;
@@ -120,7 +224,7 @@ void BitcoinExchange::process_input_file(std::ifstream &infile)
 		}
 		else
 		{
-			std::cerr << "Error: Malformed line in input file: " << line << std::endl;
+			std::cerr << "Error: bad input => " << line << std::endl;
 		}
 	}
 }
@@ -229,13 +333,15 @@ void BitcoinExchange::findRate()
 		float price = it->second;
 		float rate = calculate_with_rate(it, price);
 
+//		if (rate = INTROUVABLE)
+//			std::cerr << "no echange rate found for this date" << std::endl;
 		if (rate != 0.0f)
 		{
 			std::cout << it->first << " => " << price << " = " << rate << std::endl;
 		}
 		else
 		{
-			std::cerr << "Warning: No exchange rate found for date: " << it->first << std::endl;
+			std::cout << it->first << " => " << price << " = " << price << std::endl;
 		}
 	}
 }
