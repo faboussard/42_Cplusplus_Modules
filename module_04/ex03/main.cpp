@@ -203,49 +203,52 @@ int main() {
     delete character2;
     delete materiaSource;
   }
-	{
-		std::cout
-				<< YELLOW
-				<< "--------------------------------------------------------------"
-				<< RESET << std::endl;
+  {
+    std::cout
+        << YELLOW
+        << "--------------------------------------------------------------"
+        << RESET << std::endl;
 
-		std::cout << YELLOW << "\t TEST 4 : deep copy verification " << RESET << std::endl;
-		std::cout
-				<< YELLOW
-				<< "--------------------------------------------------------------"
-				<< RESET << std::endl;
+    std::cout << YELLOW << "\t TEST 4 : deep copy verification " << RESET
+              << std::endl;
+    std::cout
+        << YELLOW
+        << "--------------------------------------------------------------"
+        << RESET << std::endl;
 
-		std::cout << std::endl;
+    std::cout << std::endl;
 
-		ICharacter *original = new Character("original");
-		IMateriaSource *materiaSource = new MateriaSource();
-		materiaSource->learnMateria(new Ice());
-		materiaSource->learnMateria(new Cure());
+    ICharacter *original = new Character("original");
+    IMateriaSource *materiaSource = new MateriaSource();
+    materiaSource->learnMateria(new Ice());
+    materiaSource->learnMateria(new Cure());
 
-		original->equip(materiaSource->createMateria("ice"));
-		original->equip(materiaSource->createMateria("cure"));
+    original->equip(materiaSource->createMateria("ice"));
+    original->equip(materiaSource->createMateria("cure"));
 
-		ICharacter *copy = new Character(*static_cast<Character*>(original));
+    ICharacter *copy = new Character(*static_cast<Character *>(original));
 
-		std::cout << "Using materias from the original character:" << std::endl;
-		original->use(0, *copy);
-		original->use(1, *copy);
+    std::cout << "Using materias from the original character:" << std::endl;
+    original->use(0, *copy);
+    original->use(1, *copy);
 
-		std::cout << "Using materias from the copied character:" << std::endl;
-		copy->use(0, *original);
-		copy->use(1, *original);
+    std::cout << "Using materias from the copied character:" << std::endl;
+    copy->use(0, *original);
+    copy->use(1, *original);
 
-		std::cout << "Changing materias in the copied character:" << std::endl;
-		AMateria *newMateria = materiaSource->createMateria("ice");
-		copy->equip(newMateria);
-		copy->use(2, *original);
+    std::cout << "Changing materias in the copied character:" << std::endl;
+    AMateria *newMateria = materiaSource->createMateria("ice");
+    copy->equip(newMateria);
+    copy->use(2, *original);
 
-		std::cout << "Checking original character after modification in the copied character:" << std::endl;
-		original->use(2, *copy);
+    std::cout << "Checking original character after modification in the copied "
+                 "character:"
+              << std::endl;
+    original->use(2, *copy);
 
-		delete original;
-		delete copy;
-		delete materiaSource;
-	}
-	return 0;
+    delete original;
+    delete copy;
+    delete materiaSource;
+  }
+  return 0;
 }

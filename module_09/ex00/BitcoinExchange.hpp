@@ -1,7 +1,7 @@
+#include <fstream>
+#include <iostream>
 #include <map>
 #include <string>
-#include <iostream>
-#include <fstream>
 #include <vector>
 
 #define DATABASE "Data/data.csv"
@@ -12,48 +12,46 @@
 #define DASH_SEPARATOR '|'
 #define DELIMITER_DATE '-'
 
-class BitcoinExchange
-{
-	typedef std::map<std::string, float> map;
+class BitcoinExchange {
+  typedef std::map<std::string, float> map;
 
 private:
-	void open_file(const char *filename, std::ifstream &infile);
+  bool extractFile(std::string &fileName, map myMap);
 
-	bool parse_line_datafile(const std::string &line, std::string &key, float &value);
-	bool parse_line_inputfile(const std::string &line, std::string &key, float &value);
+  void open_file(const char *filename, std::ifstream &infile);
 
-	void process_input_file(std::ifstream &infile);
-	void process_data_file(std::ifstream &infile);
+  bool parseLine(const std::string &line, std::string &key, float &value,
+                 bool isInputFile);
 
-	float calculate_with_rate(map::iterator it, float price);
+  void processFile(std::ifstream &infile, map myMap, std::string &fileName);
 
-	bool checkDate(std::string const& date);
-	bool checkAmount(std::string const& amount);
+  float calculateRate(map::iterator it, float price);
 
+  bool checkDate(std::string const &date);
+  bool checkAmount(std::string const &amount);
 
-	std::string _inputFile;
-	std::string _dataFile;
-	map _databaseMap;
-	map _inputDataMap;
+  std::string _inputFile;
+  std::string _dataFile;
+  map _databaseMap;
+  map _inputDataMap;
 
 public:
-	BitcoinExchange(const std::string &inputFile, const std::string &dataFile);
-	BitcoinExchange(const BitcoinExchange &rhs);
-	BitcoinExchange &operator=(const BitcoinExchange &rhs);
-	~BitcoinExchange();
+  BitcoinExchange(const std::string &inputFile, const std::string &dataFile);
+  BitcoinExchange(const BitcoinExchange &rhs);
+  BitcoinExchange &operator=(const BitcoinExchange &rhs);
+  ~BitcoinExchange();
 
-	map &getDatabaseMap();
-	map &getInputbaseMap();
-	std::string &getInputFile();
-	std::string &getDataFile();
+  map &getDatabaseMap();
+  map &getInputbaseMap();
+  std::string &getInputFile();
+  std::string &getDataFile();
 
-	bool extract_dataFile(std::string &fileName);
-	bool extract_inputFile(std::string &fileName);
-	void print_database(const map &database) const;
-
-
-//	bool format_data();
-	void findRate();
+  void print_database(const map &database) const;
+  //	bool format_data();
+  void findRate();
 };
 
-std::ostream &operator<<(std::ostream &stream, BitcoinExchange &bitcoinExchange);
+std::ostream &operator<<(std::ostream &stream,
+                         BitcoinExchange &bitcoinExchange);
+
+std::string getTodayDate();
