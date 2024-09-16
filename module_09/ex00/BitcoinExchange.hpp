@@ -20,15 +20,15 @@ private:
 
   void open_file(const char *filename, std::ifstream &infile);
 
-  bool parseLine(const std::string &line, std::string &key, float &value,
+  void parseLine(const std::string &line, std::string &key, float &value,
                  bool isInputFile);
 
   void processFile(std::ifstream &infile, map myMap, std::string &fileName);
 
   float calculateRate(map::iterator it, float price);
 
-  bool checkDate(std::string const &date);
-  bool checkAmount(std::string const &amount);
+  void checkDate(std::string const &date);
+  void checkAmount(std::string const &amount);
 
   std::string _inputFile;
   std::string _dataFile;

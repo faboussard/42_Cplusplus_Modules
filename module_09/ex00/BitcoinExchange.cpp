@@ -58,16 +58,14 @@ void BitcoinExchange::open_file(const char *filename, std::ifstream &infile) {
 /*       Private member functions                                             */
 /*============================================================================*/
 
-bool BitcoinExchange::checkDate(std::string const &date) {
+void BitcoinExchange::checkDate(std::string const &date) {
   if (date.empty()) {
     std::cerr << "Error: Bad input - empty date => " << date << std::endl;
-    return false;
   }
 
   if (date > getTodayDate()) {
     std::cerr << "Error: Bad input - date is upper than today ! Date: " << date
               << std::endl;
-    return false;
   }
 
   std::istringstream iss(date);
@@ -77,29 +75,24 @@ bool BitcoinExchange::checkDate(std::string const &date) {
   if (!(iss >> year >> delimiter >> month >> delimiter >> day)) {
     std::cerr << "Error: Bad input - invalidate format date. Date: " << date
               << std::endl;
-    return false;
   }
 
   if (delimiter != DELIMITER_DATE) {
     std::cerr << "Error: Bad input - invalidate delimiter. Delimiter should be "
               << DELIMITER_DATE << " and is " << delimiter << std::endl;
-    return false;
   }
 
   if (month < 1 || month > 12) {
     std::cerr << "Error: Bad input - invalidate month. Date:  " << date
               << std::endl;
-    return false;
   }
   if (day < 1 || day > 31) {
     std::cerr << "Error: Bad input - invalidate day. Date:  " << date
               << std::endl;
-    return false;
   }
   if ((month == 4 || month == 6 || month == 9 || month == 11) && day > 30) {
     std::cerr << "Error: Bad input - invalidate day. Date: " << date
               << std::endl;
-    return false;
   }
 
   if (month == 2) {
@@ -107,13 +100,11 @@ bool BitcoinExchange::checkDate(std::string const &date) {
     if (day > (leapYear ? 29 : 28)) {
       std::cerr << "Error: Bad input for February(leap year or not). Date: "
                 << date << std::endl;
-      return false;
     }
   }
-  return true;
 }
 
-bool BitcoinExchange::checkAmount(std::string const &amount) {
+void BitcoinExchange::checkAmount(std::string const &amount) {
   char *end;
   float num;
   errno = 0;
@@ -122,28 +113,23 @@ bool BitcoinExchange::checkAmount(std::string const &amount) {
   if (amount.empty()) {
     std::cerr << "Error: Bad input - amount is empty. Amount: " << amount
               << std::endl;
-    return (false);
   }
   if (errno == EINVAL) {
     std::cerr << "Error: Bad input - amount is not a valid number. Amount: "
               << amount << std::endl;
-    return (false);
   }
   num = static_cast<float>(tmp);
   if (num < 0.0) {
     std::cerr << "Error: Bad input - Not a positive number. Amount: " << amount
               << std::endl;
-    return (false);
   }
   if (num >= INT8_MAX) {
     std::cerr << "Error: Bad input - Amount exceeds maximum value. Amount: "
               << amount << std::endl;
-    return (false);
   }
-  return (true);
 }
 
-bool BitcoinExchange::parseLine(const std::string &line, std::string &key,
+void BitcoinExchange::parseLine(const std::string &line, std::string &key,
                                 float &value, bool isInputFile) {
   std::istringstream iss(line);
   std::getline(iss, key, isInputFile ? DASH_SEPARATOR : COMA_SEPARATOR);
@@ -151,16 +137,13 @@ bool BitcoinExchange::parseLine(const std::string &line, std::string &key,
   std::getline(iss, valueStr);
 
   if (isInputFile) {
-    if (!checkDate(key) || !checkAmount(valueStr)) {
-      return false;
-    }
+    checkDate(key);
+    checkAmount(valueStr);
   }
   try {
     value = std::stof(valueStr);
   } catch (const std::invalid_argument &) {
-    return false;
   }
-  return true;
 }
 
 void BitcoinExchange::processFile(std::ifstream &infile, map myMap,
@@ -172,14 +155,8 @@ void BitcoinExchange::processFile(std::ifstream &infile, map myMap,
 
   std::getline(infile, line);
   while (std::getline(infile, line)) {
-    if (parseLine(line, key, value, fileName == _inputFile)) {
-      myMap[key] = value;
-    } else {
-      std::cerr << "File : " << fileName << " Bad input on line " << linenumber
-                << std::endl
-                << std::endl;
-    }
-    linenumber++;
+    parseLine(line, key, value, fileName == _inputFile);
+    myMap[key] = value;
   }
 }
 
@@ -228,6 +205,8 @@ void BitcoinExchange::findRate() {
 
   for (map::iterator it = _inputDataMap.begin(); it != _inputDataMap.end();
        ++it) {
+    std::cout << "here" << std::endl;
+
     float price = it->second;
     float rate = calculateRate(it, price);
 
