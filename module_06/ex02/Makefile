@@ -26,8 +26,5 @@ fclean: clean
 
 re: fclean
 	$(MAKE) all
-
-debug: CXXFLAGS += -g
-debug: re
-
-.PHONY: all clean fclean re debug
+	
+.PHONY: all clean fclean re

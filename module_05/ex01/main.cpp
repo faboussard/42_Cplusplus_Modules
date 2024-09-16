@@ -2,9 +2,6 @@
 #include "Form.hpp"
 
 int main(void) {
-  std::cout << "------------- Main for phonebook : the Forms ---------- "
-            << std::endl;
-
   try {
     Bureaucrat bureaucrat_1("Bureaucrat_1", 50);
     Bureaucrat bureaucrat_2("Bureaucrat_2", 100);
