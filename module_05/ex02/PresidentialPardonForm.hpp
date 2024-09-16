@@ -5,19 +5,16 @@
 #include <iostream>
 #include <string>
 
-class PresidentialPardonForm : public AForm
-{
-    public:
+class PresidentialPardonForm : public AForm {
+public:
+  PresidentialPardonForm(const std::string &target);
+  PresidentialPardonForm(PresidentialPardonForm const &src);
+  ~PresidentialPardonForm();
 
-        PresidentialPardonForm();
-        PresidentialPardonForm(const std::string &target);
-        PresidentialPardonForm(PresidentialPardonForm const & src);
-        ~PresidentialPardonForm();
+  PresidentialPardonForm &operator=(PresidentialPardonForm const &src);
+  void action() const;
 
-        PresidentialPardonForm & operator=(PresidentialPardonForm const & src);
-        void action() const;
-    
-	private:
-
-        std::string _target;
+private:
+  PresidentialPardonForm();
+  std::string _target;
 };

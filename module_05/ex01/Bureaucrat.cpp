@@ -54,17 +54,22 @@ const char *Bureaucrat::GradeTooLowException::what() const throw() {
 
 void Bureaucrat::incrementGrade() {
 
-  if (_grade >= HIGHEST_GRADE)
+  if (_grade > HIGHEST_GRADE) {
     _grade -= 1;
-  else
+    std::cout << "increment of one for" << this->getName() << " grade is now "
+              << _grade << std::endl;
+
+  } else
     throw GradeTooHighException();
 }
 
 void Bureaucrat::decrementGrade() {
 
-  if (_grade <= LOWEST_GRADE)
+  if (_grade < LOWEST_GRADE) {
     _grade += 1;
-  else
+    std::cout << "decrement of one for" << this->getName() << " grade is now "
+              << _grade << std::endl;
+  } else
     throw GradeTooLowException();
 }
 

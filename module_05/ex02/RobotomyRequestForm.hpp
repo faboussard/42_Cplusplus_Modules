@@ -5,19 +5,16 @@
 #include <iostream>
 #include <string>
 
-class RobotomyRequestForm : public AForm
-{
-    public:
+class RobotomyRequestForm : public AForm {
+public:
+  RobotomyRequestForm(const std::string &target);
+  RobotomyRequestForm(RobotomyRequestForm const &src);
+  ~RobotomyRequestForm();
 
-        RobotomyRequestForm();
-        RobotomyRequestForm(const std::string &target);
-        RobotomyRequestForm(RobotomyRequestForm const & src);
-        ~RobotomyRequestForm();
+  RobotomyRequestForm &operator=(RobotomyRequestForm const &src);
+  void action() const;
 
-        RobotomyRequestForm & operator=(RobotomyRequestForm const & src);
-        void action() const;
-    
-	private:
-
-        std::string _target;
+private:
+  RobotomyRequestForm();
+  std::string _target;
 };
