@@ -9,7 +9,7 @@ RPN &RPN::operator=(const RPN &rhs)
 {
 	if (this != &rhs)
 	{
-		stackContainer = rhs.stackContainer;
+		std::stack<int>::operator=(rhs);
 	}
 	return *this;
 }
@@ -32,9 +32,9 @@ int RPN::getOperator(const std::string op)
 
 void RPN::calculate(int operation)
 {
-	int val1 = this->top();
-	this->pop();
 	int val2 = this->top();
+	this->pop();
+	int val1 = this->top();
 	this->pop();
 
 	int result;
@@ -42,16 +42,23 @@ void RPN::calculate(int operation)
 	{
 		case ADD:
 			result = add(val1, val2);
+			break;
 		case SUBSTRACT:
 			result = substract(val1, val2);
+			break;
+
 		case MULTIPLY:
 			result = multiply(val1, val2);
+			break;
+
 		case DIVIDE:
 			result = divide(val1, val2);
+			break;
+
 		default:
 			throw std::runtime_error("Invalid operation");
 	}
-	push(result);
+	this->push(result);
 }
 
 int RPN::add(int val1, int val2)

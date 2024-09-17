@@ -38,13 +38,12 @@ void processRPN(const std::string& expression)
 			int value;
 			if (!(tokenStream >> value))
 			{
-				std::cerr << "Error: Invalid number format \"" << token << "\"" << std::endl;
+				std::cerr << "Error" << std::endl;
 				return;
 			}
 			rpn.push(value);
 		}
 	}
-
 	if (!rpn.empty())
 	{
 		std::cout << "Result: " << rpn.top() << std::endl;

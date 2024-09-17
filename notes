@@ -1,52 +1,16 @@
-module 7
 
-
-typename is required to tell the compiler that a dependent name in a template is a type.
-
-
-module 8
-
-
-EX 02 MUTANT STACK
-
-
-
-	typedef typename Container::iterator iterator;
-	typedef typename Container::const_iterator const_iterator;
-
-	template< typename T, typename Container = std::deque<T> >
-    class MutantStack : public std::stack<T, Container>
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-SPAN EX 01
-    unsigned int shortest = std::numeric_limits<unsigned int>::max();
-
-does the following:
-
-    std::numeric_limits<unsigned int>::max():
-        This part of the code retrieves the maximum possible value that an unsigned int type can hold.
-        std::numeric_limits is a template class in the C++ Standard Library that provides information about the properties of fundamental data types.
-        max() is a static member function of std::numeric_limits<T> that returns the maximum finite value representable by the type T. For unsigned int, this is typically 4294967295 on most systems (which is 2^32 - 1).
-
-    unsigned int shortest:
-        This declares a variable named shortest of type unsigned int.
-
-    shortest = std::numeric_limits<unsigned int>::max();:
-        This initializes the shortest variable to the maximum possible value of an unsigned int.
-
-Why Do This?
-
-Setting shortest to the maximum possible value of unsigned int is often done as an initialization step in algorithms that need to find the minimum value in a sequence of numbers.
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 module 9
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-ChatGPT
 
-La différence entre les deux versions de votre constructeur BitcoinExchange::BitcoinExchange() est subtile, mais importante en C++.
-Version 1:
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-cpp
+ex 01
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 BitcoinExchange::BitcoinExchange()
 {
@@ -73,3 +37,134 @@ Est-ce un oubli ?
     Si _database est un type qui nécessite une initialisation particulière, alors ne pas utiliser de liste d'initialisation dans la première version peut être un oubli. Dans la plupart des cas, pour les types de données complexes (comme std::map, std::vector, etc.), il est préférable d'utiliser une liste d'initialisation pour garantir que les membres sont initialisés correctement.
 
     En résumé : Si vous avez des membres de classe qui nécessitent une initialisation spécifique ou qui ont des constructeurs par défaut, la deuxième version est plus explicite et peut prévenir des erreurs potentielles. Cependant, si _database est un type qui s'initialise correctement par défaut (comme un conteneur standard), la première version pourrait aussi fonctionner, mais elle est moins claire et explicite.
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+ex02
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+After popping 8 and 9, and performing the multiplication 8 * 9 = 72, you push 72 onto the stack:
+
+    Stack before the push: [] (since you popped 8 and 9).
+    After pushing 72, the stack becomes [72].
+
+Next, 9 is pushed onto the stack:
+
+    Stack before the push: [72].
+    After pushing 9, the stack becomes [72, 9].
+
+n the Reverse Polish Notation (RPN) process, values are pushed onto the stack, and when an operator is encountered, the top two values are popped off the stack to perform the operation.
+
+Let’s go through your scenario to clarify what happens with push and pop operations.
+Expression: 8 9 * 9 - 9 - 9 - 4 - 1 +
+
+    8: Push onto the stack.
+        Stack: [8]
+
+    9: Push onto the stack.
+        Stack: [8, 9]
+
+    *: Pop the top two values (9 and 8), multiply them, and push the result (72) back onto the stack.
+        Calculation: 8 * 9 = 72
+        Stack: [72]
+
+    9: Push onto the stack.
+        Stack: [72, 9]
+
+    -: Pop the top two values (9 and 72), subtract them (72 - 9), and push the result (63) back onto the stack.
+        Calculation: 72 - 9 = 63
+        Stack: [63]
+
+    9: Push onto the stack.
+        Stack: [63, 9]
+
+    -: Pop the top two values (9 and 63), subtract them (63 - 9), and push the result (54) back onto the stack.
+        Calculation: 63 - 9 = 54
+        Stack: [54]
+
+    9: Push onto the stack.
+        Stack: [54, 9]
+
+    -: Pop the top two values (9 and 54), subtract them (54 - 9), and push the result (45) back onto the stack.
+        Calculation: 54 - 9 = 45
+        Stack: [45]
+
+    4: Push onto the stack.
+        Stack: [45, 4]
+
+    -: Pop the top two values (4 and 45), subtract them (45 - 4), and push the result (41) back onto the stack.
+        Calculation: 45 - 4 = 41
+        Stack: [41]
+
+    1: Push onto the stack.
+        Stack: [41, 1]
+
+    +: Pop the top two values (1 and 41), add them (41 + 1), and push the result (42) back onto the stack.
+        Calculation: 41 + 1 = 42
+        Stack: [42]
+
+Final Result: 42
+
+So yes, 72 becomes val1 and 9 becomes val2 when you perform the subtraction (72 - 9). This behavior is correct since in RPN, the operator applies to the two most recent values on the stack, which means val2 (popped second) is the first operand and val1 (popped first) is the second operand.
+
+The values are always popped in reverse order (LIFO—last in, first out):
+
+    First 9 is popped (this becomes val2).
+    Then 72 is popped (this becomes val1).
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+module 7
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+typename is required to tell the compiler that a dependent name in a template is a type.
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+module 8
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+EX 02 MUTANT STACK
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+	typedef typename Container::iterator iterator;
+	typedef typename Container::const_iterator const_iterator;
+
+	template< typename T, typename Container = std::deque<T> >
+    class MutantStack : public std::stack<T, Container>
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+SPAN EX 01
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    unsigned int shortest = std::numeric_limits<unsigned int>::max();
+
+does the following:
+
+    std::numeric_limits<unsigned int>::max():
+        This part of the code retrieves the maximum possible value that an unsigned int type can hold.
+        std::numeric_limits is a template class in the C++ Standard Library that provides information about the properties of fundamental data types.
+        max() is a static member function of std::numeric_limits<T> that returns the maximum finite value representable by the type T. For unsigned int, this is typically 4294967295 on most systems (which is 2^32 - 1).
+
+    unsigned int shortest:
+        This declares a variable named shortest of type unsigned int.
+
+    shortest = std::numeric_limits<unsigned int>::max();:
+        This initializes the shortest variable to the maximum possible value of an unsigned int.
+
+Why Do This?
+
+Setting shortest to the maximum possible value of unsigned int is often done as an initialization step in algorithms that need to find the minimum value in a sequence of numbers.
+
+module 9
+
+ChatGPT
+
+La différence entre les deux versions de votre constructeur BitcoinExchange::BitcoinExchange() est subtile, mais importante en C++.
+Version 1:
+
