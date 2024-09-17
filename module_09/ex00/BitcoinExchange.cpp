@@ -47,24 +47,19 @@ std::string &BitcoinExchange::getDataFile() { return _databaseFile; }
 /*       operator overload */
 /*============================================================================*/
 
-std::ostream &operator<<(std::ostream &stream, BitcoinExchange &bitcoinExchange)
-{
+std::ostream &operator<<(std::ostream &stream, BitcoinExchange &bitcoinExchange) {
 	BitcoinExchange::map &inputMap = bitcoinExchange.getInputbaseMap();
 
 	stream << "\t\t\n Input map:\n";
+	for (BitcoinExchange::map::iterator it = inputMap.begin(); it != inputMap.end(); ++it) {
+		const std::string &date = it->first;
+		const std::vector<float> &values = it->second;
 
-	for (BitcoinExchange::map::const_iterator it = inputMap.begin(); it != inputMap.end(); ++it )
-	{
-		stream <<"key for input map: " << it->first << " => value: " << it->second << std::endl;
-	}
-
-	BitcoinExchange::map &databaseMap = bitcoinExchange.getDatabaseMap();
-
-	stream << "\t\t\n Database map:\n";
-
-	for (BitcoinExchange::map::const_iterator it = databaseMap.begin(); it != databaseMap.end(); ++it)
-	{
-		stream << "key for database map: " << it->first << " => value : " << it->second << std::endl;
+		stream << "Key for input map: " << date << " => Values: ";
+		for (std::vector<float>::const_iterator valueIt = values.begin(); valueIt != values.end(); ++valueIt) {
+			stream << *valueIt << " ";
+		}
+		stream << std::endl;
 	}
 
 	return stream;
@@ -192,16 +187,16 @@ bool BitcoinExchange::parseLine(const std::string &line, std::string &key,
 }
 
 
-void BitcoinExchange::processFile(std::ifstream &infile, map &myMap,
+void BitcoinExchange::processFile(std::ifstream &infile, std::map<std::string, std::vector<float>> &myMap,
 								  std::string &fileName) {
 	std::string line;
 	std::string key;
 	float value;
 
-	std::getline(infile, line);
+	std::getline(infile, line); // ignore the header line
 	while (std::getline(infile, line)) {
 		if (parseLine(line, key, value, fileName == _inputFile)) {
-			myMap[key] = value;
+			myMap[key].push_back(value);  // Ajoute chaque valeur dans le vecteur associé à la date
 		} else {
 			std::cerr << "Error: Skipping invalid line => " << line << std::endl << std::endl;
 		}
@@ -223,55 +218,55 @@ bool BitcoinExchange::extractFile(std::string &fileName, map &myMap) {
 }
 
 float BitcoinExchange::calculateRate(const std::string &date, float price) {
-	// Trouve la première date qui n'est pas inférieure à `date`
-	map::iterator rate_it = _databaseMap.lower_bound(date);
 
-	// Si on trouve une correspondance exacte, on utilise cette date
-	if (rate_it != _databaseMap.end() && rate_it->first == date) {
-		return price * rate_it->second;
+
+	BitcoinExchange::map::iterator  mapIt = _databaseMap.lower_bound(date);
+
+	// Si la date trouvée est exactement égale à celle donnée
+	if (mapIt != _databaseMap.end() && mapIt->first == date) {
+		return price * mapIt->second[0];  // On utilise directement ce taux
 	}
 
-	// Si `rate_it` est au début du map et aucune date antérieure n'est trouvée
-	if (rate_it == _databaseMap.begin()) {
+	// Si `it` est au début de la map, cela signifie qu'il n'y a pas de date antérieure
+	if (mapIt == _databaseMap.begin()) {
 		std::cerr << "Error: No earlier date found in the database for " << date << std::endl;
-		return -1;
+		return -1;  // Indiquer qu'aucun taux valide n'a été trouvé
 	}
 
-	// Si aucune date exacte n'est trouvée, on prend la date juste avant (la plus proche en-dessous)
-	if (rate_it != _databaseMap.begin()) {
-		--rate_it;  // On prend la date antérieure
-	}
+	// Sinon, on recule d'un itérateur pour obtenir la date immédiatement inférieure
+	--mapIt;  // On passe à la date précédente (qui est forcément < à `date`)
 
-	return price * rate_it->second;  // Calcule le taux de change avec la date la plus proche
+	// Maintenant, on retourne le taux de la date la plus proche inférieure
+	return price * mapIt->second[0];
 }
-
 
 
 /*============================================================================*/
 /*       Public member functions                                             */
 /*============================================================================*/
 
-
 void BitcoinExchange::findRate() {
-	if (!extractFile(_inputFile, _inputMap) ||
-		!extractFile(_databaseFile, _databaseMap)) {
+	if (!extractFile(_inputFile, _inputMap) || !extractFile(_databaseFile, _databaseMap)) {
 		std::cerr << "Error: could not extract input or data file." << std::endl;
 		return;
 	}
 
-	for (map::iterator it = _inputMap.begin(); it != _inputMap.end(); ++it) {
-		const std::string &date = it->first;  // La date est la clé dans l'itérateur
-		float price = it->second;
-		float rate = calculateRate(date, price);  // Passez la date comme argument à `calculateRate`
+	for (BitcoinExchange::map::iterator mapIt = _inputMap.begin(); mapIt != _inputMap.end(); ++mapIt) {
+		const std::string &date = mapIt->first;
+		const std::vector<float> &values = mapIt->second;
 
-		if (rate != -1) {
-			std::cout << date << " => " << price << " = " << rate << std::endl;
-		} else {
-			std::cerr << "Warning: No exchange rate found for date: " << date << std::endl;
+		for (std::vector<float>::const_iterator valueIt = values.begin(); valueIt != values.end(); ++valueIt) {
+			float price = *valueIt;
+			float rate = calculateRate(date, price);  // Passe la date et le prix à `calculateRate`
+
+			if (rate != -1) {
+				std::cout << date << " => " << price << " = " << rate << std::endl;
+			} else {
+				std::cerr << "Warning: No exchange rate found for date: " << date << std::endl;
+			}
 		}
 	}
 }
-
 
 
 /*============================================================================*/

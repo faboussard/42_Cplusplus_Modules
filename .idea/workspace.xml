@@ -21,11 +21,12 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="02491725-2efa-4442-943e-b2e1e2a111f9" name="Changes" comment="correct lines are back">
+    <list default="true" id="02491725-2efa-4442-943e-b2e1e2a111f9" name="Changes" comment="ajout surchargeur doperateur">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/module_09/ex00/BitcoinExchange.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_09/ex00/BitcoinExchange.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/module_09/ex00/BitcoinExchange.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_09/ex00/BitcoinExchange.hpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/module_09/ex00/btc" beforeDir="false" afterPath="$PROJECT_DIR$/module_09/ex00/btc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_09/ex00/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_09/ex00/main.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -168,15 +169,7 @@
       <workItem from="1726174682312" duration="781000" />
       <workItem from="1726229770336" duration="1174000" />
       <workItem from="1726231436832" duration="93000" />
-      <workItem from="1726550610928" duration="1876000" />
-    </task>
-    <task id="LOCAL-00018" summary="init claptrap">
-      <option name="closed" value="true" />
-      <created>1723806954052</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1723806954052</updated>
+      <workItem from="1726550610928" duration="4543000" />
     </task>
     <task id="LOCAL-00019" summary="ex00 claptrap fini">
       <option name="closed" value="true" />
@@ -562,7 +555,15 @@
       <option name="project" value="LOCAL" />
       <updated>1726551642080</updated>
     </task>
-    <option name="localTasksCounter" value="67" />
+    <task id="LOCAL-00067" summary="ajout surchargeur doperateur">
+      <option name="closed" value="true" />
+      <created>1726552979471</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1726552979471</updated>
+    </task>
+    <option name="localTasksCounter" value="68" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -574,7 +575,6 @@
     <isAutomaticReloadCMake value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="chqngements fonctions utils" />
     <MESSAGE value="init exo02" />
     <MESSAGE value="exo02 fini avec main de test" />
     <MESSAGE value="init ex03" />
@@ -599,6 +599,7 @@
     <MESSAGE value="printing databases" />
     <MESSAGE value="pb sur malformed line" />
     <MESSAGE value="correct lines are back" />
-    <option name="LAST_COMMIT_MESSAGE" value="correct lines are back" />
+    <MESSAGE value="ajout surchargeur doperateur" />
+    <option name="LAST_COMMIT_MESSAGE" value="ajout surchargeur doperateur" />
   </component>
 </project>

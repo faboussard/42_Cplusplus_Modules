@@ -14,31 +14,10 @@
 
 class BitcoinExchange {
 
-private:
-	typedef std::map<std::string, float> map;
 
-  bool extractFile(std::string &fileName, map &myMap);
-
-  void open_file(const char *filename, std::ifstream &infile);
-
-  bool parseLine(const std::string &line, std::string &key, float &value,
-                 bool isInputFile);
-
-	void processFile(std::ifstream &infile, map &myMap,
-			std::string &fileName);
-
-  float calculateRate(const std::string &date, float price);
-
-	bool checkDate(std::string const &date);
-	bool checkAmount(std::string const &amount);
-
-  std::string _inputFile;
-  std::string _databaseFile;
-  map _databaseMap;
-  map _inputMap;
 
 public:
-	typedef std::map<std::string, float> map;
+	typedef std::map<std::string, std::vector<float>>map;
   BitcoinExchange(const std::string &inputFile, const std::string &dataFile);
   BitcoinExchange(const BitcoinExchange &rhs);
   BitcoinExchange &operator=(const BitcoinExchange &rhs);
@@ -51,6 +30,28 @@ public:
 
   //	bool format_data();
   void findRate();
+
+private:
+
+	bool extractFile(std::string &fileName, map &myMap);
+
+	void open_file(const char *filename, std::ifstream &infile);
+
+	bool parseLine(const std::string &line, std::string &key, float &value,
+				   bool isInputFile);
+
+	void processFile(std::ifstream &infile, map &myMap,
+					 std::string &fileName);
+
+	float calculateRate(const std::string &date, float price);
+
+	bool checkDate(std::string const &date);
+	bool checkAmount(std::string const &amount);
+
+	std::string _inputFile;
+	std::string _databaseFile;
+	map _databaseMap;
+	map _inputMap;
 };
 
 std::ostream &operator<<(std::ostream &stream,
