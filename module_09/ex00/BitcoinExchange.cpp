@@ -58,120 +58,143 @@ void BitcoinExchange::open_file(const char *filename, std::ifstream &infile) {
 /*       Private member functions                                             */
 /*============================================================================*/
 
-void BitcoinExchange::checkDate(std::string const &date) {
-  if (date.empty()) {
-    std::cerr << "Error: Bad input - empty date => " << date << std::endl;
-  }
+bool BitcoinExchange::checkDate(std::string const &date) {
+	if (date.empty()) {
+		std::cerr << "Error: Bad input - empty date => " << date << std::endl;
+		return false;
+	}
 
-  if (date > getTodayDate()) {
-    std::cerr << "Error: Bad input - date is upper than today ! Date: " << date
-              << std::endl;
-  }
+	if (date > getTodayDate()) {
+		std::cerr << "Error: Bad input - date is upper than today! Date: " << date
+				  << std::endl;
+		return false;
+	}
 
-  std::istringstream iss(date);
-  int year, month, day;
-  char delimiter;
+	std::istringstream iss(date);
+	int year, month, day;
+	char delimiter;
 
-  if (!(iss >> year >> delimiter >> month >> delimiter >> day)) {
-    std::cerr << "Error: Bad input - invalidate format date. Date: " << date
-              << std::endl;
-  }
+	if (!(iss >> year >> delimiter >> month >> delimiter >> day)) {
+		std::cerr << "Error: Bad input - invalid format for date. Date: " << date
+				  << std::endl;
+		return false;
+	}
 
-  if (delimiter != DELIMITER_DATE) {
-    std::cerr << "Error: Bad input - invalidate delimiter. Delimiter should be "
-              << DELIMITER_DATE << " and is " << delimiter << std::endl;
-  }
+	if (delimiter != '-') {
+		std::cerr << "Error: Bad input - invalid delimiter. Date: " << date
+				  << std::endl;
+		return false;
+	}
 
-  if (month < 1 || month > 12) {
-    std::cerr << "Error: Bad input - invalidate month. Date:  " << date
-              << std::endl;
-  }
-  if (day < 1 || day > 31) {
-    std::cerr << "Error: Bad input - invalidate day. Date:  " << date
-              << std::endl;
-  }
-  if ((month == 4 || month == 6 || month == 9 || month == 11) && day > 30) {
-    std::cerr << "Error: Bad input - invalidate day. Date: " << date
-              << std::endl;
-  }
+	if (month < 1 || month > 12 || day < 1 || day > 31) {
+		std::cerr << "Error: Bad input - invalid date values. Date: " << date
+				  << std::endl;
+		return false;
+	}
 
-  if (month == 2) {
-    bool leapYear = (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0));
-    if (day > (leapYear ? 29 : 28)) {
-      std::cerr << "Error: Bad input for February(leap year or not). Date: "
-                << date << std::endl;
-    }
-  }
+	if ((month == 4 || month == 6 || month == 9 || month == 11) && day > 30) {
+		std::cerr << "Error: Bad input - invalid day for the month. Date: " << date
+				  << std::endl;
+		return false;
+	}
+
+	if (month == 2) {
+		bool leapYear = (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0));
+		if (day > (leapYear ? 29 : 28)) {
+			std::cerr << "Error: Bad input for February. Date: " << date << std::endl;
+			return false;
+		}
+	}
+
+	return true; // Date is valid
 }
 
-void BitcoinExchange::checkAmount(std::string const &amount) {
+
+bool BitcoinExchange::checkAmount(std::string const &amount) {
   char *end;
   float num;
   errno = 0;
 
   double tmp = std::strtod(amount.c_str(), &end);
   if (amount.empty()) {
-    std::cerr << "Error: Bad input - amount is empty. Amount: " << amount
+    std::cerr << "Error: Bad input - amount is empty. "
               << std::endl;
+	  return (false);
   }
   if (errno == EINVAL) {
     std::cerr << "Error: Bad input - amount is not a valid number. Amount: "
               << amount << std::endl;
+	  return (false);
   }
   num = static_cast<float>(tmp);
   if (num < 0.0) {
     std::cerr << "Error: Bad input - Not a positive number. Amount: " << amount
               << std::endl;
+	  return (false);
   }
   if (num >= INT8_MAX) {
     std::cerr << "Error: Bad input - Amount exceeds maximum value. Amount: "
               << amount << std::endl;
+	  return (false);
   }
+	return (true);
 }
 
-void BitcoinExchange::parseLine(const std::string &line, std::string &key,
-                                float &value, bool isInputFile) {
-  std::istringstream iss(line);
-  std::getline(iss, key, isInputFile ? DASH_SEPARATOR : COMA_SEPARATOR);
-  std::string valueStr;
-  std::getline(iss, valueStr);
+bool BitcoinExchange::parseLine(const std::string &line, std::string &key,
+								float &value, bool isInputFile) {
+	std::istringstream iss(line);
+	std::string valueStr;
+	char separator = isInputFile ? DASH_SEPARATOR : COMA_SEPARATOR;
 
-  if (isInputFile) {
-    checkDate(key);
-    checkAmount(valueStr);
-  }
-  try {
-    value = std::stof(valueStr);
-  } catch (const std::invalid_argument &) {
-  }
+	if (!std::getline(iss, key, separator) || !std::getline(iss, valueStr)) {
+		return false;
+	}
+
+	if (isInputFile) {
+		if (!checkDate(key)) return false;  // Reject the line if date is invalid
+		if (!checkAmount(valueStr)) return false;  // Reject if amount is invalid
+	}
+
+	try {
+		value = std::stof(valueStr);
+	} catch (const std::invalid_argument &) {
+		return false;
+	}
+
+	return true;
 }
 
-void BitcoinExchange::processFile(std::ifstream &infile, map myMap,
-                                  std::string &fileName) {
-  std::string line;
-  std::string key;
-  float value;
-  int linenumber = 2;
 
-  std::getline(infile, line);
-  while (std::getline(infile, line)) {
-    parseLine(line, key, value, fileName == _inputFile);
-    myMap[key] = value;
-  }
+void BitcoinExchange::processFile(std::ifstream &infile, map &myMap,
+								  std::string &fileName) {
+	std::string line;
+	std::string key;
+	float value;
+
+	std::getline(infile, line);
+	while (std::getline(infile, line)) {
+		if (parseLine(line, key, value, fileName == _inputFile)) {
+			myMap[key] = value;
+		} else {
+			std::cerr << "Error: Skipping invalid line => " << line << std::endl << std::endl;
+		}
+	}
 }
 
-bool BitcoinExchange::extractFile(std::string &fileName, map myMap) {
-  try {
-    std::ifstream data_infile;
-    open_file(fileName.c_str(), data_infile);
-    processFile(data_infile, myMap, fileName);
-    data_infile.close();
-    return true;
-  } catch (const std::exception &e) {
-    std::cerr << "Error: " << e.what() << std::endl;
-    return false;
-  }
+
+bool BitcoinExchange::extractFile(std::string &fileName, map &myMap) {
+	try {
+		std::ifstream data_infile;
+		open_file(fileName.c_str(), data_infile);
+		processFile(data_infile, myMap, fileName);  // Pass by reference
+		data_infile.close();
+		return true;
+	} catch (const std::exception &e) {
+		std::cerr << "Error: " << e.what() << std::endl;
+		return false;
+	}
 }
+
 
 float BitcoinExchange::calculateRate(map::iterator it, float price) {
   map::iterator rate_it = _databaseMap.lower_bound(it->first);
@@ -197,29 +220,24 @@ void BitcoinExchange::print_database(const map &database) const {
 }
 
 void BitcoinExchange::findRate() {
-  if (!extractFile(_inputFile, _inputDataMap) ||
-      !extractFile(_dataFile, _inputDataMap)) {
-    std::cerr << "Error: could not extract input or data file." << std::endl;
-    return;
-  }
+	if (!extractFile(_inputFile, _inputDataMap) ||
+		!extractFile(_dataFile, _databaseMap)) {
+		std::cerr << "Error: could not extract input or data file." << std::endl;
+		return;
+	}
 
-  for (map::iterator it = _inputDataMap.begin(); it != _inputDataMap.end();
-       ++it) {
-    std::cout << "here" << std::endl;
+	for (map::iterator it = _inputDataMap.begin(); it != _inputDataMap.end(); ++it) {
+		float price = it->second;
+		float rate = calculateRate(it, price);
 
-    float price = it->second;
-    float rate = calculateRate(it, price);
-
-    //		if (rate = INTROUVABLE)
-    //			std::cerr << "no echange rate found for this date" <<
-    // std::endl;
-    if (rate != 0.0f) {
-      std::cout << it->first << " => " << price << " = " << rate << std::endl;
-    } else {
-      std::cout << it->first << " => " << price << " = " << price << std::endl;
-    }
-  }
+		if (rate != 0.0f) {
+			std::cout << it->first << " => " << price << " = " << rate << std::endl;
+		} else {
+			std::cerr << "Warning: No exchange rate found for date: " << it->first << std::endl;
+		}
+	}
 }
+
 
 /*============================================================================*/
 /*       Non member functions                                             */

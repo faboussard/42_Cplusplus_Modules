@@ -6,7 +6,7 @@
 
 #define DATABASE "Data/data.csv"
 #define WRONG_ARGS_ERROR_MESSAGE "Error: Please enter an input file as argument"
-#define BAD_OPENING_ERROR_MESSAGE "Error: FILE COULD NOT OPEN"
+#define BAD_OPENING_ERROR_MESSAGE "Error: FILE COULD NOT OPEN "
 
 #define COMA_SEPARATOR ','
 #define DASH_SEPARATOR '|'
@@ -16,19 +16,20 @@ class BitcoinExchange {
   typedef std::map<std::string, float> map;
 
 private:
-  bool extractFile(std::string &fileName, map myMap);
+  bool extractFile(std::string &fileName, map &myMap);
 
   void open_file(const char *filename, std::ifstream &infile);
 
-  void parseLine(const std::string &line, std::string &key, float &value,
+  bool parseLine(const std::string &line, std::string &key, float &value,
                  bool isInputFile);
 
-  void processFile(std::ifstream &infile, map myMap, std::string &fileName);
+	void processFile(std::ifstream &infile, map &myMap,
+			std::string &fileName);
 
   float calculateRate(map::iterator it, float price);
 
-  void checkDate(std::string const &date);
-  void checkAmount(std::string const &amount);
+	bool checkDate(std::string const &date);
+	bool checkAmount(std::string const &amount);
 
   std::string _inputFile;
   std::string _dataFile;
