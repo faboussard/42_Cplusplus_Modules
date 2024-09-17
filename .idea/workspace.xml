@@ -21,11 +21,8 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="02491725-2efa-4442-943e-b2e1e2a111f9" name="Changes" comment="inherit from std::stack&lt;int&gt;">
+    <list default="true" id="02491725-2efa-4442-943e-b2e1e2a111f9" name="Changes" comment="ok ex02">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_09/ex01/RPN.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_09/ex01/RPN.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_09/ex01/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_09/ex01/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notes" beforeDir="false" afterPath="$PROJECT_DIR$/notes" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -168,15 +165,7 @@
       <workItem from="1726174682312" duration="781000" />
       <workItem from="1726229770336" duration="1174000" />
       <workItem from="1726231436832" duration="93000" />
-      <workItem from="1726550610928" duration="18361000" />
-    </task>
-    <task id="LOCAL-00024" summary="ajout &#9;if (_hitPoints &lt; 0)&#10;      &#9;&#9;_hitPoints = 0;&#10;      &#9;if (amount &gt;= static_cast&lt;unsigned int&gt;(_hitPoints))&#10;      &#9;&#9;_hitPoints = 0;">
-      <option name="closed" value="true" />
-      <created>1724396114059</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1724396114059</updated>
+      <workItem from="1726550610928" duration="19297000" />
     </task>
     <task id="LOCAL-00025" summary="class dog ok">
       <option name="closed" value="true" />
@@ -562,7 +551,15 @@
       <option name="project" value="LOCAL" />
       <updated>1726565649139</updated>
     </task>
-    <option name="localTasksCounter" value="73" />
+    <task id="LOCAL-00073" summary="ok ex02">
+      <option name="closed" value="true" />
+      <created>1726576361241</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1726576361242</updated>
+    </task>
+    <option name="localTasksCounter" value="74" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -574,7 +571,6 @@
     <isAutomaticReloadCMake value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="init scalar converter" />
     <MESSAGE value="ex01 ended" />
     <MESSAGE value="ex02 ended" />
     <MESSAGE value="init cpp7" />
@@ -599,6 +595,7 @@
     <MESSAGE value="typo Target corrected to target" />
     <MESSAGE value="init RPN" />
     <MESSAGE value="inherit from std::stack&lt;int&gt;" />
-    <option name="LAST_COMMIT_MESSAGE" value="inherit from std::stack&lt;int&gt;" />
+    <MESSAGE value="ok ex02" />
+    <option name="LAST_COMMIT_MESSAGE" value="ok ex02" />
   </component>
 </project>
