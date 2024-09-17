@@ -10,18 +10,18 @@
 
 BitcoinExchange::BitcoinExchange(const std::string &inputFile,
                                  const std::string &dataFile)
-    : _inputFile(inputFile), _dataFile(dataFile) {}
+    : _inputFile(inputFile), _databaseFile(dataFile) {}
 
 BitcoinExchange::BitcoinExchange(const BitcoinExchange &rhs)
-    : _inputFile(rhs._inputFile), _dataFile(rhs._dataFile),
-      _databaseMap(rhs._databaseMap), _inputDataMap(rhs._inputDataMap) {}
+    : _inputFile(rhs._inputFile), _databaseFile(rhs._databaseFile),
+      _databaseMap(rhs._databaseMap), _inputMap(rhs._inputMap) {}
 
 BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &rhs) {
   if (this != &rhs) {
     _inputFile = rhs._inputFile;
-    _dataFile = rhs._dataFile;
+    _databaseFile = rhs._databaseFile;
     _databaseMap = rhs._databaseMap;
-    _inputDataMap = rhs._inputDataMap;
+    _inputMap = rhs._inputMap;
   }
   return *this;
 }
@@ -35,12 +35,40 @@ BitcoinExchange::~BitcoinExchange() {}
 BitcoinExchange::map &BitcoinExchange::getDatabaseMap() { return _databaseMap; }
 
 BitcoinExchange::map &BitcoinExchange::getInputbaseMap() {
-  return _inputDataMap;
+  return _inputMap;
 }
 
 std::string &BitcoinExchange::getInputFile() { return _inputFile; }
 
-std::string &BitcoinExchange::getDataFile() { return _dataFile; }
+std::string &BitcoinExchange::getDataFile() { return _databaseFile; }
+
+
+/*============================================================================*/
+/*       operator overload */
+/*============================================================================*/
+
+std::ostream &operator<<(std::ostream &stream, BitcoinExchange &bitcoinExchange)
+{
+	BitcoinExchange::map &inputMap = bitcoinExchange.getInputbaseMap();
+
+	stream << "\t\t\n Input map:\n";
+
+	for (BitcoinExchange::map::const_iterator it = inputMap.begin(); it != inputMap.end(); ++it )
+	{
+		stream <<"key for input map: " << it->first << " => value: " << it->second << std::endl;
+	}
+
+	BitcoinExchange::map &databaseMap = bitcoinExchange.getDatabaseMap();
+
+	stream << "\t\t\n Database map:\n";
+
+	for (BitcoinExchange::map::const_iterator it = databaseMap.begin(); it != databaseMap.end(); ++it)
+	{
+		stream << "key for database map: " << it->first << " => value : " << it->second << std::endl;
+	}
+
+	return stream;
+}
 
 /*============================================================================*/
 /*      Public  member functions */
@@ -105,8 +133,7 @@ bool BitcoinExchange::checkDate(std::string const &date) {
 			return false;
 		}
 	}
-
-	return true; // Date is valid
+	return true;
 }
 
 
@@ -151,8 +178,8 @@ bool BitcoinExchange::parseLine(const std::string &line, std::string &key,
 	}
 
 	if (isInputFile) {
-		if (!checkDate(key)) return false;  // Reject the line if date is invalid
-		if (!checkAmount(valueStr)) return false;  // Reject if amount is invalid
+		if (!checkDate(key)) return false;
+		if (!checkAmount(valueStr)) return false;
 	}
 
 	try {
@@ -186,7 +213,7 @@ bool BitcoinExchange::extractFile(std::string &fileName, map &myMap) {
 	try {
 		std::ifstream data_infile;
 		open_file(fileName.c_str(), data_infile);
-		processFile(data_infile, myMap, fileName);  // Pass by reference
+		processFile(data_infile, myMap, fileName);
 		data_infile.close();
 		return true;
 	} catch (const std::exception &e) {
@@ -195,48 +222,56 @@ bool BitcoinExchange::extractFile(std::string &fileName, map &myMap) {
 	}
 }
 
+float BitcoinExchange::calculateRate(const std::string &date, float price) {
+	// Trouve la première date qui n'est pas inférieure à `date`
+	map::iterator rate_it = _databaseMap.lower_bound(date);
 
-float BitcoinExchange::calculateRate(map::iterator it, float price) {
-  map::iterator rate_it = _databaseMap.lower_bound(it->first);
+	// Si on trouve une correspondance exacte, on utilise cette date
+	if (rate_it != _databaseMap.end() && rate_it->first == date) {
+		return price * rate_it->second;
+	}
 
-  if (rate_it == _databaseMap.end() || rate_it->first != it->first) {
-    if (rate_it != _databaseMap.begin()) {
-      --rate_it;
-    } else {
-      return 0.0f;
-    }
-  }
-  return price * rate_it->second;
+	// Si `rate_it` est au début du map et aucune date antérieure n'est trouvée
+	if (rate_it == _databaseMap.begin()) {
+		std::cerr << "Error: No earlier date found in the database for " << date << std::endl;
+		return -1;
+	}
+
+	// Si aucune date exacte n'est trouvée, on prend la date juste avant (la plus proche en-dessous)
+	if (rate_it != _databaseMap.begin()) {
+		--rate_it;  // On prend la date antérieure
+	}
+
+	return price * rate_it->second;  // Calcule le taux de change avec la date la plus proche
 }
+
+
 
 /*============================================================================*/
 /*       Public member functions                                             */
 /*============================================================================*/
 
-void BitcoinExchange::print_database(const map &database) const {
-  for (map::const_iterator it = database.begin(); it != database.end(); ++it) {
-    std::cout << "Date: " << it->first << std::endl;
-  }
-}
 
 void BitcoinExchange::findRate() {
-	if (!extractFile(_inputFile, _inputDataMap) ||
-		!extractFile(_dataFile, _databaseMap)) {
+	if (!extractFile(_inputFile, _inputMap) ||
+		!extractFile(_databaseFile, _databaseMap)) {
 		std::cerr << "Error: could not extract input or data file." << std::endl;
 		return;
 	}
 
-	for (map::iterator it = _inputDataMap.begin(); it != _inputDataMap.end(); ++it) {
+	for (map::iterator it = _inputMap.begin(); it != _inputMap.end(); ++it) {
+		const std::string &date = it->first;  // La date est la clé dans l'itérateur
 		float price = it->second;
-		float rate = calculateRate(it, price);
+		float rate = calculateRate(date, price);  // Passez la date comme argument à `calculateRate`
 
-		if (rate != 0.0f) {
-			std::cout << it->first << " => " << price << " = " << rate << std::endl;
+		if (rate != -1) {
+			std::cout << date << " => " << price << " = " << rate << std::endl;
 		} else {
-			std::cerr << "Warning: No exchange rate found for date: " << it->first << std::endl;
+			std::cerr << "Warning: No exchange rate found for date: " << date << std::endl;
 		}
 	}
 }
+
 
 
 /*============================================================================*/

@@ -21,12 +21,10 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="02491725-2efa-4442-943e-b2e1e2a111f9" name="Changes" comment="pb sur malformed line">
+    <list default="true" id="02491725-2efa-4442-943e-b2e1e2a111f9" name="Changes" comment="correct lines are back">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_09/ex00/.idea/.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/module_09/ex00/BitcoinExchange.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_09/ex00/BitcoinExchange.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/module_09/ex00/BitcoinExchange.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_09/ex00/BitcoinExchange.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_09/ex00/Data/data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/module_09/ex00/Data/data.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/module_09/ex00/btc" beforeDir="false" afterPath="$PROJECT_DIR$/module_09/ex00/btc" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -84,7 +82,7 @@
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
     "git-widget-placeholder": "master",
-    "last_opened_file_path": "/home/fanny/fanny_cpp/module_09/ex00/Data",
+    "last_opened_file_path": "/home/fanny/prossi_cpp",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -170,15 +168,7 @@
       <workItem from="1726174682312" duration="781000" />
       <workItem from="1726229770336" duration="1174000" />
       <workItem from="1726231436832" duration="93000" />
-      <workItem from="1726550610928" duration="704000" />
-    </task>
-    <task id="LOCAL-00017" summary="redecoupoage fonctions, faire file too long">
-      <option name="closed" value="true" />
-      <created>1723467071304</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1723467071304</updated>
+      <workItem from="1726550610928" duration="1876000" />
     </task>
     <task id="LOCAL-00018" summary="init claptrap">
       <option name="closed" value="true" />
@@ -564,7 +554,15 @@
       <option name="project" value="LOCAL" />
       <updated>1726161200651</updated>
     </task>
-    <option name="localTasksCounter" value="66" />
+    <task id="LOCAL-00066" summary="correct lines are back">
+      <option name="closed" value="true" />
+      <created>1726551642079</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1726551642080</updated>
+    </task>
+    <option name="localTasksCounter" value="67" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -576,7 +574,6 @@
     <isAutomaticReloadCMake value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="ajout test depp + changement variable tmp inventory to groundinventory" />
     <MESSAGE value="chqngements fonctions utils" />
     <MESSAGE value="init exo02" />
     <MESSAGE value="exo02 fini avec main de test" />
@@ -601,17 +598,7 @@
     <MESSAGE value="datta extracted in vectors" />
     <MESSAGE value="printing databases" />
     <MESSAGE value="pb sur malformed line" />
-    <option name="LAST_COMMIT_MESSAGE" value="pb sur malformed line" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/module_09/ex00/BitcoinExchange.cpp</url>
-          <line>233</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="correct lines are back" />
+    <option name="LAST_COMMIT_MESSAGE" value="correct lines are back" />
   </component>
 </project>

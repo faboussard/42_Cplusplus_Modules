@@ -13,9 +13,10 @@
 #define DELIMITER_DATE '-'
 
 class BitcoinExchange {
-  typedef std::map<std::string, float> map;
 
 private:
+	typedef std::map<std::string, float> map;
+
   bool extractFile(std::string &fileName, map &myMap);
 
   void open_file(const char *filename, std::ifstream &infile);
@@ -26,17 +27,18 @@ private:
 	void processFile(std::ifstream &infile, map &myMap,
 			std::string &fileName);
 
-  float calculateRate(map::iterator it, float price);
+  float calculateRate(const std::string &date, float price);
 
 	bool checkDate(std::string const &date);
 	bool checkAmount(std::string const &amount);
 
   std::string _inputFile;
-  std::string _dataFile;
+  std::string _databaseFile;
   map _databaseMap;
-  map _inputDataMap;
+  map _inputMap;
 
 public:
+	typedef std::map<std::string, float> map;
   BitcoinExchange(const std::string &inputFile, const std::string &dataFile);
   BitcoinExchange(const BitcoinExchange &rhs);
   BitcoinExchange &operator=(const BitcoinExchange &rhs);
@@ -47,7 +49,6 @@ public:
   std::string &getInputFile();
   std::string &getDataFile();
 
-  void print_database(const map &database) const;
   //	bool format_data();
   void findRate();
 };
