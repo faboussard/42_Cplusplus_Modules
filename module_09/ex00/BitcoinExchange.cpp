@@ -50,7 +50,7 @@ std::string &BitcoinExchange::getDataFile() { return _databaseFile; }
 std::ostream &operator<<(std::ostream &stream, BitcoinExchange &bitcoinExchange) {
 	BitcoinExchange::map &inputMap = bitcoinExchange.getInputbaseMap();
 
-	stream << "\t\t\n Input map:\n";
+	stream << "\n\t\t Input map:\n";
 	for (BitcoinExchange::map::iterator it = inputMap.begin(); it != inputMap.end(); ++it) {
 		const std::string &date = it->first;
 		const std::vector<float> &values = it->second;
@@ -192,14 +192,16 @@ void BitcoinExchange::processFile(std::ifstream &infile, std::map<std::string, s
 	std::string line;
 	std::string key;
 	float value;
+	int lineNumber = 2;
 
 	std::getline(infile, line); // ignore the header line
 	while (std::getline(infile, line)) {
 		if (parseLine(line, key, value, fileName == _inputFile)) {
-			myMap[key].push_back(value);  // Ajoute chaque valeur dans le vecteur associé à la date
+			myMap[key].push_back(value);
 		} else {
-			std::cerr << "Error: Skipping invalid line => " << line << std::endl << std::endl;
+			std::cerr << "Line : " << lineNumber << " - Skipping invalid line => " << line << std::endl << std::endl;
 		}
+		lineNumber++;
 	}
 }
 
@@ -222,21 +224,15 @@ float BitcoinExchange::calculateRate(const std::string &date, float price) {
 
 	BitcoinExchange::map::iterator  mapIt = _databaseMap.lower_bound(date);
 
-	// Si la date trouvée est exactement égale à celle donnée
 	if (mapIt != _databaseMap.end() && mapIt->first == date) {
-		return price * mapIt->second[0];  // On utilise directement ce taux
+		return price * mapIt->second[0];
 	}
 
-	// Si `it` est au début de la map, cela signifie qu'il n'y a pas de date antérieure
 	if (mapIt == _databaseMap.begin()) {
 		std::cerr << "Error: No earlier date found in the database for " << date << std::endl;
-		return -1;  // Indiquer qu'aucun taux valide n'a été trouvé
+		return -1;
 	}
-
-	// Sinon, on recule d'un itérateur pour obtenir la date immédiatement inférieure
-	--mapIt;  // On passe à la date précédente (qui est forcément < à `date`)
-
-	// Maintenant, on retourne le taux de la date la plus proche inférieure
+	--mapIt;
 	return price * mapIt->second[0];
 }
 
@@ -246,10 +242,16 @@ float BitcoinExchange::calculateRate(const std::string &date, float price) {
 /*============================================================================*/
 
 void BitcoinExchange::findRate() {
+
+	std::cout << "\n\t\t Errors in input table\n" << std::endl;
+
 	if (!extractFile(_inputFile, _inputMap) || !extractFile(_databaseFile, _databaseMap)) {
 		std::cerr << "Error: could not extract input or data file." << std::endl;
 		return;
 	}
+
+	std::cout << "\n\t\t New price converted to Bitcoin currency\n" << std::endl;
+
 
 	for (BitcoinExchange::map::iterator mapIt = _inputMap.begin(); mapIt != _inputMap.end(); ++mapIt) {
 		const std::string &date = mapIt->first;
