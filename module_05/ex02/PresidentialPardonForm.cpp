@@ -6,9 +6,9 @@ PresidentialPardonForm::PresidentialPardonForm():AForm("PresidentialPardonForm",
     _target = "none";
 }
 
-PresidentialPardonForm::PresidentialPardonForm(const std::string &Target):AForm("PresidentialPardonForm", 25, 5)
+PresidentialPardonForm::PresidentialPardonForm(const std::string &target):AForm("PresidentialPardonForm", 25, 5)
 {
-	_target = Target;
+	_target = target;
 }
 
 PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const & src):AForm("PresidentialPardonForm", 25, 5)
