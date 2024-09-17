@@ -6,16 +6,19 @@
 
 enum Operation
 {
-	ADD = '+',
-	SUBSTRACT = '-',
-	MULTIPLY = '*',
-	DIVIDE = '/',
+	ADD = 1,
+	SUBSTRACT = 2,
+	MULTIPLY = 3,
+	DIVIDE = 4,
 };
 
-class RPN
+typedef std::stack<int> stackContainer;
+
+
+class RPN : public stackContainer
 {
+
 public:
-	typedef std::stack<int> stackContainer;
 
 	RPN();
 
@@ -25,14 +28,20 @@ public:
 
 	~RPN();
 
-	void calculate(Operation operation);
+	void calculate(int operation);
+
+	int getOperator(const std::string op);
+
+private:
 
 	int add(int val1, int val2);
 
 	int substract(int val1, int val2);
 
-	int muliply(int val1, int val2);
+	int multiply(int val1, int val2);
 
 	int divide(int val1, int val2);
 
 };
+
+int checkArgs(int ac, char **argv);

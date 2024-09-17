@@ -66,18 +66,6 @@ std::ostream &operator<<(std::ostream &stream, BitcoinExchange &bitcoinExchange)
 }
 
 /*============================================================================*/
-/*      Public  member functions */
-/*============================================================================*/
-
-void BitcoinExchange::open_file(const char *filename, std::ifstream &infile) {
-  infile.open(filename);
-  if (!infile.is_open()) {
-    std::cerr << BAD_OPENING_ERROR_MESSAGE << filename << std::endl;
-    exit(EXIT_FAILURE);
-  }
-}
-
-/*============================================================================*/
 /*       Private member functions                                             */
 /*============================================================================*/
 
@@ -173,6 +161,7 @@ bool BitcoinExchange::parseLine(const std::string &line, std::string &key,
 	}
 
 	if (isInputFile) {
+
 		if (!checkDate(key)) return false;
 		if (!checkAmount(valueStr)) return false;
 	}
@@ -194,7 +183,9 @@ void BitcoinExchange::processFile(std::ifstream &infile, std::map<std::string, s
 	float value;
 	int lineNumber = 2;
 
-	std::getline(infile, line); // ignore the header line
+	std::getline(infile, line);
+	if (fileName == _inputFile)
+		std::cout << "\n\t\t List of errors in input table\n" << std::endl;
 	while (std::getline(infile, line)) {
 		if (parseLine(line, key, value, fileName == _inputFile)) {
 			myMap[key].push_back(value);
@@ -208,10 +199,15 @@ void BitcoinExchange::processFile(std::ifstream &infile, std::map<std::string, s
 
 bool BitcoinExchange::extractFile(std::string &fileName, map &myMap) {
 	try {
-		std::ifstream data_infile;
-		open_file(fileName.c_str(), data_infile);
-		processFile(data_infile, myMap, fileName);
-		data_infile.close();
+		std::ifstream infile;
+		infile.open(fileName);
+		if (!infile.is_open()) {
+			std::cerr << "Error: Unable to open input file: " << fileName
+					  << std::endl << "Check file exists, rights are on and name is correct" << std::endl;
+			exit(EXIT_FAILURE);
+		}
+		processFile(infile, myMap, fileName);
+		infile.close();
 		return true;
 	} catch (const std::exception &e) {
 		std::cerr << "Error: " << e.what() << std::endl;
@@ -242,9 +238,6 @@ float BitcoinExchange::calculateRate(const std::string &date, float price) {
 /*============================================================================*/
 
 void BitcoinExchange::findRate() {
-
-	std::cout << "\n\t\t Errors in input table\n" << std::endl;
-
 	if (!extractFile(_inputFile, _inputMap) || !extractFile(_databaseFile, _databaseMap)) {
 		std::cerr << "Error: could not extract input or data file." << std::endl;
 		return;
@@ -259,7 +252,7 @@ void BitcoinExchange::findRate() {
 
 		for (std::vector<float>::const_iterator valueIt = values.begin(); valueIt != values.end(); ++valueIt) {
 			float price = *valueIt;
-			float rate = calculateRate(date, price);  // Passe la date et le prix à `calculateRate`
+			float rate = calculateRate(date, price);
 
 			if (rate != -1) {
 				std::cout << date << " => " << price << " = " << rate << std::endl;
@@ -269,7 +262,6 @@ void BitcoinExchange::findRate() {
 		}
 	}
 }
-
 
 /*============================================================================*/
 /*       Non member functions                                             */

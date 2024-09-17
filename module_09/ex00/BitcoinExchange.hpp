@@ -5,8 +5,7 @@
 #include <vector>
 
 #define DATABASE "Data/data.csv"
-#define WRONG_ARGS_ERROR_MESSAGE "Error: Please enter an input file as argument"
-#define BAD_OPENING_ERROR_MESSAGE "Error: FILE COULD NOT OPEN "
+#define WRONG_ARGS_ERROR_MESSAGE "Error: usage : ./btc <input filename>."
 
 #define COMA_SEPARATOR ','
 #define DASH_SEPARATOR '|'

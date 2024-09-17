@@ -21,15 +21,16 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="02491725-2efa-4442-943e-b2e1e2a111f9" name="Changes" comment="typo Target corrected to target">
+    <list default="true" id="02491725-2efa-4442-943e-b2e1e2a111f9" name="Changes" comment="init RPN">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_05/ex02/PresidentialPardonForm.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_05/ex02/PresidentialPardonForm.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_05/ex02/ShrubberyCreationForm.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_05/ex02/ShrubberyCreationForm.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_05/ex03/PresidentialPardonForm.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_05/ex03/PresidentialPardonForm.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_05/ex03/ShrubberyCreationForm.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_05/ex03/ShrubberyCreationForm.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_09/ex00/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_09/ex00/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_06/ex00/ScalarConverter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_06/ex00/ScalarConverter.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_09/ex00/BitcoinExchange.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_09/ex00/BitcoinExchange.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_09/ex00/BitcoinExchange.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_09/ex00/BitcoinExchange.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_09/ex00/Data/input.txt" beforeDir="false" afterPath="$PROJECT_DIR$/module_09/ex00/Data/input.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_09/ex00/btc" beforeDir="false" afterPath="$PROJECT_DIR$/module_09/ex00/btc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/module_09/ex01/RPN.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_09/ex01/RPN.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/module_09/ex01/RPN.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_09/ex01/RPN.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_09/ex01/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_09/ex01/main.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -172,15 +173,7 @@
       <workItem from="1726174682312" duration="781000" />
       <workItem from="1726229770336" duration="1174000" />
       <workItem from="1726231436832" duration="93000" />
-      <workItem from="1726550610928" duration="7682000" />
-    </task>
-    <task id="LOCAL-00022" summary="ajout macros et protections">
-      <option name="closed" value="true" />
-      <created>1724392047945</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1724392047945</updated>
+      <workItem from="1726550610928" duration="13692000" />
     </task>
     <task id="LOCAL-00023" summary="init dog">
       <option name="closed" value="true" />
@@ -566,7 +559,15 @@
       <option name="project" value="LOCAL" />
       <updated>1726558866016</updated>
     </task>
-    <option name="localTasksCounter" value="71" />
+    <task id="LOCAL-00071" summary="init RPN">
+      <option name="closed" value="true" />
+      <created>1726558877593</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1726558877593</updated>
+    </task>
+    <option name="localTasksCounter" value="72" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -578,7 +579,6 @@
     <isAutomaticReloadCMake value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="renamed exo names + presque fini ex03 mais coredump surles exceptions" />
     <MESSAGE value="main du 5 terminé" />
     <MESSAGE value="init scalar converter" />
     <MESSAGE value="ex01 ended" />
@@ -603,6 +603,7 @@
     <MESSAGE value="all lines are here" />
     <MESSAGE value="ajout comprehension cout" />
     <MESSAGE value="typo Target corrected to target" />
-    <option name="LAST_COMMIT_MESSAGE" value="typo Target corrected to target" />
+    <MESSAGE value="init RPN" />
+    <option name="LAST_COMMIT_MESSAGE" value="init RPN" />
   </component>
 </project>
