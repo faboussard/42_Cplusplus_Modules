@@ -102,7 +102,11 @@ In summary, uintptr_t is a specialized integer type designed for safely and port
 
 
 You said:
-For example, on a 32-bit system, uintptr_t is typically a 32-bit unsigned integer, while on a 64-bit system, it is typically a 64-bit unsigned integer.. 64 bits c bcp plus puissant que 32 bit ?
+For example, on a 32-bit system, uintptr_t is typically a 32-bit unsigned integer, while on a 64-bit system, it is typically a 64-bit unsigned integer.. 
+
+64 bits c bcp plus puissant que 32 bit ?
+
+
 ChatGPT said:
 The difference between 32-bit and 64-bit systems primarily relates to how much data the system can handle at once and how much memory it can address, but "power" isn't the right term to describe it. Let's break down the differences:
 1. Memory Addressing:

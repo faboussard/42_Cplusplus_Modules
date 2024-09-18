@@ -1,22 +1,21 @@
 #pragma once
 
-#include <iostream>
-#include <string>
 #include "data.hpp"
+#include <iostream>
 #include <stdint.h>
+#include <string>
 
-//uintptr_t ?
+// uintptr_t
 
-class Serializer
-{
+class Serializer {
 
 private:
-	Serializer();
-	Serializer(const Serializer &other);
-	Serializer &operator =(const Serializer &other);
-	~Serializer();
+  Serializer();
+  Serializer(const Serializer &other);
+  Serializer &operator=(const Serializer &other);
+  ~Serializer();
 
 public:
-	static uintptr_t serialize(Data* ptr);
-	static Data* deserialize(uintptr_t raw);
+  static uintptr_t serialize(Data *ptr);
+  static Data *deserialize(uintptr_t raw);
 };

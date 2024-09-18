@@ -2,9 +2,8 @@
 
 #include <string>
 
-struct Data
-{
-	int num;
-	std::string str;
-	char c;
+struct Data {
+  int num;
+  std::string string;
+  char c;
 };

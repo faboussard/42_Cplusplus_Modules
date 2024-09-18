@@ -25,15 +25,20 @@ ScalarConverter::~ScalarConverter() {}
 /*============================================================================*/
 
 bool specialValuesAreFloat(const std::string &input) {
-  return (input == "-inff" || input == "+inff" || input == "nanf");
+  return (input == "-inff" || input == "+inff" || input == "nanf" ||
+          input == "inff");
+}
+
+bool isFloatOrDouble(const std::string &input) {
+  return input.find('.') != std::string::npos;
 }
 
 void ScalarConverter::convert(const std::string &input) {
-  const std::string specialValues[] = {"-inff", "+inff", "nanf",
-                                       "-inf",  "+inf",  "nan"};
+  const std::string specialValues[] = {"inf",  "inff", "-inff", "+inff",
+                                       "nanf", "-inf", "+inf",  "nan"};
   const size_t specialCount = sizeof(specialValues) / sizeof(specialValues[0]);
 
-  std::string charRepresentation;
+  std::string stringRepresentation;
   int intRepresentation;
   float floatRepresentation;
   double doubleRepresentation;
@@ -44,7 +49,12 @@ void ScalarConverter::convert(const std::string &input) {
     if (input == specialValues[i]) {
       std::cout << "char: impossible" << std::endl;
       std::cout << "int: impossible" << std::endl;
-      std::cout << "float: " << input << std::endl;
+
+      if (specialValuesAreFloat(input))
+        std::cout << "float: " << input << std::endl;
+      else
+        std::cout << "float: " << input + "f" << std::endl;
+
       if (specialValuesAreFloat(input))
         std::cout << "double: " << (input.substr(0, input.length() - 1))
                   << std::endl;
@@ -58,12 +68,12 @@ void ScalarConverter::convert(const std::string &input) {
 
   if (input.length() == 1 && std::isprint(input[0]) &&
       !std::isdigit(input[0])) {
-    charRepresentation = static_cast<std::string>("'" + input + "'");
+    stringRepresentation = static_cast<std::string>("'" + input + "'");
     intRepresentation = static_cast<int>(input[0]);
     floatRepresentation = static_cast<float>(input[0]);
     doubleRepresentation = static_cast<double>(input[0]);
 
-    std::cout << "char: " << charRepresentation << std::endl;
+    std::cout << "char: " << stringRepresentation << std::endl;
     std::cout << "int: " << intRepresentation << std::endl;
     std::cout << "float: " << floatRepresentation << ".0f" << std::endl;
     std::cout << "double: " << doubleRepresentation << ".0" << std::endl;
@@ -80,18 +90,20 @@ void ScalarConverter::convert(const std::string &input) {
     doubleRepresentation = std::atof(input.c_str());
     floatRepresentation = static_cast<float>(doubleRepresentation);
   }
+
   intRepresentation = static_cast<int>(doubleRepresentation);
-  if (intRepresentation >= 32 && intRepresentation <= 126) {
-    charRepresentation =
-        "'" + std::string(1, static_cast<char>(intRepresentation)) + "'";
+
+  if ((!isFloatOrDouble(input)) && intRepresentation >= 32 &&
+      intRepresentation <= 126) {
+    stringRepresentation = static_cast<std::string>("'" + input + "'");
   } else {
-    charRepresentation = "Non displayable";
+    stringRepresentation = "Non displayable";
   }
 
-  std::cout << "char: " << charRepresentation << std::endl;
+  std::cout << "char: " << stringRepresentation << std::endl;
   std::cout << "int: " << intRepresentation << std::endl;
 
-  if (floatRepresentation == static_cast<int>(floatRepresentation)) {
+  if (floatRepresentation == static_cast<int>(intRepresentation)) {
     std::cout << "float: " << floatRepresentation << ".0f" << std::endl;
     std::cout << "double: " << doubleRepresentation << ".0" << std::endl;
   } else {
