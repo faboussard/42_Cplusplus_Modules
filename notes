@@ -160,11 +160,3 @@ does the following:
 Why Do This?
 
 Setting shortest to the maximum possible value of unsigned int is often done as an initialization step in algorithms that need to find the minimum value in a sequence of numbers.
-
-module 9
-
-ChatGPT
-
-La différence entre les deux versions de votre constructeur BitcoinExchange::BitcoinExchange() est subtile, mais importante en C++.
-Version 1:
-

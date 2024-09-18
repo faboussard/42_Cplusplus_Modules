@@ -92,11 +92,15 @@ Limitations et précautions
     • Pas d'accès aux données d'instance : Les méthodes statiques ne peuvent pas accéder directement aux membres non statiques, ce qui limite leur capacité à interagir avec les données spécifiques d'une instance.
     • Contexte global : L'abus de méthodes statiques peut mener à une conception moins modulaire et plus difficile à tester, surtout si elles manipulent des variables globales ou des états partagés de manière non contrôlée.
 
+
+
 Why Use uintptr_t?
     • Interfacing with Low-Level Code: It's useful when interfacing with low-level or platform-specific code where you need to manipulate pointers as raw numbers.
     • Serialization: In scenarios like the one in your earlier example, where you serialize a pointer by converting it to an integer, uintptr_t is ideal because it ensures the integer is large enough to hold the entire pointer value.
 In summary, uintptr_t is a specialized integer type designed for safely and portably handling pointer-to-integer conversions.
 4o
+
+
 You said:
 For example, on a 32-bit system, uintptr_t is typically a 32-bit unsigned integer, while on a 64-bit system, it is typically a 64-bit unsigned integer.. 64 bits c bcp plus puissant que 32 bit ?
 ChatGPT said:
