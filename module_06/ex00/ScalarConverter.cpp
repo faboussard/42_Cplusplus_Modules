@@ -39,6 +39,7 @@ void ScalarConverter::convert(const std::string &input) {
   const size_t specialCount = sizeof(specialValues) / sizeof(specialValues[0]);
 
   std::string stringRepresentation;
+  char charRepresentation;
   int intRepresentation;
   float floatRepresentation;
   double doubleRepresentation;
@@ -95,12 +96,16 @@ void ScalarConverter::convert(const std::string &input) {
 
   if ((!isFloatOrDouble(input)) && intRepresentation >= 32 &&
       intRepresentation <= 126) {
-    stringRepresentation = static_cast<std::string>("'" + input + "'");
+    charRepresentation = static_cast<char>(intRepresentation);
   } else {
     stringRepresentation = "Non displayable";
   }
 
-  std::cout << "char: " << stringRepresentation << std::endl;
+  if (!stringRepresentation.empty())
+    std::cout << "char: " << stringRepresentation << std::endl;
+  else
+    std::cout << "char: '" << charRepresentation << "'" << std::endl;
+
   std::cout << "int: " << intRepresentation << std::endl;
 
   if (floatRepresentation == static_cast<int>(intRepresentation)) {
