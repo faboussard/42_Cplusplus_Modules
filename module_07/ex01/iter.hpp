@@ -14,6 +14,11 @@ void iter(const T *array, size_t length, void (*func)(const T &)) {
     func(array[i]);
 }
 
-template <typename T> void print(T t) { std::cout << t << " " << std::endl; }
+template <typename T> size_t typeLenght(T &t) {
+  size_t arrayLenght = sizeof(t) / sizeof(t[0]);
+  return arrayLenght;
+}
+
+template <typename T> void print(T &t) { std::cout << t << " " << std::endl; }
 
 #endif

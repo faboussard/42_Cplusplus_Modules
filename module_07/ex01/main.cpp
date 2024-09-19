@@ -5,33 +5,46 @@ void upperChar(char &c) { c = toupper(c); }
 
 int main() {
 
-  int intArray[] = {1, 2, 3, 4, 5};
-  double doubleArray[] = {1.1, 2.2, 3.3};
-  std::string stringArray[] = {"Hello", "World", "from", "C++"};
-  char charArray[] = {'H', 'e', 'l', 'l', 'o'};
-
   std::cout << "\n";
   std::cout << "iter on int array" << std::endl;
-  iter<int>(intArray, 3, print); // will print only the first three numbers
+  int intArray[] = {1, 2, 3, 4, 5};
+
+  iter<int>(intArray, typeLenght(intArray), print);
+
+  ///////////////////////////////////////////////////
 
   std::cout << "\n";
   std::cout << "iter on double array" << std::endl;
-  iter<double>(doubleArray, 5,
-               print); // will print weird numbers for the last two numbers
+  double doubleArray[] = {1.1, 2.2, 3.3};
+
+  iter<double>(doubleArray, typeLenght(doubleArray), print);
+
+  ///////////////////////////////////////////////////
 
   std::cout << "\n";
   std::cout << "iter on char array" << std::endl;
+
+  char charArray[] = {'H', 'e', 'l', 'l', 'o'};
+
   iter<char>(charArray, 5, print);
   std::cout << "to upper on char array"
             << std::endl; // to show iter works with another function
-  iter<char>(charArray, 5, upperChar);
+  iter<char>(charArray, typeLenght(charArray), upperChar);
   print(charArray);
 
+  ///////////////////////////////////////////////////
   std::cout << "\n";
-  std::cout << "iter on string array with good lenght" << std::endl;
+  std::cout << "iter on string array" << std::endl;
 
-  size_t arrayLenght = sizeof(stringArray) / sizeof(stringArray[0]);
-  iter<std::string>(stringArray, arrayLenght, print);
+  std::string stringArray[] = {"Hello", "World", "from", "C++"};
+  iter<std::string>(stringArray, typeLenght(stringArray), print);
+
+  ///////////////////////////////////////////////////
+  std::cout << "\n";
+  std::cout << "iter on const string array" << std::endl;
+
+  const std::string conststringArray[] = {"Hello", "World", "from", "C++"};
+  iter<std::string>(conststringArray, typeLenght(conststringArray), print);
 
   return 0;
 }
