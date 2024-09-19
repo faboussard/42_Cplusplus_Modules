@@ -3,6 +3,8 @@
 #include <string>
 
 int main() {
+  ////////////////////////////////////////////////////////////////////////////////////////////////////
+
   std::cout << "\n\t\tBASIC TESTS\n" << std::endl;
   {
     try {
@@ -41,6 +43,9 @@ int main() {
       std::cerr << "Exception: " << e.what() << std::endl;
     }
   }
+
+  ////////////////////////////////////////////////////////////////////////////////////////////////////
+
   std::cout << "\n\t\t OUT OF RANGE TESTS\n" << std::endl;
   {
     try {
@@ -64,21 +69,17 @@ int main() {
     } catch (std::exception &e) {
       std::cerr << "Exception: " << e.what() << std::endl;
     }
-  }
-  std::cout << "\n\t\tOTHER OUT OF RANGE TESTS\n" << std::endl;
-  {
     try {
-      //   Array<int> a(-2);
-      // } catch (std::exception &e) {
-      //   std::cerr << "Exception: " << e.what() << std::endl;
-      //   }
-      // }
-      //   try {
       Array<int> a(MAX_VALUE);
       a[MAX_VALUE] = 0;
+      printArray(a);
+
     } catch (std::exception &e) {
       std::cerr << "Exception: " << e.what() << std::endl;
     }
+  }
+  {
+
     std::cout << "\n\t\tDEEP COPY TESTS\n" << std::endl;
     try {
       {
@@ -110,6 +111,8 @@ int main() {
     } catch (std::exception &e) {
       std::cerr << "Exception: " << e.what() << std::endl;
     }
+  }
+  {
     std::cout << "\n\tSIZE COPY TESTS\n" << std::endl;
     try {
       {

@@ -113,30 +113,8 @@ The values are always popped in reverse order (LIFO—last in, first out):
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-module 7
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-typename is required to tell the compiler that a dependent name in a template is a type.
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 module 8
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-EX 02 MUTANT STACK
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-
-	typedef typename Container::iterator iterator;
-	typedef typename Container::const_iterator const_iterator;
-
-	template< typename T, typename Container = std::deque<T> >
-    class MutantStack : public std::stack<T, Container>
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 SPAN EX 01
 
@@ -151,8 +129,6 @@ does the following:
         std::numeric_limits is a template class in the C++ Standard Library that provides information about the properties of fundamental data types.
         max() is a static member function of std::numeric_limits<T> that returns the maximum finite value representable by the type T. For unsigned int, this is typically 4294967295 on most systems (which is 2^32 - 1).
 
-    unsigned int shortest:
-        This declares a variable named shortest of type unsigned int.
 
     shortest = std::numeric_limits<unsigned int>::max();:
         This initializes the shortest variable to the maximum possible value of an unsigned int.
@@ -160,3 +136,112 @@ does the following:
 Why Do This?
 
 Setting shortest to the maximum possible value of unsigned int is often done as an initialization step in algorithms that need to find the minimum value in a sequence of numbers.
+
+
+EX 02 MUTANT STACK
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+	typedef typename Container::iterator iterator;
+	typedef typename Container::const_iterator const_iterator;
+
+	template< typename T, typename Container = std::deque<T> >
+    class MutantStack : public std::stack<T, Container>
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+Module 8 :
+
+<algorithm>
+Standard Template Library: Algorithms
+The header <algorithm> defines a collection of functions especially designed to be used on ranges of elements.
+
+A range is any sequence of objects that can be accessed through iterators or pointers, such as an array or an instance of some of the STL containers. Notice though, that algorithms operate through iterators directly on the values, not affecting in any way the structure of any possible container (it never affects the size or storage allocation of the container).
+
+Pourquoi l'opérateur * est utilisé ?
+    • *it : Lorsque vous utilisez l'opérateur * sur un itérateur, vous déréférencez cet itérateur, c'est-à-dire que vous accédez à l'élément du conteneur vers lequel l'itérateur pointe. Par exemple, si it est un itérateur qui pointe vers un élément d'un std::vector<int>, alors *it vous donne cet élément int.
+    • *(it + 1) : Cette expression signifie "l'élément suivant dans le conteneur". it + 1 crée un nouvel itérateur qui pointe vers l'élément suivant, et * déréférence cet itérateur pour accéder à la valeur de cet élément
+Understanding std::deque and its c Member
+std::deque (double-ended queue) is a standard container in C++ that allows fast insertions and deletions at both the front and the back of the container. It's a more flexible alternative to std::vector when you need this kind of flexibility. Here's a brief overview:
+    • Characteristics of std::deque:
+        ◦ Dynamic Size: It can grow and shrink dynamically as elements are added or removed.
+        ◦ Fast Access: Provides constant time complexity for accessing elements by index.
+        ◦ Fast Insertions/Deletions: Efficient at adding or removing elements from both ends.
+    • c Member in std::stack:
+        ◦ In std::stack, the container is a private member called c. This container is used to hold the elements of the stack.
+        ◦ For std::stack, the default underlying container is std::deque. The container c is not directly accessible from outside the class. However, you can use it via MutantStack, which inherits from std::stack and provides access to it through its iterators.
+Example of std::deque
+Here’s a simple example to illustrate the use of std::deque:
+cpp
+Copy code
+#include <deque>
+#include <iostream>
+
+int main() {
+    std::deque<int> deq;
+
+    // Add elements
+    deq.push_back(1);
+    deq.push_back(2);
+    deq.push_front(0);
+
+    // Access elements
+    std::cout << "Deque elements: ";
+    for (auto it = deq.begin(); it != deq.end(); ++it) {
+        std::cout << *it << " ";
+    }
+    std::cout << std::endl;
+
+    return 0;
+}
+Const and Non-Const Iterators
+Iterators are objects that provide a way to access elements in a container sequentially. They come in two flavors:
+    1. Const Iterators:
+        ◦ They provide read-only access to the elements of the container.
+        ◦ They do not allow modification of the elements they point to.
+       Example Usage:
+       cpp
+       Copy code
+       const std::deque<int> deq = {1, 2, 3, 4, 5};
+       for (std::deque<int>::const_iterator it = deq.begin(); it != deq.end(); ++it) {
+           std::cout << *it << " "; // Read-only access
+       }
+    2. Non-Const Iterators:
+        ◦ They provide read and write access to the elements of the container.
+        ◦ They allow modification of the elements they point to.
+       Example Usage:
+       cpp
+       Copy code
+       std::deque<int> deq = {1, 2, 3, 4, 5};
+       for (std::deque<int>::iterator it = deq.begin(); it != deq.end(); ++it) {
+           *it += 1; // Modifying elements
+       }
+When to Use Non-Const Iterators
+Non-const iterators are useful when you need to modify the elements of the container. For example, if you want to increment every element in a container, you would use a non-const iterator:
+cpp
+Copy code
+#include <deque>
+#include <iostream>
+
+int main() {
+    std::deque<int> deq = {1, 2, 3, 4, 5};
+
+    // Increment each element
+    for (std::deque<int>::iterator it = deq.begin(); it != deq.end(); ++it) {
+        *it += 10; // Modify the element
+    }
+
+    // Print the updated elements
+    std::cout << "Updated deque elements: ";
+    for (auto it = deq.begin(); it != deq.end(); ++it) {
+        std::cout << *it << " ";
+    }
+    std::cout << std::endl;
+
+    return 0;
+}
+In this example, using a non-const iterator allows modification of each element in the std::deque.
+When to Use std::vector:
+    • When you need random access to elements.
+    • When you mostly add or remove elements at the end of the container.
+    • When you require contiguous memory for better cache locality.
