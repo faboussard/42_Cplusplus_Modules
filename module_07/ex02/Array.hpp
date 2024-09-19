@@ -1,4 +1,5 @@
-#pragma once
+#ifndef ARRAY_HPP
+#ifndef ARRAY_HPP
 
 #include <stdexcept>
 
@@ -22,3 +23,4 @@ public:
 
 #include "Array.tpp"
 
+#endif

@@ -1,32 +1,19 @@
-#include <iostream>
 #include "iter.hpp"
+#include <iostream>
 
-void callbackPrintInt(int const &x)
-{
-	std::cout << x << std::endl;
+template <typename T> void print(const T *array, size_t length) {
+  for (i = 0; i < length; ++i) {
+    std::cout << array[i] << " " << std::endl;
+  }
 }
 
-void callbakPrintDouble(double const &x)
-{
-	std::cout << x << std::endl;
-}
+int main() {
+  int intArray[5] = {1, 2, 3, 4, 5};
+  double doubleArray[] = {1.1, 2.2, 3.3};
+  std::string stringArray[] = {"Hello", "World", "from", "C++"};
+  char charArray[] = {'H', 'e', 'l', 'l', 'o'};
 
-void printString(std::string const &str)
-{
-	std::cout << str << std::endl;
-}
+  iter<int>(intArray, 5, print);
 
-int main()
-{
-	int intArray[] = {1, 2, 3, 4, 5};
-	double doubleArray[] = {1.1, 2.2, 3.3};
-	std::string stringArray[] = {"Hello", "World", "from", "C++"};
-
-	iter(intArray, 5, callbackPrintInt);
-
-	iter(doubleArray, 3, callbakPrintDouble);
-
-	iter(stringArray, 4, printString);
-
-	return 0;
+  return 0;
 }

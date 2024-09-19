@@ -1,24 +1,37 @@
 #include "Base.hpp"
 
-int main()
-{
-	Base *base;
+int main() {
+  Base *base;
 
-	Base *baseA = new A();
-	Base *baseB = new B();
-	Base *baseC = new C();
+  Base *baseA = new A();
+  Base *baseB = new B();
+  Base *baseC = new C();
 
-	base = generate();
-	identify(base);
-	identify(*base);
+  std::cout << std::endl;
 
-	identify(baseA);
-	identify(baseB);
-	identify(*baseC);
+  std::cout << " identify random generation " << std::endl;
 
-	delete baseA;
-	delete baseB;
-	delete baseC;
+  std::cout << std::endl;
 
-	return 0;
+  base = generate();
+  identify(base);
+  identify(*base);
+
+  delete base;
+
+  std::cout << std::endl;
+
+  std::cout << " identify function results " << std::endl;
+
+  std::cout << std::endl;
+
+  identify(baseA);
+  identify(baseB);
+  identify(*baseC);
+
+  delete baseA;
+  delete baseB;
+  delete baseC;
+
+  return 0;
 }

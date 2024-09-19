@@ -5,8 +5,6 @@
 #include <stdint.h>
 #include <string>
 
-// uintptr_t
-
 class Serializer {
 
 private:

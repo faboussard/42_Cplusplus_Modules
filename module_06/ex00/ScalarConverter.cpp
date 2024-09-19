@@ -29,10 +29,6 @@ bool specialValuesAreFloat(const std::string &input) {
           input == "inff");
 }
 
-bool isFloatOrDouble(const std::string &input) {
-  return input.find('.') != std::string::npos;
-}
-
 void ScalarConverter::convert(const std::string &input) {
   const std::string specialValues[] = {"inf",  "inff", "-inff", "+inff",
                                        "nanf", "-inf", "+inf",  "nan"};
@@ -94,8 +90,8 @@ void ScalarConverter::convert(const std::string &input) {
 
   intRepresentation = static_cast<int>(doubleRepresentation);
 
-  if ((!isFloatOrDouble(input)) && intRepresentation >= 32 &&
-      intRepresentation <= 126) {
+  if ((floatRepresentation == static_cast<int>(intRepresentation)) &&
+      intRepresentation >= 32 && intRepresentation <= 126) {
     charRepresentation = static_cast<char>(intRepresentation);
   } else {
     stringRepresentation = "Non displayable";
