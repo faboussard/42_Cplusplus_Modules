@@ -14,4 +14,6 @@ void iter(const T *array, size_t length, void (*func)(const T &)) {
     func(array[i]);
 }
 
+template <typename T> void print(T t) { std::cout << t << " " << std::endl; }
+
 #endif
