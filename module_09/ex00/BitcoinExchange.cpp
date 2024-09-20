@@ -91,9 +91,9 @@ bool BitcoinExchange::checkDate(std::string const &date) {
 		return false;
 	}
 
-	if (year < 2009)
+	if (year < 2009 || ( year == 2009 && month == 1 && day < 2))
 	{
-		std::cerr << "Error: Bad input - enter a date after 2099" << std::endl;
+		std::cerr << "Error: Bad input - enter a date after 2009-01-01" << std::endl;
 		return false;
 	}
 
@@ -103,7 +103,7 @@ bool BitcoinExchange::checkDate(std::string const &date) {
 		return false;
 	}
 
-	if (month < JANUARY || month > DECEMBER || day < 1 || day > 31) {
+	if (month < 1 || month > 12 || day < 1 || day > 31) {
 		std::cerr << "Error: Bad input - invalid date values. Date: " << date
 				  << std::endl;
 		return false;
@@ -115,7 +115,7 @@ bool BitcoinExchange::checkDate(std::string const &date) {
 		return false;
 	}
 
-	if (month == FEBRUARY) {
+	if (month == 2) {
 		bool leapYear = (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0));
 		if (day > (leapYear ? 29 : 28)) {
 			std::cerr << "Error: Bad input for February. Date: " << date << std::endl;
@@ -148,20 +148,20 @@ bool BitcoinExchange::checkAmount(std::string const &amount) {
 	return (true);
 }
 
-bool BitcoinExchange::parseLine(const std::string &line, std::string &key,
+bool BitcoinExchange::parseLine(const std::string &line, std::string &data,
 								float &value, bool isInputFile) {
 	std::istringstream iss(line);
 	std::string valueStr;
 	char separator = isInputFile ? DASH_SEPARATOR : COMA_SEPARATOR;
 
-	if (!std::getline(iss, key, separator) || !std::getline(iss, valueStr)) {
-		std::cout << "Error: bad input => "<< key << std::endl;
+	if (!std::getline(iss, data, separator) || !std::getline(iss, valueStr)) {
+		std::cout << "Error: bad input => "<< data << std::endl;
 		return false;
 	}
 
 	if (isInputFile) {
 
-		if (!checkDate(key)) return false;
+		if (!checkDate(data)) return false;
 		if (!checkAmount(valueStr)) return false;
 	}
 
@@ -179,21 +179,21 @@ bool BitcoinExchange::parseLine(const std::string &line, std::string &key,
 void BitcoinExchange::processFile(std::ifstream &infile, std::map<std::string, std::vector<float>> &myMap, std::string &fileName)
 {
 	std::string line;
-	std::string key;
+	std::string data;
 	float value;
 
 	std::getline(infile, line);
 
 	while (std::getline(infile, line))
 	{
-		if (parseLine(line, key, value, fileName == _inputFile))
+		if (parseLine(line, data, value, fileName == _inputFile))
 		{
-			myMap[key].push_back(value);
+			myMap[data].push_back(value);
 
 			if (fileName == _inputFile)
 			{
-				float calculatedValue = calculate(key, value);
-				std::cout << key << " => " << value << " = " << calculatedValue << std::endl;
+				float calculatedValue = calculate(data, value);
+				std::cout << data << " => " << value << " = " << calculatedValue << std::endl;
 			}
 		}
 	}
@@ -221,11 +221,6 @@ float BitcoinExchange::calculate(const std::string &date, float price) {
 
 	if (mapIt != _databaseMap.end() && mapIt->first == date) {
 		return price * mapIt->second[0];
-	}
-
-	if (mapIt == _databaseMap.begin()) {
-		std::cerr << "Error: No earlier date found in the database for " << date << std::endl;
-		return -1;
 	}
 	--mapIt;
 	return price * mapIt->second[0];

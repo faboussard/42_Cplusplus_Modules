@@ -11,22 +11,6 @@
 #define DASH_SEPARATOR '|'
 #define DELIMITER_DATE '-'
 
-enum month
-{
-	JANUARY,
-	FEBRUARY,
-	MARCH,
-	APRIL,
-	MAY,
-	JUNE,
-	JULY,
-	AUGUST,
-	SEPTEMBER,
-	OCTOBER,
-	NOVEMBER,
-	DECEMBER,
-};
-
 class BitcoinExchange {
 
 public:
