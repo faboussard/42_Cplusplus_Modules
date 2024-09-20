@@ -103,7 +103,7 @@ bool BitcoinExchange::checkDate(std::string const &date) {
 		return false;
 	}
 
-	if (month < 1 || month > 12 || day < 1 || day > 31) {
+	if (month < JANUARY || month > DECEMBER || day < 1 || day > 31) {
 		std::cerr << "Error: Bad input - invalid date values. Date: " << date
 				  << std::endl;
 		return false;
@@ -115,7 +115,7 @@ bool BitcoinExchange::checkDate(std::string const &date) {
 		return false;
 	}
 
-	if (month == 2) {
+	if (month == FEBRUARY) {
 		bool leapYear = (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0));
 		if (day > (leapYear ? 29 : 28)) {
 			std::cerr << "Error: Bad input for February. Date: " << date << std::endl;
