@@ -21,11 +21,9 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="02491725-2efa-4442-943e-b2e1e2a111f9" name="Changes" comment="added no date prior to 2009 ex00">
+    <list default="true" id="02491725-2efa-4442-943e-b2e1e2a111f9" name="Changes" comment="ajout enum date">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/module_09/ex00/BitcoinExchange.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_09/ex00/BitcoinExchange.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_09/ex00/BitcoinExchange.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_09/ex00/BitcoinExchange.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_09/ex00/Data/input.txt" beforeDir="false" afterPath="$PROJECT_DIR$/module_09/ex00/Data/input.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/module_09/ex00/btc" beforeDir="false" afterPath="$PROJECT_DIR$/module_09/ex00/btc" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -171,23 +169,7 @@
       <workItem from="1726231436832" duration="93000" />
       <workItem from="1726550610928" duration="19297000" />
       <workItem from="1726578196541" duration="12000" />
-      <workItem from="1726825080918" duration="6962000" />
-    </task>
-    <task id="LOCAL-00027" summary="init ex01">
-      <option name="closed" value="true" />
-      <created>1724401716463</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1724401716463</updated>
-    </task>
-    <task id="LOCAL-00028" summary="modif claptrap with class overload ostream">
-      <option name="closed" value="true" />
-      <created>1724505633363</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1724505633363</updated>
+      <workItem from="1726825080918" duration="7770000" />
     </task>
     <task id="LOCAL-00029" summary="ajout setter use dans exo 01 et changement noms makefile">
       <option name="closed" value="true" />
@@ -565,7 +547,23 @@
       <option name="project" value="LOCAL" />
       <updated>1726826619739</updated>
     </task>
-    <option name="localTasksCounter" value="76" />
+    <task id="LOCAL-00076" summary="remis dans le bon ordre de print">
+      <option name="closed" value="true" />
+      <created>1726832282186</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1726832282186</updated>
+    </task>
+    <task id="LOCAL-00077" summary="ajout enum date">
+      <option name="closed" value="true" />
+      <created>1726832505551</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1726832505551</updated>
+    </task>
+    <option name="localTasksCounter" value="78" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -577,8 +575,6 @@
     <isAutomaticReloadCMake value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="ex02 ended" />
-    <MESSAGE value="init cpp7" />
     <MESSAGE value="ex01 et 00 finished, init ex02" />
     <MESSAGE value="hpp et tpp ready for ex02" />
     <MESSAGE value="ex02 tests terminés" />
@@ -602,6 +598,8 @@
     <MESSAGE value="inherit from std::stack&lt;int&gt;" />
     <MESSAGE value="ok ex02" />
     <MESSAGE value="added no date prior to 2009 ex00" />
-    <option name="LAST_COMMIT_MESSAGE" value="added no date prior to 2009 ex00" />
+    <MESSAGE value="remis dans le bon ordre de print" />
+    <MESSAGE value="ajout enum date" />
+    <option name="LAST_COMMIT_MESSAGE" value="ajout enum date" />
   </component>
 </project>

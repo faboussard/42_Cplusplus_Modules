@@ -71,7 +71,7 @@ std::ostream &operator<<(std::ostream &stream, BitcoinExchange &bitcoinExchange)
 
 bool BitcoinExchange::checkDate(std::string const &date) {
 	if (date.empty()) {
-		std::cerr << "Error: Bad input - empty date => " << date << std::endl;
+		std::cerr << "Error: Bad input - empty date" << date << std::endl;
 		return false;
 	}
 
@@ -127,30 +127,22 @@ bool BitcoinExchange::checkDate(std::string const &date) {
 
 
 bool BitcoinExchange::checkAmount(std::string const &amount) {
-	char *end;
 	float num;
 	errno = 0;
 
-	double tmp = std::strtod(amount.c_str(), &end);
-	if (amount.empty()) {
-		std::cerr << "Error: Bad input - amount is empty. "
-				  << std::endl;
-		return (false);
-	}
 	if (errno == EINVAL) {
-		std::cerr << "Error: Bad input - amount is not a valid number. Amount: "
+		std::cerr << "Error: amount is not a valid number"
 				  << amount << std::endl;
 		return (false);
 	}
-	num = static_cast<float>(tmp);
+	num = std::atof(amount.c_str());
 	if (num < 0.0) {
-		std::cerr << "Error: Bad input - Not a positive number. Amount: " << amount
+		std::cerr << "Error: not a positive number."
 				  << std::endl;
 		return (false);
 	}
 	if (num >= INT8_MAX) {
-		std::cerr << "Error: Bad input - Amount exceeds maximum value. Amount: "
-				  << amount << std::endl;
+		std::cerr << "Error: too large a number " << std::endl;
 		return (false);
 	}
 	return (true);
@@ -163,6 +155,7 @@ bool BitcoinExchange::parseLine(const std::string &line, std::string &key,
 	char separator = isInputFile ? DASH_SEPARATOR : COMA_SEPARATOR;
 
 	if (!std::getline(iss, key, separator) || !std::getline(iss, valueStr)) {
+		std::cout << "Error: bad input => "<< key << std::endl;
 		return false;
 	}
 
