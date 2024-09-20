@@ -5,7 +5,7 @@ OBJS_DIR = .objs/
 DEPS = $(OBJS:.o=.d)
 NAME    = RPN
 
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -g
 
 all: $(NAME)
 

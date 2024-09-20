@@ -110,7 +110,7 @@ void checkOpCount(char **argv) {
 		i++;
 	}
 	if (countOp == 0) {
-		std::cerr << "Error: no operators found in expression" << std::endl;
+		std::cerr << "Error: no operator found in expression" << std::endl;
 		exit(EXIT_FAILURE);
 	}
 	if (countOp >= countNonOp)

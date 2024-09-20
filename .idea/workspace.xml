@@ -21,10 +21,9 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="02491725-2efa-4442-943e-b2e1e2a111f9" name="Changes" comment="erreur de condition corrigee sur date avant 2009">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_09/ex01/RPN.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_09/ex01/RPN.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_09/ex01/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_09/ex01/main.cpp" afterDir="false" />
+    <list default="true" id="02491725-2efa-4442-943e-b2e1e2a111f9" name="Changes" comment="parsing started">
+      <change afterPath="$PROJECT_DIR$/module_09/ex01/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module_09/ex01/.idea/vcs.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,7 +72,7 @@
     "Makefile Target.Unnamed.executor": "Run",
     "Makefile Target.makefile.executor": "Run",
     "Native Application.Unnamed.executor": "Run",
-    "Native Application.btc.executor": "Run",
+    "Native Application.btc.executor": "Debug",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.cidr.known.project.marker": "true",
     "RunOnceActivity.readMode.enableVisualFormatting": "true",
@@ -81,7 +80,7 @@
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
     "git-widget-placeholder": "master",
-    "last_opened_file_path": "/home/fanny/fanny_cpp",
+    "last_opened_file_path": "/home/fanny/fanny_cpp/module_09/ex01",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -169,15 +168,7 @@
       <workItem from="1726231436832" duration="93000" />
       <workItem from="1726550610928" duration="19297000" />
       <workItem from="1726578196541" duration="12000" />
-      <workItem from="1726825080918" duration="11490000" />
-    </task>
-    <task id="LOCAL-00031" summary="ajout setter et getter d une idee . &#10;init ex02">
-      <option name="closed" value="true" />
-      <created>1724585503205</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1724585503205</updated>
+      <workItem from="1726825080918" duration="11619000" />
     </task>
     <task id="LOCAL-00032" summary="fini mlodule 04">
       <option name="closed" value="true" />
@@ -563,7 +554,15 @@
       <option name="project" value="LOCAL" />
       <updated>1726834053048</updated>
     </task>
-    <option name="localTasksCounter" value="80" />
+    <task id="LOCAL-00080" summary="parsing started">
+      <option name="closed" value="true" />
+      <created>1726841303047</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1726841303048</updated>
+    </task>
+    <option name="localTasksCounter" value="81" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -575,7 +574,6 @@
     <isAutomaticReloadCMake value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="ex02 tests terminés" />
     <MESSAGE value="init module 8" />
     <MESSAGE value="ex00 fini" />
     <MESSAGE value="init ex01 module 8" />
@@ -600,6 +598,7 @@
     <MESSAGE value="ajout enum date" />
     <MESSAGE value="test ex0 ok" />
     <MESSAGE value="erreur de condition corrigee sur date avant 2009" />
-    <option name="LAST_COMMIT_MESSAGE" value="erreur de condition corrigee sur date avant 2009" />
+    <MESSAGE value="parsing started" />
+    <option name="LAST_COMMIT_MESSAGE" value="parsing started" />
   </component>
 </project>
