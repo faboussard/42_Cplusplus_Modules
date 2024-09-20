@@ -91,6 +91,12 @@ bool BitcoinExchange::checkDate(std::string const &date) {
 		return false;
 	}
 
+	if (year < 2009)
+	{
+		std::cerr << "Error: Bad input - enter a date after 2099" << std::endl;
+		return false;
+	}
+
 	if (delimiter != '-') {
 		std::cerr << "Error: Bad input - invalid delimiter. Date: " << date
 				  << std::endl;
@@ -181,7 +187,6 @@ void BitcoinExchange::processFile(std::ifstream &infile, std::map<std::string, s
 	std::string line;
 	std::string key;
 	float value;
-	int lineNumber = 2;
 
 	std::getline(infile, line);
 	if (fileName == _inputFile)
@@ -190,9 +195,8 @@ void BitcoinExchange::processFile(std::ifstream &infile, std::map<std::string, s
 		if (parseLine(line, key, value, fileName == _inputFile)) {
 			myMap[key].push_back(value);
 		} else {
-			std::cerr << "Line : " << lineNumber << " - Skipping invalid line => " << line << std::endl << std::endl;
+			std::cerr << "Line: " << " - Skipping invalid line => " << line << std::endl << std::endl;
 		}
-		lineNumber++;
 	}
 }
 
@@ -215,7 +219,7 @@ bool BitcoinExchange::extractFile(std::string &fileName, map &myMap) {
 	}
 }
 
-float BitcoinExchange::calculateRate(const std::string &date, float price) {
+float BitcoinExchange::calculate(const std::string &date, float price) {
 
 
 	BitcoinExchange::map::iterator  mapIt = _databaseMap.lower_bound(date);
@@ -232,7 +236,6 @@ float BitcoinExchange::calculateRate(const std::string &date, float price) {
 	return price * mapIt->second[0];
 }
 
-
 /*============================================================================*/
 /*       Public member functions                                             */
 /*============================================================================*/
@@ -245,20 +248,15 @@ void BitcoinExchange::findRate() {
 
 	std::cout << "\n\t\t New price converted to Bitcoin currency\n" << std::endl;
 
-
 	for (BitcoinExchange::map::iterator mapIt = _inputMap.begin(); mapIt != _inputMap.end(); ++mapIt) {
 		const std::string &date = mapIt->first;
 		const std::vector<float> &values = mapIt->second;
 
 		for (std::vector<float>::const_iterator valueIt = values.begin(); valueIt != values.end(); ++valueIt) {
-			float price = *valueIt;
-			float rate = calculateRate(date, price);
+			float quantity = *valueIt;
+			float price = calculate(date, quantity);
 
-			if (rate != -1) {
-				std::cout << date << " => " << price << " = " << rate << std::endl;
-			} else {
-				std::cerr << "Warning: No exchange rate found for date: " << date << std::endl;
-			}
+			std::cout << date << " => " << quantity << " = " << price << std::endl;
 		}
 	}
 }
@@ -268,11 +266,11 @@ void BitcoinExchange::findRate() {
 /*============================================================================*/
 
 std::string getTodayDate() {
-  std::time_t now = std::time(0);
-  std::tm *now_tm = std::localtime(&now);
-  std::ostringstream oss;
-  oss << (now_tm->tm_year + 1900) << "-" << (now_tm->tm_mon + 1) << "-"
-      << now_tm->tm_mday;
+	std::time_t now = std::time(0);
+	std::tm *now_tm = std::localtime(&now);
+	std::ostringstream oss;
+	oss << (now_tm->tm_year + 1900) << "-" << (now_tm->tm_mon + 1) << "-"
+		<< now_tm->tm_mday;
 
-  return oss.str();
+	return oss.str();
 }

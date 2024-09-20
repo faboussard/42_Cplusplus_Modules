@@ -42,7 +42,7 @@ private:
 	void processFile(std::ifstream &infile, map &myMap,
 					 std::string &fileName);
 
-	float calculateRate(const std::string &date, float price);
+	float calculate(const std::string &date, float price);
 
 	bool checkDate(std::string const &date);
 	bool checkAmount(std::string const &amount);
