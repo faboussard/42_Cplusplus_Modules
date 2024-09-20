@@ -44,4 +44,3 @@ private:
 
 };
 
-int checkArgs(int ac, char **argv);

@@ -21,11 +21,10 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="02491725-2efa-4442-943e-b2e1e2a111f9" name="Changes" comment="test ex0 ok">
+    <list default="true" id="02491725-2efa-4442-943e-b2e1e2a111f9" name="Changes" comment="erreur de condition corrigee sur date avant 2009">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_09/ex00/BitcoinExchange.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_09/ex00/BitcoinExchange.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_09/ex00/Data/input.txt" beforeDir="false" afterPath="$PROJECT_DIR$/module_09/ex00/Data/input.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_09/ex00/btc" beforeDir="false" afterPath="$PROJECT_DIR$/module_09/ex00/btc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_09/ex01/RPN.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_09/ex01/RPN.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_09/ex01/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_09/ex01/main.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -170,15 +169,7 @@
       <workItem from="1726231436832" duration="93000" />
       <workItem from="1726550610928" duration="19297000" />
       <workItem from="1726578196541" duration="12000" />
-      <workItem from="1726825080918" duration="8757000" />
-    </task>
-    <task id="LOCAL-00030" summary="ex01 ok">
-      <option name="closed" value="true" />
-      <created>1724511350342</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1724511350342</updated>
+      <workItem from="1726825080918" duration="11490000" />
     </task>
     <task id="LOCAL-00031" summary="ajout setter et getter d une idee . &#10;init ex02">
       <option name="closed" value="true" />
@@ -564,7 +555,15 @@
       <option name="project" value="LOCAL" />
       <updated>1726833125137</updated>
     </task>
-    <option name="localTasksCounter" value="79" />
+    <task id="LOCAL-00079" summary="erreur de condition corrigee sur date avant 2009">
+      <option name="closed" value="true" />
+      <created>1726834053048</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1726834053048</updated>
+    </task>
+    <option name="localTasksCounter" value="80" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -576,7 +575,6 @@
     <isAutomaticReloadCMake value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="hpp et tpp ready for ex02" />
     <MESSAGE value="ex02 tests terminés" />
     <MESSAGE value="init module 8" />
     <MESSAGE value="ex00 fini" />
@@ -601,6 +599,7 @@
     <MESSAGE value="remis dans le bon ordre de print" />
     <MESSAGE value="ajout enum date" />
     <MESSAGE value="test ex0 ok" />
-    <option name="LAST_COMMIT_MESSAGE" value="test ex0 ok" />
+    <MESSAGE value="erreur de condition corrigee sur date avant 2009" />
+    <option name="LAST_COMMIT_MESSAGE" value="erreur de condition corrigee sur date avant 2009" />
   </component>
 </project>
