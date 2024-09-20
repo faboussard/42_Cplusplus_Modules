@@ -127,32 +127,32 @@ bool BitcoinExchange::checkDate(std::string const &date) {
 
 
 bool BitcoinExchange::checkAmount(std::string const &amount) {
-  char *end;
-  float num;
-  errno = 0;
+	char *end;
+	float num;
+	errno = 0;
 
-  double tmp = std::strtod(amount.c_str(), &end);
-  if (amount.empty()) {
-    std::cerr << "Error: Bad input - amount is empty. "
-              << std::endl;
-	  return (false);
-  }
-  if (errno == EINVAL) {
-    std::cerr << "Error: Bad input - amount is not a valid number. Amount: "
-              << amount << std::endl;
-	  return (false);
-  }
-  num = static_cast<float>(tmp);
-  if (num < 0.0) {
-    std::cerr << "Error: Bad input - Not a positive number. Amount: " << amount
-              << std::endl;
-	  return (false);
-  }
-  if (num >= INT8_MAX) {
-    std::cerr << "Error: Bad input - Amount exceeds maximum value. Amount: "
-              << amount << std::endl;
-	  return (false);
-  }
+	double tmp = std::strtod(amount.c_str(), &end);
+	if (amount.empty()) {
+		std::cerr << "Error: Bad input - amount is empty. "
+				  << std::endl;
+		return (false);
+	}
+	if (errno == EINVAL) {
+		std::cerr << "Error: Bad input - amount is not a valid number. Amount: "
+				  << amount << std::endl;
+		return (false);
+	}
+	num = static_cast<float>(tmp);
+	if (num < 0.0) {
+		std::cerr << "Error: Bad input - Not a positive number. Amount: " << amount
+				  << std::endl;
+		return (false);
+	}
+	if (num >= INT8_MAX) {
+		std::cerr << "Error: Bad input - Amount exceeds maximum value. Amount: "
+				  << amount << std::endl;
+		return (false);
+	}
 	return (true);
 }
 
@@ -182,41 +182,43 @@ bool BitcoinExchange::parseLine(const std::string &line, std::string &key,
 }
 
 
-void BitcoinExchange::processFile(std::ifstream &infile, std::map<std::string, std::vector<float>> &myMap,
-								  std::string &fileName) {
+
+void BitcoinExchange::processFile(std::ifstream &infile, std::map<std::string, std::vector<float>> &myMap, std::string &fileName)
+{
 	std::string line;
 	std::string key;
 	float value;
 
 	std::getline(infile, line);
-	if (fileName == _inputFile)
-		std::cout << "\n\t\t List of errors in input table\n" << std::endl;
-	while (std::getline(infile, line)) {
-		if (parseLine(line, key, value, fileName == _inputFile)) {
+
+	while (std::getline(infile, line))
+	{
+		if (parseLine(line, key, value, fileName == _inputFile))
+		{
 			myMap[key].push_back(value);
-		} else {
-			std::cerr << "Line: " << " - Skipping invalid line => " << line << std::endl << std::endl;
+
+			if (fileName == _inputFile)
+			{
+				float calculatedValue = calculate(key, value);
+				std::cout << key << " => " << value << " = " << calculatedValue << std::endl;
+			}
 		}
 	}
 }
 
 
-bool BitcoinExchange::extractFile(std::string &fileName, map &myMap) {
-	try {
+
+void BitcoinExchange::extractFile(std::string &fileName, map &myMap) {
 		std::ifstream infile;
 		infile.open(fileName);
-		if (!infile.is_open()) {
+		if (!infile.is_open())
+		{
 			std::cerr << "Error: Unable to open input file: " << fileName
 					  << std::endl << "Check file exists, rights are on and name is correct" << std::endl;
 			exit(EXIT_FAILURE);
 		}
-		processFile(infile, myMap, fileName);
-		infile.close();
-		return true;
-	} catch (const std::exception &e) {
-		std::cerr << "Error: " << e.what() << std::endl;
-		return false;
-	}
+	processFile(infile, myMap, fileName);
+	infile.close();
 }
 
 float BitcoinExchange::calculate(const std::string &date, float price) {
@@ -241,24 +243,9 @@ float BitcoinExchange::calculate(const std::string &date, float price) {
 /*============================================================================*/
 
 void BitcoinExchange::findRate() {
-	if (!extractFile(_inputFile, _inputMap) || !extractFile(_databaseFile, _databaseMap)) {
-		std::cerr << "Error: could not extract input or data file." << std::endl;
-		return;
-	}
+	extractFile(_databaseFile, _databaseMap);
+	extractFile(_inputFile, _inputMap);
 
-	std::cout << "\n\t\t New price converted to Bitcoin currency\n" << std::endl;
-
-	for (BitcoinExchange::map::iterator mapIt = _inputMap.begin(); mapIt != _inputMap.end(); ++mapIt) {
-		const std::string &date = mapIt->first;
-		const std::vector<float> &values = mapIt->second;
-
-		for (std::vector<float>::const_iterator valueIt = values.begin(); valueIt != values.end(); ++valueIt) {
-			float quantity = *valueIt;
-			float price = calculate(date, quantity);
-
-			std::cout << date << " => " << quantity << " = " << price << std::endl;
-		}
-	}
 }
 
 /*============================================================================*/

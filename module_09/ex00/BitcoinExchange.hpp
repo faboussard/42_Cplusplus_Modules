@@ -27,17 +27,16 @@ public:
   std::string &getInputFile();
   std::string &getDataFile();
 
-  //	bool format_data();
   void findRate();
 
 private:
 
-	bool extractFile(std::string &fileName, map &myMap);
+	void extractFile(std::string &fileName, map &myMap);
 
 	void open_file(const char *filename, std::ifstream &infile);
 
-	bool parseLine(const std::string &line, std::string &key, float &value,
-				   bool isInputFile);
+	bool parseLine(const std::string &line, std::string &key,
+				   float &value, bool isInputFile);
 
 	void processFile(std::ifstream &infile, map &myMap,
 					 std::string &fileName);
