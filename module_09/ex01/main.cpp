@@ -72,22 +72,24 @@ void checkArgsCount(int argc)
 	}
 }
 
-bool isOperator(std::string argv)
-{
-	return (argv == "+" || argv == "-"  || argv == "*" || argv == "/");
+bool isOperator(const std::string &token) {
+	return (token == "+" || token == "-" || token == "*" || token == "/");
 }
 
 void checkOpOrDigits(char **argv) {
-	int i = 0;
+	int i = 1;
 
 	while (argv[i]) {
-		const char* arg = argv[i];
+		std::string arg = argv[i];
 
-		for (size_t j = 0; j < std::strlen(arg); ++j) {
-			char c = arg[j];
+		if (isOperator(arg)) {
+			i++;
+			continue;
+		}
 
-			if (!isOperator(&arg[j]) && !isdigit(c) && !isspace(c)) {
-				std::cerr << "Error: invalid expression" << std::endl;
+		for (size_t j = 0; j < arg.length(); ++j) {
+			if (!isdigit(arg[j]) && !(arg[j] == '-' && j == 0)) {
+				std::cerr << "Error: invalid expression (invalid token: " << arg << ")" << std::endl;
 				exit(EXIT_FAILURE);
 			}
 		}
@@ -98,48 +100,45 @@ void checkOpOrDigits(char **argv) {
 void checkOpCount(char **argv) {
 	int countOp = 0;
 	int countNonOp = 0;
-	int i = 0;
+	int i = 1;
 
 	while (argv[i]) {
-		const char* arg = argv[i];
+		std::string arg = argv[i];
+
 		if (isOperator(arg)) {
 			countOp++;
-		}
-		if (!isOperator(arg))
+		} else {
 			countNonOp++;
+		}
 		i++;
 	}
+
 	if (countOp == 0) {
 		std::cerr << "Error: no operator found in expression" << std::endl;
 		exit(EXIT_FAILURE);
 	}
-	if (countOp >= countNonOp)
-	{
-		std::cerr << "Error: invalid expression" << std::endl;
+
+	if (countOp >= countNonOp) {
+		std::cerr << "Error: invalid expression (more operators than operands)" << std::endl;
 		exit(EXIT_FAILURE);
 	}
 }
 
-
-void checkArgs(int argc, char **argv)
-{
+void checkArgs(int argc, char **argv) {
 	checkArgsCount(argc);
+//	checkOpOrDigits(argv);
 	checkOpCount(argv);
 }
 
-int main(int argc, char* argv[])
-{
+int main(int argc, char* argv[]) {
 	checkArgs(argc, argv);
 	std::string expression = argv[1];
-	try
-	{
+	try {
 		processRPN(expression);
 	}
-	catch (const std::exception & e)
-	{
+	catch (const std::exception & e) {
 		std::cerr << "Error: " << e.what() << std::endl;
 		return 1;
 	}
-
 	return 0;
 }
