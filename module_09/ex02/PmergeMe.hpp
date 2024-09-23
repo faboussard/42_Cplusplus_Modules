@@ -49,12 +49,12 @@ private:
 
 	void createStraggler();
 	void makeSortedPairs();
-	void largestValues();
-	void smallestValues();
+	void s_sortedLargestValues();
+	void pend_sortedSmallestValues();
 	void insertAndMerge();
 	void insertStraggler();
 	vector generateJacobsthal();
-	void insertUsingBinarySearch(std::vector<unsigned int>& S, unsigned int element);
+	void insertUsingBinarySearch(unsigned int element);
 
 
 };

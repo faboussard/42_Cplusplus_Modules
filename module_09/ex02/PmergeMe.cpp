@@ -137,7 +137,11 @@ void PmergeMe::makeSortedPairs()
 	}
 }
 
-void PmergeMe::largestValues()
+/* changer en recursif. est ce que ca reduit le nombre doperation ? en iteratif : 71 us
+ *
+ * Recursively sort the [n/2] larger elements from each pair,
+ * creating a sorted sequence S of [n/2] of the input elements, in ascending order.*/
+void PmergeMe::s_sortedLargestValues()
 {
 	for (size_t i = 0; i < _sortedPairs.size(); ++i)
 	{
@@ -145,7 +149,7 @@ void PmergeMe::largestValues()
 	}
 }
 
-void PmergeMe::smallestValues()
+void PmergeMe::pend_sortedSmallestValues()
 {
 	for (size_t i = 0; i < _sortedPairs.size(); ++i)
 	{
@@ -155,8 +159,7 @@ void PmergeMe::smallestValues()
 
 vector PmergeMe::generateJacobsthal() {
 	vector jacobsthal;
-	jacobsthal.push_back(0); // Start with J(0) = 0 (not used)
-	jacobsthal.push_back(1); // J(1) = 1
+	jacobsthal.push_back(1); // On commence directement par J(1) = 1
 
 	for (unsigned int i = 2; i < _s.size(); ++i) {
 		unsigned int next = jacobsthal[i - 1] + 2 * jacobsthal[i - 2];
@@ -166,35 +169,37 @@ vector PmergeMe::generateJacobsthal() {
 	return jacobsthal;
 }
 
-// Function to insert elements using binary search
-void PmergeMe::insertUsingBinarySearch(std::vector<unsigned int>& S, unsigned int element) {
-	std::vector<unsigned int>::iterator it = std::lower_bound(S.begin(), S.end(), element);
-	S.insert(it, element);
+// Fonction pour insérer les éléments en utilisant la recherche binaire
+void PmergeMe::insertUsingBinarySearch(unsigned int element) {
+	vector::iterator it = std::lower_bound(_pend.begin(), _pend.end(), element);
+	_pend.insert(it, element);
 }
 
 void PmergeMe::insertAndMerge() {
-	// Generate Jacobsthal numbers based on the size of _s
+	// Générer les nombres de Jacobsthal en fonction de la taille de _s
 	vector jacobsthal = generateJacobsthal();
 
-	// Insert the first element (paired with the smallest in _s) into _pend
+	// Insérer le premier élément (celui pairé avec le plus petit dans _s) dans _pend
 	if (!_s.empty()) {
-		insertUsingBinarySearch(_pend, _s[0]);
+		insertUsingBinarySearch(_s[0]);
 	}
 
-	// Insert the remaining elements based on Jacobsthal numbers
+	// Insérer les autres éléments en fonction des nombres de Jacobsthal
 	for (size_t i = 1; i < _s.size(); ++i) {
-		insertUsingBinarySearch(_pend, _s[i]);
+		unsigned int jacobsthalIndex = (i < jacobsthal.size()) ? jacobsthal[i] : i; // Sécuriser l'index de Jacobsthal
+		insertUsingBinarySearch(_s[jacobsthalIndex % _s.size()]); // S'assurer de ne pas dépasser la taille de _s
 	}
 
 	_vector = _pend;
 
-	// Output the sorted array 'pend' TO DELETE
+	// Affichage de la séquence triée '_pend' pour vérifier le résultat
 	std::cout << "Sorted array after insertions:" << std::endl;
 	for (size_t j = 0; j < _pend.size(); ++j) {
 		std::cout << _pend[j] << " ";
 	}
 	std::cout << std::endl;
 }
+
 
 void PmergeMe::insertStraggler()
 {
@@ -209,8 +214,8 @@ void PmergeMe::sortVector()
 {
 	createStraggler();
 	makeSortedPairs();
-	largestValues();
-	smallestValues();
+	s_sortedLargestValues();
+	pend_sortedSmallestValues();
 	insertAndMerge();
 	insertStraggler();
 }
