@@ -22,8 +22,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="02491725-2efa-4442-943e-b2e1e2a111f9" name="Changes" comment="parsing started">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/module_09/ex02/PmergeMe.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_09/ex02/PmergeMe.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/module_09/ex02/PmergeMe.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_09/ex02/PmergeMe.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_09/ex02/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_09/ex02/main.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -205,7 +205,7 @@ void PmergeMe::insertStraggler()
 	}
 }
 
-void PmergeMe::sort()
+void PmergeMe::sortVector()
 {
 	createStraggler();
 	makeSortedPairs();
@@ -222,6 +222,8 @@ void PmergeMe::sort()
 std::ostream &operator<<(std::ostream &os, const PmergeMe &pmergeMe)
 {
 	os << pmergeMe.getMyVector() << std::endl;
+//	os << pmergeMe.getMyDeque() << std::endl;
+
 	return os;
 }
 

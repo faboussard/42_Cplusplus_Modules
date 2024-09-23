@@ -44,7 +44,7 @@ private:
 
 	/* member functions */
 
-	void sort();
+	void sortVector();
 
 
 	void createStraggler();
