@@ -12,7 +12,7 @@ void checkArgsCount(int argc);
 bool isOperator(char token);
 void checkOpOrDigits(std::string &argv);
 std::string remove_all_spaces(const std::string &s);
-void checkDuplicatedOP(std::string &argv);
+void checkOPisValid(std::string &argv);
 void checkArgv(std::string &argv);
 
 void processRPN(const std::string &expression)
@@ -104,21 +104,6 @@ bool isOperator(char token)
 	return (token == '+' || token == '-' || token == '*' || token == '/');
 }
 
-void checkOpOrDigits(std::string &argv)
-{
-	int i = 1;
-
-	while (argv[i])
-	{
-
-		if (!isdigit(argv[i]) && i == 0)
-		{
-			std::cerr << "Error: invalid expression (invalid token: " << argv << ")" << std::endl;
-			exit(EXIT_FAILURE);
-		}
-		i++;
-	}
-}
 
 std::string remove_all_spaces(const std::string &s)
 {
@@ -129,7 +114,7 @@ std::string remove_all_spaces(const std::string &s)
 
 
 
-void checkDuplicatedOP(std::string &argv)
+void checkOPisValid(std::string &argv)
 {
 	int i = 1;
 
@@ -144,20 +129,31 @@ void checkDuplicatedOP(std::string &argv)
 		}
 		i++;
 	}
+	while (argv[i])
+	{
+		if ( i != 0 && isOperator(argv[i]) && !isblank(argv[i - 1]))
+		{
+			std::cerr << "Error: no blankspace between operators" << std::endl;
+			exit(EXIT_FAILURE);
+		}
+		i++;
+	}
 }
 
 void checkOpCount(std::string &argv)
 {
 	int countOp = 0;
 	int countNonOp = 0;
-	int i = 1;
+	int i = 0;
 
 	while (argv[i])
 	{
 		if (isOperator(argv[i]))
 			countOp++;
 		else
+		{
 			countNonOp++;
+		}
 		i++;
 	}
 	if (countOp == 0)
@@ -173,9 +169,26 @@ void checkOpCount(std::string &argv)
 	}
 }
 
+void checkonlyDigitsorOp(std::string &argv)
+{
+	int i = 1;
+
+	while (argv[i])
+	{
+		if ( !isOperator(argv[i]) && !isblank(argv[i]) && !isdigit(argv[i]))
+		{
+			std::cerr << "Error: char are not allowed" << std::endl;
+			exit(EXIT_FAILURE);
+		}
+		i++;
+	}
+}
+
+
+
 void checkArgv(std::string &argv)
 {
-	checkDuplicatedOP(argv);
-//	checkOpOrDigits(argv);
+	checkonlyDigitsorOp(argv);
+	checkOPisValid(argv);
 	checkOpCount(argv);
 }
