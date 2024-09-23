@@ -53,7 +53,7 @@ private:
 	void smallestValues();
 	void insertAndMerge();
 	void insertStraggler();
-	vector generateJacobsthal(unsigned int limit);
+	vector generateJacobsthal();
 	void insertUsingBinarySearch(std::vector<unsigned int>& S, unsigned int element);
 
 

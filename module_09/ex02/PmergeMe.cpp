@@ -122,7 +122,7 @@ void PmergeMe::makeSortedPairs()
 
 	for (size_t i = 0; i < size; i += 2)
 	{
-		if (i + 1 < size) // Check bounds
+		if (i + 1 < size)
 		{
 			if (_vector[i] < _vector[i + 1])
 				_sortedPairs.push_back(std::make_pair(_vector[i], _vector[i + 1]));
@@ -153,12 +153,12 @@ void PmergeMe::smallestValues()
 	}
 }
 
-vector PmergeMe::generateJacobsthal(unsigned int limit) {
-	std::vector<unsigned int> jacobsthal;
-	jacobsthal.push_back(1); // Start with J(0) = 0 (not used)
+vector PmergeMe::generateJacobsthal() {
+	vector jacobsthal;
+	jacobsthal.push_back(0); // Start with J(0) = 0 (not used)
 	jacobsthal.push_back(1); // J(1) = 1
 
-	for (unsigned int i = 2; i < limit; ++i) {
+	for (unsigned int i = 2; i < _s.size(); ++i) {
 		unsigned int next = jacobsthal[i - 1] + 2 * jacobsthal[i - 2];
 		jacobsthal.push_back(next);
 	}
@@ -174,7 +174,7 @@ void PmergeMe::insertUsingBinarySearch(std::vector<unsigned int>& S, unsigned in
 
 void PmergeMe::insertAndMerge() {
 	// Generate Jacobsthal numbers based on the size of _s
-	std::vector<unsigned int> jacobsthal = generateJacobsthal(_s.size() + 1);
+	vector jacobsthal = generateJacobsthal();
 
 	// Insert the first element (paired with the smallest in _s) into _pend
 	if (!_s.empty()) {
