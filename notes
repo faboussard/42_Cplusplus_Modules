@@ -110,3 +110,18 @@ The values are always popped in reverse order (LIFO—last in, first out):
 
     First 9 is popped (this becomes val2).
     Then 72 is popped (this becomes val1).
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+ex03
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+init dans le constructeur : pk on passe par strtoul.
+
+The end pointer in the context of strtol or strtoul is used to determine where the conversion stopped in the input string. Here’s a breakdown of what happens during the conversion:
+
+    Input String: Suppose you have an input string like "123abc".
+
+    Conversion with strtol or strtoul:
+        When you call strtol(argv[i], &end, 10), the function attempts to convert the initial part of the string to a long integer.
+        After the conversion, end will point to the first character in the string that was not converted.
