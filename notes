@@ -118,6 +118,8 @@ ex03
 
 init dans le constructeur : pk on passe par strtoul.
 
+///////////////////////////////////////////////////////////
+
 The end pointer in the context of strtol or strtoul is used to determine where the conversion stopped in the input string. Here’s a breakdown of what happens during the conversion:
 
     Input String: Suppose you have an input string like "123abc".
@@ -125,3 +127,63 @@ The end pointer in the context of strtol or strtoul is used to determine where t
     Conversion with strtol or strtoul:
         When you call strtol(argv[i], &end, 10), the function attempts to convert the initial part of the string to a long integer.
         After the conversion, end will point to the first character in the string that was not converted.
+
+
+////////////////////////////////////////////////////////:
+
+Step 1: Generate Jacobsthal Numbers
+
+Jacobsthal numbers are defined as follows:
+
+    J(0)=0J(0)=0
+    J(1)=1J(1)=1
+    J(n)=J(n−1)+2×J(n−2)J(n)=J(n−1)+2×J(n−2) for n≥2n≥2
+
+You will generate these numbers until you exceed the length of the pend array.
+
+///////////////////////////////////////////////////////////////////////////////////:
+
+Algorithm
+
+    Group the elements of X into ⌊n/2⌋ pairs of elements, arbitrarily, leaving one element unpaired if there is an odd number of elements.
+    Perform [n/2] comparisons, one per pair, to determine the larger of the two elements in each pair.
+    Recursively sort the [n/2] larger elements from each pair, creating a sorted sequence S of [n/2] of the input elements, in ascending order.
+    Insert at the start of S the element that was paired with the first and smallest element of S.
+    Insert the remaining [n/2]−1 elements of X ∖S into S, one at a time, with a specially chosen insertion ordering using Jacobsthal number. Use binary search in subsequences of S to determine the position at which each element should be inserted.
+
+
+////////////////////////////////////////////////////////////////////////////////////
+
+typedef std::vector<unsigned int> vector;
+typedef std::deque<unsigned int> deque;
+typedef std::vector<std::pair<unsigned int, unsigned int> > sortedPairs;
+
+How Ford-Johnson Merge-Insertion Sort Works:
+
+    1 . Determine if the array is even or odd:
+      : The algorithm checks if the array length is odd or even. If odd, it removes the last element, marks it as a "straggler", and inserts it into the sorted array later.
+== 	unsigned int _straggler;
+
+    2. Arbitrarily divide the sequence into pairs:
+         The sequence is divided into pairs of two values.
+    3 . Sort the pairs bitwise (pairwise):
+      Each pair is sorted in ascending order, where the smaller value appears first.
+== 	sortedPairs _sortedPairs;
+
+    4. Create a new sequence S by pulling out the largest values:
+        The larger elements from each pair form the backbone of the sorted sequence.
+==	vector _largestValues;
+
+
+    5. Form a temporary pend array from remaining values:
+        The smaller values form a separate array, which will later be inserted into the sorted sequence.
+==	vector _smallestValues;
+
+    6. Build the optimal insertion sequence using Jacobsthal numbers:
+       The Jacobsthal numbers are used to determine the optimal insertion points of the smaller elements in the pend array into the sequence S. This ensures efficient insertion with minimal comparisons.
+
+    7 . Insert pend elements using binary search:
+         Binary search is used to find the correct position to insert each element from pend into S.
+
+    8. Handle the straggler (if any):
+         If the input array had an odd length, the straggler is inserted into the appropriate position in the final sorted array.

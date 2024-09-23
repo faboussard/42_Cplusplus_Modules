@@ -14,9 +14,8 @@ class PmergeMe
 {
 private:
 	vector _vector;
-	vector _largestValues;
-	vector _smallestValues;
-
+	vector _s; // the extracted largest values from pairs
+	vector _pend; // first : the smallest values are extracted and then largest values are inserted in this vector using jacobsthal
 	deque _deq;
 	unsigned int _straggler;
 	sortedPairs _sortedPairs;
@@ -50,6 +49,8 @@ private:
 	void makeSortedPairs();
 	void largestValues();
 	void smallestValues();
+	void insertAndMerge();
+	void insertStraggler();
 
 
 };
