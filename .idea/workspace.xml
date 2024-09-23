@@ -26,7 +26,6 @@
       <change beforePath="$PROJECT_DIR$/module_09/ex02/PmergeMe.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_09/ex02/PmergeMe.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/module_09/ex02/PmergeMe.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_09/ex02/PmergeMe.hpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/module_09/ex02/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_09/ex02/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notes" beforeDir="false" afterPath="$PROJECT_DIR$/notes" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -173,23 +172,7 @@
       <workItem from="1726578196541" duration="12000" />
       <workItem from="1726825080918" duration="11619000" />
       <workItem from="1727094150009" duration="54000" />
-      <workItem from="1727094768682" duration="1285000" />
-    </task>
-    <task id="LOCAL-00032" summary="fini mlodule 04">
-      <option name="closed" value="true" />
-      <created>1724592335950</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1724592335950</updated>
-    </task>
-    <task id="LOCAL-00033" summary="bureacrat with grade and name initialized">
-      <option name="closed" value="true" />
-      <created>1724668046778</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1724668046778</updated>
+      <workItem from="1727094768682" duration="3826000" />
     </task>
     <task id="LOCAL-00034" summary="ajout exceptions">
       <option name="closed" value="true" />
@@ -567,7 +550,23 @@
       <option name="project" value="LOCAL" />
       <updated>1726841303048</updated>
     </task>
-    <option name="localTasksCounter" value="81" />
+    <task id="LOCAL-00081" summary="parsing started">
+      <option name="closed" value="true" />
+      <created>1727097101269</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1727097101270</updated>
+    </task>
+    <task id="LOCAL-00082" summary="parsing started">
+      <option name="closed" value="true" />
+      <created>1727097107011</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1727097107011</updated>
+    </task>
+    <option name="localTasksCounter" value="83" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

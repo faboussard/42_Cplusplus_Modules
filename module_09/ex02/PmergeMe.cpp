@@ -13,7 +13,7 @@
 /*       Constructors 			   	                                        */
 /*============================================================================*/
 
-PmergeMe::PmergeMe()
+PmergeMe::PmergeMe() : _vector(), _deq()
 {}
 
 PmergeMe::PmergeMe(int argc, char **argv)
@@ -45,7 +45,7 @@ PmergeMe::PmergeMe(int argc, char **argv)
 	}
 }
 
-PmergeMe::PmergeMe(const PmergeMe &rhs)
+PmergeMe::PmergeMe(const PmergeMe &rhs) : _vector(rhs._vector), _deq(rhs._deq)
 {}
 
 PmergeMe &PmergeMe::operator=(const PmergeMe &rhs)
@@ -58,14 +58,21 @@ PmergeMe &PmergeMe::operator=(const PmergeMe &rhs)
 	return *this;
 }
 
+PmergeMe::~PmergeMe()
+{}
 /*============================================================================*/
 /*       getter 			   	                                        */
 /*============================================================================*/
 
-/*============================================================================*/
-/*       setter 			   	                                        */
-/*============================================================================*/
+const myVector &PmergeMe::getMyVector() const
+{
+	return _vector;
+}
 
+const myDeque &PmergeMe::getMyDeque() const
+{
+	return _deq;
+}
 
 /*============================================================================*/
 /*       member functions				                                       */
@@ -75,3 +82,31 @@ PmergeMe &PmergeMe::operator=(const PmergeMe &rhs)
 /*============================================================================*/
 /*       Class overload		                                       */
 /*============================================================================*/
+
+std::ostream &operator<<(std::ostream &os, const PmergeMe &pmergeMe)
+{
+	os << "Vector: " << pmergeMe.getMyVector() << std::endl;
+	os << "Deque: " << pmergeMe.getMyDeque() << std::endl;
+	return os;
+}
+
+
+std::ostream &operator<<(std::ostream &os, const myVector &vec)
+{
+	for (myVector::const_iterator it = vec.begin(); it != vec.end(); it++)
+	{
+		os << *it << " ";
+	}
+	return os;
+}
+
+std::ostream &operator<<(std::ostream &os, const myDeque &deque)
+{
+	for (myDeque::const_iterator it = deque.begin(); it != deque.end(); it++)
+	{
+		os << *it << " ";
+	}
+	return os;
+}
+
+
