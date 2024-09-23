@@ -153,7 +153,7 @@ void PmergeMe::smallestValues()
 	}
 }
 
-std::vector<unsigned int> generateJacobsthal(unsigned int limit) {
+vector PmergeMe::generateJacobsthal(unsigned int limit) {
 	std::vector<unsigned int> jacobsthal;
 	jacobsthal.push_back(1); // Start with J(0) = 0 (not used)
 	jacobsthal.push_back(1); // J(1) = 1
@@ -167,7 +167,7 @@ std::vector<unsigned int> generateJacobsthal(unsigned int limit) {
 }
 
 // Function to insert elements using binary search
-void insertUsingBinarySearch(std::vector<unsigned int>& S, unsigned int element) {
+void PmergeMe::insertUsingBinarySearch(std::vector<unsigned int>& S, unsigned int element) {
 	std::vector<unsigned int>::iterator it = std::lower_bound(S.begin(), S.end(), element);
 	S.insert(it, element);
 }

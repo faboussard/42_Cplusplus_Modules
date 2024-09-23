@@ -1,8 +1,15 @@
 #include "PmergeMe.hpp"
+#include <algorithm>
 
-
-//The management of errors related to duplicates is left to your
-//discretion.
+void removeDuplicates(PmergeMe &pm) {
+	vector uniqueValues;
+	for (size_t i = 0; i < pm.getMyVector().size(); ++i) {
+		if (std::find(uniqueValues.begin(), uniqueValues.end(), pm.getMyVector()[i]) == uniqueValues.end()) {
+			uniqueValues.push_back(pm.getMyVector()[i]);
+		}
+	}
+	pm.getMyVector() = uniqueValues;
+}
 
 
 int main(int argc, char **argv) {
@@ -11,6 +18,7 @@ int main(int argc, char **argv) {
 		std::cout << "Before: " << std::endl;
 		std::cout << pm << std::endl;
 
+		removeDuplicates(pm);
 		pm.sort();
 
 		std::cout << "After: " << std::endl;

@@ -45,12 +45,16 @@ private:
 	/* member functions */
 
 	void sort();
+
+
 	void createStraggler();
 	void makeSortedPairs();
 	void largestValues();
 	void smallestValues();
 	void insertAndMerge();
 	void insertStraggler();
+	vector generateJacobsthal(unsigned int limit);
+	void insertUsingBinarySearch(std::vector<unsigned int>& S, unsigned int element);
 
 
 };
