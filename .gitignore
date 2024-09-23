@@ -44,5 +44,6 @@
 # Misc
 *.json
 .cache
+.xml
 forbidden*
 vgcore.*
