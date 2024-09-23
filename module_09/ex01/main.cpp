@@ -8,7 +8,7 @@
 
 void checkArgsCount(int argc);
 bool isOperator(char token);
-void checkOPisValid(std::string &argv);
+void checkOpisValid(std::string &argv);
 void checkArgv(std::string &argv);
 
 void processRPN(const std::string &expression)
@@ -17,7 +17,6 @@ void processRPN(const std::string &expression)
 
 	std::istringstream iss(expression);
 	std::string token;
-	int operandCount = 0;
 
 	while (iss >> token)
 	{
@@ -27,15 +26,13 @@ void processRPN(const std::string &expression)
 			try
 			{
 				rpn.calculate(op);
-				operandCount = 0;
 			}
 			catch (const std::runtime_error &e)
 			{
 				std::cerr << "Error: " << e.what() << std::endl;
 				return;
 			}
-		}
-		else
+		} else
 		{
 			std::istringstream tokenStream(token);
 			int value;
@@ -45,24 +42,16 @@ void processRPN(const std::string &expression)
 				return;
 			}
 			rpn.push(value);
-			operandCount++;
-			if (operandCount > 2)
-			{
-				std::cerr << "Error: Too many consecutive operands without an operator" << std::endl;
-				return;
-			}
 		}
 	}
 	if (!rpn.empty())
 	{
 		std::cout << "Result: " << rpn.top() << std::endl;
-	}
-	else
+	} else
 	{
 		std::cerr << "Error: The RPN expression is empty" << std::endl;
 	}
 }
-
 
 
 int main(int argc, char *argv[])
@@ -98,7 +87,7 @@ bool isOperator(char token)
 	return (token == '+' || token == '-' || token == '*' || token == '/');
 }
 
-void checkOPisValid(std::string &argv)
+void checkOpisValid(std::string &argv)
 {
 	int i = 1;
 
@@ -106,7 +95,17 @@ void checkOPisValid(std::string &argv)
 	{
 		if ( i != 0 && isOperator(argv[i]) && !isblank(argv[i - 1]))
 		{
-			std::cerr << "Error: blankspace is missing between operators" << std::endl;
+			std::cerr << "Error: blankspace is missing between operators." << std::endl;
+			exit(EXIT_FAILURE);
+		}
+		if ( i != 0 && isdigit(argv[i]) && argv[i - 1] == '-')
+		{
+			std::cerr << "Error: negative numbers are not allowed." << std::endl;
+			exit(EXIT_FAILURE);
+		}
+		if ( i != 0 && isdigit(argv[i]) && !isblank(argv[i - 1]))
+		{
+			std::cerr << "Error: blankspace is missing between operands." << std::endl;
 			exit(EXIT_FAILURE);
 		}
 		i++;
@@ -124,9 +123,7 @@ void checkOpCount(std::string &argv)
 		if (isOperator(argv[i]))
 			countOp++;
 		else if (isdigit(argv[i]))
-		{
 			countDigit++;
-		}
 		i++;
 	}
 	if (countOp == 0)
@@ -135,7 +132,7 @@ void checkOpCount(std::string &argv)
 		exit(EXIT_FAILURE);
 	}
 
-	if (countOp >= countDigit)
+	if (countDigit - countOp != 1)
 	{
 		std::cerr << "Error: invalid expression (more or equal operators than operands)" << std::endl;
 		exit(EXIT_FAILURE);
@@ -160,6 +157,25 @@ void checkonlyDigitsorOp(std::string &argv)
 void checkArgv(std::string &argv)
 {
 	checkonlyDigitsorOp(argv);
-	checkOPisValid(argv);
+	checkOpisValid(argv);
 	checkOpCount(argv);
 }
+
+// ./RPN "8 9 * 9 - 9 - 9 - 4 - 1 +"
+// 42
+// ./RPN "7 7 * 7 -"
+// 42
+// ./RPN "1 2 * 2 / 2 * 2 4 - +"
+// 0
+// ./RPN "(1 + 1)"
+// Error
+// ./RPN "-7 7 * 7 -"
+// Error: negative numbers are not allowed.
+// ./RPN "1 2 * 2 / 2 * 2 41 - +"
+// Error: blankspace is missing between operands.
+// ./RPN "1 2 * 2 / 2 * 2 1 -+"
+// Error: blankspace is missing between operators.
+// ./RPN "1 2 * 2 / 2 * 2 1 +"
+// Error: invalid expression (more or equal operators than operands)
+// ./RPN "1 2 * 2 / 2 * 2 haha - +"
+// Error
