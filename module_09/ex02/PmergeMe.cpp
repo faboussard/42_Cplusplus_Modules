@@ -13,10 +13,10 @@
 /*       Constructors 			   	                                        */
 /*============================================================================*/
 
-PmergeMe::PmergeMe() : _vector(), _deq()
+PmergeMe::PmergeMe() : _vector(), _deq(), _straggler(0), _sortedPairs()
 {}
 
-PmergeMe::PmergeMe(int argc, char **argv)
+PmergeMe::PmergeMe(int argc, char **argv) : _straggler(0), _sortedPairs()
 {
 	if (argc < 3)
 	{
@@ -54,6 +54,8 @@ PmergeMe &PmergeMe::operator=(const PmergeMe &rhs)
 	{
 		_vector = rhs._vector;
 		_deq = rhs._deq;
+		_straggler = rhs._straggler;
+		_sortedPairs = rhs._sortedPairs;
 	}
 	return *this;
 }
@@ -64,20 +66,79 @@ PmergeMe::~PmergeMe()
 /*       getter 			   	                                        */
 /*============================================================================*/
 
-const myVector &PmergeMe::getMyVector() const
+const vector &PmergeMe::getMyVector() const
 {
 	return _vector;
 }
 
-const myDeque &PmergeMe::getMyDeque() const
+const deque &PmergeMe::getMyDeque() const
 {
 	return _deq;
 }
+
+unsigned int PmergeMe::getMyStraggler() const
+{
+	return _straggler;
+}
+
+
+vector &PmergeMe::getMyVector() {
+	return _vector;
+}
+
+deque &PmergeMe::getMyDeque() {
+	return _deq;
+}
+
+unsigned int PmergeMe::getMyStraggler() {
+	return _straggler;
+}
+
 
 /*============================================================================*/
 /*       member functions				                                       */
 /*============================================================================*/
 
+void PmergeMe::createStraggler()
+{
+	if (getMyVector().size() % 2 != 0)
+	{
+		_straggler = getMyVector().back();
+		getMyVector().pop_back();
+	}
+}
+
+
+void PmergeMe::makeSortedPairs()
+{
+	size_t size = _vector.size();
+
+	for (size_t i = 0; i < size; i += 2)
+	{
+		if (_vector[i] < _vector[i + 1])
+			_sortedPairs.push_back(std::make_pair(_vector[i], _vector[i + 1]));
+		else
+		{
+			_sortedPairs.push_back(std::make_pair(_vector[i + 1], _vector[i]));
+		}
+	}
+	std::cout << "Sorted pairs:" << std::endl;
+	for (size_t j = 0; j < _sortedPairs.size(); ++j) {
+		std::cout << "(" << _sortedPairs[j].first << ", " << _sortedPairs[j].second << ")" << std::endl;
+	}
+}
+
+void sequencePulledOutLargestValueFromPairs()
+{
+
+}
+
+void PmergeMe::sort()
+{
+	createStraggler();
+	makeSortedPairs();
+	sequencePulledOutLargestValueFromPairs();
+}
 
 /*============================================================================*/
 /*       Class overload		                                       */
@@ -85,24 +146,23 @@ const myDeque &PmergeMe::getMyDeque() const
 
 std::ostream &operator<<(std::ostream &os, const PmergeMe &pmergeMe)
 {
-	os << "Vector: " << pmergeMe.getMyVector() << std::endl;
-	os << "Deque: " << pmergeMe.getMyDeque() << std::endl;
+	os << pmergeMe.getMyVector() << std::endl;
 	return os;
 }
 
 
-std::ostream &operator<<(std::ostream &os, const myVector &vec)
+std::ostream &operator<<(std::ostream &os, const vector &vec)
 {
-	for (myVector::const_iterator it = vec.begin(); it != vec.end(); it++)
+	for (vector::const_iterator it = vec.begin(); it != vec.end(); it++)
 	{
 		os << *it << " ";
 	}
 	return os;
 }
 
-std::ostream &operator<<(std::ostream &os, const myDeque &deque)
+std::ostream &operator<<(std::ostream &os, const deque &deque)
 {
-	for (myDeque::const_iterator it = deque.begin(); it != deque.end(); it++)
+	for (deque::const_iterator it = deque.begin(); it != deque.end(); it++)
 	{
 		os << *it << " ";
 	}
