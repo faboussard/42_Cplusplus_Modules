@@ -4,14 +4,10 @@
 #include <cstdlib>
 #include "RPN.hpp"
 #include <cctype>
-#include <cstring>
-#include <iostream>
 #include <algorithm>
 
 void checkArgsCount(int argc);
 bool isOperator(char token);
-void checkOpOrDigits(std::string &argv);
-std::string remove_all_spaces(const std::string &s);
 void checkOPisValid(std::string &argv);
 void checkArgv(std::string &argv);
 
@@ -21,36 +17,26 @@ void processRPN(const std::string &expression)
 
 	std::istringstream iss(expression);
 	std::string token;
-	bool flag = false;
-	int count = 0;
+	int operandCount = 0;
 
 	while (iss >> token)
 	{
 		int op = rpn.getOperator(token);
 		if (op != -1)
 		{
-			if (flag == false)
-			{
-				std::cerr << "Error: invalid expression" << std::endl;
-				return;
-			}
 			try
 			{
 				rpn.calculate(op);
+				operandCount = 0;
 			}
 			catch (const std::runtime_error &e)
 			{
 				std::cerr << "Error: " << e.what() << std::endl;
 				return;
 			}
-		} else
+		}
+		else
 		{
-			count++;
-			if (count == 2)
-			{
-				flag = true;
-				count = 0;
-			}
 			std::istringstream tokenStream(token);
 			int value;
 			if (!(tokenStream >> value))
@@ -59,16 +45,24 @@ void processRPN(const std::string &expression)
 				return;
 			}
 			rpn.push(value);
+			operandCount++;
+			if (operandCount > 2)
+			{
+				std::cerr << "Error: Too many consecutive operands without an operator" << std::endl;
+				return;
+			}
 		}
 	}
 	if (!rpn.empty())
 	{
 		std::cout << "Result: " << rpn.top() << std::endl;
-	} else
+	}
+	else
 	{
 		std::cerr << "Error: The RPN expression is empty" << std::endl;
 	}
 }
+
 
 
 int main(int argc, char *argv[])
@@ -88,7 +82,7 @@ int main(int argc, char *argv[])
 	return 0;
 }
 
-////////////////////////////////////////////UTILS//////////////////////////////////////////////////////////////
+//////////////////////////////////////////// PARSING //////////////////////////////////////////////////////////////
 
 void checkArgsCount(int argc)
 {
@@ -104,36 +98,15 @@ bool isOperator(char token)
 	return (token == '+' || token == '-' || token == '*' || token == '/');
 }
 
-
-std::string remove_all_spaces(const std::string &s)
-{
-	std::string result = s;
-	result.erase(std::remove_if(result.begin(), result.end(), ::isspace), result.end());
-	return result;
-}
-
-
-
 void checkOPisValid(std::string &argv)
 {
 	int i = 1;
 
-	std::string trimmed;
-	trimmed = remove_all_spaces(argv);
-	while (trimmed[i] && trimmed[i + 1])
-	{
-		if (isOperator(trimmed[i]) && (isOperator(trimmed[i + 1]) || trimmed[i + 1 ] == '\0'))
-		{
-			std::cerr << "Error: invalid expression (operator is duplicated " << trimmed[i] << ")" << std::endl;
-			exit(EXIT_FAILURE);
-		}
-		i++;
-	}
 	while (argv[i])
 	{
 		if ( i != 0 && isOperator(argv[i]) && !isblank(argv[i - 1]))
 		{
-			std::cerr << "Error: no blankspace between operators" << std::endl;
+			std::cerr << "Error: blankspace is missing between operators" << std::endl;
 			exit(EXIT_FAILURE);
 		}
 		i++;
@@ -143,16 +116,16 @@ void checkOPisValid(std::string &argv)
 void checkOpCount(std::string &argv)
 {
 	int countOp = 0;
-	int countNonOp = 0;
+	int countDigit = 0;
 	int i = 0;
 
 	while (argv[i])
 	{
 		if (isOperator(argv[i]))
 			countOp++;
-		else
+		else if (isdigit(argv[i]))
 		{
-			countNonOp++;
+			countDigit++;
 		}
 		i++;
 	}
@@ -162,9 +135,9 @@ void checkOpCount(std::string &argv)
 		exit(EXIT_FAILURE);
 	}
 
-	if (countOp >= countNonOp)
+	if (countOp >= countDigit)
 	{
-		std::cerr << "Error: invalid expression (more operators than operands)" << std::endl;
+		std::cerr << "Error: invalid expression (more or equal operators than operands)" << std::endl;
 		exit(EXIT_FAILURE);
 	}
 }
@@ -177,14 +150,12 @@ void checkonlyDigitsorOp(std::string &argv)
 	{
 		if ( !isOperator(argv[i]) && !isblank(argv[i]) && !isdigit(argv[i]))
 		{
-			std::cerr << "Error: char are not allowed" << std::endl;
+			std::cerr << "Error" << std::endl;
 			exit(EXIT_FAILURE);
 		}
 		i++;
 	}
 }
-
-
 
 void checkArgv(std::string &argv)
 {
