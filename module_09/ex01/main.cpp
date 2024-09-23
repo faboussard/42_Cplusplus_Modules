@@ -120,6 +120,12 @@ void checkOpCount(std::string &argv)
 
 	while (argv[i])
 	{
+		if (isOperator(argv[0]))
+		{
+			std::cerr << "Error: cannot start with one operator." << std::endl;
+			exit(EXIT_FAILURE);
+		}
+
 		if (isOperator(argv[i]))
 			countOp++;
 		else if (isdigit(argv[i]))
@@ -179,3 +185,5 @@ void checkArgv(std::string &argv)
 // Error: invalid expression (more or equal operators than operands)
 // ./RPN "1 2 * 2 / 2 * 2 haha - +"
 // Error
+// ./RPN  "+ 1 1"
+//
