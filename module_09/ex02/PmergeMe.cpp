@@ -82,6 +82,12 @@ unsigned int PmergeMe::getMyStraggler() const
 }
 
 
+const sortedPairs &PmergeMe::getSortedPairs() const {
+	return _sortedPairs;
+}
+
+
+
 vector &PmergeMe::getMyVector() {
 	return _vector;
 }
@@ -95,6 +101,12 @@ unsigned int PmergeMe::getMyStraggler() {
 }
 
 
+sortedPairs &PmergeMe::getSortedPairs() {
+	return _sortedPairs;
+}
+
+
+
 /*============================================================================*/
 /*       member functions				                                       */
 /*============================================================================*/
@@ -103,8 +115,8 @@ void PmergeMe::createStraggler()
 {
 	if (getMyVector().size() % 2 != 0)
 	{
-		_straggler = getMyVector().back();
-		getMyVector().pop_back();
+		_straggler = _vector.back();
+		_vector.pop_back();
 	}
 }
 
@@ -128,16 +140,42 @@ void PmergeMe::makeSortedPairs()
 	}
 }
 
-void sequencePulledOutLargestValueFromPairs()
+void PmergeMe::largestValues()
 {
+	for (size_t i = 0; i < _sortedPairs.size(); ++i)
+	{
+		_largestValues.push_back(_sortedPairs[i].second);
+	}
 
+	std::cout << "Largest values pulled out from pairs:" << std::endl;
+	for (size_t j = 0; j < _largestValues.size(); ++j)
+	{
+		std::cout << _largestValues[j] << " ";
+	}
+	std::cout << std::endl;
+}
+
+void PmergeMe::smallestValues()
+{
+	for (size_t i = 0; i < _sortedPairs.size(); ++i)
+	{
+		_smallestValues.push_back(_sortedPairs[i].first);
+	}
+
+	std::cout << "Largest values pulled out from pairs:" << std::endl;
+	for (size_t j = 0; j < _smallestValues.size(); ++j)
+	{
+		std::cout << _smallestValues[j] << " ";
+	}
+	std::cout << std::endl;
 }
 
 void PmergeMe::sort()
 {
 	createStraggler();
 	makeSortedPairs();
-	sequencePulledOutLargestValueFromPairs();
+	largestValues();
+	smallestValues();
 }
 
 /*============================================================================*/

@@ -14,6 +14,9 @@ class PmergeMe
 {
 private:
 	vector _vector;
+	vector _largestValues;
+	vector _smallestValues;
+
 	deque _deq;
 	unsigned int _straggler;
 	sortedPairs _sortedPairs;
@@ -31,16 +34,23 @@ private:
 	const vector &getMyVector() const;
 	const deque &getMyDeque() const;
 	unsigned int getMyStraggler() const;
+	const sortedPairs &getSortedPairs() const;
+
 
 	vector &getMyVector();
 	deque &getMyDeque() ;
 	unsigned int getMyStraggler();
+	sortedPairs &getSortedPairs();
+
 
 	/* member functions */
 
 	void sort();
 	void createStraggler();
 	void makeSortedPairs();
+	void largestValues();
+	void smallestValues();
+
 
 };
 
