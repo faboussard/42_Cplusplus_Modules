@@ -167,14 +167,23 @@ void PmergeMe::insertAndMerge() {
 	}
 
 	for (size_t i = 1; i < _pend.size(); ++i) {
+		// If your sequence has more elements than the available Jacobsthal numbers, this logic
+		// ensures that you can still
+		// insert the remaining elements by falling back to a straightforward
+		// insertion based on the current index (i).
 		unsigned int jacobsthalIndex = (i < jacobsthal.size()) ? jacobsthal[i] : i;
 
 		jacobsthalIndex = jacobsthalIndex % _pend.size();
-
+/*
+ * For example, if _pend.size() is 5 and jacobsthalIndex becomes 7, the result of 7 % 5 is 2.
+ * This means that
+ * instead of accessing an out-of-bounds index, it will point to the third element (index 2) in
+ * the _pend vector.
+ */
 		insertUsingBinarySearch(_pend[jacobsthalIndex]);
 	}
 
-
+_vector.clear();
 	_vector = _s;
 }
 
