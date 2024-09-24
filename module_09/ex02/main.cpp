@@ -30,8 +30,7 @@ int main(int argc, char **argv) {
 		removeDuplicates(pm.getMyVector());
 		pm.sortVector();
 		clock_t endTime = clock();
-	double elapsed =
-			static_cast<float>(endTime - startTime) / (CLOCKS_PER_SEC / 1000000.0);
+	double elapsed = static_cast<float>(endTime - startTime) / (CLOCKS_PER_SEC / 1000000.0);
 	std::cout << "After: " << std::endl;
 	std::cout << pm << std::endl;
 
