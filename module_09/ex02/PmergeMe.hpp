@@ -29,12 +29,13 @@ public:
   /* getters */
   const vector &getMyVector() const;
   const deque &getMyDeque() const;
-  unsigned int getMyStraggler() const;
+  long int getMyStraggler() const;
   const vectorPairs &getSortedPairs() const;
+
 
   vector &getMyVector();
   deque &getMyDeque();
-  unsigned int getMyStraggler();
+  long int &getMyStraggler();
   vectorPairs &getSortedPairs();
 
   /* member functions */
