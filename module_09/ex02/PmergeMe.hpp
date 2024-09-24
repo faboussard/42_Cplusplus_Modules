@@ -45,7 +45,7 @@ public:
   void createStraggler();
   void makeSortedPairs();
   void s_sortedLargestValues();
-  void pend_sortedSmallestValues();
+  void pend_smallestValues();
   void insertAndMerge();
   void insertStraggler();
   vector generateJacobsthal();

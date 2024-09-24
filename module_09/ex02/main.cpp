@@ -21,13 +21,15 @@ void removeDuplicates(T& container) {
 int main(int argc, char **argv) {
 
 		PmergeMe pm(argc, argv);
-		std::cout << "Before: " << std::endl;
-		std::cout << pm << std::endl;
+
 
 
 		/* vector sort */
-		clock_t startTime = clock();
 		removeDuplicates(pm.getMyVector());
+	std::cout << "Before: " << std::endl;
+	std::cout << pm << std::endl;
+	clock_t startTime = clock();
+
 		pm.sortVector();
 		clock_t endTime = clock();
 	double elapsed = static_cast<float>(endTime - startTime) / (CLOCKS_PER_SEC / 1000000.0);

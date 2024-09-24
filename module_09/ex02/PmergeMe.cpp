@@ -7,6 +7,7 @@
 #include <limits>
 #include <stdexcept>
 #include <vector>
+#include <bits/stdc++.h>
 
 /*============================================================================*/
 /*       Constructors */
@@ -108,32 +109,45 @@ void PmergeMe::makeSortedPairs() {
  * creating a sorted sequence S of [n/2] of the input elements, in ascending
  * order.*/
 
+
 // s est trie
 
 void PmergeMe::s_sortedLargestValues() {
-  for (size_t i = 0; i < _sortedPairs.size(); ++i) {
-    _s.push_back(_sortedPairs[i].second);
-  }
+	for (size_t i = 0; i < _sortedPairs.size(); ++i) {
+		unsigned int largest = _sortedPairs[i].second;
+		// Trouver la position où insérer "largest" pour maintenir _s trié
+		vector::iterator pos = std::lower_bound(_s.begin(), _s.end(), largest);
+		_s.insert(pos, largest); // Insérer à la position correcte
+	}
+
+	std::cout << "print _s : ";
+	std::cout << _s << std::endl;
 }
 
-// pend nest pqs trie. verifier que pend[0] est bien le plus petit des grands
 
-void PmergeMe::pend_sortedSmallestValues() {
+void PmergeMe::pend_smallestValues() {
   for (size_t i = 0; i < _sortedPairs.size(); ++i) {
     _pend.push_back(_sortedPairs[i].first);
   }
+	std::cout << "print _pend : ";
+	std::cout << _pend << std::endl;
+
 }
 
 vector PmergeMe::generateJacobsthal() {
   vector jacobsthal;
-   jacobsthal.push_back(0); 
+   jacobsthal.push_back(0);
   jacobsthal.push_back(1);
 
-  for (unsigned int i = 2; i < _s.size(); ++i) {
-    unsigned int next = jacobsthal[i - 1] + 2 * jacobsthal[i - 2];
-    jacobsthal.push_back(next);
-  }
-  return jacobsthal;
+	for (unsigned int i = 2; i < _s.size() + 38; ++i) {
+		unsigned int next = (jacobsthal[i - 1] + 2) * jacobsthal[i - 2];
+		jacobsthal.push_back(next);
+	}
+	std::cout << "print jacobsthal : ";
+	std::cout << jacobsthal << std::endl;
+
+
+	return jacobsthal;
 }
 
 
@@ -145,19 +159,27 @@ void PmergeMe::insertUsingBinarySearch(unsigned int element) {
 }
 
 void PmergeMe::insertAndMerge() {
-  vector jacobsthal = generateJacobsthal();
+	vector jacobsthal = generateJacobsthal();
 
-  if (!_pend.empty()) {
-    insertUsingBinarySearch(_pend[0]);
-  }
+	// Insérer le premier élément dans _s
+	if (!_pend.empty()) {
+		insertUsingBinarySearch(_pend[0]);
+	}
 
-  for (size_t i = 1; i < _pend.size(); ++i) {
-    unsigned int jacobsthalIndex = (i < jacobsthal.size()) ? jacobsthal[i] : i;
-    insertUsingBinarySearch(
-        _pend[jacobsthalIndex % _pend.size()]);
-  }
-  _vector = _s;
+	// Insérer les autres éléments en fonction des nombres de Jacobsthal
+	for (size_t i = 1; i < _pend.size(); ++i) {
+		unsigned int jacobsthalIndex = (i < jacobsthal.size()) ? jacobsthal[i] : i;
+
+		// Assurez-vous que l'index ne dépasse pas la taille de _pend
+		jacobsthalIndex = jacobsthalIndex % _pend.size();
+
+		insertUsingBinarySearch(_pend[jacobsthalIndex]);
+	}
+
+	// Assigner le résultat final à _vector
+	_vector = _s;
 }
+
 
 void PmergeMe::insertStraggler() {
   if (_straggler != -1) {
@@ -171,7 +193,7 @@ void PmergeMe::sortVector() {
   createStraggler();
   makeSortedPairs();
   s_sortedLargestValues();
-  pend_sortedSmallestValues();
+  pend_smallestValues();
   insertAndMerge();
   insertStraggler();
 }
