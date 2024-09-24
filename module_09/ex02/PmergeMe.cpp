@@ -135,20 +135,21 @@ void PmergeMe::pend_smallestValues() {
 }
 
 vector PmergeMe::generateJacobsthal() {
-  vector jacobsthal;
-   jacobsthal.push_back(0);
-  jacobsthal.push_back(1);
+	vector jacobsthal;
+	jacobsthal.push_back(0); // J(0)
+	jacobsthal.push_back(1); // J(1)
 
-	for (unsigned int i = 2; i < _s.size() + 38; ++i) {
-		unsigned int next = (jacobsthal[i - 1] + 2) * jacobsthal[i - 2];
+	for (unsigned int i = 2; i < _pend.size(); ++i) {
+		unsigned int next = jacobsthal[i - 1] + 2 * jacobsthal[i - 2];
 		jacobsthal.push_back(next);
 	}
+
 	std::cout << "print jacobsthal : ";
 	std::cout << jacobsthal << std::endl;
 
-
 	return jacobsthal;
 }
+
 
 
 // lower bound utilise binary search pour trouver le lower range juste avant
@@ -161,22 +162,19 @@ void PmergeMe::insertUsingBinarySearch(unsigned int element) {
 void PmergeMe::insertAndMerge() {
 	vector jacobsthal = generateJacobsthal();
 
-	// Insérer le premier élément dans _s
 	if (!_pend.empty()) {
 		insertUsingBinarySearch(_pend[0]);
 	}
 
-	// Insérer les autres éléments en fonction des nombres de Jacobsthal
 	for (size_t i = 1; i < _pend.size(); ++i) {
 		unsigned int jacobsthalIndex = (i < jacobsthal.size()) ? jacobsthal[i] : i;
 
-		// Assurez-vous que l'index ne dépasse pas la taille de _pend
 		jacobsthalIndex = jacobsthalIndex % _pend.size();
 
 		insertUsingBinarySearch(_pend[jacobsthalIndex]);
 	}
 
-	// Assigner le résultat final à _vector
+
 	_vector = _s;
 }
 
