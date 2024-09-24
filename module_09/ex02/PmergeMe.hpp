@@ -7,7 +7,7 @@
 
 typedef std::vector<unsigned int> vector;
 typedef std::deque<unsigned int> deque;
-typedef std::vector<std::pair<unsigned int, unsigned int> > sortedPairs;
+typedef std::vector<std::pair<unsigned int, unsigned int> > vectorPairs;
 
 class PmergeMe {
 private:
@@ -17,8 +17,7 @@ private:
                 // values are inserted in this vector using jacobsthal
   deque _deq;
   long _straggler;
-  sortedPairs _sortedPairs;
-
+	vectorPairs _sortedPairs;
 public:
   /* constructors */
   PmergeMe();
@@ -31,12 +30,12 @@ public:
   const vector &getMyVector() const;
   const deque &getMyDeque() const;
   unsigned int getMyStraggler() const;
-  const sortedPairs &getSortedPairs() const;
+  const vectorPairs &getSortedPairs() const;
 
   vector &getMyVector();
   deque &getMyDeque();
   unsigned int getMyStraggler();
-  sortedPairs &getSortedPairs();
+  vectorPairs &getSortedPairs();
 
   /* member functions */
 
@@ -50,6 +49,7 @@ public:
   void insertStraggler();
   vector generateJacobsthal();
   void insertUsingBinarySearch(unsigned int element);
+	void sortPairsRecursively(std::vector<std::pair<unsigned int, unsigned int> >& pairs);
 };
 
 std::ostream &operator<<(std::ostream &os, const vector &vec);

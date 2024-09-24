@@ -68,7 +68,7 @@ const deque &PmergeMe::getMyDeque() const { return _deq; }
 
 unsigned int PmergeMe::getMyStraggler() const { return _straggler; }
 
-const sortedPairs &PmergeMe::getSortedPairs() const { return _sortedPairs; }
+const vectorPairs &PmergeMe::getSortedPairs() const { return _sortedPairs; }
 
 vector &PmergeMe::getMyVector() { return _vector; }
 
@@ -76,7 +76,7 @@ deque &PmergeMe::getMyDeque() { return _deq; }
 
 unsigned int PmergeMe::getMyStraggler() { return _straggler; }
 
-sortedPairs &PmergeMe::getSortedPairs() { return _sortedPairs; }
+vectorPairs &PmergeMe::getSortedPairs() { return _sortedPairs; }
 
 /*============================================================================*/
 /*       Vector Member Functions */
@@ -90,17 +90,51 @@ void PmergeMe::createStraggler() {
 }
 
 void PmergeMe::makeSortedPairs() {
-  size_t size = _vector.size();
+	size_t size = _vector.size();
 
-  for (size_t i = 0; i < size; i += 2) {
-    if (i + 1 < size) {
-      if (_vector[i] < _vector[i + 1])
-        _sortedPairs.push_back(std::make_pair(_vector[i], _vector[i + 1]));
-      else
-        _sortedPairs.push_back(std::make_pair(_vector[i + 1], _vector[i]));
-    }
-  }
+	for (size_t i = 0; i < size; i += 2) {
+		if (i + 1 < size) {
+			if (_vector[i] < _vector[i + 1]) {
+				_sortedPairs.push_back(std::make_pair(_vector[i], _vector[i + 1]));
+			} else {
+				_sortedPairs.push_back(std::make_pair(_vector[i + 1], _vector[i]));
+			}
+		} else {
+			// If there's an odd element at the end, add it as a pair with itself
+			_sortedPairs.push_back(std::make_pair(_vector[i], _vector[i]));
+		}
+	}
+
+	// Sort pairs recursively by their larger element
+	sortPairsRecursively(_sortedPairs);
 }
+
+// Functor for comparing pairs based on the largest element in each pair
+struct ComparePairs {
+	bool operator()(const std::pair<unsigned int, unsigned int>& a, const std::pair<unsigned int, unsigned int>& b) {
+		return std::max(a.first, a.second) < std::max(b.first, b.second);
+	}
+};
+
+void PmergeMe::sortPairsRecursively(std::vector<std::pair<unsigned int, unsigned int> >& pairs) {
+	if (pairs.size() <= 1) return; // Base case
+
+	// Sort pairs based on the largest element in each pair using the functor
+	std::sort(pairs.begin(), pairs.end(), ComparePairs());
+
+	// Recursively call sort on the first half and second half
+	vectorPairs firstHalf(pairs.begin(), pairs.begin() + pairs.size() / 2);
+	vectorPairs secondHalf(pairs.begin() + pairs.size() / 2, pairs.end());
+
+	sortPairsRecursively(firstHalf);
+	sortPairsRecursively(secondHalf);
+
+	// Combine sorted halves back into pairs
+	pairs.clear();
+	pairs.insert(pairs.end(), firstHalf.begin(), firstHalf.end());
+	pairs.insert(pairs.end(), secondHalf.begin(), secondHalf.end());
+}
+
 
 /* changer en recursif. est ce que ca reduit le nombre doperation ? en iteratif
  * : 46 us

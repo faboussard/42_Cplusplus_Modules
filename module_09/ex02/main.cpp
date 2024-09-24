@@ -24,21 +24,19 @@ void removeDuplicates(T &container)
 }
 
 
-void check_sorting(PmergeMe &pm)
+void check_sorting(PmergeMe &pm, vector &copy)
 {
-	vector newVector = pm.getMyVector();
 
-	vector::iterator first = newVector.begin();
+	vector::iterator first = copy.begin();
 
-	vector::iterator last = newVector.end();
+	vector::iterator last = copy.end();
 	std::sort(first, last);
-	removeDuplicates(newVector);
 
-	std::cout << "newVector: " << std::endl;
-	std::cout << newVector << std::endl;
+	std::cout << "copy Vector: " << std::endl;
+	std::cout << copy << std::endl;
 	std::cout << std::endl;
 
-	if (newVector == pm.getMyVector())
+	if (copy == pm.getMyVector())
 		std::cout << "******************* OK for sorting *************************" << std::endl;
 	else
 		std::cout << "******************* NOK for sorting *************************" << std::endl;
@@ -58,12 +56,15 @@ int main(int argc, char **argv)
 	removeDuplicates(pm.getMyVector());
 	std::cout << "Before: " << std::endl;
 	std::cout << pm << std::endl;
+	vector copy = pm.getMyVector();
+
 
 	clock_t startTime = clock();
 	pm.sortVector();
+
 	clock_t endTime = clock();
 
-	check_sorting(pm);
+	check_sorting(pm, copy);
 	double elapsed = static_cast<float>(endTime - startTime) / (CLOCKS_PER_SEC / 1000000.0);
 	std::cout << "After: " << std::endl;
 
