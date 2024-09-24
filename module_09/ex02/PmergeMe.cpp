@@ -175,11 +175,8 @@ std::vector<unsigned int> PmergeMe::generateJacobsthal() {
 
 // lower bound utilise binary search pour trouver le lower range juste avant
 void PmergeMe::insertUsingBinarySearch(unsigned int element) {
-	// Vérifie si l'élément n'existe pas déjà dans _s
-	if (std::find(_s.begin(), _s.end(), element) == _s.end()) {
-		std::vector<unsigned int>::iterator it = std::lower_bound(_s.begin(), _s.end(), element);
+		vector::iterator it = std::lower_bound(_s.begin(), _s.end(), element);
 		_s.insert(it, element);
-	}
 }
 void PmergeMe::insertAndMerge() {
 	std::vector<unsigned int> jacobsthal = generateJacobsthal();
