@@ -24,7 +24,7 @@ void removeDuplicates(T &container)
 }
 
 
-void check_sorting(PmergeMe &pm, vector &copy)
+void check_sorting_vector(PmergeMe &pm, vector &copy)
 {
 
 	vector::iterator first = copy.begin();
@@ -56,25 +56,22 @@ int main(int argc, char **argv)
 	removeDuplicates(pm.getMyVector());
 	std::cout << "Before: " << std::endl;
 	std::cout << pm << std::endl;
-	vector copy = pm.getMyVector();
+	vector copyVector = pm.getMyVector();
 
 
 	clock_t startTime = clock();
 	pm.sortVector();
-
 	clock_t endTime = clock();
 
-	check_sorting(pm, copy);
+//	check_sorting_vector(pm, copyVector);
 	double elapsed = static_cast<float>(endTime - startTime) / (CLOCKS_PER_SEC / 1000000.0);
 	std::cout << "After: " << std::endl;
 
 	std::cout << pm << std::endl;
 
-
-	std::cout << std::endl;
 	std::cout << "Time to process a range of " << pm.getMyVector().size()
 			  << " elements with std::vector : " << elapsed << " us" << std::endl;
-
+	std::cout << std::endl;
 
 	/* deque sort */
 //	startTime = clock();

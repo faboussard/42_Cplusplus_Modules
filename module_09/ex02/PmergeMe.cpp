@@ -103,11 +103,11 @@ void PmergeMe::makeSortedPairs() {
 
 	sortPairsRecursively(_sortedPairs);
 
-	std::cout << "print _sortedPairs: ";
-	for (const auto &pair : _sortedPairs) {
-		std::cout << "(" << pair.first << ", " << pair.second << ") ";
-	}
-	std::cout << std::endl;
+//	std::cout << "print _sortedPairs: ";
+//	for (const auto &pair : _sortedPairs) {
+//		std::cout << "(" << pair.first << ", " << pair.second << ") ";
+//	}
+//	std::cout << std::endl;
 }
 
 struct ComparePairs {
@@ -146,16 +146,16 @@ void PmergeMe::s_sortedLargestValues() {
 		_s.push_back(_sortedPairs[i].second); // Ajouter la première valeur de chaque paire
 	}
 
-	std::cout << "print _s : ";
-	std::cout << _s << std::endl;
+//	std::cout << "print _s : ";
+//	std::cout << _s << std::endl;
 }
 
 void PmergeMe::pend_smallestValues() {
 	for (size_t i = 0; i < _sortedPairs.size(); ++i) {
 		_pend.push_back(_sortedPairs[i].first);
 	}
-	std::cout << "print _pend : ";
-	std::cout << _pend << std::endl;
+//	std::cout << "print _pend : ";
+//	std::cout << _pend << std::endl;
 }
 
 std::vector<unsigned int> PmergeMe::generateJacobsthal() {
@@ -167,9 +167,9 @@ std::vector<unsigned int> PmergeMe::generateJacobsthal() {
 		unsigned int next = jacobsthal[i - 1] + 2 * jacobsthal[i - 2];
 		jacobsthal.push_back(next);
 	}
-
-	std::cout << "print jacobsthal : ";
-	std::cout << jacobsthal << std::endl;
+//
+//	std::cout << "print jacobsthal : ";
+//	std::cout << jacobsthal << std::endl;
 
 	return jacobsthal;
 }
@@ -193,27 +193,14 @@ void PmergeMe::insertAndMerge() {
 
 	std::set<unsigned int> insertedElements;
 
-	std::cout << std::endl << _pend.size() << std::endl;
-	std::cout << std::endl << jacobsthal.size() << std::endl;
-
 	for (size_t i = 0; i < _pend.size(); ++i) {
 		unsigned int elementToInsert = _pend[i];
 
-		if (insertedElements.find(elementToInsert) == insertedElements.end()) {
-			std::cout << "Inserting: " << elementToInsert << std::endl;
 			insertUsingBinarySearch(elementToInsert);
 			insertedElements.insert(elementToInsert);
-		}
 	}
-
 	_vector.clear();
 	_vector = _s;
-
-	std::cout << "Final _s: ";
-	for (const auto &num : _s) {
-		std::cout << num << " ";
-	}
-	std::cout << std::endl;
 }
 
 
@@ -221,7 +208,7 @@ void PmergeMe::insertAndMerge() {
 
 void PmergeMe::insertStraggler() {
 	if (_straggler != -1) {
-		std::vector<unsigned int>::iterator it = std::lower_bound(_vector.begin(), _vector.end(), _straggler);
+		vector::iterator it = std::lower_bound(_vector.begin(), _vector.end(), _straggler);
 		_vector.insert(it, _straggler);
 	}
 }
