@@ -108,8 +108,8 @@ void PmergeMe::makeSortedPairs() {
  * creating a sorted sequence S of [n/2] of the input elements, in ascending
  * order.*/
 
-
 // s est trie
+
 void PmergeMe::s_sortedLargestValues() {
   for (size_t i = 0; i < _sortedPairs.size(); ++i) {
     _s.push_back(_sortedPairs[i].second);
@@ -117,6 +117,7 @@ void PmergeMe::s_sortedLargestValues() {
 }
 
 // pend nest pqs trie. verifier que pend[0] est bien le plus petit des grands
+
 void PmergeMe::pend_sortedSmallestValues() {
   for (size_t i = 0; i < _sortedPairs.size(); ++i) {
     _pend.push_back(_sortedPairs[i].first);
@@ -127,14 +128,17 @@ vector PmergeMe::generateJacobsthal() {
   vector jacobsthal;
    jacobsthal.push_back(0); 
   jacobsthal.push_back(1);
-  for (unsigned int i = 2; i < (_s.size() + _pend.size()); ++i) {
+
+  for (unsigned int i = 2; i < _s.size(); ++i) {
     unsigned int next = jacobsthal[i - 1] + 2 * jacobsthal[i - 2];
     jacobsthal.push_back(next);
   }
   return jacobsthal;
 }
 
+
 // lower bound utilise binary search pour trouver le lower range juste avant
+
 void PmergeMe::insertUsingBinarySearch(unsigned int element) {
   vector::iterator it = std::lower_bound(_s.begin(), _s.end(), element);
   _s.insert(it, element);
@@ -146,6 +150,7 @@ void PmergeMe::insertAndMerge() {
   if (!_pend.empty()) {
     insertUsingBinarySearch(_pend[0]);
   }
+
   for (size_t i = 1; i < _pend.size(); ++i) {
     unsigned int jacobsthalIndex = (i < jacobsthal.size()) ? jacobsthal[i] : i;
     insertUsingBinarySearch(
