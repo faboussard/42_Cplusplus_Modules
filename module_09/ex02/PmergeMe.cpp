@@ -8,6 +8,7 @@
 #include <stdexcept>
 #include <vector>
 #include <deque>
+#include <set>
 
 /*============================================================================*/
 /*       Constructors */
@@ -175,9 +176,14 @@ std::vector<unsigned int> PmergeMe::generateJacobsthal() {
 
 // lower bound utilise binary search pour trouver le lower range juste avant
 void PmergeMe::insertUsingBinarySearch(unsigned int element) {
-		vector::iterator it = std::lower_bound(_s.begin(), _s.end(), element);
+	// Vérifie si l'élément n'existe pas déjà dans _s
+	if (std::find(_s.begin(), _s.end(), element) == _s.end()) {
+		std::vector<unsigned int>::iterator it = std::lower_bound(_s.begin(), _s.end(), element);
 		_s.insert(it, element);
+	}
 }
+
+
 void PmergeMe::insertAndMerge() {
 	std::vector<unsigned int> jacobsthal = generateJacobsthal();
 
@@ -185,13 +191,19 @@ void PmergeMe::insertAndMerge() {
 		insertUsingBinarySearch(_pend[0]);
 	}
 
-	for (size_t i = 1; i < _pend.size(); ++i) {
-		unsigned int jacobsthalIndex = (i < jacobsthal.size()) ? jacobsthal[i] : i;
-		jacobsthalIndex = jacobsthalIndex % _pend.size();
+	std::set<unsigned int> insertedElements;
 
-		unsigned int elementToInsert = _pend[jacobsthalIndex];
-		std::cout << "Inserting: " << elementToInsert << std::endl;  // Impression de débogage
-		insertUsingBinarySearch(elementToInsert);
+	std::cout << std::endl << _pend.size() << std::endl;
+	std::cout << std::endl << jacobsthal.size() << std::endl;
+
+	for (size_t i = 0; i < _pend.size(); ++i) {
+		unsigned int elementToInsert = _pend[i];
+
+		if (insertedElements.find(elementToInsert) == insertedElements.end()) {
+			std::cout << "Inserting: " << elementToInsert << std::endl;
+			insertUsingBinarySearch(elementToInsert);
+			insertedElements.insert(elementToInsert);
+		}
 	}
 
 	_vector.clear();
@@ -203,6 +215,8 @@ void PmergeMe::insertAndMerge() {
 	}
 	std::cout << std::endl;
 }
+
+
 
 
 void PmergeMe::insertStraggler() {
