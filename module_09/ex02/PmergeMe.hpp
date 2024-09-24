@@ -50,7 +50,7 @@ public:
   void insertStraggler();
   vector generateJacobsthal();
   void insertUsingBinarySearch(unsigned int element);
-	void sortPairsRecursively(std::vector<std::pair<unsigned int, unsigned int> >& pairs);
+	void sortPairsRecursively(vectorPairs & pairs);
 };
 
 std::ostream &operator<<(std::ostream &os, const vector &vec);

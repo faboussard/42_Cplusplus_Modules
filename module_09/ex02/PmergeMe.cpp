@@ -175,10 +175,12 @@ std::vector<unsigned int> PmergeMe::generateJacobsthal() {
 
 // lower bound utilise binary search pour trouver le lower range juste avant
 void PmergeMe::insertUsingBinarySearch(unsigned int element) {
-	std::vector<unsigned int>::iterator it = std::lower_bound(_s.begin(), _s.end(), element);
-	_s.insert(it, element);
+	// Vérifie si l'élément n'existe pas déjà dans _s
+	if (std::find(_s.begin(), _s.end(), element) == _s.end()) {
+		std::vector<unsigned int>::iterator it = std::lower_bound(_s.begin(), _s.end(), element);
+		_s.insert(it, element);
+	}
 }
-
 void PmergeMe::insertAndMerge() {
 	std::vector<unsigned int> jacobsthal = generateJacobsthal();
 
@@ -187,18 +189,24 @@ void PmergeMe::insertAndMerge() {
 	}
 
 	for (size_t i = 1; i < _pend.size(); ++i) {
-		// Si la séquence a plus d'éléments que les numéros de Jacobsthal disponibles,
-		// cette logique garantit que vous pouvez toujours insérer les éléments restants
-		// en revenant à une insertion directe basée sur l'index actuel (i).
 		unsigned int jacobsthalIndex = (i < jacobsthal.size()) ? jacobsthal[i] : i;
-
 		jacobsthalIndex = jacobsthalIndex % _pend.size();
-		insertUsingBinarySearch(_pend[jacobsthalIndex]);
+
+		unsigned int elementToInsert = _pend[jacobsthalIndex];
+		std::cout << "Inserting: " << elementToInsert << std::endl;  // Impression de débogage
+		insertUsingBinarySearch(elementToInsert);
 	}
 
 	_vector.clear();
 	_vector = _s;
+
+	std::cout << "Final _s: ";
+	for (const auto &num : _s) {
+		std::cout << num << " ";
+	}
+	std::cout << std::endl;
 }
+
 
 void PmergeMe::insertStraggler() {
 	if (_straggler != -1) {
