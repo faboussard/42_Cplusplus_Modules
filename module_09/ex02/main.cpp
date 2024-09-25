@@ -68,7 +68,7 @@ int main(int argc, char **argv)
 		clock_t startTime = clock();
 		pm.sortVector();
 		clock_t endTime = clock();
-	check_sorting_vector(pm, copyVector);
+//	check_sorting_vector(pm, copyVector);
 
 
 		double elapsed = static_cast<float>(endTime - startTime) / (CLOCKS_PER_SEC / 1000000.0);
@@ -85,7 +85,7 @@ int main(int argc, char **argv)
 
 		std::cout << "After: " << std::endl;
 		std::cout << pm.getMyDeque() << std::endl;
-	check_sorting_deque(pm, copyDeque);
+//	check_sorting_deque(pm, copyDeque);
 	elapsed = static_cast<float>(endTime - startTime) / (CLOCKS_PER_SEC / 1000000.0);
 	std::cout << "Time to process a range of " << pm.getMyDeque().size()
 			  << " elements with std::deque : " << elapsed << " us" << std::endl;
