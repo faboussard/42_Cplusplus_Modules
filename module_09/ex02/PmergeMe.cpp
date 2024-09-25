@@ -192,8 +192,8 @@ void PmergeMe::VinsertUsingBinarySearch(unsigned int element) {
 	}
 }
 
-
-void PmergeMe::VinsertAndMerge() {
+//faire template
+void PmergeMe::Vinsert() {
 	std::vector<unsigned int> jacobsthal = generateJacobsthal();
 	if (!_pend_vector.empty()) {
 		VinsertUsingBinarySearch(_pend_vector[0]);
@@ -270,7 +270,7 @@ void PmergeMe::sortVector() {
 	VmakeSortedPairs();
 	s_sortedLargestValues();
 	pend_smallestValues();
-	VinsertAndMerge();
+	Vinsert();
 	VinsertStraggler();
 }
 
