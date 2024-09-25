@@ -14,7 +14,6 @@ class PmergeMe
 {
 private:
 	vector _vector;
-	std::vector<unsigned int> _jacobsthal;
 	vector _s_vector;
 	vector _pend_vector;
 	deque _deq;
@@ -55,7 +54,7 @@ public:
 
 	void pend_smallestValues();
 
-	vector generateJacobsthal();
+	std::vector< int> generateJacobsthal();
 
 	void merge(const vectorPairs &firstHalf, const vectorPairs &secondHalf, vectorPairs &result);
 
