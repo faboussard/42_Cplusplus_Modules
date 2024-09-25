@@ -21,13 +21,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="02491725-2efa-4442-943e-b2e1e2a111f9" name="Changes" comment="parsing started">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_09/ex02/PmergeMe" beforeDir="false" afterPath="$PROJECT_DIR$/module_09/ex02/PmergeMe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_09/ex02/PmergeMe.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_09/ex02/PmergeMe.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_09/ex02/PmergeMe.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_09/ex02/PmergeMe.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_09/ex02/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_09/ex02/main.cpp" afterDir="false" />
-    </list>
+    <list default="true" id="02491725-2efa-4442-943e-b2e1e2a111f9" name="Changes" comment="parsing started" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -179,6 +173,7 @@
       <workItem from="1727187970068" duration="2262000" />
       <workItem from="1727250894744" duration="1844000" />
       <workItem from="1727256603206" duration="389000" />
+      <workItem from="1727266004479" duration="2647000" />
     </task>
     <task id="LOCAL-00034" summary="ajout exceptions">
       <option name="closed" value="true" />

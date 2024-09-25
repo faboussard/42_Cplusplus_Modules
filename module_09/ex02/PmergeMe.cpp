@@ -108,30 +108,25 @@ void PmergeMe::VmakeSortedPairs() {
 
 struct ComparePairs {
 	bool operator()(const std::pair<unsigned int, unsigned int>& a, const std::pair<unsigned int, unsigned int>& b) {
-		return std::max(a.first, a.second) < std::max(b.first, b.second);
+		return a.second < b.second;
 	}
 };
 
 void PmergeMe::sortAndMerge(vectorPairs &pairs) {
 	if (pairs.size() <= 1) return;
 
-	// Diviser le tableau en deux moitiés
 	vectorPairs firstHalf(pairs.begin(), pairs.begin() + pairs.size() / 2);
 	vectorPairs secondHalf(pairs.begin() + pairs.size() / 2, pairs.end());
 
-	// Appel récursif pour trier chaque moitié
 	sortAndMerge(firstHalf);
 	sortAndMerge(secondHalf);
 
-	// Fusionner les deux moitiés triées
 	pairs.clear();
 	pairs.reserve(firstHalf.size() + secondHalf.size());
 
-	// Fusion manuelle
 	merge(firstHalf, secondHalf, pairs);
 }
 
-// Fonction pour fusionner deux sous-listes triées
 void PmergeMe::merge(const vectorPairs &firstHalf, const vectorPairs &secondHalf, vectorPairs &result) {
 	size_t i = 0, j = 0;
 
