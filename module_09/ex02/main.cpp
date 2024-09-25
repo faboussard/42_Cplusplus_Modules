@@ -39,6 +39,24 @@ void check_sorting_vector(PmergeMe &pm, vector &copy)
 
 }
 
+void check_sorting_deque(PmergeMe &pm, deque &copy)
+{
+
+	deque::iterator first = copy.begin();
+	deque::iterator last = copy.end();
+	std::sort(first, last);
+	std::cout << "copy deque: " << std::endl;
+	std::cout << copy << std::endl;
+	std::cout << std::endl;
+	if (copy == pm.getMyDeque())
+		std::cout << "******************* OK for sorting *************************" << std::endl;
+	else
+		std::cout << "******************* NOK for sorting *************************" << std::endl;
+	std::cout << std::endl;
+
+}
+
+
 int main(int argc, char **argv)
 {
 
@@ -48,9 +66,13 @@ int main(int argc, char **argv)
 
 		/* vector sort */
 		removeDuplicates(pm.getMyVector());
+		removeDuplicates(pm.getMyDeque());
+
 		std::cout << "Before: " << std::endl;
 		std::cout << pm << std::endl;
 		vector copyVector = pm.getMyVector();
+		deque copyDeque = pm.getMyDeque();
+
 
 		clock_t startTime = clock();
 		pm.sortVector();
@@ -64,13 +86,16 @@ int main(int argc, char **argv)
 		std::cout << std::endl;
 
 		/* deque sort */
-//	startTime = clock();
-//	removeDuplicates(pm.getMyDeque());
-//	pm.sortDeque();
-//	endTime = clock();
-//	elapsed = static_cast<float>(endTime - startTime) / (CLOCKS_PER_SEC / 1000000.0);
-//	std::cout << "Time to process a range of " << pm.getMyDeque().size()
-//			  << " elements with std::deque : " << elapsed << " us" << std::endl;
+	startTime = clock();
+	pm.sortDeque();
+	endTime = clock();
+		std::cout << "After: " << std::endl;
+		std::cout << pm << std::endl;
+	check_sorting_deque(pm, copyDeque);
+
+	elapsed = static_cast<float>(endTime - startTime) / (CLOCKS_PER_SEC / 1000000.0);
+	std::cout << "Time to process a range of " << pm.getMyDeque().size()
+			  << " elements with std::deque : " << elapsed << " us" << std::endl;
 	}
 	catch (std::exception &e) {
 		std::cerr << "Error: " << e.what() << std::endl;

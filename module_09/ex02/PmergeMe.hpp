@@ -12,10 +12,11 @@ typedef std::vector<std::pair<unsigned int, unsigned int> > vectorPairs;
 class PmergeMe {
 private:
   vector _vector;
-  vector _s;    // the extracted largest values from pairs
+  vector _s_vector;    // the extracted largest values from pairs
   vector _pend; // first : the smallest values are extracted and then largest
                 // values are inserted in this vector using jacobsthal
   deque _deq;
+//  deque _s_deque;
   long _straggler;
 	vectorPairs _sortedPairs;
 public:
@@ -32,13 +33,12 @@ public:
   long int getMyStraggler() const;
   const vectorPairs &getSortedPairs() const;
 
-
   vector &getMyVector();
   deque &getMyDeque();
   long int &getMyStraggler();
   vectorPairs &getSortedPairs();
 
-  /* member functions */
+  /* vector member functions */
 
   void sortVector();
 
@@ -46,11 +46,22 @@ public:
   void makeSortedPairs();
   void s_sortedLargestValues();
   void pend_smallestValues();
-  void insertAndMerge();
-  void insertStraggler();
+  void VinsertAndMerge();
+  void VinsertStraggler();
   vector generateJacobsthal();
   void insertUsingBinarySearch(unsigned int element);
 	void sortPairsRecursively(vectorPairs & pairs);
+
+	/* vector member functions */
+
+	void sortDeque();
+	void DcreateStraggler();
+	void DmakeSortedPairs();
+	void DinsertAndMerge();
+	void DinsertStraggler();
+	void DinsertUsingBinarySearch(unsigned int element);
+
+
 };
 
 std::ostream &operator<<(std::ostream &os, const vector &vec);
