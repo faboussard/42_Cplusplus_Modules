@@ -130,7 +130,6 @@ void PmergeMe::sortAndMerge(vectorPairs &pairs) {
 void PmergeMe::merge(const vectorPairs &firstHalf, const vectorPairs &secondHalf, vectorPairs &result) {
 	size_t i = 0, j = 0;
 
-	// Fusionner jusqu'à ce qu'un des tableaux soit complètement parcouru
 	while (i < firstHalf.size() && j < secondHalf.size()) {
 		if (ComparePairs()(firstHalf[i], secondHalf[j])) {
 			result.push_back(firstHalf[i]);
@@ -141,13 +140,11 @@ void PmergeMe::merge(const vectorPairs &firstHalf, const vectorPairs &secondHalf
 		}
 	}
 
-	// Ajouter les éléments restants de firstHalf, s'il en reste
 	while (i < firstHalf.size()) {
 		result.push_back(firstHalf[i]);
 		++i;
 	}
 
-	// Ajouter les éléments restants de secondHalf, s'il en reste
 	while (j < secondHalf.size()) {
 		result.push_back(secondHalf[j]);
 		++j;
@@ -175,8 +172,8 @@ void PmergeMe::pend_smallestValues() {
 
 std::vector<unsigned int> PmergeMe::generateJacobsthal() {
 	std::vector<unsigned int> jacobsthal;
-	jacobsthal.push_back(0); // J(0)
-	jacobsthal.push_back(1); // J(1)
+	jacobsthal.push_back(0);
+	jacobsthal.push_back(1);
 
 	for (unsigned int i = 2; i < _pend_vector.size(); ++i) {
 		unsigned int next = jacobsthal[i - 1] + 2 * jacobsthal[i - 2];
@@ -190,7 +187,7 @@ std::vector<unsigned int> PmergeMe::generateJacobsthal() {
 
 void PmergeMe::VinsertUsingBinarySearch(unsigned int element) {
 	if (std::find(_s_vector.begin(), _s_vector.end(), element) == _s_vector.end()) {
-		std::vector<unsigned int>::iterator it = std::lower_bound(_s_vector.begin(), _s_vector.end(), element);
+		vector::iterator it = std::lower_bound(_s_vector.begin(), _s_vector.end(), element);
 		_s_vector.insert(it, element);
 	}
 }
@@ -198,18 +195,11 @@ void PmergeMe::VinsertUsingBinarySearch(unsigned int element) {
 
 void PmergeMe::VinsertAndMerge() {
 	std::vector<unsigned int> jacobsthal = generateJacobsthal();
-
 	if (!_pend_vector.empty()) {
 		VinsertUsingBinarySearch(_pend_vector[0]);
 	}
-
-	std::set<unsigned int> insertedElements;
-
 	for (size_t i = 0; i < _pend_vector.size(); ++i) {
-		unsigned int elementToInsert = _pend_vector[i];
-
-		VinsertUsingBinarySearch(elementToInsert);
-			insertedElements.insert(elementToInsert);
+		VinsertUsingBinarySearch(_pend_vector[i]);
 	}
 	_vector.clear();
 	_vector = _s_vector;
@@ -256,19 +246,14 @@ void PmergeMe::DinsertUsingBinarySearch(unsigned int element) {
 	}
 }
 
+// faire un template
 void PmergeMe::DinsertAndMerge() {
 	std::vector<unsigned int> jacobsthal = generateJacobsthal();
 	if (!_pend_vector.empty()) {
 		DinsertUsingBinarySearch(_pend_vector[0]);
 	}
-
-	std::set<unsigned int> insertedElements;
-	for (size_t i = 0; i < _pend_vector.size(); ++i) {
-		unsigned int elementToInsert = _pend_vector[i];
-		DinsertUsingBinarySearch(elementToInsert);
-		insertedElements.insert(elementToInsert);
-	}
-
+	for (size_t i = 0; i < _pend_vector.size(); ++i)
+		DinsertUsingBinarySearch(_pend_vector[i]);
 	_deq.clear();
 	_deq.assign(_s_vector.begin(), _s_vector.end());
 }
