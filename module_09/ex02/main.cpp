@@ -3,6 +3,18 @@
 #include <ctime>
 #include <set>
 #include <vector>
+#include "PmergeMe.hpp"
+#include <algorithm>
+#include <cerrno>
+#include <cstdlib>
+#include <cstring>
+#include <iostream>
+#include <limits>
+#include <stdexcept>
+#include <vector>
+#include <deque>
+#include <set>
+
 
 void check_sorting_vector(PmergeMe &pm, vector &copy)
 {
@@ -53,19 +65,31 @@ int main(int argc, char **argv)
 		vector copyVector = pm.getMyVector();
 		deque copyDeque = pm.getMyDeque();
 
-		clock_t startTime = clock();
-		pm.sortVector();
-		clock_t endTime = clock();
+//		clock_t startTime = clock();
+//		pm.sortVector();
+//		clock_t endTime = clock();
 //	check_sorting_vector(pm, copyVector);
+
+		clock_t startTime = clock();
+		sort(pm.getMyVector().begin(), pm.getMyVector().end());
+		clock_t endTime  = clock();
+
+
+
 		double elapsed = static_cast<float>(endTime - startTime) / (CLOCKS_PER_SEC / 1000000.0);
 		std::cout << "After: " << pm.getMyVector() << std::endl;
 		std::cout << "Time to process a range of " << pm.getMyVector().size()
 				  << " elements with std::vector : " << elapsed << " us" << std::endl;
 
 		/* deque sort */
-	startTime = clock();
-	pm.sortDeque();
-	endTime = clock();
+
+
+//	startTime = clock();
+//	pm.sortDeque();
+//	endTime = clock();
+		startTime = clock();
+		sort(pm.getMyDeque().begin(), pm.getMyDeque().end());
+		endTime = clock();
 //		std::cout << "After: " << std::endl;
 //		std::cout << pm.getMyDeque() << std::endl;
 //	check_sorting_deque(pm, copyDeque);

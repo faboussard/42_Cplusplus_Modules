@@ -14,13 +14,11 @@ class PmergeMe
 {
 private:
 	vector _vector;
-	vector _s_vector;    // the extracted largest values from pairs
-	vector _pend; // first : the smallest values are extracted and then largest
-	// values are inserted in this vector using jacobsthal
+	vector _s_vector;
+	vector _pend_vector;
 	deque _deq;
-//  deque _s_deque;
 	long _straggler;
-	vectorPairs _sortedPairs;
+	vectorPairs _sortedPairs_vector;
 public:
 	/* constructors */
 	PmergeMe();
@@ -57,9 +55,10 @@ public:
 	void pend_smallestValues();
 
 	vector generateJacobsthal();
+
 	void merge(const vectorPairs &firstHalf, const vectorPairs &secondHalf, vectorPairs &result);
 
-	void sortPairsRecursively(vectorPairs &pairs);
+	void sortAndMerge(vectorPairs &pairs);
 
 	/* vector member functions */
 
@@ -70,6 +69,7 @@ public:
 	void VmakeSortedPairs();
 
 	void VinsertAndMerge();
+
 	void VinsertUsingBinarySearch(unsigned int element);
 
 
@@ -86,12 +86,10 @@ public:
 	void DmakeSortedPairs();
 
 	void DinsertAndMerge();
+
 	void DinsertUsingBinarySearch(unsigned int element);
 
-
 	void DinsertStraggler();
-
-
 
 };
 

@@ -174,9 +174,12 @@ How Ford-Johnson Merge-Insertion Sort Works:
 
     2. Arbitrarily divide the sequence into pairs:
          The sequence is divided into pairs of two values.
-    3 . Sort the pairs bitwise (pairwise):
-      Each pair is sorted in ascending order, where the smaller value appears first.
 == 	sortedPairs _sortedPairs;
+
+    3 . Sort the pairs bitwise (pairwise):
+     Recursively sort the [n/2] larger elements from each pair, creating a sorted sequence S of [n/2] of the input elements, in ascending order.
+==	sortPairsRecursively(_sortedPairs);
+
 
     4. Create a new sequence S by pulling out the largest values:
         The larger elements from each pair form the backbone of the sorted sequence.
