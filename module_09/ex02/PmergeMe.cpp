@@ -192,18 +192,33 @@ void PmergeMe::VinsertUsingBinarySearch(unsigned int element) {
 	}
 }
 
-//faire template
 void PmergeMe::Vinsert() {
 	std::vector<unsigned int> jacobsthal = generateJacobsthal();
-	if (!_pend_vector.empty()) {
-		VinsertUsingBinarySearch(_pend_vector[0]);
+
+	// Calculer le nombre d'éléments à insérer
+	size_t numToInsert = (_pend_vector.size() / 2) - 1;
+
+	// Assurer que nous ne sortons pas des limites
+	numToInsert = std::max<size_t>(0, numToInsert);
+
+	// Insérer les éléments dans l'ordre de Jacobsthal
+	for (size_t i = 0; i < numToInsert && i < jacobsthal.size(); ++i) {
+		unsigned int jacobIndex = jacobsthal[i];
+
+		// Vérifier si l'indice Jacobsthal est valide pour _pend_vector
+		if (jacobIndex < _pend_vector.size()) {
+			unsigned int element = _pend_vector[jacobIndex]; // Obtenir l'élément à partir de _pend_vector
+
+			// Utiliser VinsertUsingBinarySearch pour insérer l'élément
+			VinsertUsingBinarySearch(element);
+		}
 	}
-	for (size_t i = 0; i < _pend_vector.size(); ++i) {
-		VinsertUsingBinarySearch(_pend_vector[i]);
-	}
+
+	// Vider _vector et copier les éléments triés depuis _s_vector
 	_vector.clear();
 	_vector = _s_vector;
 }
+
 
 //faire template
 void PmergeMe::VinsertStraggler() {
