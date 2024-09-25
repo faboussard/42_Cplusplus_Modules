@@ -5,6 +5,16 @@
 #include <iostream>
 #include <vector>
 #include <set>
+#include "PmergeMe.hpp"
+#include <algorithm>
+#include <cerrno>
+#include <cstdlib>
+#include <cstring>
+#include <iostream>
+#include <limits>
+#include <stdexcept>
+#include <vector>
+#include <deque>
 
 typedef std::vector<unsigned int> vector;
 typedef std::deque<unsigned int> deque;
@@ -50,6 +60,10 @@ public:
 
 	/* global member functions */
 
+	void sortVector();
+	void sortDeque();
+
+
 	void s_sortedLargestValues();
 
 	void pend_smallestValues();
@@ -60,36 +74,41 @@ public:
 
 	void sortAndMerge(vectorPairs &pairs);
 
-	/* vector member functions */
+	void insert_pend_In_s();
 
-	void sortVector();
+	void insertUsingBinarySearch(unsigned int element);
 
-	void VcreateStraggler();
-
-	void VmakeSortedPairs();
-
-	void Vinsert();
-
-	void VinsertUsingBinarySearch(unsigned int element);
-
-
-	void VinsertStraggler();
+	/* templates */
+	template <typename T>
+	void insertStraggler(T &container) {
+		if (_straggler != -1) {
+			typename T::const_iterator it = std::lower_bound(container.begin(), container.end(), static_cast<unsigned int>(_straggler));
+			container.insert(it, static_cast<unsigned int>(_straggler));
+		}
+	}
 
 
-	/* deque member functions */
+	template <typename T>
+	void createStraggler(T &container){
+		if (getMyVector().size() % 2 != 0) {
+			_straggler = container.back();
+			container.pop_back();
+		}
+	}
 
-
-	void sortDeque();
-
-	void DcreateStraggler();
-
-	void DmakeSortedPairs();
-
-	void DinsertAndMerge();
-
-	void DinsertUsingBinarySearch(unsigned int element);
-
-	void DinsertStraggler();
+	template <typename T>
+	void makeSortedPairs(T &container){
+		for (size_t i = 0; i < container.size(); i += 2) {
+			if (i + 1 < container.size()) {
+				if (container[i] < container[i + 1]) {
+					_sortedPairs_vector.push_back(std::make_pair(container[i], container[i + 1]));
+				} else {
+					_sortedPairs_vector.push_back(std::make_pair(container[i + 1], container[i]));
+				}
+			}
+		}
+		sortAndMerge(_sortedPairs_vector);
+	}
 
 };
 
