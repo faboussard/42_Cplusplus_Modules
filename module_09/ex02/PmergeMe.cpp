@@ -79,14 +79,14 @@ vectorPairs &PmergeMe::getSortedPairs() { return _sortedPairs; }
 /*       Vector Member Functions */
 /*============================================================================*/
 
-void PmergeMe::createStraggler() {
+void PmergeMe::VcreateStraggler() {
 	if (getMyVector().size() % 2 != 0) {
 		_straggler = _vector.back();
 		_vector.pop_back();
 	}
 }
 
-void PmergeMe::makeSortedPairs() {
+void PmergeMe::VmakeSortedPairs() {
 	size_t size = _vector.size();
 
 	for (size_t i = 0; i < size; i += 2) {
@@ -115,7 +115,7 @@ struct ComparePairs {
 void PmergeMe::sortPairsRecursively(vectorPairs &pairs) {
 	if (pairs.size() <= 1) return;
 
-	// Diviser en deux moitiés
+	// Diviser le tableau en deux moitiés
 	vectorPairs firstHalf(pairs.begin(), pairs.begin() + pairs.size() / 2);
 	vectorPairs secondHalf(pairs.begin() + pairs.size() / 2, pairs.end());
 
@@ -123,15 +123,42 @@ void PmergeMe::sortPairsRecursively(vectorPairs &pairs) {
 	sortPairsRecursively(firstHalf);
 	sortPairsRecursively(secondHalf);
 
-	// Fusionner les deux moitiés
+	// Fusionner les deux moitiés triées
 	pairs.clear();
-	pairs.reserve(firstHalf.size() + secondHalf.size()); // Réserve de l'espace
-	pairs.insert(pairs.end(), firstHalf.begin(), firstHalf.end());
-	pairs.insert(pairs.end(), secondHalf.begin(), secondHalf.end());
+	pairs.reserve(firstHalf.size() + secondHalf.size());
 
-	// Trier les paires après la fusion
-	std::sort(pairs.begin(), pairs.end(), ComparePairs());
+	// Fusion manuelle
+	merge(firstHalf, secondHalf, pairs);
 }
+
+// Fonction pour fusionner deux sous-listes triées
+void PmergeMe::merge(const vectorPairs &firstHalf, const vectorPairs &secondHalf, vectorPairs &result) {
+	size_t i = 0, j = 0;
+
+	// Fusionner jusqu'à ce qu'un des tableaux soit complètement parcouru
+	while (i < firstHalf.size() && j < secondHalf.size()) {
+		if (ComparePairs()(firstHalf[i], secondHalf[j])) {
+			result.push_back(firstHalf[i]);
+			++i;
+		} else {
+			result.push_back(secondHalf[j]);
+			++j;
+		}
+	}
+
+	// Ajouter les éléments restants de firstHalf, s'il en reste
+	while (i < firstHalf.size()) {
+		result.push_back(firstHalf[i]);
+		++i;
+	}
+
+	// Ajouter les éléments restants de secondHalf, s'il en reste
+	while (j < secondHalf.size()) {
+		result.push_back(secondHalf[j]);
+		++j;
+	}
+}
+
 
 void PmergeMe::s_sortedLargestValues() {
 
@@ -160,16 +187,13 @@ std::vector<unsigned int> PmergeMe::generateJacobsthal() {
 		unsigned int next = jacobsthal[i - 1] + 2 * jacobsthal[i - 2];
 		jacobsthal.push_back(next);
 	}
-//
 //	std::cout << "print jacobsthal : ";
 //	std::cout << jacobsthal << std::endl;
 
 	return jacobsthal;
 }
 
-// lower bound utilise binary search pour trouver le lower range juste avant
-void PmergeMe::insertUsingBinarySearch(unsigned int element) {
-	// Vérifie si l'élément n'existe pas déjà dans _s_vector
+void PmergeMe::VinsertUsingBinarySearch(unsigned int element) {
 	if (std::find(_s_vector.begin(), _s_vector.end(), element) == _s_vector.end()) {
 		std::vector<unsigned int>::iterator it = std::lower_bound(_s_vector.begin(), _s_vector.end(), element);
 		_s_vector.insert(it, element);
@@ -181,7 +205,7 @@ void PmergeMe::VinsertAndMerge() {
 	std::vector<unsigned int> jacobsthal = generateJacobsthal();
 
 	if (!_pend.empty()) {
-		insertUsingBinarySearch(_pend[0]);
+		VinsertUsingBinarySearch(_pend[0]);
 	}
 
 	std::set<unsigned int> insertedElements;
@@ -189,7 +213,7 @@ void PmergeMe::VinsertAndMerge() {
 	for (size_t i = 0; i < _pend.size(); ++i) {
 		unsigned int elementToInsert = _pend[i];
 
-			insertUsingBinarySearch(elementToInsert);
+		VinsertUsingBinarySearch(elementToInsert);
 			insertedElements.insert(elementToInsert);
 	}
 	_vector.clear();
@@ -197,6 +221,7 @@ void PmergeMe::VinsertAndMerge() {
 }
 
 
+//faire template
 void PmergeMe::VinsertStraggler() {
 	if (_straggler != -1) {
 		vector::iterator it = std::lower_bound(_vector.begin(), _vector.end(), _straggler);
@@ -250,8 +275,6 @@ void PmergeMe::DinsertAndMerge() {
 		insertedElements.insert(elementToInsert);
 	}
 
-	std::cout << "print _s_vector : ";
-	std::cout << _s_vector << std::endl;
 	_deq.clear();
 	_deq.assign(_s_vector.begin(), _s_vector.end());
 }
@@ -265,8 +288,8 @@ void PmergeMe::DinsertStraggler() {
 
 
 void PmergeMe::sortVector() {
-	createStraggler();
-	makeSortedPairs();
+	VcreateStraggler();
+	VmakeSortedPairs();
 	s_sortedLargestValues();
 	pend_smallestValues();
 	VinsertAndMerge();
@@ -292,21 +315,15 @@ void PmergeMe::sortDeque() {
 /*       Class overload                                                       */
 /*============================================================================*/
 
-std::ostream &operator<<(std::ostream &os, const PmergeMe &pmergeMe) {
-//	os << pmergeMe.getMyVector() << std::endl;
-	 os << pmergeMe.getMyDeque() << std::endl;
-	return os;
-}
-
-std::ostream &operator<<(std::ostream &os, const std::vector<unsigned int> &vec) {
-	for (std::vector<unsigned int>::const_iterator it = vec.begin(); it != vec.end(); it++) {
+std::ostream &operator<<(std::ostream &os, const vector &vec) {
+	for (vector::const_iterator it = vec.begin(); it != vec.end(); ++it) {
 		os << *it << " ";
 	}
 	return os;
 }
 
-std::ostream &operator<<(std::ostream &os, const std::deque<unsigned int> &deque) {
-	for (std::deque<unsigned int>::const_iterator it = deque.begin(); it != deque.end(); it++) {
+std::ostream &operator<<(std::ostream &os, const deque &deq) {
+	for (deque::const_iterator it = deq.begin(); it != deq.end(); ++it) {
 		os << *it << " ";
 	}
 	return os;
