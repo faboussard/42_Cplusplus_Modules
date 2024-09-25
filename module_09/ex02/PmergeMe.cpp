@@ -19,22 +19,18 @@ PmergeMe::PmergeMe()
 
 PmergeMe::PmergeMe(int argc, char **argv) : _straggler(-1), _sortedPairs() {
 	if (argc < 3) {
-		std::cerr << "usage: ./PmergeMe int1 int2 ... " << std::endl;
-		exit(EXIT_FAILURE);
-	}
+			throw std::runtime_error("usage: ./PmergeMe int1 int2 ... ");
+		}
 	for (int i = 1; i < argc; i++) {
 		char *end;
 		errno = 0;
 		unsigned long value = std::strtoul(argv[i], &end, 10);
 		if (end == argv[i] || *end != '\0' || errno == ERANGE) {
-			std::cerr << "Invalid argument: " << argv[i] << std::endl;
-			exit(EXIT_FAILURE);
+			throw std::runtime_error("Invalid argument: " + std::string(argv[i]));
 		}
 		if (value > std::numeric_limits<unsigned int>::max()) {
-			std::cerr << "Value out of range: " << argv[i] << std::endl;
-			exit(EXIT_FAILURE);
+			throw std::range_error("Invalid argument: " + std::string(argv[i]));
 		}
-
 		unsigned int unsignedValue = static_cast<unsigned int>(value);
 		_vector.push_back(unsignedValue);
 		_deq.push_back(unsignedValue);
@@ -139,9 +135,6 @@ void PmergeMe::sortPairsRecursively(vectorPairs &pairs) {
 
 void PmergeMe::s_sortedLargestValues() {
 
-	// Appeler la fonction pour trier les paires
-
-	// Remplir _s avec les plus grandes valeurs triées
 	for (size_t i = 0; i < _sortedPairs.size(); ++i) {
 		_s.push_back(_sortedPairs[i].second); // Ajouter la première valeur de chaque paire
 	}

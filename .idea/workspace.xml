@@ -23,7 +23,9 @@
   <component name="ChangeListManager">
     <list default="true" id="02491725-2efa-4442-943e-b2e1e2a111f9" name="Changes" comment="parsing started">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_09/ex02/PmergeMe" beforeDir="false" afterPath="$PROJECT_DIR$/module_09/ex02/PmergeMe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/module_09/ex02/PmergeMe.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_09/ex02/PmergeMe.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_09/ex02/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_09/ex02/main.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,31 +68,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;C/C++ File.main.cpp.executor&quot;: &quot;Debug&quot;,
-    &quot;Makefile Target.Unnamed.executor&quot;: &quot;Run&quot;,
-    &quot;Makefile Target.makefile.executor&quot;: &quot;Run&quot;,
-    &quot;Native Application.Unnamed.executor&quot;: &quot;Run&quot;,
-    &quot;Native Application.btc.executor&quot;: &quot;Debug&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
-    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/fanny/fanny_cpp&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;CLionExternalConfigurable&quot;,
-    &quot;structure.view.defaults.are.configured&quot;: &quot;true&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "C/C++ File.main.cpp.executor": "Debug",
+    "Makefile Target.Unnamed.executor": "Run",
+    "Makefile Target.makefile.executor": "Run",
+    "Native Application.Unnamed.executor": "Run",
+    "Native Application.btc.executor": "Debug",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "/home/fanny/fanny_cpp/module_09/ex02",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "CLionExternalConfigurable",
+    "structure.view.defaults.are.configured": "true",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/module_09/ex00/Data" />
@@ -173,7 +175,8 @@
       <workItem from="1727094768682" duration="8559000" />
       <workItem from="1727117021277" duration="814000" />
       <workItem from="1727187768515" duration="164000" />
-      <workItem from="1727187970068" duration="2252000" />
+      <workItem from="1727187970068" duration="2262000" />
+      <workItem from="1727250894744" duration="1844000" />
     </task>
     <task id="LOCAL-00034" summary="ajout exceptions">
       <option name="closed" value="true" />
