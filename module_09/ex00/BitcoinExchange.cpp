@@ -147,7 +147,7 @@ bool BitcoinExchange::checkAmount(std::string const &amount) {
 				  << std::endl;
 		return (false);
 	}
-	if (num > static_cast<float>(INT_MAX)) {
+	if (num > 1000) {
 		std::cerr << "Error: too large a number " << std::endl;
 		return (false);
 	}

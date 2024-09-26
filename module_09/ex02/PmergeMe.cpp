@@ -164,6 +164,9 @@ void  PmergeMe::insert_pend_In_s(){
 	vector jacobsthal = generateJacobsthal();
 	unsigned int element;
 
+if (!_pend_vector.empty())
+	insertUsingBinarySearch(_pend_vector[0]);
+
 	for (size_t i = 0; i < jacobsthal.size(); i++) {
 		if (jacobsthal[i] < _pend_vector.size()) {
 			unsigned int jacobIndex = jacobsthal[i];

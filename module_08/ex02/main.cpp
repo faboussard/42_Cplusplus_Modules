@@ -57,23 +57,23 @@ int main() {
     }
     std::cout << std::endl;
   }
-  //   {
-  //     MutantStack<int, std::list<int>> lmstack;
+    {
+      MutantStack<int, std::list<int>> lmstack;
 
-  //     lmstack.push(1);
-  //     lmstack.push(2);
-  //     lmstack.push(3);
-  //     lmstack.push(4);
-  //     lmstack.push(5);
+      lmstack.push(1);
+      lmstack.push(2);
+      lmstack.push(3);
+      lmstack.push(4);
+      lmstack.push(5);
 
-  //     std::cout << "MutantStack<int, std::list<int>> lmstack contains: ";
+      std::cout << "MutantStack<int, std::list<int>> lmstack contains: ";
 
-  //     for (MutantStack<int, std::list<int>>::iterator it = lmstack.begin();
-  //          it != lmstack.end(); ++it) {
-  //       std::cout << *it << " ";
-  //     }
-  //     std::cout << std::endl;
-  //   }
+      for (MutantStack<int, std::list<int>>::iterator it = lmstack.begin();
+           it != lmstack.end(); ++it) {
+        std::cout << *it << " ";
+      }
+      std::cout << std::endl;
+    }
 
   return 0;
 }
