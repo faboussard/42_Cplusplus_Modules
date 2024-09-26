@@ -1,8 +1,11 @@
-#include "BitcoinExchange.hpp"
 #include <ctime>
 #include <iostream>
 #include <sstream>
 #include <stdexcept>
+#include <cstdlib>
+#include <climits>
+#include "BitcoinExchange.hpp"
+
 
 /*============================================================================*/
 /*       Constructor / destructor / Copy assignment operator                  */
@@ -75,11 +78,7 @@ bool BitcoinExchange::checkDate(std::string const &date) {
 		return false;
 	}
 
-	if (date > getTodayDate()) {
-		std::cerr << "Error: Bad input - date is upper than today! Date: " << date
-				  << std::endl;
-		return false;
-	}
+
 
 	std::istringstream iss(date);
 	int year, month, day;
@@ -90,6 +89,13 @@ bool BitcoinExchange::checkDate(std::string const &date) {
 				  << std::endl;
 		return false;
 	}
+
+		if (date > getTodayDate() || year > 9999) {
+		std::cerr << "Error: Bad input - date is upper than today! Date: " << date
+				  << std::endl;
+		return false;
+	}
+
 
 	if (year < 2009 || ( year == 2009 && month == 1 && day < 2))
 	{
@@ -141,7 +147,7 @@ bool BitcoinExchange::checkAmount(std::string const &amount) {
 				  << std::endl;
 		return (false);
 	}
-	if (num >= INT8_MAX) {
+	if (num > static_cast<float>(INT_MAX)) {
 		std::cerr << "Error: too large a number " << std::endl;
 		return (false);
 	}
@@ -166,7 +172,7 @@ bool BitcoinExchange::parseLine(const std::string &line, std::string &data,
 	}
 
 	try {
-		value = std::stof(valueStr);
+		value = std::atof(valueStr.c_str());
 	} catch (const std::invalid_argument &) {
 		return false;
 	}
@@ -176,7 +182,7 @@ bool BitcoinExchange::parseLine(const std::string &line, std::string &data,
 
 
 
-void BitcoinExchange::processFile(std::ifstream &infile, std::map<std::string, std::vector<float>> &myMap, std::string &fileName)
+void BitcoinExchange::processFile(std::ifstream &infile, std::map<std::string, std::vector<float> > &myMap, std::string &fileName)
 {
 	std::string line;
 	std::string data;
@@ -203,7 +209,7 @@ void BitcoinExchange::processFile(std::ifstream &infile, std::map<std::string, s
 
 void BitcoinExchange::extractFile(std::string &fileName, map &myMap) {
 		std::ifstream infile;
-		infile.open(fileName);
+	    infile.open(fileName.c_str());
 		if (!infile.is_open())
 		{
 			std::cerr << "Error: Unable to open input file: " << fileName

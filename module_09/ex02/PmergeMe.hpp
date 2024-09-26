@@ -2,8 +2,10 @@
 #define PMERGEME_HPP
 
 #include <deque>
+#include <iostream>
 #include <vector>
 #include <set>
+#include "PmergeMe.hpp"
 #include <algorithm>
 #include <cerrno>
 #include <cstdlib>
@@ -11,6 +13,8 @@
 #include <iostream>
 #include <limits>
 #include <stdexcept>
+#include <vector>
+#include <deque>
 
 typedef std::vector<unsigned int> vector;
 typedef std::deque<unsigned int> deque;
@@ -57,7 +61,6 @@ public:
 	/* global member functions */
 
 	void sortVector();
-
 	void sortDeque();
 
 
@@ -65,7 +68,7 @@ public:
 
 	void pend_smallestValues();
 
-	std::vector<int> generateJacobsthal();
+	vector generateJacobsthal();
 
 	void merge(const vectorPairs &firstHalf, const vectorPairs &secondHalf, vectorPairs &result);
 
@@ -76,40 +79,30 @@ public:
 	void insertUsingBinarySearch(unsigned int element);
 
 	/* templates */
-	template<typename T>
-	void insertStraggler(T &container)
-	{
-		if (_straggler != -1)
-		{
-			typename T::const_iterator it = std::lower_bound(container.begin(), container.end(),
-			                                                 static_cast<unsigned int>(_straggler));
-			container.insert(it, static_cast<unsigned int>(_straggler));
-		}
-	}
+template <typename T>
+void insertStraggler(T &container) {
+    if (_straggler != -1) {
+        typename T::iterator it = std::lower_bound(container.begin(), container.end(),
+                                                             static_cast<unsigned int>(_straggler));
+        container.insert(it, _straggler);
+    }
+}
 
-
-	template<typename T>
-	void createStraggler(T &container)
-	{
-		if (getMyVector().size() % 2 != 0)
-		{
+	template <typename T>
+	void createStraggler(T &container){
+		if (getMyVector().size() % 2 != 0) {
 			_straggler = container.back();
 			container.pop_back();
 		}
 	}
 
-	template<typename T>
-	void makeSortedPairs(T &container)
-	{
-		for (size_t i = 0; i < container.size(); i += 2)
-		{
-			if (i + 1 < container.size())
-			{
-				if (container[i] < container[i + 1])
-				{
+	template <typename T>
+	void makeSortedPairs(T &container){
+		for (size_t i = 0; i < container.size(); i += 2) {
+			if (i + 1 < container.size()) {
+				if (container[i] < container[i + 1]) {
 					_sortedPairs_vector.push_back(std::make_pair(container[i], container[i + 1]));
-				} else
-				{
+				} else {
 					_sortedPairs_vector.push_back(std::make_pair(container[i + 1], container[i]));
 				}
 			}
@@ -118,6 +111,10 @@ public:
 	}
 
 };
+
+std::ostream &operator<<(std::ostream &os, const vector &vec);
+
+std::ostream &operator<<(std::ostream &os, const deque &deq);
 
 template<typename T>
 void removeDuplicates(T &container)
@@ -136,10 +133,6 @@ void removeDuplicates(T &container)
 		}
 	}
 }
-
-std::ostream &operator<<(std::ostream &os, const vector &vec);
-
-std::ostream &operator<<(std::ostream &os, const deque &deq);
 
 
 #endif // PMERGEME_HPP

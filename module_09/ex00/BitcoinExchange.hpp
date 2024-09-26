@@ -1,3 +1,5 @@
+#pragma once
+
 #include <fstream>
 #include <iostream>
 #include <map>
@@ -14,7 +16,7 @@
 class BitcoinExchange {
 
 public:
-	typedef std::map<std::string, std::vector<float>>map;
+	typedef std::map<std::string, std::vector<float> >map;
   BitcoinExchange(const std::string &inputFile, const std::string &dataFile);
   BitcoinExchange(const BitcoinExchange &rhs);
   BitcoinExchange &operator=(const BitcoinExchange &rhs);

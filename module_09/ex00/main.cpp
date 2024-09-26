@@ -1,4 +1,5 @@
 #include "BitcoinExchange.hpp"
+#include <cstdlib>
 
 void check_args(int argc) {
   if (argc != 2) {
@@ -21,8 +22,8 @@ int main(int argc, char **argv) {
 
   } catch (const std::exception &e) {
     std::cerr << "Error: " << e.what() << std::endl;
-    return EXIT_FAILURE;
+    exit(EXIT_FAILURE);
   }
 
-  return EXIT_SUCCESS;
+  exit(EXIT_SUCCESS);
 }
