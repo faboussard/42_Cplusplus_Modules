@@ -33,8 +33,6 @@ private:
 
 	void extractFile(std::string &fileName, map &myMap);
 
-	void open_file(const char *filename, std::ifstream &infile);
-
 	bool parseLine(const std::string &line, std::string &key,
 				   float &value, bool isInputFile);
 
